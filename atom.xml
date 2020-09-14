@@ -35,9 +35,9 @@
     
     <category term="vue" scheme="https://sgw.wiki/tags/vue/"/>
     
-    <category term="vue-router" scheme="https://sgw.wiki/tags/vue-router/"/>
-    
     <category term="笔记" scheme="https://sgw.wiki/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="vue-router" scheme="https://sgw.wiki/tags/vue-router/"/>
     
   </entry>
   
@@ -136,9 +136,9 @@
     <category term="js" scheme="https://sgw.wiki/categories/js/"/>
     
     
-    <category term="G" scheme="https://sgw.wiki/tags/G/"/>
-    
     <category term="es6" scheme="https://sgw.wiki/tags/es6/"/>
+    
+    <category term="G" scheme="https://sgw.wiki/tags/G/"/>
     
   </entry>
   
