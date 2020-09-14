@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-Hans,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sgw.wiki","root":"/","scheme":"Gemini","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="coding note and life perception">
+<meta property="og:type" content="website">
+<meta property="og:title" content="之哥的荣耀">
+<meta property="og:url" content="https://sgw.wiki/index.html">
+<meta property="og:site_name" content="之哥的荣耀">
+<meta property="og:description" content="coding note and life perception">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hexo, NexT">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://sgw.wiki/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>之哥的荣耀 - Theme for Hexo</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108155018-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="之哥的荣耀" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">之哥的荣耀</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a>
+
+  </li>
+
+
+      
+        <li class="menu-item menu-item-plugins">
+
+    <a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnN1cHBvcnRAdGhlbWUtbmV4dC5vcmc=" title="E-Mail → mailto:support@theme-next.org"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXR0ZXIuaW0vaGV4by1uZXh0" title="Gitter → https:&#x2F;&#x2F;gitter.im&#x2F;hexo-next"><i class="fab fa-gitter fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/03/01/hexo-theme-next/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+              <span class="post-sticky-flag" title="Sticky">
+                <i class="fa fa-thumbtack"></i>
+              </span>
+            <span class="exturl post-title-link post-title-link-external" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" itemprop="url">Welcome to the NexT Organization!<i class="fa fa-external-link-alt"></i></span>
+          
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-01 12:00:00" itemprop="dateCreated datePublished" datetime="2020-03-01T12:00:00+08:00">2020-03-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>«<a href="/docs/">NexT</a>» is a high quality elegant theme for <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>. It is crafted from scratch, with love.</p>
+<h3 id="User-Guide"><a href="#User-Guide" class="headerlink" title="User Guide"></a>User Guide</h3><p>It&#39;s easy to set up NexT theme. Just follow <a href="/docs/getting-started/">documentation</a> and create your personal website!</p>
+<h3 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h3><ul>
+<li>Visit the <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvYXdlc29tZS1uZXh0">Awesome NexT<i class="fa fa-external-link-alt"></i></span> list to share plugins and tutorials with other users.</li>
+<li>Join our <span class="exturl" data-url="aHR0cHM6Ly9naXR0ZXIuaW0vaGV4by1uZXh0">Gitter<i class="fa fa-external-link-alt"></i></span> chats.</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jcm93ZGluLmNvbS9wcm9qZWN0L2hleG8tdGhlbWUtbmV4dA==">Add or improve translation<i class="fa fa-external-link-alt"></i></span> in few seconds.</li>
+<li>Report a bug in <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2lzc3Vlcy9uZXc/YXNzaWduZWVzPSZsYWJlbHM9QnVnJnRlbXBsYXRlPWJ1Zy1yZXBvcnQubWQ=">GitHub Issues<i class="fa fa-external-link-alt"></i></span>.</li>
+<li>Request a new feature on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2lzc3Vlcy9uZXc/YXNzaWduZWVzPSZsYWJlbHM9RmVhdHVyZStSZXF1ZXN0JnRlbXBsYXRlPWZlYXR1cmUtcmVxdWVzdC5tZA==">GitHub<i class="fa fa-external-link-alt"></i></span>.</li>
+<li>Vote for <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2lzc3Vlcz9xPWlzOm9wZW4raXM6aXNzdWUrbGFiZWw6JTIyRmVhdHVyZStSZXF1ZXN0JTIy">popular feature requests<i class="fa fa-external-link-alt"></i></span>.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/09/02/vue-router%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/02/vue-router%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">vue-route 源码阅读笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-09-02 17:22:46" itemprop="dateCreated datePublished" datetime="2020-09-02T17:22:46+08:00">2020-09-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Vue-Router"><a href="#Vue-Router" class="headerlink" title="Vue Router"></a>Vue Router</h1><p>使用 <code>Vue.js + Vue Router</code> 创建单页只需要将组件 <code>components</code> 映射到路由 <code>routes</code>，然后告诉 <code>Vue Router</code> 在哪里渲染它们</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/02/vue-router%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/08/31/next-8-0-0-released/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/31/next-8-0-0-released/" class="post-title-link" itemprop="url">NexT 8.0.0 Released</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-31 16:21:37" itemprop="dateCreated datePublished" datetime="2020-08-31T16:21:37+08:00">2020-08-31</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="⭐-Features"><a href="#⭐-Features" class="headerlink" title="⭐ Features"></a>⭐ Features</h2><ul>
+<li>Support reprint statement (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvODk=">#89<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Refactor vendors (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNzI=">#72<i class="fa fa-external-link-alt"></i></span>)<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line"><span class="addition">+  # The default CDN provider of third-party plugins.</span></span><br><span class="line"><span class="addition">+  # Available values: local, jsdelivr, unpkg, cdnjs</span></span><br><span class="line"><span class="addition">+  # Dependencies for `plugins: local`: https://github.com/next-theme/plugins</span></span><br><span class="line"><span class="addition">+  plugins: jsdelivr</span></span><br></pre></td></tr></table></figure></li>
+<li>Image thumbnails in archive page (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC83YjkxZjhlZTc0ZWJkYjQxN2YyYjUwODk2MjIyNGIzZDY1M2FkNWNh">7b91f8e<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Rename <code>per_page</code> to <code>every_page</code> (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9hM2RjYWM1ZjMzNGVkZGRlY2QzZGUxNzYxNzVjNTZkNDM3OWEwZjIx">a3dcac5<i class="fa fa-external-link-alt"></i></span>)<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line"><span class="deletion">-  per_page: true</span></span><br><span class="line"><span class="addition">+  every_page: false</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="🐞-Bug-Fixes"><a href="#🐞-Bug-Fixes" class="headerlink" title="🐞 Bug Fixes"></a>🐞 Bug Fixes</h2><ul>
+<li>Fix pjax scroll restoration (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNzQ=">#74<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Fix .post-title-link position (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNzY=">#76<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Fix darkmode post-gallery image opacity (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8wNGNlZDE1ZDhhYWFhMjkyNWRhZDg3NThkZjcyODNkMzViOGRjYjA3">04ced15<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Fix id conflict with markdown headerlink (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC81MjNlMzllOWQ2NjliNzlhOWNkMGZiYjgyMzY2NmI4MGNjNjU2ZTFh">523e39e<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Fix .tabs-comment style (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC84ZDU3YjZkOTgwNjk2Nzc1ZjQxYTBmZDk0Zjc0MzRhNTg5Y2JkZTEx">8d57b6d<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Fix mermaid background color (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8zNzZkNzE4NzhmZjM3MjIyNmYxMGE0MGU4NzI2NmE3YTgyODNhYzdj">376d718<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Fix search result position (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9iYzg5OTMxNDUyYjZjNzAyMWFlYTg4NTYxN2VmNTUyN2Q3OGIxZGVm">bc89931<i class="fa fa-external-link-alt"></i></span>)</li>
+</ul>
+<h2 id="🛠-Improvements"><a href="#🛠-Improvements" class="headerlink" title="🛠 Improvements"></a>🛠 Improvements</h2><ul>
+<li>Optimize prism: support copy_button (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8wNGRhNzc5MjEyYmM3NjQ3YzkwYWQ0MDZjNjBlNmExMThhMGJhZWQ0">04da779<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Refactor layout (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9mNzZjMGQ4YTk3OTEwMDk2ZjhlYmU0MDc1YmQ3MTliMzViMWY3Mzdj">f76c0d8<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Optimize canonical URL (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8yMTlhZGZmZTEwYjQwYjRmNjUyZGUxNTM1ZGY0MDM3ZDBhYjJmODY5">219adff<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Optimize Algolia Search (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC85MmJkYjMyYTI5NGQzZTE2MTE5MDk5ODMyOTMyZTc3Njk1MDliYjQ4">92bdb32<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Refactor Gemini style (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8xOTE2MGI4YTE1YzRhMmM4ZTExMDk5M2UyNzFkMjg1Y2E2MDNmNjNm">19160b8<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Separate the styles of different schemes (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9iZGY1OWYxODdjYWQ4NjBhYWU2YWNiMTRhNWIwZWE5YWViZjJmM2Q4">bdf59f1<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Refactor post-footer using flex layout (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8yM2Q5MTYzYTJkYzJhMzI5YTZhMTUwZDBiZTNiYjUyOGQ4ZmQwOTZk">23d9163<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Optimize figcaption style (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC85MGQwYTVmOTY2ZTA4ZGFkYTBkMTlkMTViYmJlNzM1OTIwOTQ3OGU1">90d0a5f<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Optimize box-shadow of .site-brand-container (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC80MDJjMzRlOWJiZjE0YWVmOTU5MDVlYjMwNGIyYmU2N2NmMGUyZjlh">402c34e<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Optimize the path setting of LiveRe &amp; Valine (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC81ZTFiMGQwZThjMDk4NWM0YzRiYmUzZTczNzA3NTgxNDVmODBmYThl">5e1b0d0<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Update ICP link (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvOTY=">#96<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Uniform hexadecimal color (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvOTM=">#93<i class="fa fa-external-link-alt"></i></span>)</li>
+</ul>
+<h2 id="🌀-External-Changes"><a href="#🌀-External-Changes" class="headerlink" title="🌀 External Changes"></a>🌀 External Changes</h2><ul>
+<li>Use @next-theme/eslint-config (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9hOTZkMTEyNmE5NDE4ZTVmY2Y3NjNmYzIyYWJjNTZiYTU0NWZkZTBk">a96d112<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>CDN settings for Firebase (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9lZTViNDFmNDFjNDAzODMyZjk4Zjc1Y2RiYzVkYmI0NjIzZDY4ZDBm">ee5b41f<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Update MathJax CDN URL (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8wOWYwZjdiYTNkZGIxMmRiOThiZDM2ZWI3YzA4NjQ3ZWQwOGY1NWNj">09f0f7b<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Update dependency hexo-renderer-marked to v3.1.0 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvOTQ=">#94<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Update dependency hexo to v5.1.1 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvODU=">#85<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Update dependency mocha to v8.1.3 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvODI=">#82<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Update dependency eslint to v7.7.0 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNjk=">#69<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Update _vendors.yml (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC83ZTg0NThmZTE4ZDAzY2NkNjhmNWEzOWVjY2I1MzMxNjc4NmVjMGZj">7e8458f<i class="fa fa-external-link-alt"></i></span>)</li>
+</ul>
+<h2 id="📖-Documentation"><a href="#📖-Documentation" class="headerlink" title="📖 Documentation"></a>📖 Documentation</h2><ul>
+<li>Update docs (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC83Y2Q4M2E0YjhjMGI0ZmYwZmMzZDk5MmIwNTQ5NjAwYTY0NDJlZmRj">7cd83a4<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Update docs (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8xYmJlOGY0MTAxZDhlYjExOGI4NzA3NDU2YWM1MzVkNzFhMjA1NzM4">1bbe8f4<i class="fa fa-external-link-alt"></i></span>)</li>
+</ul>
+<h2 id="🌍-Localization"><a href="#🌍-Localization" class="headerlink" title="🌍 Localization"></a>🌍 Localization</h2><ul>
+<li>New Crowdin updates (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvOTE=">#91<i class="fa fa-external-link-alt"></i></span>)</li>
+</ul>
+<hr>
+<p>For full changes, see the <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbXBhcmUvdjguMC4wLXJjLjUuLi52OC4wLjA=">comparison between v8.0.0-rc.5 and v8.0.0<i class="fa fa-external-link-alt"></i></span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/08/20/vue3%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/20/vue3%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">vue3 源码阅读笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-20 10:03:35" itemprop="dateCreated datePublished" datetime="2020-08-20T10:03:35+08:00">2020-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Vue-js-的优化"><a href="#Vue-js-的优化" class="headerlink" title="Vue.js 的优化"></a>Vue.js 的优化</h1><h2 id="源码优化"><a href="#源码优化" class="headerlink" title="源码优化"></a>源码优化</h2><ul>
+<li>更好的代码管理方式：monorepo</li>
+<li>有类型的 JavaScript：TypeScript</li>
+</ul>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><ul>
+<li><p>源码体积优化</p>
+<ul>
+<li>首先，移除一些冷门的 feature（比如 filter、inline-template 等）</li>
+<li>其次，引入 tree-shaking 的技术，减少打包体积</li>
+</ul>
+</li>
+<li><p>数据劫持优化</p>
+</li>
+<li><p>编译优化，借助 Block tree，Vue.js 将 vnode 更新性能由与模版整体大小相关提升为与动态内容的数量相关，这是一个非常大的性能突破</p>
+</li>
+</ul>
+<h2 id="语法-API-优化：Composition-API"><a href="#语法-API-优化：Composition-API" class="headerlink" title="语法 API 优化：Composition API"></a>语法 API 优化：Composition API</h2><ol>
+<li>优化逻辑组织</li>
+<li>优化逻辑复用</li>
+</ol>
+<h2 id="引入-RFC：使每个版本改动可控"><a href="#引入-RFC：使每个版本改动可控" class="headerlink" title="引入 RFC：使每个版本改动可控"></a>引入 RFC：使每个版本改动可控</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1ZWpzL3JmY3MvcHVsbHM/cT1pczpwcitpczptZXJnZWQrbGFiZWw6My54">Vue.js-RFC<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="组件的实现：Vue-核心的实现"><a href="#组件的实现：Vue-核心的实现" class="headerlink" title="组件的实现：Vue 核心的实现"></a>组件的实现：Vue 核心的实现</h1><blockquote>
+<p>模板 + 对象描述 + 数据 = 组件</p>
+</blockquote>
+<h2 id="1-vnode-到真实-DOM-是如何转变的？"><a href="#1-vnode-到真实-DOM-是如何转变的？" class="headerlink" title="1. vnode 到真实 DOM 是如何转变的？"></a>1. vnode 到真实 DOM 是如何转变的？</h2><blockquote>
+<p>创建 vnode + 渲染 vnode + 生成 DOM</p>
+</blockquote>
+<h3 id="vue-初始化"><a href="#vue-初始化" class="headerlink" title="vue 初始化"></a>vue 初始化</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在 Vue.js 3.0 中，初始化一个应用的方式如下</span></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&quot;./app&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> app = createApp(App);</span><br><span class="line">app.mount(<span class="string">&quot;#app&quot;</span>); <span class="comment">// 把 App 组件挂载到 id 为 app 的 DOM 节点上</span></span><br></pre></td></tr></table></figure>
+
+<p>这其中导入了一个 createApp 入口函数，他是 Vue.js 对外暴露的一个函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> createApp = <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 创建 app 对象</span></span><br><span class="line">  <span class="keyword">const</span> app = ensureRenderer().createApp(...args);</span><br><span class="line">  <span class="keyword">const</span> &#123; mount &#125; = app;</span><br><span class="line">  <span class="comment">// 重写 mount 方法</span></span><br><span class="line">  app.mount = <span class="function">(<span class="params">containerOrSelector</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> app;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>从代码中可以看出 createApp 主要做了两件事情，创建 app 对象和重写 app.mount 方法</p>
+<h4 id="1-创建-app-对象"><a href="#1-创建-app-对象" class="headerlink" title="1. 创建 app 对象"></a>1. 创建 app 对象</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = ensureRenderer().createApp(...args);</span><br></pre></td></tr></table></figure>
+
+<p>其中 ensureRenderer() 用来创建一个渲染器对象，它的内部实现如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 渲染相关的一些配置，比如更新属性的方法，操作 DOM 的方法</span></span><br><span class="line"><span class="keyword">const</span> rendererOptions = &#123;</span><br><span class="line">  patchProp,</span><br><span class="line">  ...nodeOps,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> renderer;</span><br><span class="line"><span class="comment">// 延时创建渲染器，当用户只依赖响应式包的时候，可以通过 tree-shaking 移除核心渲染逻辑相关的代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ensureRenderer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> renderer || (renderer = createRenderer(rendererOptions));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createRenderer</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> baseCreateRenderer(options);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baseCreateRenderer</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, container</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 组件渲染的核心逻辑</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    render,</span><br><span class="line">    createApp: createAppAPI(render),</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAppAPI</span>(<span class="params">render</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// createApp createApp 方法接受的两个参数：根组件的对象和 prop</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">createApp</span>(<span class="params">rootComponent, rootProps = null</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> app = &#123;</span><br><span class="line">      _component: rootComponent,</span><br><span class="line">      _props: rootProps,</span><br><span class="line">      mount(rootContainer) &#123;</span><br><span class="line">        <span class="comment">// 创建根组件的 vnode</span></span><br><span class="line">        <span class="keyword">const</span> vnode = createVNode(rootComponent, rootProps);</span><br><span class="line">        <span class="comment">// 利用渲染器渲染 vnode</span></span><br><span class="line">        render(vnode, rootContainer);</span><br><span class="line">        app._container = rootContainer;</span><br><span class="line">        <span class="keyword">return</span> vnode.component.proxy;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> app;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-重写-app-mount-方法"><a href="#2-重写-app-mount-方法" class="headerlink" title="2. 重写 app.mount 方法"></a>2. 重写 app.mount 方法</h4><p>Vue.js 不仅仅是为 Web 平台服务，它的目标是支持跨平台渲染，而 createApp 函数内部的 app.mount 方法是一个标准的可跨平台的组件渲染流程，</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mount(rootContainer) &#123;</span><br><span class="line"> <span class="comment">// 创建根组件的 vnode</span></span><br><span class="line"> <span class="keyword">const</span> vnode = createVNode(rootComponent, rootProps)</span><br><span class="line"> <span class="comment">// 利用渲染器渲染 vnode</span></span><br><span class="line"> render(vnode, rootContainer)</span><br><span class="line"> app._container = rootContainer</span><br><span class="line"> <span class="keyword">return</span> vnode.component.proxy</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>标准的跨平台渲染流程是先创建 vnode，再渲染 vnode。此外参数 rootContainer 也可以是不同类型的值，也就是这里是通用的渲染逻辑，<br>来完善 Web 平台下的渲染逻辑</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.mount = <span class="function">(<span class="params">containerOrSelector</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 标准化容器</span></span><br><span class="line">  <span class="keyword">const</span> container = normalizeContainer(containerOrSelector);</span><br><span class="line">  <span class="keyword">if</span> (!container) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">const</span> component = app._component;</span><br><span class="line">  <span class="comment">// 如组件对象没有定义 render 函数和 template 模板，则取容器的 innerHTML 作为组件模板内容</span></span><br><span class="line">  <span class="keyword">if</span> (!isFunction(component) &amp;&amp; !component.render &amp;&amp; !component.template) &#123;</span><br><span class="line">    component.template = container.innerHTML;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 挂载前清空容器内容</span></span><br><span class="line">  container.innerHTML = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="comment">// 真正的挂载</span></span><br><span class="line">  <span class="keyword">return</span> mount(container);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>app.mount 就是 重写的 mount 方法，传入 container 参数，先标准化容器，然后取出 rootComponent，<br>如组件对象没有定义 render 函数和 template 模板，则取容器的 innerHTML 作为组件模板内容，<br>在挂载前清空容器内容，然后执行通用的 mount 方法</p>
+<h3 id="核心渲染流程：创建-vnode-和渲染-vnode"><a href="#核心渲染流程：创建-vnode-和渲染-vnode" class="headerlink" title="核心渲染流程：创建 vnode 和渲染 vnode"></a>核心渲染流程：创建 vnode 和渲染 vnode</h3><h4 id="创建-vnode"><a href="#创建-vnode" class="headerlink" title="创建 vnode"></a>创建 vnode</h4><p>组件 vnode 其实是对抽象事物的描述，这是因为我们并不会在页面上真正渲染一个 <code>&lt;custom-component&gt;</code> 标签，而是渲染组件内部定义的 HTML 标签。<br>vnode 有组件 vnode，普通元素 vnode，注释 vnode，文本 vnode</p>
+<p><strong>为什么要设计 vnode？</strong></p>
+<ul>
+<li>抽象</li>
+<li>跨平台都可以用</li>
+</ul>
+<p>回顾 app.mount 内部实现，用 createVnode 创建了根组件的 vnode</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> vnode = createVNode(rootComponent, rootProps);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createVNode</span>(<span class="params">type, props = null, children = null</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (props) &#123;</span><br><span class="line">    <span class="comment">// 处理 props 相关逻辑，标准化 class 和 style</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 对 vnode 类型信息编码</span></span><br><span class="line">  <span class="keyword">const</span> shapeFlag = isString(type)</span><br><span class="line">    ? <span class="number">1</span> <span class="comment">/* ELEMENT */</span></span><br><span class="line">    : isSuspense(type)</span><br><span class="line">    ? <span class="number">128</span> <span class="comment">/* SUSPENSE */</span></span><br><span class="line">    : isTeleport(type)</span><br><span class="line">    ? <span class="number">64</span> <span class="comment">/* TELEPORT */</span></span><br><span class="line">    : isObject(type)</span><br><span class="line">    ? <span class="number">4</span> <span class="comment">/* STATEFUL_COMPONENT */</span></span><br><span class="line">    : isFunction(type)</span><br><span class="line">    ? <span class="number">2</span> <span class="comment">/* FUNCTIONAL_COMPONENT */</span></span><br><span class="line">    : <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> vnode = &#123;</span><br><span class="line">    type,</span><br><span class="line">    props,</span><br><span class="line">    shapeFlag,</span><br><span class="line">    <span class="comment">// 一些其他属性</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">// 标准化子节点，把不同数据类型的 children 转成数组或者文本类型</span></span><br><span class="line">  normalizeChildren(vnode, children);</span><br><span class="line">  <span class="keyword">return</span> vnode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出 createVnode 就是对 props 做标准化处理、对 vnode 的类型信息编码、创建 vnode 对象，标准化子节点 children，返回 vnode</p>
+<h4 id="渲染-vnode"><a href="#渲染-vnode" class="headerlink" title="渲染 vnode"></a>渲染 vnode</h4><p>在 app.mount 内部通过 render(vnode, rootContainer) 去渲染组件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render(vnode, rootContainer);</span><br><span class="line"><span class="keyword">const</span> render = <span class="function">(<span class="params">vnode, container</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (vnode == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 销毁组件</span></span><br><span class="line">    <span class="keyword">if</span> (container._vnode) &#123;</span><br><span class="line">      unmount(container._vnode, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 创建或者更新组件</span></span><br><span class="line">    patch(container._vnode || <span class="literal">null</span>, vnode, container);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 缓存 vnode 节点，表示已经渲染</span></span><br><span class="line">  container._vnode = vnode;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>通过 vnode 判断去执行卸载还是创建或更新，接下来看 patch</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> patch = (</span><br><span class="line">  n1,</span><br><span class="line">  n2,</span><br><span class="line">  container,</span><br><span class="line">  anchor = <span class="literal">null</span>,</span><br><span class="line">  parentComponent = <span class="literal">null</span>,</span><br><span class="line">  parentSuspense = <span class="literal">null</span>,</span><br><span class="line">  isSVG = <span class="literal">false</span>,</span><br><span class="line">  optimized = <span class="literal">false</span></span><br><span class="line">) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 如果存在新旧节点, 且新旧节点类型不同，则销毁旧节点</span></span><br><span class="line">  <span class="keyword">if</span> (n1 &amp;&amp; !isSameVNodeType(n1, n2)) &#123;</span><br><span class="line">    anchor = getNextHostNode(n1);</span><br><span class="line">    unmount(n1, parentComponent, parentSuspense, <span class="literal">true</span>);</span><br><span class="line">    n1 = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> &#123; type, shapeFlag &#125; = n2;</span><br><span class="line">  <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">    <span class="keyword">case</span> Text:</span><br><span class="line">      <span class="comment">// 处理文本节点</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> Comment:</span><br><span class="line">      <span class="comment">// 处理注释节点</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> Static:</span><br><span class="line">      <span class="comment">// 处理静态节点</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> Fragment:</span><br><span class="line">      <span class="comment">// 处理 Fragment 元素</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">if</span> (shapeFlag &amp; <span class="number">1</span> <span class="comment">/* ELEMENT */</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理普通 DOM 元素</span></span><br><span class="line">        processElement(</span><br><span class="line">          n1,</span><br><span class="line">          n2,</span><br><span class="line">          container,</span><br><span class="line">          anchor,</span><br><span class="line">          parentComponent,</span><br><span class="line">          parentSuspense,</span><br><span class="line">          isSVG,</span><br><span class="line">          optimized</span><br><span class="line">        );</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shapeFlag &amp; <span class="number">6</span> <span class="comment">/* COMPONENT */</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理组件</span></span><br><span class="line">        processComponent(</span><br><span class="line">          n1,</span><br><span class="line">          n2,</span><br><span class="line">          container,</span><br><span class="line">          anchor,</span><br><span class="line">          parentComponent,</span><br><span class="line">          parentSuspense,</span><br><span class="line">          isSVG,</span><br><span class="line">          optimized</span><br><span class="line">        );</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shapeFlag &amp; <span class="number">64</span> <span class="comment">/* TELEPORT */</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理 TELEPORT</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shapeFlag &amp; <span class="number">128</span> <span class="comment">/* SUSPENSE */</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理 SUSPENSE</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>我们重点关注对组件的处理和对普通 dom 元素的处理<br>先看对组件的处理</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> processComponent = (</span><br><span class="line">  n1,</span><br><span class="line">  n2,</span><br><span class="line">  container,</span><br><span class="line">  anchor,</span><br><span class="line">  parentComponent,</span><br><span class="line">  parentSuspense,</span><br><span class="line">  isSVG,</span><br><span class="line">  optimized</span><br><span class="line">) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (n1 == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 挂载组件</span></span><br><span class="line">    mountComponent(</span><br><span class="line">      n2,</span><br><span class="line">      container,</span><br><span class="line">      anchor,</span><br><span class="line">      parentComponent,</span><br><span class="line">      parentSuspense,</span><br><span class="line">      isSVG,</span><br><span class="line">      optimized</span><br><span class="line">    );</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 更新组件</span></span><br><span class="line">    updateComponent(n1, n2, parentComponent, optimized);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>mountComponent 就做三件事情</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mountComponent = (</span><br><span class="line">  initialVNode,</span><br><span class="line">  container,</span><br><span class="line">  anchor,</span><br><span class="line">  parentComponent,</span><br><span class="line">  parentSuspense,</span><br><span class="line">  isSVG,</span><br><span class="line">  optimized</span><br><span class="line">) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 创建组件实例</span></span><br><span class="line">  <span class="keyword">const</span> instance = (initialVNode.component = createComponentInstance(</span><br><span class="line">    initialVNode,</span><br><span class="line">    parentComponent,</span><br><span class="line">    parentSuspense</span><br><span class="line">  ));</span><br><span class="line">  <span class="comment">// 设置组件实例</span></span><br><span class="line">  setupComponent(instance);</span><br><span class="line">  <span class="comment">// 设置并运行带副作用的渲染函数</span></span><br><span class="line">  setupRenderEffect(</span><br><span class="line">    instance,</span><br><span class="line">    initialVNode,</span><br><span class="line">    container,</span><br><span class="line">    anchor,</span><br><span class="line">    parentSuspense,</span><br><span class="line">    isSVG,</span><br><span class="line">    optimized</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>组件的创建不像 2.0 去实例化组件，内部通过返回对象创建，接着是设置组件实例，保留了很多组件相关的数据，维护了组件的上下文，包括对 props，插槽，以及其他实例的属性的初始化处理，最后是运行带副作用的渲染函数 <code>setupRenderEffect</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> setupRenderEffect = (</span><br><span class="line">  instance,</span><br><span class="line">  initialVNode,</span><br><span class="line">  container,</span><br><span class="line">  anchor,</span><br><span class="line">  parentSuspense,</span><br><span class="line">  isSVG,</span><br><span class="line">  optimized</span><br><span class="line">) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 创建响应式的副作用渲染函数</span></span><br><span class="line">  instance.update = effect(<span class="function"><span class="keyword">function</span> <span class="title">componentEffect</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!instance.isMounted) &#123;</span><br><span class="line">      <span class="comment">// 渲染组件生成子树 vnode</span></span><br><span class="line">      <span class="keyword">const</span> subTree = (instance.subTree = renderComponentRoot(instance));</span><br><span class="line">      <span class="comment">// 把子树 vnode 挂载到 container 中</span></span><br><span class="line">      patch(<span class="literal">null</span>, subTree, container, anchor, instance, parentSuspense, isSVG);</span><br><span class="line">      <span class="comment">// 保留渲染生成的子树根 DOM 节点</span></span><br><span class="line">      initialVNode.el = subTree.el;</span><br><span class="line">      instance.isMounted = <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 更新组件</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, prodEffectOptions);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>该函数利用响应式库的 effect 函数创建了一个副作用渲染函数 componentEffect ,当组件的数据发生变化时，effect 函数包裹的内部渲染函数 componentEffect 会重新执行一遍，从而达到重新渲染组件的目的。</p>
+<p>先分析初始渲染</p>
+<p><strong>初始渲染主要做两件事情：渲染组件生成 subTree、把 subTree 挂载到 container 中</strong></p>
+<p><code>initialVnode</code> 就是 <code>组件 vnode</code>，<code>subTree</code> 就是 <code>子树 vnode</code> 执行 <code>renderComponentRoot</code> 生成</p>
+<p>我们知道每个组件都会有对应的 <code>render</code> 函数，即使你写 <code>template</code>，也会编译成 <code>render</code> 函数，而 <code>renderComponentRoot</code> 函数就是去执行 <code>render</code> 函数创建整个组件树内部的 <code>vnode</code>，把这个 <code>vnode</code> 再经过内部一层标准化，就得到了该函数的返回结果：子树 vnode。</p>
+<p>渲染成子树 <code>vnode</code> 后，接下来就是继续调用 <code>patch</code> 函数把子树 <code>vnode</code> 挂载到 <code>container</code> 中</p>
+<p>又回到 <code>patch</code> 函数，会继续对这个子树的 <code>vnode</code> 类型进行判断，如果是 <code>div</code> 就对应的是 <code>普通元素 vnode</code>，<br>就会处理普通 dom 执行 <code>processElement</code> 函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> processElement = (</span><br><span class="line">  n1,</span><br><span class="line">  n2,</span><br><span class="line">  container,</span><br><span class="line">  anchor,</span><br><span class="line">  parentComponent,</span><br><span class="line">  parentSuspense,</span><br><span class="line">  isSVG,</span><br><span class="line">  optimized</span><br><span class="line">) =&gt; &#123;</span><br><span class="line">  isSVG = isSVG || n2.type === <span class="string">&quot;svg&quot;</span>;</span><br><span class="line">  <span class="keyword">if</span> (n1 == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">//挂载元素节点</span></span><br><span class="line">    mountElement(</span><br><span class="line">      n2,</span><br><span class="line">      container,</span><br><span class="line">      anchor,</span><br><span class="line">      parentComponent,</span><br><span class="line">      parentSuspense,</span><br><span class="line">      isSVG,</span><br><span class="line">      optimized</span><br><span class="line">    );</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//更新元素节点</span></span><br><span class="line">    patchElement(n1, n2, parentComponent, parentSuspense, isSVG, optimized);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>接下来看 mountComponent 的逻辑</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mountElement = (</span><br><span class="line">  vnode,</span><br><span class="line">  container,</span><br><span class="line">  anchor,</span><br><span class="line">  parentComponent,</span><br><span class="line">  parentSuspense,</span><br><span class="line">  isSVG,</span><br><span class="line">  optimized</span><br><span class="line">) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> el;</span><br><span class="line">  <span class="keyword">const</span> &#123; type, props, shapeFlag &#125; = vnode;</span><br><span class="line">  <span class="comment">// 创建 DOM 元素节点</span></span><br><span class="line">  el = vnode.el = hostCreateElement(vnode.type, isSVG, props &amp;&amp; props.is);</span><br><span class="line">  <span class="keyword">if</span> (props) &#123;</span><br><span class="line">    <span class="comment">// 处理 props，比如 class、style、event 等属性</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> props) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!isReservedProp(key)) &#123;</span><br><span class="line">        hostPatchProp(el, key, <span class="literal">null</span>, props[key], isSVG);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (shapeFlag &amp; <span class="number">8</span> <span class="comment">/* TEXT_CHILDREN */</span>) &#123;</span><br><span class="line">    <span class="comment">// 处理子节点是纯文本的情况</span></span><br><span class="line">    hostSetElementText(el, vnode.children);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shapeFlag &amp; <span class="number">16</span> <span class="comment">/* ARRAY_CHILDREN */</span>) &#123;</span><br><span class="line">    <span class="comment">// 处理子节点是数组的情况</span></span><br><span class="line">    mountChildren(</span><br><span class="line">      vnode.children,</span><br><span class="line">      el,</span><br><span class="line">      <span class="literal">null</span>,</span><br><span class="line">      parentComponent,</span><br><span class="line">      parentSuspense,</span><br><span class="line">      isSVG &amp;&amp; type !== <span class="string">&quot;foreignObject&quot;</span>,</span><br><span class="line">      optimized || !!vnode.dynamicChildren</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 把创建的 DOM 元素节点挂载到 container 上</span></span><br><span class="line">  hostInsert(el, container, anchor);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，挂载元素函数主要做四件事情，创建 <code>DOM</code> 元素节点，处理 <code>props</code>，处理 <code>children</code>，挂载 <code>DOM</code> 到 container 上</p>
+<p>渲染完 <code>subTree</code> 之后，就会执行 <code>componentEffect</code> 函数中的剩余逻辑</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">initialVNode.el = subTree.el;</span><br><span class="line">instance.isMounted = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div><div class="footer-custom">
+Theme source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLXRoZW1lLW5leHQ=">here</span><br>
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/motion.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+  
+
+
+    </div>
+</body>
+</html>

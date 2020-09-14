@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-Hans,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sgw.wiki","root":"/","scheme":"Gemini","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="coding note and life perception">
+<meta property="og:type" content="website">
+<meta property="og:title" content="之哥的荣耀">
+<meta property="og:url" content="https://sgw.wiki/page/26/index.html">
+<meta property="og:site_name" content="之哥的荣耀">
+<meta property="og:description" content="coding note and life perception">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hexo, NexT">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://sgw.wiki/page/26/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>之哥的荣耀 - Theme for Hexo</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108155018-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="之哥的荣耀" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">之哥的荣耀</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a>
+
+  </li>
+
+
+      
+        <li class="menu-item menu-item-plugins">
+
+    <a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnN1cHBvcnRAdGhlbWUtbmV4dC5vcmc=" title="E-Mail → mailto:support@theme-next.org"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXR0ZXIuaW0vaGV4by1uZXh0" title="Gitter → https:&#x2F;&#x2F;gitter.im&#x2F;hexo-next"><i class="fab fa-gitter fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/12/15/gif-%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7-gifsicle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/15/gif-%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7-gifsicle/" class="post-title-link" itemprop="url">gif 压缩工具 gifsicle</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-15 16:17:38" itemprop="dateCreated datePublished" datetime="2018-12-15T16:17:38+08:00">2018-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="gifsicle"><a href="#gifsicle" class="headerlink" title="gifsicle"></a>gifsicle</h3><p>gifsicle 是一个 gif 的压缩工具，可以使用 brew 安装</p>
+<pre><code>brew install gifsicle</code></pre>
+<p>使用下面命令可压缩 gif, optimize就是要压缩的百分比</p>
+<pre><code>gifsicle --batch --optimize=3 quicksort.gif -o newfile.gif</code></pre>
+<p>当然第一次用免不了不会用，这个时候可以安装 tldr，看这个简单的应用应该就可以满足了</p>
+<p><a target="_blank" rel="noopener" href="https://i.loli.net/2018/12/15/5c14bdac195d5.jpg"><img src="https://i.loli.net/2018/12/15/5c14bdac195d5.jpg" alt="1544863126044.jpg" loading="lazy"></a></p>
+<p>最后感觉 gifsicle 这算什么单词，记不住，在 zshrc 中写一个 alias</p>
+<pre><code>alias gif3=&#39;gifsicle --batch --optimize=3&#39;</code></pre>
+<p>以后就可以这样用了</p>
+<pre><code>gif3 1.gif -o 2.gif</code></pre>
+<p>一般情况下呢都是写文档要用，直接压缩原图就可以了</p>
+<pre><code>gif3 x.gif</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">数据结构和算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-14 01:27:20" itemprop="dateCreated datePublished" datetime="2018-12-14T01:27:20+08:00">2018-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><h4 id="1-哈希表-Hash-Table"><a href="#1-哈希表-Hash-Table" class="headerlink" title="1. 哈希表 Hash Table"></a>1. 哈希表 Hash Table</h4><p>应用：计数排序 桶排序 基数排序</p>
+<h4 id="2-队列-queue"><a href="#2-队列-queue" class="headerlink" title="2. 队列 queue"></a>2. 队列 queue</h4><p>先进先出，可以用数组实现，push shift</p>
+<h4 id="3-栈-stack"><a href="#3-栈-stack" class="headerlink" title="3. 栈 stack"></a>3. 栈 stack</h4><p>先进后出，可以用数组实现 push pop</p>
+<h4 id="4-链表-Linked-Table"><a href="#4-链表-Linked-Table" class="headerlink" title="4. 链表 Linked Table"></a>4. 链表 Linked Table</h4><p>用 hash 实现链表，链表头为 head，节点为 node<br>通过改变指向可实现数据的删除</p>
+<h4 id="5-树-tree"><a href="#5-树-tree" class="headerlink" title="5. 树 tree"></a>5. 树 tree</h4><p>概念： 层数、深度、节点个数2^n-1、二叉树、满二叉树、完全二叉树、<br>完全二叉树和满二叉树可以用数据实现，其他树可以用 hash 实现<br>堆排序用到了树</p>
+<h4 id="6-堆-heap"><a href="#6-堆-heap" class="headerlink" title="6. 堆 heap"></a>6. 堆 heap</h4><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h4 id="1-什么是算法？"><a href="#1-什么是算法？" class="headerlink" title="1. 什么是算法？"></a>1. 什么是算法？</h4><pre><code>算法的五大特征： 输入 输出 明确性 有限性 有效性（可行性）
+有限性 一个算法必须保证执行有限的步之后结束
+确切性 一个算法的每一步都必须有确切的意义
+输入 一个算法有零个或者一个初始值，以刻画运算对象的初始情况，所谓零个输入是指算法本身给与了初始值
+输出 一个算法有一个或者多个输出 没有输出的算法毫无意义
+可行性 一个算法的任何步骤都可以被分解为基本可执行的操作，每个操作都能在有限的时间内完成</code></pre>
+<h4 id="2-算法的分类"><a href="#2-算法的分类" class="headerlink" title="2. 算法的分类"></a>2. 算法的分类</h4><pre><code>分治法 
+动态规划法 
+贪婪算法 
+线性规划法 
+简并法</code></pre>
+<h4 id="3-关于排序"><a href="#3-关于排序" class="headerlink" title="3. 关于排序"></a>3. 关于排序</h4><ul>
+<li>冒泡排序</li>
+<li>选择排序</li>
+<li>插入排序</li>
+<li>快速排序</li>
+<li>桶排序 <ul>
+<li>计数排序  复杂度为 n+max 无法统计负数和小数</li>
+<li>基数排序 </li>
+</ul>
+</li>
+<li>归并排序</li>
+<li>希尔排序</li>
+<li>堆排序</li>
+</ul>
+<h4 id="4-一些伪代码"><a href="#4-一些伪代码" class="headerlink" title="4. 一些伪代码"></a>4. 一些伪代码</h4><p><em>现在感觉写伪代码特别好，以前都懒得写，可能就是想不清楚吧 XD</em></p>
+<p>计数排序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a &#x3D; &#123;</span><br><span class="line">  &#39;0&#39;: 2,</span><br><span class="line">  &#39;1&#39;: 34,</span><br><span class="line">  &#39;2&#39;: 5,</span><br><span class="line">  &#39;3&#39;: 43,</span><br><span class="line">  &#39;4&#39;: 98,</span><br><span class="line">  &#39;5&#39;: 21,</span><br><span class="line">  &#39;length&#39;: 6</span><br><span class="line">&#125;</span><br><span class="line">hash &#x3D; &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">index &#x3D; 0</span><br><span class="line">while index &lt; a.length</span><br><span class="line"> n &#x3D; a[index]</span><br><span class="line"> if hash[n] &#x3D;&#x3D; undefined</span><br><span class="line">   hash[n] &#x3D; 1</span><br><span class="line"> else</span><br><span class="line">   hash[n] &#x3D; hash[n] + 1</span><br><span class="line"> end</span><br><span class="line"> index &#x3D; index + 1</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">index2 &#x3D; 0</span><br><span class="line">new arr &#x3D; []</span><br><span class="line">while index2 &lt; a的最大值 + 1</span><br><span class="line"> count &#x3D; hash[index2]</span><br><span class="line"> if count !&#x3D; undefined</span><br><span class="line">   countindex &#x3D; 0</span><br><span class="line">   while countindex &lt; count</span><br><span class="line">     arr.push(index2)</span><br><span class="line">     countindex + 1</span><br><span class="line">   end</span><br><span class="line"> end</span><br><span class="line"> index2 &#x3D; index2 + 1</span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/12/06/css-tricks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/06/css-tricks/" class="post-title-link" itemprop="url">css tricks</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-06 01:12:50" itemprop="dateCreated datePublished" datetime="2018-12-06T01:12:50+08:00">2018-12-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="css-cascading-style-sheets"><a href="#css-cascading-style-sheets" class="headerlink" title="css (cascading style sheets)"></a>css (cascading style sheets)</h3><h4 id="color-inherit"><a href="#color-inherit" class="headerlink" title="color inherit"></a>color inherit</h4><p>  颜色要多用继承，这样可以统一修改</p>
+<h4 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h4><p>  最大的好处就是可以不写宽度，和 inline-flex 一样在行内具有块元素的属性<br>  用 vertical-align 或者 font-size 处理默认的高度</p>
+<h4 id="pseudo-class"><a href="#pseudo-class" class="headerlink" title="pseudo class"></a>pseudo class</h4><p>  唯一需要指定的就是 content</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/12/02/%E5%85%B3%E4%BA%8Ehtml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/02/%E5%85%B3%E4%BA%8Ehtml/" class="post-title-link" itemprop="url">关于 HTML</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-02 20:06:17" itemprop="dateCreated datePublished" datetime="2018-12-02T20:06:17+08:00">2018-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h3><ol>
+<li>现在大部分都是 HTML5</li>
+<li>规范文档（specifications）由 w3c（consortium） 编写</li>
+<li>必须指定 DOCTYPE </li>
+<li>最简单的 html 应该由 DOCTYPE + title + 内容 组成</li>
+<li>工作中常用的标签<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">inline &gt; a span img input label button em strong b i big small </span><br><span class="line">       iframe ...</span><br><span class="line">block &gt; div article h1~h6 p ul ol section nav header </span><br><span class="line">       footer ...</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="比较重要的一些标签"><a href="#比较重要的一些标签" class="headerlink" title="比较重要的一些标签"></a>比较重要的一些标签</h3><h4 id="head"><a href="#head" class="headerlink" title="head"></a>head</h4><p><span class="exturl" data-url="aHR0cHM6Ly9nZXRoZWFkLmluZm8v">head标签内的标签<i class="fa fa-external-link-alt"></i></span></p>
+<pre><code>&lt;base&gt; 元素 指定用于一个文档中包含的所有相对URL的基本URL。一份中只能有一个&lt;base&gt;元素</code></pre>
+<h4 id="空元素"><a href="#空元素" class="headerlink" title="空元素"></a>空元素</h4><blockquote>
+<p>不存在子节点的 element</p>
+</blockquote>
+<pre><code>&lt;area&gt;
+&lt;img&gt;
+&lt;br&gt;
+&lt;col&gt;
+&lt;command&gt;
+&lt;hr&gt;
+&lt;input&gt;
+&lt;link&gt;
+&lt;meta&gt;
+&lt;param&gt;</code></pre>
+<h4 id="可替换元素"><a href="#可替换元素" class="headerlink" title="可替换元素"></a>可替换元素</h4><blockquote>
+<p>元素是一类外观渲染独立于 css 的外部对象，不是由 css 控制</p>
+</blockquote>
+<pre><code>img
+video
+textarea
+input
+audio
+canvas</code></pre>
+<h4 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h4><p>主要用来嵌套页面</p>
+<pre><code>frameborder 默认 1
+name 可以用作 a 标签 和 form 标签的 target 值</code></pre>
+<h4 id="a"><a href="#a" class="headerlink" title="a"></a>a</h4><p>跳转页面（HTTP GET 请求）</p>
+<pre><code>target  四个值 _blank _self _parent _top, 后两个在 iframe 中才有作用
+href  &#39;http&#39; 或者 &#39;//&#39; 或者 &#39;./&#39; 或者 &#39;?name=xx&#39; 或者 &#39;#1&#39; 或者 &#39;mailto:xx@xx.com&#39;
+download  下载指定的地址 (如果是下载地址需要指定 Content-type 为 application/octet-stream)</code></pre>
+<h4 id="form"><a href="#form" class="headerlink" title="form"></a>form</h4><p>跳转页面（HTTP POST 请求）post 提交 Content-Type 为 application/x-www-form-urlencoded</p>
+<pre><code>action  请求地址
+enctype  提交 form 给服务器的 MIME 类型
+method  post 或者 get
+name 
+target  _blank _self _parent _top</code></pre>
+<h4 id="input-button"><a href="#input-button" class="headerlink" title="input button"></a>input button</h4><p>主要区别就是 input 是空标签，button 不是空标签</p>
+<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><pre><code>- 子元素
+&lt;caption&gt;
+&lt;colgroup&gt; &gt; &lt;col bgcolor=red&gt; -&gt; 指定对应列的颜色
+&lt;thead&gt;
+&lt;tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/25/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/27/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div><div class="footer-custom">
+Theme source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLXRoZW1lLW5leHQ=">here</span><br>
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/motion.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+  
+
+
+    </div>
+</body>
+</html>

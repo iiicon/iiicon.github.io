@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="zh-Hans,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sgw.wiki","root":"/","scheme":"Gemini","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="coding note and life perception">
+<meta property="og:type" content="website">
+<meta property="og:title" content="之哥的荣耀">
+<meta property="og:url" content="https://sgw.wiki/page/11/index.html">
+<meta property="og:site_name" content="之哥的荣耀">
+<meta property="og:description" content="coding note and life perception">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hexo, NexT">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://sgw.wiki/page/11/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>之哥的荣耀 - Theme for Hexo</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108155018-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="之哥的荣耀" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">之哥的荣耀</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a>
+
+  </li>
+
+
+      
+        <li class="menu-item menu-item-plugins">
+
+    <a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnN1cHBvcnRAdGhlbWUtbmV4dC5vcmc=" title="E-Mail → mailto:support@theme-next.org"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXR0ZXIuaW0vaGV4by1uZXh0" title="Gitter → https:&#x2F;&#x2F;gitter.im&#x2F;hexo-next"><i class="fab fa-gitter fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/11/ES6%E4%B9%8BPromise%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/11/ES6%E4%B9%8BPromise%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">ES6之Promise用法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-11 13:58:55" itemprop="dateCreated datePublished" datetime="2019-08-11T13:58:55+08:00">2019-08-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="常规用法"><a href="#常规用法" class="headerlink" title="常规用法"></a>常规用法</h3><pre><code>function getInfo(name) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    if (name===&#39;Gerritv&#39;) &#123;
+      resolve(&#39;Gerritv&#39;)
+    &#125; else &#123;
+      reject()
+    &#125;
+  &#125;)
+&#125;
+
+function print(data) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    console.log(data)
+    resolve(data)
+  &#125;)
+&#125;
+
+function getFriendInfo() &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    console.log(&#39;第二次获取用户信息&#39;)
+    resolve(&#39;Macel&#39;)
+  &#125;)
+&#125;
+
+getInfo(&#39;Gerritv&#39;)
+  .then(print)
+  .then(getFriendInfo)
+  .then(print)</code></pre>
+<h3 id="then-的两个参数"><a href="#then-的两个参数" class="headerlink" title="then 的两个参数"></a>then 的两个参数</h3><pre><code>function getInfo(name) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    if (name === &#39;Gerritv&#39;) &#123;
+      resolve(&#39;Gerritv&#39;)
+    &#125; else &#123;
+      reject()
+    &#125;
+  &#125;)
+&#125;
+
+getInfo(&#39;macel&#39;).then((d) =&gt; &#123; console.log(d) &#125;, () =&gt; &#123; console.log(&#39;不认识&#39;) &#125;)</code></pre>
+<h3 id="处理-then-正确和错误的回调"><a href="#处理-then-正确和错误的回调" class="headerlink" title="处理 .then 正确和错误的回调"></a>处理 .then 正确和错误的回调</h3><pre><code>function getInfo(name) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    if (name === &#39;Gerritv&#39;) &#123;
+      resolve([&#39;Gerritv&#39;, 18])
+    &#125; else &#123;
+      reject(name)
+    &#125;
+  &#125;)
+&#125;
+
+function getFriendInfo(name) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    if (name === &#39;Gerritv&#39;) &#123;
+      resolve(&#39;Macel, Bik, lyu&#39;)
+    &#125; else &#123;
+      reject()
+    &#125;
+  &#125;)
+&#125;
+
+function printInfo(data) &#123;
+  console.log(data)
+  return Promise.resolve(data[0])
+&#125;
+
+getInfo(&#39;macel&#39;)
+  .then(printInfo, e =&gt; &#123;
+    console.log(&#39;不认识&#39; + e)
+    // 如果后面的不想执行，需要
+    return Promise.reject(&#39;第一次出错了&#39;)
+  &#125;)
+  .then(getFriendInfo, e =&gt; &#123;
+    console.log(e)
+    // 这里可以解决第一次的出错
+    return Promise.resolve(&#39;Gerritv&#39;) // 重新正确了
+  &#125;)
+  .then(printInfo, () =&gt; &#123;
+    console.log(&#39;不认识2&#39;)
+  &#125;)</code></pre>
+<h3 id="把-promise-返回结果用-await-接受"><a href="#把-promise-返回结果用-await-接受" class="headerlink" title="把 promise 返回结果用 await 接受"></a>把 promise 返回结果用 await 接受</h3><pre><code>let x = await getInfo(&#39;Gerritv&#39;)
+console.log(x)
+// 如果出错
+try &#123;
+  let x = await getInfo(&#39;macle&#39;)
+  console.log(x)
+&#125; catch (error) &#123;
+  console.log(&#39;出错了&#39;+error)
+&#125;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/05/ES6%E6%A8%A1%E5%9D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/05/ES6%E6%A8%A1%E5%9D%97/" class="post-title-link" itemprop="url">ES6模块</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-05 23:47:35" itemprop="dateCreated datePublished" datetime="2019-08-05T23:47:35+08:00">2019-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><blockquote>
+<p>在创建 JavaScript 模块时，export 语句用于从模块中导出函数、对象或原始值，以便其他程序可以通过 import 语句使用它们。<br>无论您是否声明，导出的模块都处于严格模式。 export 语句不能用在嵌入式脚本中。</p>
+</blockquote>
+<pre><code>export let name1, name2
+export function FunctionName()&#123;...&#125;
+export class ClassName &#123;...&#125;
+export &#123; name1, name2, …, nameN &#125;;
+export &#123; variable1 as name1, variable2 as name2, …, nameN &#125;;
+export default expression;
+export default function (…) &#123; … &#125;
+export * from …;</code></pre>
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><blockquote>
+<p>静态的 import 语句用于导入由另一个模块导出的绑定。无论是否声明了 strict mode ，导入的模块都运行在严格模式下。在浏览器中，import 语句只能在声明了 type=&quot;module&quot; 的 script 的标签中使用。</p>
+</blockquote>
+<blockquote>
+<p>此外，还有一个类似函数的动态 import()，它不需要依赖 type=&quot;module&quot; 的 script 标签。在您希望按照一定的条件或者按需加载模块的时候，动态 import() 是非常有用的。</p>
+</blockquote>
+<pre><code>在您希望按照一定的条件或者按需加载模块的时候，动态import() 是非常有用的。
+import * as name from &quot;module-name&quot;;
+import &#123; export &#125; from &quot;module-name&quot;;
+import &#123; export as alias &#125; from &quot;module-name&quot;;
+import &#123; export1 , export2 &#125; from &quot;module-name&quot;;
+import &#123; export1 , export2 as alias2 , [...] &#125; from &quot;module-name&quot;;
+import defaultExport, &#123; export [ , [...] ] &#125; from &quot;module-name&quot;;
+import defaultExport, * as name from &quot;module-name&quot;;
+import &quot;module-name&quot;;</code></pre>
+<h3 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h3><ul>
+<li>一个 js 文件可以有多个 export</li>
+<li>在浏览器中使用要加 type=&#39;module&#39;</li>
+<li>在不支持的浏览器中要用 babel webpack 或者 parcel 编译之后运行</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/05/ES6%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/05/ES6%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">ES6对象扩展</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-05 00:11:22" itemprop="dateCreated datePublished" datetime="2019-08-05T00:11:22+08:00">2019-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="动态属性名"><a href="#动态属性名" class="headerlink" title="动态属性名"></a>动态属性名</h3><pre><code>var o = &#123;[name]: 1&#125;</code></pre>
+<h3 id="属性可以是一个函数、getter、setter-方法"><a href="#属性可以是一个函数、getter、setter-方法" class="headerlink" title="属性可以是一个函数、getter、setter 方法"></a>属性可以是一个函数、getter、setter 方法</h3><pre><code>var o = &#123;_age: 18, get age() &#123;return _age&#125;, set age(a)&#123;return a&#125;&#125;</code></pre>
+<h3 id="一道题"><a href="#一道题" class="headerlink" title="一道题"></a>一道题</h3><pre><code>let i = 0
+Object.defineProperty(window, a, &#123;get() &#123; i +=1; return i&#125;&#125;)
+a == 1 &amp;&amp; a==2 &amp;&amp; a == 3 //true</code></pre>
+<h3 id="浅复制"><a href="#浅复制" class="headerlink" title="浅复制"></a>浅复制</h3><pre><code>Object.assign 会触发 setter
+... 不会</code></pre>
+<h3 id="在旧的对象上添加-set-get"><a href="#在旧的对象上添加-set-get" class="headerlink" title="在旧的对象上添加 set get"></a>在旧的对象上添加 set get</h3><pre><code>Object.defineProperty(window, a, &#123;
+  get() &#123;&#125;,
+  set() &#123;&#125;,
+  configurable: true,
+  enumerable: true,
+  value: &#39;&#39;,
+  writable: false
+&#125;)</code></pre>
+<p>获取这些属性可以用 <code>Object.getOwnPropertyDescriptor(window, a)</code></p>
+<p>如果对象的属性是 symbol 可以用 <code>Object.getOwnPropertySymbols(window)</code></p>
+<h3 id="关于原型"><a href="#关于原型" class="headerlink" title="关于原型"></a>关于原型</h3><ul>
+<li><p>获取<br><code>Object.getPrototypeOf()</code></p>
+</li>
+<li><p>设置<br><code>Object.create()</code></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/04/ES6%E4%B9%8B%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/04/ES6%E4%B9%8B%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="post-title-link" itemprop="url">ES6之迭代器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-04 16:46:41" itemprop="dateCreated datePublished" datetime="2019-08-04T16:46:41+08:00">2019-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><blockquote>
+<p>迭代器是一个对象，它定义一个序列，并在终止时可能返回一个返回值。它知道如何每次访问集合中的一项， 并跟踪该序列中的当前位置。<br>它提供了一个 next() 方法，用来返回序列中的下一项。这个方法返回包含两个属性：done 和 value。迭代器对象一旦被创建，就可以反复调用 next()。</p>
+</blockquote>
+<p>创建一个对象，他有 next 方法，可以一直调用，这就是迭代器</p>
+<pre><code>function fn() &#123;
+  let value = 0
+  return &#123;
+    next: function() &#123;
+      value += 1
+      if (value &gt; 10) &#123;
+        throw new Error(&#39;不能大与10&#39;)
+      &#125;
+      if (value === 10) &#123;
+        return &#123; value, done: true &#125;
+      &#125;
+      return &#123;
+        value,
+        done: false
+      &#125;
+    &#125;
+  &#125;
+&#125;</code></pre>
+<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><blockquote>
+<p>虽然自定义的迭代器是一个有用的工具，但由于需要显式地维护其内部状态，因此需要谨慎地创建。生成器函数提供了一个强大的选择：它允许你定义一个包含自有迭代算法的函数， 同时它可以自动维护自己的状态。</p>
+</blockquote>
+<pre><code>function* fn() &#123;
+  let value = 0
+  while(true) &#123;
+    value += 1
+    yield value
+  &#125;
+&#125;</code></pre>
+<p>这个函数的功能和上面迭代器的功能是一样的，称为生成器，是迭代器的语法糖</p>
+<h3 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h3><blockquote>
+<p>若一个对象拥有迭代行为，比如在 for...of 中会循环哪些值，那么那个对象便是一个可迭代对象。一些内置类型，如 Array 或 Map 拥有默认的迭代行为，而其他类型（比如 Object）则没有。<br>为了实现可迭代，一个对象必须实现 @@iterator 方法，这意味着这个对象（或其原型链中的任意一个对象）必须具有一个带 Symbol.iterator 键（key）的属性。</p>
+</blockquote>
+<p>这样我们就可以自定义可迭代对象</p>
+<pre><code>let myIterable = &#123;
+  *[Symbol.iterator]() &#123;
+    yield 1
+    yield 2
+    yield 3
+  &#125;
+&#125;
+for (const iterator of myIterable) &#123;
+  console.log(iterator)
+&#125;</code></pre>
+<h3 id="内置的可迭代对象"><a href="#内置的可迭代对象" class="headerlink" title="内置的可迭代对象"></a>内置的可迭代对象</h3><p>String, Array, TypedArray, Map, Set 他们的原型对象都有一个 Symbol.iterator 函数</p>
+<h3 id="用于可迭代对象的语法（语法糖）"><a href="#用于可迭代对象的语法（语法糖）" class="headerlink" title="用于可迭代对象的语法（语法糖）"></a>用于可迭代对象的语法（语法糖）</h3><ul>
+<li><p>for of<br>我们如果要调用生成器，只要一直 .next 就行，js 提供了一个语法糖，那就是 for of</p>
+</li>
+<li><p>展开语法<br>  [...&#39;abc&#39;] // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div><div class="footer-custom">
+Theme source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLXRoZW1lLW5leHQ=">here</span><br>
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/motion.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+  
+
+
+    </div>
+</body>
+</html>
