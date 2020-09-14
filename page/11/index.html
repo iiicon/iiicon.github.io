@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">117</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -296,266 +296,6 @@
       
 
       
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/11/ES6%E4%B9%8BPromise%E7%94%A8%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="Theme NexT">
-      <meta itemprop="description" content="Stay Simple. Stay NexT.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/11/ES6%E4%B9%8BPromise%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">ES6之Promise用法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-08-11 13:58:55" itemprop="dateCreated datePublished" datetime="2019-08-11T13:58:55+08:00">2019-08-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="常规用法"><a href="#常规用法" class="headerlink" title="常规用法"></a>常规用法</h3><pre><code>function getInfo(name) &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    if (name===&#39;Gerritv&#39;) &#123;
-      resolve(&#39;Gerritv&#39;)
-    &#125; else &#123;
-      reject()
-    &#125;
-  &#125;)
-&#125;
-
-function print(data) &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    console.log(data)
-    resolve(data)
-  &#125;)
-&#125;
-
-function getFriendInfo() &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    console.log(&#39;第二次获取用户信息&#39;)
-    resolve(&#39;Macel&#39;)
-  &#125;)
-&#125;
-
-getInfo(&#39;Gerritv&#39;)
-  .then(print)
-  .then(getFriendInfo)
-  .then(print)</code></pre>
-<h3 id="then-的两个参数"><a href="#then-的两个参数" class="headerlink" title="then 的两个参数"></a>then 的两个参数</h3><pre><code>function getInfo(name) &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    if (name === &#39;Gerritv&#39;) &#123;
-      resolve(&#39;Gerritv&#39;)
-    &#125; else &#123;
-      reject()
-    &#125;
-  &#125;)
-&#125;
-
-getInfo(&#39;macel&#39;).then((d) =&gt; &#123; console.log(d) &#125;, () =&gt; &#123; console.log(&#39;不认识&#39;) &#125;)</code></pre>
-<h3 id="处理-then-正确和错误的回调"><a href="#处理-then-正确和错误的回调" class="headerlink" title="处理 .then 正确和错误的回调"></a>处理 .then 正确和错误的回调</h3><pre><code>function getInfo(name) &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    if (name === &#39;Gerritv&#39;) &#123;
-      resolve([&#39;Gerritv&#39;, 18])
-    &#125; else &#123;
-      reject(name)
-    &#125;
-  &#125;)
-&#125;
-
-function getFriendInfo(name) &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    if (name === &#39;Gerritv&#39;) &#123;
-      resolve(&#39;Macel, Bik, lyu&#39;)
-    &#125; else &#123;
-      reject()
-    &#125;
-  &#125;)
-&#125;
-
-function printInfo(data) &#123;
-  console.log(data)
-  return Promise.resolve(data[0])
-&#125;
-
-getInfo(&#39;macel&#39;)
-  .then(printInfo, e =&gt; &#123;
-    console.log(&#39;不认识&#39; + e)
-    // 如果后面的不想执行，需要
-    return Promise.reject(&#39;第一次出错了&#39;)
-  &#125;)
-  .then(getFriendInfo, e =&gt; &#123;
-    console.log(e)
-    // 这里可以解决第一次的出错
-    return Promise.resolve(&#39;Gerritv&#39;) // 重新正确了
-  &#125;)
-  .then(printInfo, () =&gt; &#123;
-    console.log(&#39;不认识2&#39;)
-  &#125;)</code></pre>
-<h3 id="把-promise-返回结果用-await-接受"><a href="#把-promise-返回结果用-await-接受" class="headerlink" title="把 promise 返回结果用 await 接受"></a>把 promise 返回结果用 await 接受</h3><pre><code>let x = await getInfo(&#39;Gerritv&#39;)
-console.log(x)
-// 如果出错
-try &#123;
-  let x = await getInfo(&#39;macle&#39;)
-  console.log(x)
-&#125; catch (error) &#123;
-  console.log(&#39;出错了&#39;+error)
-&#125;</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/05/ES6%E6%A8%A1%E5%9D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="Theme NexT">
-      <meta itemprop="description" content="Stay Simple. Stay NexT.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/05/ES6%E6%A8%A1%E5%9D%97/" class="post-title-link" itemprop="url">ES6模块</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-08-05 23:47:35" itemprop="dateCreated datePublished" datetime="2019-08-05T23:47:35+08:00">2019-08-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><blockquote>
-<p>在创建 JavaScript 模块时，export 语句用于从模块中导出函数、对象或原始值，以便其他程序可以通过 import 语句使用它们。<br>无论您是否声明，导出的模块都处于严格模式。 export 语句不能用在嵌入式脚本中。</p>
-</blockquote>
-<pre><code>export let name1, name2
-export function FunctionName()&#123;...&#125;
-export class ClassName &#123;...&#125;
-export &#123; name1, name2, …, nameN &#125;;
-export &#123; variable1 as name1, variable2 as name2, …, nameN &#125;;
-export default expression;
-export default function (…) &#123; … &#125;
-export * from …;</code></pre>
-<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><blockquote>
-<p>静态的 import 语句用于导入由另一个模块导出的绑定。无论是否声明了 strict mode ，导入的模块都运行在严格模式下。在浏览器中，import 语句只能在声明了 type=&quot;module&quot; 的 script 的标签中使用。</p>
-</blockquote>
-<blockquote>
-<p>此外，还有一个类似函数的动态 import()，它不需要依赖 type=&quot;module&quot; 的 script 标签。在您希望按照一定的条件或者按需加载模块的时候，动态 import() 是非常有用的。</p>
-</blockquote>
-<pre><code>在您希望按照一定的条件或者按需加载模块的时候，动态import() 是非常有用的。
-import * as name from &quot;module-name&quot;;
-import &#123; export &#125; from &quot;module-name&quot;;
-import &#123; export as alias &#125; from &quot;module-name&quot;;
-import &#123; export1 , export2 &#125; from &quot;module-name&quot;;
-import &#123; export1 , export2 as alias2 , [...] &#125; from &quot;module-name&quot;;
-import defaultExport, &#123; export [ , [...] ] &#125; from &quot;module-name&quot;;
-import defaultExport, * as name from &quot;module-name&quot;;
-import &quot;module-name&quot;;</code></pre>
-<h3 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h3><ul>
-<li>一个 js 文件可以有多个 export</li>
-<li>在浏览器中使用要加 type=&#39;module&#39;</li>
-<li>在不支持的浏览器中要用 babel webpack 或者 parcel 编译之后运行</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -758,6 +498,188 @@ for (const iterator of myIterable) &#123;
 <li><p>展开语法<br>  [...&#39;abc&#39;] // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</p>
 </li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/04/ES6%E4%B8%89%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B0%E7%89%88%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/04/ES6%E4%B8%89%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B0%E7%89%88%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">ES6 三点运算符和新版字符串</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-04 16:06:54" itemprop="dateCreated datePublished" datetime="2019-08-04T16:06:54+08:00">2019-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="三点运算符"><a href="#三点运算符" class="headerlink" title="三点运算符"></a>三点运算符</h2><h3 id="函数的默认参数"><a href="#函数的默认参数" class="headerlink" title="函数的默认参数"></a>函数的默认参数</h3><pre><code>function(x = 10)</code></pre>
+<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h3><pre><code>Array.prototype.slice.call(arguments, 2)
+Array.from(arguments).slice(2)
+function fn(a, b, ...c)</code></pre>
+<h3 id="展开操作符"><a href="#展开操作符" class="headerlink" title="展开操作符"></a>展开操作符</h3><pre><code>[...iteralableObject] = [1,2,3]
+[0, ...iteralableObject, 1, 2]</code></pre>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><pre><code>[a, b] = [b, a]
+[a, b, ...rest] = [1, 2, 3]
+let &#123;name, age&#125; = person
+[a = 5, b = 7] = [1]
+[a, b] = f()
+[a, ,b] = f()
+&#123;p: foo, q: bar&#125; = o
+let &#123;a = 10, b = 5&#125; = &#123;a: 4&#125;
+let &#123;a:aa = 10, b:bb = 5&#125; = &#123;a: 3&#125;;
+对象的浅拷贝（JSON， ...，Object.assign）
+对象合并</code></pre>
+<h3 id="对象属性增强"><a href="#对象属性增强" class="headerlink" title="对象属性增强"></a>对象属性增强</h3><pre><code>let obj = &#123; x, y &#125;
+obj = &#123;[&#39;baz&#39;+qux()]: 33&#125;
+函数属性可以缩写</code></pre>
+<h2 id="新版字符串"><a href="#新版字符串" class="headerlink" title="新版字符串"></a>新版字符串</h2><h3 id="多行字符串，插值"><a href="#多行字符串，插值" class="headerlink" title="多行字符串，插值"></a>多行字符串，插值</h3><pre><code>let a = `a$&#123;name&#125;
+         b
+        `</code></pre>
+<h3 id="函数接字符串"><a href="#函数接字符串" class="headerlink" title="函数接字符串"></a>函数接字符串</h3><pre><code>fn`$&#123;name&#125; 是一个 $&#123;person&#125;`</code></pre>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0eWxlZC1jb21wb25lbnRzL3N0eWxlZC1jb21wb25lbnRz">style.component<i class="fa fa-external-link-alt"></i></span>就是这个用法</p>
+<pre><code>const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/31/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/31/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">ES6箭头函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-31 23:27:32" itemprop="dateCreated datePublished" datetime="2019-07-31T23:27:32+08:00">2019-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="箭头函数的写法"><a href="#箭头函数的写法" class="headerlink" title="箭头函数的写法"></a>箭头函数的写法</h3><p>好像抄袭自 coffeescript, 叫做 <code>fat Function</code></p>
+<pre><code>() =&gt; &#123;&#125;</code></pre>
+<p>coffeescript 还有一个 <code>empty Function</code></p>
+<pre><code>() -&gt; &#123;&#125; 会被解析成 function() &#123;&#125;</code></pre>
+<h3 id="箭头函数的优点"><a href="#箭头函数的优点" class="headerlink" title="箭头函数的优点"></a>箭头函数的优点</h3><ol>
+<li>简洁，箭头函数表达式对非方法函数是最合适的</li>
+<li>没有 this，也就是父级作用域的 this</li>
+<li>箭头函数不绑定 Arguments 对象，使用剩余参数是相较使用 arguments 对象的更好选择。</li>
+<li>由于 箭头函数没有自己的 this 指针，通过 call() 或 apply() 方法调用一个函数时，只能传递参数（不能绑定 this---译者注），他们的第一个参数会被忽略。</li>
+</ol>
 
       
     </div>

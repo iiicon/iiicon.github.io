@@ -42,27 +42,6 @@
   </entry>
   
   <entry>
-    <title>NexT 8.0.0 Released</title>
-    <link href="https://sgw.wiki/2020/08/31/next-8-0-0-released/"/>
-    <id>https://sgw.wiki/2020/08/31/next-8-0-0-released/</id>
-    <published>2020-08-31T08:21:37.000Z</published>
-    <updated>2020-09-14T02:33:53.560Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="⭐-Features"><a href="#⭐-Features" class="headerlink" title="⭐ Features"></a>⭐ Features</h2><ul><li>Support reprint statement (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvODk=">#89<i class="fa fa-external-link-alt"></i></span>)</li><li>Refactor vendors (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNzI=">#72<i class="fa fa-external-link-alt"></i></span>)<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">vendors:</span><br><span class="line"><span class="addition">+  # The default CDN provider of third-party plugins.</span></span><br><span class="line"><span class="addition">+  # Available values: local, jsdelivr, unpkg, cdnjs</span></span><br><span class="line"><span class="addition">+  # Dependencies for `plugins: local`: https://github.com/next-theme/plugins</span></span><br><span class="line"><span class="addition">+  plugins: jsdelivr</span></span><br></pre></td></tr></table></figure></li><li>Image thumbnails in archive page (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC83YjkxZjhlZTc0ZWJkYjQxN2YyYjUwODk2MjIyNGIzZDY1M2FkNWNh">7b91f8e<i class="fa fa-external-link-alt"></i></span>)</li><li>Rename <code>per_page</code> to <code>every_page</code> (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9hM2RjYWM1ZjMzNGVkZGRlY2QzZGUxNzYxNzVjNTZkNDM3OWEwZjIx">a3dcac5<i class="fa fa-external-link-alt"></i></span>)<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line"><span class="deletion">-  per_page: true</span></span><br><span class="line"><span class="addition">+  every_page: false</span></span><br></pre></td></tr></table></figure></li></ul><h2 id="🐞-Bug-Fixes"><a href="#🐞-Bug-Fixes" class="headerlink" title="🐞 Bug Fixes"></a>🐞 Bug Fixes</h2><ul><li>Fix pjax scroll restoration (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNzQ=">#74<i class="fa fa-external-link-alt"></i></span>)</li><li>Fix .post-title-link position (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNzY=">#76<i class="fa fa-external-link-alt"></i></span>)</li><li>Fix darkmode post-gallery image opacity (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8wNGNlZDE1ZDhhYWFhMjkyNWRhZDg3NThkZjcyODNkMzViOGRjYjA3">04ced15<i class="fa fa-external-link-alt"></i></span>)</li><li>Fix id conflict with markdown headerlink (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC81MjNlMzllOWQ2NjliNzlhOWNkMGZiYjgyMzY2NmI4MGNjNjU2ZTFh">523e39e<i class="fa fa-external-link-alt"></i></span>)</li><li>Fix .tabs-comment style (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC84ZDU3YjZkOTgwNjk2Nzc1ZjQxYTBmZDk0Zjc0MzRhNTg5Y2JkZTEx">8d57b6d<i class="fa fa-external-link-alt"></i></span>)</li><li>Fix mermaid background color (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8zNzZkNzE4NzhmZjM3MjIyNmYxMGE0MGU4NzI2NmE3YTgyODNhYzdj">376d718<i class="fa fa-external-link-alt"></i></span>)</li><li>Fix search result position (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9iYzg5OTMxNDUyYjZjNzAyMWFlYTg4NTYxN2VmNTUyN2Q3OGIxZGVm">bc89931<i class="fa fa-external-link-alt"></i></span>)</li></ul><h2 id="🛠-Improvements"><a href="#🛠-Improvements" class="headerlink" title="🛠 Improvements"></a>🛠 Improvements</h2><ul><li>Optimize prism: support copy_button (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8wNGRhNzc5MjEyYmM3NjQ3YzkwYWQ0MDZjNjBlNmExMThhMGJhZWQ0">04da779<i class="fa fa-external-link-alt"></i></span>)</li><li>Refactor layout (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9mNzZjMGQ4YTk3OTEwMDk2ZjhlYmU0MDc1YmQ3MTliMzViMWY3Mzdj">f76c0d8<i class="fa fa-external-link-alt"></i></span>)</li><li>Optimize canonical URL (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8yMTlhZGZmZTEwYjQwYjRmNjUyZGUxNTM1ZGY0MDM3ZDBhYjJmODY5">219adff<i class="fa fa-external-link-alt"></i></span>)</li><li>Optimize Algolia Search (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC85MmJkYjMyYTI5NGQzZTE2MTE5MDk5ODMyOTMyZTc3Njk1MDliYjQ4">92bdb32<i class="fa fa-external-link-alt"></i></span>)</li><li>Refactor Gemini style (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8xOTE2MGI4YTE1YzRhMmM4ZTExMDk5M2UyNzFkMjg1Y2E2MDNmNjNm">19160b8<i class="fa fa-external-link-alt"></i></span>)</li><li>Separate the styles of different schemes (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9iZGY1OWYxODdjYWQ4NjBhYWU2YWNiMTRhNWIwZWE5YWViZjJmM2Q4">bdf59f1<i class="fa fa-external-link-alt"></i></span>)</li><li>Refactor post-footer using flex layout (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8yM2Q5MTYzYTJkYzJhMzI5YTZhMTUwZDBiZTNiYjUyOGQ4ZmQwOTZk">23d9163<i class="fa fa-external-link-alt"></i></span>)</li><li>Optimize figcaption style (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC85MGQwYTVmOTY2ZTA4ZGFkYTBkMTlkMTViYmJlNzM1OTIwOTQ3OGU1">90d0a5f<i class="fa fa-external-link-alt"></i></span>)</li><li>Optimize box-shadow of .site-brand-container (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC80MDJjMzRlOWJiZjE0YWVmOTU5MDVlYjMwNGIyYmU2N2NmMGUyZjlh">402c34e<i class="fa fa-external-link-alt"></i></span>)</li><li>Optimize the path setting of LiveRe &amp; Valine (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC81ZTFiMGQwZThjMDk4NWM0YzRiYmUzZTczNzA3NTgxNDVmODBmYThl">5e1b0d0<i class="fa fa-external-link-alt"></i></span>)</li><li>Update ICP link (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvOTY=">#96<i class="fa fa-external-link-alt"></i></span>)</li><li>Uniform hexadecimal color (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvOTM=">#93<i class="fa fa-external-link-alt"></i></span>)</li></ul><h2 id="🌀-External-Changes"><a href="#🌀-External-Changes" class="headerlink" title="🌀 External Changes"></a>🌀 External Changes</h2><ul><li>Use @next-theme/eslint-config (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9hOTZkMTEyNmE5NDE4ZTVmY2Y3NjNmYzIyYWJjNTZiYTU0NWZkZTBk">a96d112<i class="fa fa-external-link-alt"></i></span>)</li><li>CDN settings for Firebase (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC9lZTViNDFmNDFjNDAzODMyZjk4Zjc1Y2RiYzVkYmI0NjIzZDY4ZDBm">ee5b41f<i class="fa fa-external-link-alt"></i></span>)</li><li>Update MathJax CDN URL (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8wOWYwZjdiYTNkZGIxMmRiOThiZDM2ZWI3YzA4NjQ3ZWQwOGY1NWNj">09f0f7b<i class="fa fa-external-link-alt"></i></span>)</li><li>Update dependency hexo-renderer-marked to v3.1.0 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvOTQ=">#94<i class="fa fa-external-link-alt"></i></span>)</li><li>Update dependency hexo to v5.1.1 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvODU=">#85<i class="fa fa-external-link-alt"></i></span>)</li><li>Update dependency mocha to v8.1.3 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvODI=">#82<i class="fa fa-external-link-alt"></i></span>)</li><li>Update dependency eslint to v7.7.0 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvNjk=">#69<i class="fa fa-external-link-alt"></i></span>)</li><li>Update _vendors.yml (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC83ZTg0NThmZTE4ZDAzY2NkNjhmNWEzOWVjY2I1MzMxNjc4NmVjMGZj">7e8458f<i class="fa fa-external-link-alt"></i></span>)</li></ul><h2 id="📖-Documentation"><a href="#📖-Documentation" class="headerlink" title="📖 Documentation"></a>📖 Documentation</h2><ul><li>Update docs (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC83Y2Q4M2E0YjhjMGI0ZmYwZmMzZDk5MmIwNTQ5NjAwYTY0NDJlZmRj">7cd83a4<i class="fa fa-external-link-alt"></i></span>)</li><li>Update docs (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbW1pdC8xYmJlOGY0MTAxZDhlYjExOGI4NzA3NDU2YWM1MzVkNzFhMjA1NzM4">1bbe8f4<i class="fa fa-external-link-alt"></i></span>)</li></ul><h2 id="🌍-Localization"><a href="#🌍-Localization" class="headerlink" title="🌍 Localization"></a>🌍 Localization</h2><ul><li>New Crowdin updates (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L3B1bGwvOTE=">#91<i class="fa fa-external-link-alt"></i></span>)</li></ul><hr><p>For full changes, see the <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2NvbXBhcmUvdjguMC4wLXJjLjUuLi52OC4wLjA=">comparison between v8.0.0-rc.5 and v8.0.0<i class="fa fa-external-link-alt"></i></span></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;⭐-Features&quot;&gt;&lt;a href=&quot;#⭐-Features&quot; class=&quot;headerlink&quot; title=&quot;⭐ Features&quot;&gt;&lt;/a&gt;⭐ Features&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Support reprint statement (&lt;span</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>vue3 源码阅读笔记</title>
     <link href="https://sgw.wiki/2020/08/20/vue3%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     <id>https://sgw.wiki/2020/08/20/vue3%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</id>
@@ -396,26 +375,6 @@
   </entry>
   
   <entry>
-    <title>Welcome to the NexT Organization!</title>
-    <link href="https://sgw.wiki/2020/03/01/hexo-theme-next/"/>
-    <id>https://sgw.wiki/2020/03/01/hexo-theme-next/</id>
-    <published>2020-03-01T04:00:00.000Z</published>
-    <updated>2020-09-14T02:33:53.556Z</updated>
-    
-    <content type="html"><![CDATA[<p>«<a href="/docs/">NexT</a>» is a high quality elegant theme for <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>. It is crafted from scratch, with love.</p><h3 id="User-Guide"><a href="#User-Guide" class="headerlink" title="User Guide"></a>User Guide</h3><p>It&#39;s easy to set up NexT theme. Just follow <a href="/docs/getting-started/">documentation</a> and create your personal website!</p><h3 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h3><ul><li>Visit the <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvYXdlc29tZS1uZXh0">Awesome NexT<i class="fa fa-external-link-alt"></i></span> list to share plugins and tutorials with other users.</li><li>Join our <span class="exturl" data-url="aHR0cHM6Ly9naXR0ZXIuaW0vaGV4by1uZXh0">Gitter<i class="fa fa-external-link-alt"></i></span> chats.</li><li><span class="exturl" data-url="aHR0cHM6Ly9jcm93ZGluLmNvbS9wcm9qZWN0L2hleG8tdGhlbWUtbmV4dA==">Add or improve translation<i class="fa fa-external-link-alt"></i></span> in few seconds.</li><li>Report a bug in <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2lzc3Vlcy9uZXc/YXNzaWduZWVzPSZsYWJlbHM9QnVnJnRlbXBsYXRlPWJ1Zy1yZXBvcnQubWQ=">GitHub Issues<i class="fa fa-external-link-alt"></i></span>.</li><li>Request a new feature on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2lzc3Vlcy9uZXc/YXNzaWduZWVzPSZsYWJlbHM9RmVhdHVyZStSZXF1ZXN0JnRlbXBsYXRlPWZlYXR1cmUtcmVxdWVzdC5tZA==">GitHub<i class="fa fa-external-link-alt"></i></span>.</li><li>Vote for <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0L2lzc3Vlcz9xPWlzOm9wZW4raXM6aXNzdWUrbGFiZWw6JTIyRmVhdHVyZStSZXF1ZXN0JTIy">popular feature requests<i class="fa fa-external-link-alt"></i></span>.</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;«&lt;a href=&quot;/docs/&quot;&gt;NexT&lt;/a&gt;» is a high quality elegant theme for &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9oZXhvLmlvLw==&quot;&gt;Hexo&lt;i class=&quot;fa</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>天生爱你</title>
     <link href="https://sgw.wiki/2020/02/26/%E5%A4%A9%E7%94%9F%E7%88%B1%E4%BD%A0/"/>
     <id>https://sgw.wiki/2020/02/26/%E5%A4%A9%E7%94%9F%E7%88%B1%E4%BD%A0/</id>
@@ -515,6 +474,54 @@
     
     
     <category term="code" scheme="https://sgw.wiki/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TS工具类函数</title>
+    <link href="https://sgw.wiki/2019/12/20/TS%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%87%BD%E6%95%B0/"/>
+    <id>https://sgw.wiki/2019/12/20/TS%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%87%BD%E6%95%B0/</id>
+    <published>2019-12-20T03:15:12.000Z</published>
+    <updated>2019-12-20T03:27:32.952Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="是否是对象"><a href="#是否是对象" class="headerlink" title="是否是对象"></a>是否是对象</h3><pre><code>export function isObject(val: any): val is Object &#123;  return val !== null &amp;&amp; typeof val === &quot;object&quot;;&#125;</code></pre><h3 id="是否是纯对象"><a href="#是否是纯对象" class="headerlink" title="是否是纯对象"></a>是否是纯对象</h3><pre><code>export function isPlainObject(val: any): val is Object &#123;  return Object.prototype.toString.call(val) === &quot;[object Object]&quot;;&#125;</code></pre><h3 id="是否是日期对象"><a href="#是否是日期对象" class="headerlink" title="是否是日期对象"></a>是否是日期对象</h3><pre><code>export function isDate(val: any): val is Date &#123;  return Object.prototype.toString.call(val) === &quot;[object Date]&quot;;&#125;</code></pre><h3 id="是否是-URLSearchParams-对象"><a href="#是否是-URLSearchParams-对象" class="headerlink" title="是否是 URLSearchParams 对象"></a>是否是 URLSearchParams 对象</h3><pre><code>export function isURLSearchParams(val: any): val is URLSearchParams &#123;  return typeof val !== &quot;undefined&quot; &amp;&amp; val instanceof URLSearchParams;&#125;</code></pre><h3 id="是否是-FormData"><a href="#是否是-FormData" class="headerlink" title="是否是 FormData"></a>是否是 FormData</h3><pre><code>export function isFormData(val: any): val is FormData &#123;  return typeof val !== &quot;undefined&quot; &amp;&amp; val instanceof FormData;&#125;</code></pre><h3 id="是否是绝对地址"><a href="#是否是绝对地址" class="headerlink" title="是否是绝对地址"></a>是否是绝对地址</h3><pre><code>export function isAbsoluteURL(url: string): boolean &#123;  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);&#125;</code></pre><h3 id="extend-合并两个对象的属性"><a href="#extend-合并两个对象的属性" class="headerlink" title="extend 合并两个对象的属性"></a>extend 合并两个对象的属性</h3><pre><code>export function extend&lt;T, U&gt;(to: T, from: U): T &amp; U &#123;  for (const i in from) &#123;    (to as T &amp; U)[i] = from[i] as any;  &#125;  return to as T &amp; U;&#125;</code></pre><h3 id="合并-baseurl-和-url"><a href="#合并-baseurl-和-url" class="headerlink" title="合并 baseurl 和 url"></a>合并 baseurl 和 url</h3><pre><code>export function combineURL(baseURL: string, relativeURL?: string): string &#123;  return relativeURL    ? baseURL.replace(/\/+$/, &quot;&quot;) + &quot;/&quot; + relativeURL.replace(/^\/+/, &quot;&quot;)    : baseURL;&#125;</code></pre><h3 id="对象合并（深拷贝）"><a href="#对象合并（深拷贝）" class="headerlink" title="对象合并（深拷贝）"></a>对象合并（深拷贝）</h3><pre><code>export function deepMerge(...objs: any[]): any &#123;  const result = Object.create(null);  objs.forEach(obj =&gt; &#123;    if (obj) &#123;      Object.keys(obj).forEach(key =&gt; &#123;        const val = obj[key];        if (isPlainObject(val)) &#123;          if (isPlainObject(result[key])) &#123;            result[key] = deepMerge(result[key], val);          &#125; else &#123;            result[key] = deepMerge(val);          &#125;        &#125; else &#123;          result[key] = val;        &#125;      &#125;);    &#125;  &#125;);  return result;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;是否是对象&quot;&gt;&lt;a href=&quot;#是否是对象&quot; class=&quot;headerlink&quot; title=&quot;是否是对象&quot;&gt;&lt;/a&gt;是否是对象&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;export function isObject(val: any): val is Object </summary>
+      
+    
+    
+    
+    <category term="js-code" scheme="https://sgw.wiki/categories/js-code/"/>
+    
+    
+    <category term="code" scheme="https://sgw.wiki/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XSRF防御</title>
+    <link href="https://sgw.wiki/2019/12/18/XSRF%E9%98%B2%E5%BE%A1/"/>
+    <id>https://sgw.wiki/2019/12/18/XSRF%E9%98%B2%E5%BE%A1/</id>
+    <published>2019-12-18T07:28:45.000Z</published>
+    <updated>2019-12-18T09:51:21.743Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="XSRF-又名-CSRF，它是前端常见的一种攻击方式，"><a href="#XSRF-又名-CSRF，它是前端常见的一种攻击方式，" class="headerlink" title="XSRF 又名 CSRF，它是前端常见的一种攻击方式，"></a>XSRF 又名 CSRF，它是前端常见的一种攻击方式，</h3><blockquote><p>CSRF 的防御手段有很多，比如验证请求的 referer，但是 referer 也是可以伪造的，所以杜绝此类攻击的一种方式是服务器端要求每次请求都包含一个 token，这个 token 不在前端生成，而是在我们每次访问站点的时候生成，并通过 set-cookie 的方式种到客户端，然后客户端发送请求的时候，从 cookie 中对应的字段读取出 token，然后添加到请求 headers 中。这样服务端就可以从请求 headers 中读取这个 token 并验证，由于这个 token 是很难伪造的，所以就能区分这个请求是否是用户正常发起的。</p></blockquote><p><img src="https://i.loli.net/2019/12/18/vnpR7tbIwyJAkS4.png" alt="xsrf.png" loading="lazy"></p><h3 id="axios-会默认做三件事情"><a href="#axios-会默认做三件事情" class="headerlink" title="axios 会默认做三件事情"></a>axios 会默认做三件事情</h3><ul><li><p>首先判断如果是配置 withCredentials 为 true 或者是同域请求，我们才会请求 headers 添加 xsrf 相关的字段。</p></li><li><p>如果判断成功，尝试从 cookie 中读取 xsrf 的 token 值。</p></li><li><p>如果能读到，则把它添加到请求 headers 的 xsrf 相关字段中。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;XSRF-又名-CSRF，它是前端常见的一种攻击方式，&quot;&gt;&lt;a href=&quot;#XSRF-又名-CSRF，它是前端常见的一种攻击方式，&quot; class=&quot;headerlink&quot; title=&quot;XSRF 又名 CSRF，它是前端常见的一种攻击方式，&quot;&gt;&lt;/a&gt;XSRF </summary>
+      
+    
+    
+    
+    <category term="web 安全" scheme="https://sgw.wiki/categories/web-%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="HTTP" scheme="https://sgw.wiki/tags/HTTP/"/>
     
   </entry>
   

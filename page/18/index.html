@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">117</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -296,179 +296,6 @@
       
 
       
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/05/19/TS%E5%AE%89%E8%A3%85%E4%B8%8E%E8%B0%83%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="Theme NexT">
-      <meta itemprop="description" content="Stay Simple. Stay NexT.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/19/TS%E5%AE%89%E8%A3%85%E4%B8%8E%E8%B0%83%E8%AF%95/" class="post-title-link" itemprop="url">TS安装与调试</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-05-19 23:57:53" itemprop="dateCreated datePublished" datetime="2019-05-19T23:57:53+08:00">2019-05-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install typescript -g</span><br><span class="line">npm install ts-node -g</span><br></pre></td></tr></table></figure>
-
-<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir .vscode</span><br><span class="line">touch .vscode&#x2F;launch.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;configurations&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;ts-node&quot;,</span><br><span class="line">      &quot;type&quot;: &quot;node&quot;,</span><br><span class="line">      &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">      &quot;program&quot;: &quot;&#x2F;Users&#x2F;shiguangwei&#x2F;.nvm&#x2F;versions&#x2F;node&#x2F;v11.13.0&#x2F;bin&#x2F;ts-node&quot;,</span><br><span class="line">      &quot;args&quot;: [</span><br><span class="line">        &quot;$&#123;relativeFile&#125;&quot;</span><br><span class="line">      ],</span><br><span class="line">      &quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;inspector&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>touch 1.ts, 输入 console.log(&#39;hello joyowo&#39;) 点击调试即可</p>
-<h3 id="查看五分钟入门"><a href="#查看五分钟入门" class="headerlink" title="查看五分钟入门"></a>查看五分钟入门</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHNsYW5nLmNuL2RvY3MvaGFuZGJvb2svdHlwZXNjcmlwdC1pbi01LW1pbnV0ZXMuaHRtbA==">五分钟入门<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="练习一下"><a href="#练习一下" class="headerlink" title="练习一下"></a>练习一下</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum Gender &#123;</span><br><span class="line">  Man,</span><br><span class="line">  Woman</span><br><span class="line">&#125;</span><br><span class="line">interface person &#123;</span><br><span class="line">  age: number,</span><br><span class="line">  gender: Gender</span><br><span class="line">&#125;</span><br><span class="line">function marry(a: person, b: person): [person, person] &#123;</span><br><span class="line">  if(a.gender!&#x3D;&#x3D;b.gender) &#123;</span><br><span class="line">    return [a,b]</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    throw new Error(&#39;不能结婚&#39;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var c &#x3D; marry(&#123;gender: Gender.Man, age: 28&#125;, &#123;gender: Gender.Woman, age: 18&#125;)</span><br><span class="line">console.log(c)</span><br><span class="line"></span><br><span class="line">function sorted(a: number[]):number[] &#123;</span><br><span class="line">  return a.sort((a, b) &#x3D;&gt; b - a)</span><br><span class="line">&#125;</span><br><span class="line">console.log(sorted([1,23,2,42,21]))</span><br><span class="line"></span><br><span class="line">function add(a: string, b: string): string</span><br><span class="line">function add(a: number, b: number): number</span><br><span class="line">function add(a: any, b: any): any &#123;</span><br><span class="line">  return a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(add(1, 2))</span><br><span class="line"></span><br><span class="line">function min(a: number, b: number): number &#123;</span><br><span class="line">  if (a &lt; b) &#123;</span><br><span class="line">    return ;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var c &#x3D; min(1, 2);</span><br><span class="line">console.log(c);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/05/18/BFC-%E5%92%8C-IFC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="Theme NexT">
-      <meta itemprop="description" content="Stay Simple. Stay NexT.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/18/BFC-%E5%92%8C-IFC/" class="post-title-link" itemprop="url">BFC 和 IFC</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-05-18 16:29:35" itemprop="dateCreated datePublished" datetime="2019-05-18T16:29:35+08:00">2019-05-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><blockquote>
-<p>一个bfc包含内部所有元素的内容，除了后代也是bfc的元素</p>
-</blockquote>
-<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ol>
-<li>如果它是 BFC，就会父元素把子元素包起来</li>
-</ol>
-<p><em>这不是清除浮动，这是bfc</em><br>2. 兄弟元素就会划清界限，不会重叠<br><em>float + div 做自适应布局，第一个元素float，第二个bfc，就会两个分开</em></p>
-<h3 id="下面这些会触发-BFC"><a href="#下面这些会触发-BFC" class="headerlink" title="下面这些会触发 BFC"></a>下面这些会触发 BFC</h3><ol>
-<li>根元素</li>
-<li>浮动元素</li>
-<li>定位为 absolute 或者 fixed</li>
-<li>display: inline-block</li>
-<li>display: table-cell</li>
-<li>overflow 不是 visible 的元素</li>
-<li>display: flow-root （css专门用来bfc的）</li>
-</ol>
-<h3 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h3><p>主要有三个点</p>
-<ol>
-<li><p>font-size<br>一个字体会定义一个 em-squre, 他是用来盛放字体的容器，一般是宽高为 100 的相对单位</p>
-</li>
-<li><p>line-height<br>一个内联元素真实字占的高度，字体在其中自己居中就行了</p>
-</li>
-<li><p>vertical-align<br>top middle bottom text-top text-bottom 不同字体是无法对齐的</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -639,6 +466,178 @@
 <h3 id="toast-不是全局的问题"><a href="#toast-不是全局的问题" class="headerlink" title="toast 不是全局的问题"></a>toast 不是全局的问题</h3><p>项目中直接用的 cube-ui 的 toast 组件，虽然文档中所说的是通过 create-api 构造的，这样可以在组件或者 js 文件中，但是在组件中应用的话, 为啥把 append 到组件中呢，尽管我已经把 toast 创建好了 mixin 到了全局，也有可能是我使用方式不对，可能用插件的方式会解决这个问题</p>
 <h3 id="关于项目优化"><a href="#关于项目优化" class="headerlink" title="关于项目优化"></a>关于项目优化</h3><p>项目其实没有怎么优化，通过 chrome 的 audits 好想没看出啥来，项目资源最大的 文件 400 多k， 项目总共大小 1.7M，所有的静态资源都放在同一个域名在<br>项目开启了 ETag: &quot;5cc03a0b-45e9&quot; Cache-Control没有设置 Cache-Control: no-cache</p>
 <p>虽然自己都是可以修改 webapck 中的相关配置，但是默认的配置已经够强大了，基本能满足需求</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">web性能优化（一）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-23 22:03:32" itemprop="dateCreated datePublished" datetime="2019-04-23T22:03:32+08:00">2019-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web-%E6%80%A7%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">web 性能</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><p>chrome 会等 css 全部下载完毕才会渲染，所以 css 有可能阻塞页面，尽量写到前面<br>chrome 可以并行下载 8 个 css，解析只能挨个解析</p>
+<h3 id="DNS-查询"><a href="#DNS-查询" class="headerlink" title="DNS 查询"></a>DNS 查询</h3><p>减少 DNS 查询，比如所有资源放到同一个域名下</p>
+<h3 id="TCP-连接"><a href="#TCP-连接" class="headerlink" title="TCP 连接"></a>TCP 连接</h3><p>TCP 连接复用，<code>connection: keep-alive</code><br>HTTP 2.0 开启多路复用</p>
+<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>减少 cookie （大小）<br>增加 cache-control （去掉请求）<br>增加域名 （同时发送多个请求，比如把静态资源放到 CDN）</p>
+<h3 id="接受响应"><a href="#接受响应" class="headerlink" title="接受响应"></a>接受响应</h3><p>ETag 304 （Etag是file的md5值，if-none-match能匹配就传输的内容很少，很快）<br>Gzip <code>Content-Encoding</code> （开启压缩）</p>
+<h3 id="接受完成"><a href="#接受完成" class="headerlink" title="接受完成"></a>接受完成</h3><p>DOCTYPE 指定<br>HTML 压缩，尽量减少标签<br>js css iamge 压缩合并<br>js 放到 body 最后</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/23/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E7%BB%A7%E6%89%BF%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/23/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E7%BB%A7%E6%89%BF%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">面向对象之继承（一）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-23 21:07:17" itemprop="dateCreated datePublished" datetime="2019-04-23T21:07:17+08:00">2019-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Human(name)&#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">&#125;</span><br><span class="line">Human.prototype.run &#x3D; function()&#123;</span><br><span class="line">    console.log(&quot;我叫&quot;+this.name+&quot;，我在跑&quot;)</span><br><span class="line">    return undefined</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="继承相关概念"><a href="#继承相关概念" class="headerlink" title="继承相关概念"></a>继承相关概念</h4><p>a = new Sub() 就是 a 拥有父类对象的属性，子类继承了父类<br><code>a.toString()</code> 是原型链继承<br>一般就是两次的原型搜索便可以称之为继承</p>
+<h4 id="new-Fn-发生了什么"><a href="#new-Fn-发生了什么" class="headerlink" title="new Fn() 发生了什么"></a>new Fn() 发生了什么</h4><ol>
+<li>产生一个空对象</li>
+<li>this = 空对象</li>
+<li>this.<strong>proto</strong> = 空对象.<strong>proto</strong></li>
+<li>this.<strong>proto</strong> = Fn.prototype</li>
+<li>Fn.call(this, a, b, c)</li>
+<li>返回 this</li>
+</ol>
+<h3 id="继承的实现"><a href="#继承的实现" class="headerlink" title="继承的实现"></a>继承的实现</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Man(name)&#123;</span><br><span class="line">     Human.call(this, name)</span><br><span class="line">     this.gender &#x3D; &#39;男&#39;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个时候只需要指定原型就可以继承</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Man.prototype.__proto__ &#x3D; Human.prototype</span><br></pre></td></tr></table></figure>
+
+<p>其实本来这样就可以的，但是 Human 的属性也会被构造出来放在 Man.proptotype 上，这个时候就需要清空 Human, 就想到了用一个空函数去代替，然后用这个空函数的 prototype 存放 Human 的 prototype<br>而且 IE 不支持，还有显式地指定 <code>__proto__</code> 很耗性能</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var f &#x3D; function()&#123;&#125;</span><br><span class="line">f.prototype &#x3D; Human.prototype</span><br><span class="line">Man.prototype &#x3D; new f() &#x2F;&#x2F; 其实这句就是 Man.prototype.__proto__ &#x3D; Human.prototype</span><br></pre></td></tr></table></figure>
+
+<h4 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Human(name)&#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">&#125;</span><br><span class="line">Human.prototype.run &#x3D; function()&#123;</span><br><span class="line">    console.log(&quot;我叫&quot;+this.name+&quot;，我在跑&quot;)</span><br><span class="line">    return undefined</span><br><span class="line">&#125;</span><br><span class="line">function Man(name)&#123;</span><br><span class="line">    Human.call(this, name)</span><br><span class="line">    this.gender &#x3D; &#39;男&#39;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var f &#x3D; function()&#123;&#125;</span><br><span class="line">f.prototype &#x3D; Human.prototype</span><br><span class="line">Man.prototype &#x3D; new f()</span><br><span class="line"></span><br><span class="line">Man.prototype.fight &#x3D; function()&#123;</span><br><span class="line">    console.log(&#39;糊你熊脸&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Human &#123;</span><br><span class="line">  constructor(name) &#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">  &#125;,</span><br><span class="line">  run() &#123;</span><br><span class="line">    console.log(&quot;我叫&quot;+this.name+&quot;，我在跑&quot;)</span><br><span class="line">    return undefined</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Man extends Human &#123;</span><br><span class="line">  constructor(name) &#123;</span><br><span class="line">    super(name) &#x2F;&#x2F; 等价于 Human.call(this, name)</span><br><span class="line">    this.gender &#x3D; &#39;man&#39;</span><br><span class="line">  &#125;,</span><br><span class="line">  fight()&#123;</span><br><span class="line">    console.log(&#39;糊你熊脸&#39;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而且 class 也是函数 -_-<br>其实 class 就是 prototype 的语法糖，第一种好理解，第二种更直观，代码清晰</p>
 
       
     </div>

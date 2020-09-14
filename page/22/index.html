@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">117</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -296,175 +296,6 @@
       
 
       
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/09/jquery%E9%87%8D%E6%B8%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="Theme NexT">
-      <meta itemprop="description" content="Stay Simple. Stay NexT.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/09/jquery%E9%87%8D%E6%B8%A9/" class="post-title-link" itemprop="url">jquery重温</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-03-09 01:46:38" itemprop="dateCreated datePublished" datetime="2019-03-09T01:46:38+08:00">2019-03-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>命名空间是一种设计模式</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var dom &#x3D; &#123;&#125;</span><br><span class="line">dom.getSiblings(node)</span><br><span class="line">dom.addClass(node, &#123;a: true, b: false&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><p>利用原型就可以使得实例化的对象都具有原型的方法<br>代码就可以写成</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node.getSiblings()</span><br><span class="line">node.addClass(&#123;a: true, b: false&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="无侵入"><a href="#无侵入" class="headerlink" title="无侵入"></a>无侵入</h3><p>如果大家都修改原型就会有互相覆盖的风险<br>可以用无侵入的模式封装一个对象用来操作传入的元素</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function jquery(node) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    element: node,</span><br><span class="line">    getSiblings: function()&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    addClass: function()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let node &#x3D; document.getElementById(&#39;x&#39;)</span><br><span class="line">let node2 &#x3D; jquery(node)</span><br><span class="line">node2.siblings()</span><br><span class="line">node2.addClass()</span><br></pre></td></tr></table></figure>
-<p><em>当然真实的 jquery 不是这样的</em></p>
-<h3 id="测试无侵入"><a href="#测试无侵入" class="headerlink" title="测试无侵入"></a>测试无侵入</h3><p>传入一个 dom 或者选择器，应用生成的对象操作对应的 api</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">window.jQuery &#x3D; function(param) &#123;</span><br><span class="line">  var nodes &#x3D; &#123;&#125;</span><br><span class="line">  if (typeof param &#x3D;&#x3D;&#x3D; &#39;string&#39;) &#123;</span><br><span class="line">    nodes &#x3D; document.querySelectorAll(param)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    nodes &#x3D; &#123;</span><br><span class="line">      0: param,</span><br><span class="line">      length: 1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  nodes.addClass &#x3D; function(classes) &#123;</span><br><span class="line">    for(var i&#x3D;0;i&lt;nodes.length;i++) &#123;</span><br><span class="line">      nodes[i].classList.add(classes)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  nodes.setText &#x3D; function(text) &#123;</span><br><span class="line">    for (var i &#x3D; 0; i &lt; nodes.length; i++) &#123;</span><br><span class="line">      nodes[i].textContent &#x3D; text</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return nodes</span><br><span class="line">&#125;</span><br><span class="line">window.$ &#x3D; jQuery</span><br><span class="line">var $div &#x3D; $(&#39;div&#39;)</span><br><span class="line">$div.addClass(&#39;red&#39;) &#x2F;&#x2F; 可将所有 div 的 class 添加一个 red</span><br><span class="line">$div.setText(&#39;hi&#39;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/03/jsDOM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="Theme NexT">
-      <meta itemprop="description" content="Stay Simple. Stay NexT.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/03/jsDOM/" class="post-title-link" itemprop="url">jsDOM</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-03-03 22:42:15" itemprop="dateCreated datePublished" datetime="2019-03-03T22:42:15+08:00">2019-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>数据结构就是树<br>在 DOM 树中，树上有节点（Node）<br>Node 主要有 Document Element text 等<br>DOM 树抽象为对象主要有三个构造函数 Document Element Text，他们都继承自 Node.prototype<br><img src="https://i.loli.net/2019/03/03/5c7bf21547e43.jpg" alt="1551626734126.jpg" loading="lazy"></p>
-<p>上图就是 DOM 的大致原型链的关系<br>与此同时 Node 提供了一系列 API 用来操作 DOM</p>
-<h3 id="Node-接口"><a href="#Node-接口" class="headerlink" title="Node 接口"></a>Node 接口</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">属性：</span><br><span class="line">childNodes &#x2F;&#x2F; 返回 NodeList 继承自 Object</span><br><span class="line">children &#x2F;&#x2F; 返回 HTMLCollection 继承自 Object</span><br><span class="line">firstChild</span><br><span class="line">innerText</span><br><span class="line">lastChild</span><br><span class="line">nextSibiling</span><br><span class="line">nodeName</span><br><span class="line">nodeType</span><br><span class="line">nodeValue</span><br><span class="line">outerText</span><br><span class="line">ownerDocument</span><br><span class="line">parentElement</span><br><span class="line">parentNode</span><br><span class="line">previousSibiling</span><br><span class="line">textContent</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法</span><br><span class="line">appendChild()</span><br><span class="line">cloneNode() &#x2F;&#x2F; 参数为 true 就是深拷贝，否则为浅拷贝</span><br><span class="line">contains()</span><br><span class="line">hasChildNodes()</span><br><span class="line">insertBefore()</span><br><span class="line">insertAfter()</span><br><span class="line">isEqualNode() &#x2F;&#x2F; dom 一致</span><br><span class="line">isSameNode() &#x2F;&#x2F; 同一个 dom</span><br><span class="line">removeChild()</span><br><span class="line">replaceChild()</span><br><span class="line">normalize() &#x2F;&#x2F; 合并文本节点</span><br></pre></td></tr></table></figure>
-
-<h3 id="Document-接口"><a href="#Document-接口" class="headerlink" title="Document 接口"></a>Document 接口</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">属性</span><br><span class="line">body</span><br><span class="line">characterSet</span><br><span class="line">childElementCount</span><br><span class="line">children</span><br><span class="line">doctype</span><br><span class="line">domain</span><br><span class="line">fullscreen</span><br><span class="line">head</span><br><span class="line">images</span><br><span class="line">links</span><br><span class="line">location</span><br><span class="line">referrer</span><br><span class="line">scripts</span><br><span class="line">scrollingElement</span><br><span class="line">title</span><br><span class="line">documentElement</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法</span><br><span class="line">createDocumentFragment()</span><br><span class="line">createElement()</span><br><span class="line">createTextNode()</span><br><span class="line">execCommand()</span><br><span class="line">exitFullscreen()</span><br><span class="line">getElementById()</span><br><span class="line">getElementsByClassName()</span><br><span class="line">getElementsByName()</span><br><span class="line">getElementsByTagName()</span><br><span class="line">getSelection()</span><br><span class="line">hasFocus()</span><br><span class="line">open()</span><br><span class="line">close()</span><br><span class="line">querySelector()</span><br><span class="line">querySelectorAll()</span><br><span class="line">registerElement()</span><br><span class="line">write()</span><br><span class="line">writeln()</span><br></pre></td></tr></table></figure>
-
-<h3 id="Element-接口"><a href="#Element-接口" class="headerlink" title="Element 接口"></a>Element 接口</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">offsetWidth</span><br><span class="line">offsetHeight</span><br><span class="line">clientLeft</span><br><span class="line">clientTop</span><br><span class="line">scrollHeight</span><br><span class="line">scrollTop</span><br><span class="line">getBoundingClientRect().left</span><br></pre></td></tr></table></figure>
-
-<h3 id="NodeList-和-HTMLCollection"><a href="#NodeList-和-HTMLCollection" class="headerlink" title="NodeList 和 HTMLCollection"></a>NodeList 和 HTMLCollection</h3><ul>
-<li>上述的 api 有的返回是 NodeList 实例，有的返回 collection 实例，这两者是有区别的</li>
-</ul>
-<p>HTMLCollection 实例对象的成员只能是 Element 节点，NodeList 实例对象的成员可以包含其他节点。<br>HTMLCollection 实例对象可以用 id 属性或 name 属性引用节点元素，NodeList 只能使用数字索引引用。<br>HTMLCollection 实例对象是静态的 NodeList 是动态的。(x) 两者都是动态的 -_-</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -611,6 +442,168 @@
 <h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>返回对象的函数就是构造函数</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Ex() &#123;</span><br><span class="line">  this.name &#x3D; &#39;ex&#39;</span><br><span class="line">  return this</span><br><span class="line">&#125;</span><br><span class="line">var ex &#x3D; new Ex()</span><br><span class="line">&#x2F;&#x2F; 加 return this 就可以写成 Ex.call(&#123;&#125;) </span><br></pre></td></tr></table></figure>
 
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/02/15/js%E6%A0%87%E5%87%86%E5%BA%93Object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/15/js%E6%A0%87%E5%87%86%E5%BA%93Object/" class="post-title-link" itemprop="url">js标准库Object</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-15 13:13:27" itemprop="dateCreated datePublished" datetime="2019-02-15T13:13:27+08:00">2019-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><h4 id="Object-1"><a href="#Object-1" class="headerlink" title="Object()"></a>Object()</h4><p>本身是一个方法，用来将任意值转换为对象</p>
+<h4 id="new-Object"><a href="#new-Object" class="headerlink" title="new Object()"></a>new Object()</h4><p>根据传入的参数，生成一个新对象，和 Object 用法相似，都是对象就本身，原始类型就生成包装对象<br>但是语义是不同的，Object(value) 是把 value 转成一个对象，new Object(value) 生成一个对象，它的值是 value</p>
+<h4 id="Object-静态方法"><a href="#Object-静态方法" class="headerlink" title="Object 静态方法"></a>Object 静态方法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Object.keys() </span><br><span class="line">Object.getOwnPropertyNames() 可返回不可枚举的属性</span><br><span class="line">Object.getOwnPropertyDescriptor() 获取某个属性的描述对象</span><br><span class="line">Object.defineProperty()</span><br><span class="line">Object.defineProperties()</span><br><span class="line">Object.getPrototypeOf()</span><br><span class="line">Object.create()</span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-实例方法"><a href="#Object-实例方法" class="headerlink" title="Object 实例方法"></a>Object 实例方法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Object.prototype.valueOf()</span><br><span class="line">Object.prototype.toString()  &#x2F;&#x2F; 返回类型字符串</span><br><span class="line">Object.prototype.toLocaleString()</span><br><span class="line">Object.prototype.hasOwnProperty()</span><br><span class="line">Object.prototype.isPrototypeOf()</span><br><span class="line">Object.prototype.propertyIsEnnumerable() &#x2F;&#x2F; 属性是否可枚举</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/02/14/this%E5%85%B3%E9%94%AE%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/14/this%E5%85%B3%E9%94%AE%E5%AD%97/" class="post-title-link" itemprop="url">this关键字</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-14 17:28:47" itemprop="dateCreated datePublished" datetime="2019-02-14T17:28:47+08:00">2019-02-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h3><p>总是返回一个对象，表示当前属性和方法所在的对象</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
+<li>全局使用，this 就是代表顶层对象 window</li>
+<li>构造函数中使用就代表是实例对象</li>
+<li>对象的方法就是指这个对象</li>
+</ul>
+<p><strong>如果this所在的方法不在对象的第一层，这时this只是指向当前一层的对象，而不会继承更上面的层。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; &#123;</span><br><span class="line">  p: &#39;Hello&#39;,</span><br><span class="line">  b: &#123;</span><br><span class="line">    m: function() &#123;</span><br><span class="line">      console.log(this.p);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a.b.m() &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h3><h4 id="避免多层-this"><a href="#避免多层-this" class="headerlink" title="避免多层 this"></a>避免多层 this</h4><p>解决方法就是保存this对象</p>
+<h4 id="避免数组处理方法中的-this"><a href="#避免数组处理方法中的-this" class="headerlink" title="避免数组处理方法中的 this"></a>避免数组处理方法中的 this</h4><p>比如 map 和 forEach 方法<br>解决方法就是 js 提供了第二个参数可以用来绑定 this</p>
+<h4 id="避免回调函数中的-this"><a href="#避免回调函数中的-this" class="headerlink" title="避免回调函数中的 this"></a>避免回调函数中的 this</h4><h3 id="绑定-this-的方法"><a href="#绑定-this-的方法" class="headerlink" title="绑定 this 的方法"></a>绑定 this 的方法</h3><p>Function.prototype.call(obj, param)<br>如果传入的对象是空 null undefined, 则默认传入全局对象</p>
+<p>Function.prototype.apply()<br>几个应用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [10, 2, 4, 15, 9];  &#x2F;&#x2F; 求数组最大值</span><br><span class="line">Math.max.apply(null, a) &#x2F;&#x2F; 15</span><br><span class="line"></span><br><span class="line">Array.apply(null, [&#39;a&#39;, ,&#39;b&#39;]) &#x2F;&#x2F; 空位置格式化为 undefined</span><br><span class="line"></span><br><span class="line">Array.prototype.slice.apply(&#123;0: 1, length: 1&#125;) &#x2F;&#x2F; 转换类数组对象</span><br></pre></td></tr></table></figure>
+
+<p>Function.prototype.bind()<br>每一次返回一个函数</p>
 
       
     </div>
