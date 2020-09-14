@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="G,TS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据类型js 七种数据类型 + 枚举 + any + void + never默认情况下 null 和 undefined 是所有类型的子类型，就是说你可以把 null 赋值给 string 类型的变量 写法123456789101112131415161718192021222324let a: null = nulllet b: undefined = undefinedlet c: bool">
+<meta name="keywords" content="G,TS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TS接口">
+<meta property="og:url" content="https://sgw.wiki/2019/06/11/TS接口/index.html">
+<meta property="og:site_name" content="一个没有情趣和色彩的人">
+<meta property="og:description" content="数据类型js 七种数据类型 + 枚举 + any + void + never默认情况下 null 和 undefined 是所有类型的子类型，就是说你可以把 null 赋值给 string 类型的变量 写法123456789101112131415161718192021222324let a: null = nulllet b: undefined = undefinedlet c: bool">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-18T09:52:41.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TS接口">
+<meta name="twitter:description" content="数据类型js 七种数据类型 + 枚举 + any + void + never默认情况下 null 和 undefined 是所有类型的子类型，就是说你可以把 null 赋值给 string 类型的变量 写法123456789101112131415161718192021222324let a: null = nulllet b: undefined = undefinedlet c: bool">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sgw.wiki/2019/06/11/TS接口/">
+
+
+
+
+
+  <title>TS接口 | 一个没有情趣和色彩的人</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个没有情趣和色彩的人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">正经点 少说话</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/06/11/TS接口/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iiicon">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个没有情趣和色彩的人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TS接口</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-11T23:35:27+08:00">
+                2019-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TS/" itemprop="url" rel="index">
+                    <span itemprop="name">TS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>js 七种数据类型 + 枚举 + any + void + never<br>默认情况下 null 和 undefined 是所有类型的子类型，就是说你可以把 null 赋值给 string 类型的变量</p>
+<h3 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">let a: null = null</span><br><span class="line">let b: undefined = undefined</span><br><span class="line"></span><br><span class="line">let c: boolean = true</span><br><span class="line">let d: number = 1.23</span><br><span class="line"></span><br><span class="line">let o: object = &#123;&#125;</span><br><span class="line">let s: symbol = Symbol()</span><br><span class="line"></span><br><span class="line">let e: number = 1</span><br><span class="line">// e = &apos;string&apos;</span><br><span class="line">let e1: any = 1</span><br><span class="line">e1 = &apos;string&apos;</span><br><span class="line"></span><br><span class="line">// let gender = &apos;man&apos;</span><br><span class="line">enum Gender &#123;</span><br><span class="line">  Man = &apos;m&apos;,</span><br><span class="line">  Woman = &apos;w&apos;</span><br><span class="line">&#125;</span><br><span class="line">let gender: Gender = Gender.Man</span><br><span class="line"></span><br><span class="line">function print(x): void &#123;</span><br><span class="line">  console.log(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;string&gt;someValue</span><br><span class="line">someValue as string</span><br></pre></td></tr></table></figure>
+<p>当你在 TypeScript 里使用 JSX 时，只有 as 语法断言是被允许的</p>
+<h3 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 类型转换</span><br><span class="line">let a: number = 1</span><br><span class="line">let b: string = a.toString()</span><br><span class="line"></span><br><span class="line">let c: string = &apos;1.2&apos;</span><br><span class="line">let d: number = parseFloat(c)</span><br><span class="line"></span><br><span class="line">let e: string = &apos;false&apos;</span><br><span class="line">let f: boolean = Boolean(e)</span><br><span class="line"></span><br><span class="line">if (e === undefined) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let o:object = &#123;name: &apos;xxx&apos;&#125;</span><br><span class="line">let s: string = JSON.stringify(o)</span><br></pre></td></tr></table></figure>
+<h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><p>用 let 和 const<br>注意如果 const 声明的是对象，是地址不能变，不是对象不能变</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>接口就是用代码描述一个对象必须有什么属性（包括方法），但是有没有其他属性就不管了</p>
+<h3 id="声明对象"><a href="#声明对象" class="headerlink" title="声明对象"></a>声明对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">interface Human &#123;</span><br><span class="line">  name: string</span><br><span class="line">  // readonly name: string</span><br><span class="line">  age: number</span><br><span class="line">  shape: Shape</span><br><span class="line">  likeGame?: Array&lt;string&gt;</span><br><span class="line">  say(word: string): void</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只读属性 readonly，用作声明属性，const 用作声明变量</li>
+<li>可选属性 加？</li>
+<li>属性是函数 say(word: string): void</li>
+</ul>
+<h3 id="传入了-interface-之外的属性-？"><a href="#传入了-interface-之外的属性-？" class="headerlink" title="传入了 interface 之外的属性 ？"></a>传入了 interface 之外的属性 ？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">interface SquareConfig &#123;</span><br><span class="line">    color?: string;</span><br><span class="line">    width?: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function createSquare(config: SquareConfig): void &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let mySquare = createSquare(&#123; colour: &quot;red&quot;, width: 100 &#125;);</span><br></pre></td></tr></table></figure>
+<p>想要传入 Interface 之外的属性，可以：</p>
+<ol>
+<li>使用类型断言</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let mySquare = createSquare(&#123; width: 100, opacity: 0.5 &#125; as SquareConfig);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用索引签名</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">interface SquareConfig &#123;</span><br><span class="line">    color?: string;</span><br><span class="line">    width?: number;</span><br><span class="line">    [propName: string]: any;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="interface-对象，这个对象是一个函数"><a href="#interface-对象，这个对象是一个函数" class="headerlink" title="interface 对象，这个对象是一个函数"></a>interface 对象，这个对象是一个函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">interface Add &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let add: Add = function(a, b) &#123;</span><br><span class="line">  return a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="这个函数的属性也是函数"><a href="#这个函数的属性也是函数" class="headerlink" title="这个函数的属性也是函数"></a>这个函数的属性也是函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">第一种</span><br><span class="line">interface Add &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">  // minus(c: number, d: number): number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let add: Add = ((): Add =&gt; &#123;</span><br><span class="line">  let x:any = function(a, b) &#123;</span><br><span class="line">    return a + b</span><br><span class="line">  &#125;</span><br><span class="line">  x.minus = function(c: number, d: number): number &#123;</span><br><span class="line">    return c - d</span><br><span class="line">  &#125;</span><br><span class="line">  return x</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第二种</span><br><span class="line">class Adds &#123;</span><br><span class="line">   minus(c: number, d: number): number</span><br><span class="line">&#125;</span><br><span class="line">interface Add extends Adds &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="interface-的对象是一个数组"><a href="#interface-的对象是一个数组" class="headerlink" title="interface 的对象是一个数组"></a>interface 的对象是一个数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">interface StringArray &#123;</span><br><span class="line">  [index: number]: string;</span><br><span class="line">&#125;</span><br><span class="line">let myArray: StringArray;</span><br><span class="line">myArray = [&quot;Bob&quot;, &quot;Fred&quot;];</span><br><span class="line"></span><br><span class="line">let myStr: string = myArray[0];</span><br></pre></td></tr></table></figure>
+<h3 id="interface-可以继承"><a href="#interface-可以继承" class="headerlink" title="interface 可以继承"></a>interface 可以继承</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">interface Shape &#123;</span><br><span class="line">  color: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Square extends Shape &#123;</span><br><span class="line">  sideLength: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let square = &lt;Square&gt;&#123;&#125;;</span><br><span class="line">square.color = &quot;blue&quot;;</span><br><span class="line">square.sideLength = 10;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/G/" rel="tag"># G</a>
+          
+            <a href="/tags/TS/" rel="tag"># TS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/23/nuxt-开发官网/" rel="next" title="nuxt 开发官网">
+                <i class="fa fa-chevron-left"></i> nuxt 开发官网
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/23/TS类/" rel="prev" title="TS类">
+                TS类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="iiicon">
+            
+              <p class="site-author-name" itemprop="name">iiicon</p>
+              <p class="site-description motion-element" itemprop="description">coding note and life perception 代码笔记和生活感悟</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写法"><span class="nav-number">2.</span> <span class="nav-text">写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型断言"><span class="nav-number">3.</span> <span class="nav-text">类型断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转化"><span class="nav-number">4.</span> <span class="nav-text">类型转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明"><span class="nav-number">5.</span> <span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">6.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明对象"><span class="nav-number">7.</span> <span class="nav-text">声明对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传入了-interface-之外的属性-？"><span class="nav-number">8.</span> <span class="nav-text">传入了 interface 之外的属性 ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interface-对象，这个对象是一个函数"><span class="nav-number">9.</span> <span class="nav-text">interface 对象，这个对象是一个函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这个函数的属性也是函数"><span class="nav-number">10.</span> <span class="nav-text">这个函数的属性也是函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interface-的对象是一个数组"><span class="nav-number">11.</span> <span class="nav-text">interface 的对象是一个数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interface-可以继承"><span class="nav-number">12.</span> <span class="nav-text">interface 可以继承</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iiicon</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

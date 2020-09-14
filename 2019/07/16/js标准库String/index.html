@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js,标准库,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="静态方法fromCharCode如果参数为空，就返回’’,否则就返回 Unicode 对应的字符串 实例方法charAt返回指定位置的字符，大于长度或者负数都返回空字符串 charCodeAt返回指定位置的 unicode，大于或者负数都返回 NaN concat返回一个新字符串，不改变原字符串, 都是字符串连接不是的话要改成字符串 slice返回一个字字符串，不改变原字符串，没有的话也是返回’’">
+<meta name="keywords" content="js,标准库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js标准库String">
+<meta property="og:url" content="https://sgw.wiki/2019/07/16/js标准库String/index.html">
+<meta property="og:site_name" content="一个没有情趣和色彩的人">
+<meta property="og:description" content="静态方法fromCharCode如果参数为空，就返回’’,否则就返回 Unicode 对应的字符串 实例方法charAt返回指定位置的字符，大于长度或者负数都返回空字符串 charCodeAt返回指定位置的 unicode，大于或者负数都返回 NaN concat返回一个新字符串，不改变原字符串, 都是字符串连接不是的话要改成字符串 slice返回一个字字符串，不改变原字符串，没有的话也是返回’’">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-24T05:31:46.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js标准库String">
+<meta name="twitter:description" content="静态方法fromCharCode如果参数为空，就返回’’,否则就返回 Unicode 对应的字符串 实例方法charAt返回指定位置的字符，大于长度或者负数都返回空字符串 charCodeAt返回指定位置的 unicode，大于或者负数都返回 NaN concat返回一个新字符串，不改变原字符串, 都是字符串连接不是的话要改成字符串 slice返回一个字字符串，不改变原字符串，没有的话也是返回’’">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sgw.wiki/2019/07/16/js标准库String/">
+
+
+
+
+
+  <title>js标准库String | 一个没有情趣和色彩的人</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个没有情趣和色彩的人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">正经点 少说话</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/16/js标准库String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iiicon">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个没有情趣和色彩的人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js标准库String</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T15:16:41+08:00">
+                2019-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><h4 id="fromCharCode"><a href="#fromCharCode" class="headerlink" title="fromCharCode"></a>fromCharCode</h4><p>如果参数为空，就返回’’,否则就返回 Unicode 对应的字符串</p>
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><h4 id="charAt"><a href="#charAt" class="headerlink" title="charAt"></a>charAt</h4><p>返回指定位置的字符，大于长度或者负数都返回空字符串</p>
+<h4 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title="charCodeAt"></a>charCodeAt</h4><p>返回指定位置的 unicode，大于或者负数都返回 NaN</p>
+<h4 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h4><p>返回一个新字符串，不改变原字符串, 都是字符串连接不是的话要改成字符串</p>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><p>返回一个字字符串，不改变原字符串，没有的话也是返回’’</p>
+<h4 id="substring"><a href="#substring" class="headerlink" title="substring"></a>substring</h4><p>substring(9, -3) 会把-3 变成 0，然后变成(0, 9)，违反直觉，所以不建议使用，依然返回新字符串，不改变原字符串</p>
+<h4 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h4><p>和 slice 的区别是第二个参数是要截取的长度，返回一个新的字符串，且不会改动原字符串。</p>
+<h4 id="indexOf-lastIndexOf"><a href="#indexOf-lastIndexOf" class="headerlink" title="indexOf lastIndexOf"></a>indexOf lastIndexOf</h4><p>indexOf(‘o’, 6) 6 是开始的位置, 返回一个字符串在另一个字符串中出现的位置</p>
+<h4 id="trim"><a href="#trim" class="headerlink" title="trim"></a>trim</h4><p>去除两端的 \s \t \v \n \r，返回新字符串，不改变原字符串</p>
+<h4 id="toLowerCase-toUpperCase"><a href="#toLowerCase-toUpperCase" class="headerlink" title="toLowerCase toUpperCase"></a>toLowerCase toUpperCase</h4><p>改变大小写，不改变原来字符串的大小</p>
+<h4 id="match"><a href="#match" class="headerlink" title="match"></a>match</h4><p>找到了返回数组，找不到返回 null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;cat, bat, sat, fat&apos;.match(&apos;at&apos;) // [&quot;at&quot;]</span><br><span class="line">&apos;cat, bat, sat, fat&apos;.match(&apos;xt&apos;) // null</span><br></pre></td></tr></table></figure>
+<h4 id="search"><a href="#search" class="headerlink" title="search"></a>search</h4><p>和 match 基本一致，不同得是返回开始的位置</p>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p>基本是替换第一个，除非是正则表达式加上了 g</p>
+<h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p>返回一个按照指定分隔符分成的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&apos;a|b|c&apos;.split(&apos;|&apos;) // [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</span><br><span class="line">&apos;a|b|c&apos;.split(&apos;&apos;) // [&apos;a&apos;, &apos;|&apos;, &apos;b&apos;, &apos;|&apos;, &apos;c&apos;]</span><br><span class="line">&apos;a|b|c&apos;.split() // [&apos;a|b|c&apos;]</span><br><span class="line">&apos;|b|c&apos;.split(&apos;|&apos;) // [&apos;&apos;, &apos;b&apos;, &apos;c&apos;]</span><br><span class="line">&apos;a|b|c&apos;.split(&apos;|&apos;, 2) // [&apos;a&apos;, &apos;b&apos;]</span><br><span class="line">&apos;a|b|c&apos;.split(&apos;|&apos;, 4) // [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
+<h4 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h4><p>构造并返回一个新字符串，该字符串包含被连接在一起的指定数量的字符串的副本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;abc&quot;.repeat(0)      // &quot;&quot;</span><br><span class="line">&quot;abc&quot;.repeat(1)      // &quot;abc&quot;</span><br><span class="line">&quot;abc&quot;.repeat(2)      // &quot;abcabc&quot;</span><br><span class="line">&quot;abc&quot;.repeat(3.5)    // &quot;abcabcabc&quot; 参数count将会被自动转换成整数.</span><br></pre></td></tr></table></figure>
+<h4 id="localeCompare"><a href="#localeCompare" class="headerlink" title="localeCompare"></a>localeCompare</h4><p>比较两个字符的长度，转成 unicode 判断</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/标准库/" rel="tag"># 标准库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/16/a-story/" rel="next" title="【转】因为故事，你才是与众不同的你 | 心理咨询实录">
+                <i class="fa fa-chevron-left"></i> 【转】因为故事，你才是与众不同的你 | 心理咨询实录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/16/js标准库Date/" rel="prev" title="js标准库Date">
+                js标准库Date <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="iiicon">
+            
+              <p class="site-author-name" itemprop="name">iiicon</p>
+              <p class="site-description motion-element" itemprop="description">coding note and life perception 代码笔记和生活感悟</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法"><span class="nav-number">1.</span> <span class="nav-text">静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fromCharCode"><span class="nav-number">1.1.</span> <span class="nav-text">fromCharCode</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法"><span class="nav-number">2.</span> <span class="nav-text">实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#charAt"><span class="nav-number">2.1.</span> <span class="nav-text">charAt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#charCodeAt"><span class="nav-number">2.2.</span> <span class="nav-text">charCodeAt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concat"><span class="nav-number">2.3.</span> <span class="nav-text">concat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slice"><span class="nav-number">2.4.</span> <span class="nav-text">slice</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#substring"><span class="nav-number">2.5.</span> <span class="nav-text">substring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#substr"><span class="nav-number">2.6.</span> <span class="nav-text">substr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#indexOf-lastIndexOf"><span class="nav-number">2.7.</span> <span class="nav-text">indexOf lastIndexOf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#trim"><span class="nav-number">2.8.</span> <span class="nav-text">trim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toLowerCase-toUpperCase"><span class="nav-number">2.9.</span> <span class="nav-text">toLowerCase toUpperCase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#match"><span class="nav-number">2.10.</span> <span class="nav-text">match</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#search"><span class="nav-number">2.11.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#replace"><span class="nav-number">2.12.</span> <span class="nav-text">replace</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split"><span class="nav-number">2.13.</span> <span class="nav-text">split</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#repeat"><span class="nav-number">2.14.</span> <span class="nav-text">repeat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#localeCompare"><span class="nav-number">2.15.</span> <span class="nav-text">localeCompare</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iiicon</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
