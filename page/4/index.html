@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">117</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">49</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">50</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,215 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/04/06/require%E5%92%8Cimport/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/06/require%E5%92%8Cimport/" class="post-title-link" itemprop="url">require和import</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-04-06 10:44:42" itemprop="dateCreated datePublished" datetime="2020-04-06T10:44:42+08:00">2020-04-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="require"><a href="#require" class="headerlink" title="require"></a>require</h2><p>特点：</p>
+<ul>
+<li>运行时加载</li>
+<li>拷贝到本页面</li>
+<li>全部引入</li>
+</ul>
+<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>Node.js 就是 CommonJS 思想，在 CommonJS 中有一个全局性方法 require() 用于加载模块</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">&#x27;math&#x27;</span>)</span><br><span class="line">math.add(<span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p>模块写法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">模块写法分<span class="built_in">exports</span>和<span class="built_in">module</span>.exports。</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.add = <span class="function">(<span class="params">x,y</span>) =&gt;</span> x+y;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">math</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(x,y) &#123;</span><br><span class="line">    <span class="built_in">this</span>.x = x;</span><br><span class="line">    <span class="built_in">this</span>.y = y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  add() &#123;</span><br><span class="line">    <span class="keyword">return</span>  x+y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;<span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### AMD</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">require.js cujo.js 就是 AMD 思想</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="built_in">require</span>([<span class="string">&#x27;math&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params">math</span>) </span>&#123;</span><br><span class="line">  math.add(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>模块写法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">define(id?, dependencies?, factory)</span><br><span class="line"></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>) </span>&#123; <span class="keyword">return</span> x + y &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123; add &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>sea.js 就是 CMD 思想，类似于 require.js 但 seajs 是依赖就近，延迟执行，requirejs 是依赖前置，提前执行</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">  alias: &#123;</span><br><span class="line">    jquery: <span class="string">&#x27;http://modules.seajs.org/jquery/3/jquery.js&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">seajs.use([<span class="string">&#x27;./hello&#x27;</span>, <span class="string">&#x27;jquery&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params">hello, $</span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;#beautiful-sea&#x27;</span>).click(hello.sayHello)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>模块写法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">&#x27;jquery&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">exports</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">&#x27;#hello&#x27;</span>).toggle(<span class="string">&#x27;slow&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">  b.doSomething() <span class="comment">// 依赖就近，延迟执行</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><p>特点：</p>
+<ul>
+<li>编译时加载</li>
+<li>只引用定义</li>
+<li>按需加载</li>
+</ul>
+<p><strong>对比发现 import 完胜 require，推荐用 import 取代 require</strong></p>
+<p>有两种用法 import 某块 和 import()</p>
+<p>import() 返回一个 promise 对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">if</span> (x === <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="keyword">import</span> MyModual <span class="keyword">from</span> <span class="string">&#x27;./myModual&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">所以引入了动态<span class="keyword">import</span></span><br><span class="line"><span class="keyword">if</span> (x === <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;myModual&#x27;</span>).then(<span class="function"><span class="params">MyModual</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">new</span> MyModual()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/04/03/relayout%E5%92%8Crepaint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/relayout%E5%92%8Crepaint/" class="post-title-link" itemprop="url">relayout和repaint</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-04-03 17:34:43" itemprop="dateCreated datePublished" datetime="2020-04-03T17:34:43+08:00">2020-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="浏览器和渲染树"><a href="#浏览器和渲染树" class="headerlink" title="浏览器和渲染树"></a>浏览器和渲染树</h2><p>在页面的生命周期中，一些效果的交互都有可能发生重排（Layout）和重绘（Painting），这些都会使我们付出高额的性能代价。 浏览器从下载文件至本地到显示页面是个复杂的过程，这里包含了重绘和重排。通常来说，渲染引擎会解析 HTML 文档来构建 DOM 树，与此同时，渲染引擎也会用 CSS 解析器解析 CSS 文档构建 CSSOM 树。接下来，DOM 树和 CSSOM 树关联起来构成渲染树（RenderTree），这一过程称为 Attachment。然后浏览器按照渲染树进行布局（Layout），最后一步通过绘制显示出整个页面。</p>
+<p><img src="https://i.loli.net/2020/04/03/AjnOINYaRJsrzdi.png" alt="20200403173804.png" loading="lazy"></p>
+<p>其中重排和重绘是最耗时的部分，一旦触发重排，我们对 DOM 的修改引发了 DOM 几何元素的变化，渲染树需要重新计算， 而重绘只会改变 vidibility、outline、背景色等属性导致样式的变化，使浏览器需要根据新的属性进行绘制。更比而言，重排会产生比重绘更大的开销。所以，我们在实际生产中要严格注意减少重排的触发。</p>
+<h2 id="触发重排的操作主要是几何因素"><a href="#触发重排的操作主要是几何因素" class="headerlink" title="触发重排的操作主要是几何因素"></a>触发重排的操作主要是几何因素</h2><p>1.页面第一次渲染 在页面发生首次渲染的时候，所有组件都要进行首次布局，这是开销最大的一次重排。 2.浏览器窗口尺寸改变 3.元素位置和尺寸发生改变的时候 4.新增和删除可见元素 5.内容发生改变（文字数量或图片大小等等） 6.元素字体大小变化。 7.激活 CSS 伪类（例如：:hover）。 8.设置 style 属性 9.查询某些属性或调用某些方法。比如说：<code>offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、clientTop、clientLeft clientWidth、clientHeight</code></p>
+<p>除此之外，当我们调用 getComputedStyle 方法，或者 IE 里的 currentStyle 时，也会触发重排，原理是一样的，都为求一个“即时性”和“准确性”。</p>
+<h2 id="触发重绘的操作主要有"><a href="#触发重绘的操作主要有" class="headerlink" title="触发重绘的操作主要有"></a>触发重绘的操作主要有</h2><p>vidibility、outline、背景色等属性的改变<br>我们应当注意的是：重绘不一定导致重排，但重排一定会导致重绘。</p>
+<h2 id="那么我们可以采取哪些措施来避免或减少重排带来的巨大开销呢？"><a href="#那么我们可以采取哪些措施来避免或减少重排带来的巨大开销呢？" class="headerlink" title="那么我们可以采取哪些措施来避免或减少重排带来的巨大开销呢？"></a>那么我们可以采取哪些措施来避免或减少重排带来的巨大开销呢？</h2><h3 id="分离读写操作"><a href="#分离读写操作" class="headerlink" title="分离读写操作"></a>分离读写操作</h3><pre><code>div.style.top = &quot;10px&quot;;
+div.style.bottom = &quot;10px&quot;;
+div.style.right = &quot;10px&quot;;
+div.style.left = &quot;10px&quot;;
+console.log(div.offsetWidth);
+console.log(div.offseHeight);
+console.log(div.offsetRight);
+console.log(div.offsetLeft);</code></pre>
+<h3 id="样式集中改变"><a href="#样式集中改变" class="headerlink" title="样式集中改变"></a>样式集中改变</h3><p>通过 cssText 和 class 进行样式的集中改变（现代浏览器会有 flush 队列优化，会好很多）</p>
+<h3 id="缓存布局信息"><a href="#缓存布局信息" class="headerlink" title="缓存布局信息"></a>缓存布局信息</h3><pre><code>// bad 强制刷新 触发两次重排
+div.style.left = div.offsetLeft + 1 + &#39;px&#39;;
+div.style.top = div.offsetTop + 1 + &#39;px&#39;;
+
+// good 缓存布局信息 相当于读写分离
+var curLeft = div.offsetLeft;
+var curTop = div.offsetTop;
+div.style.left = curLeft + 1 + &#39;px&#39;;
+div.style.top = curTop + 1 + &#39;px&#39;;</code></pre>
+<h3 id="将-dom-离线"><a href="#将-dom-离线" class="headerlink" title="将 dom 离线"></a>将 dom 离线</h3><p>设置 display:none,元素不会存在于渲染树中，相当于将其从页面拿掉，我们之后的操作将不会触发 repaint 和 relayout</p>
+<ul>
+<li><p>通过使用 DocumentFragment 创建一个 dom 碎片,在它上面批量操作 dom，操作完成之后，再添加到文档中，这样只会触发一次重排。</p>
+</li>
+<li><p>复制节点，在副本上工作，然后替换它！</p>
+</li>
+</ul>
+<h3 id="将-position-属性设置为-absolute-或-fixed"><a href="#将-position-属性设置为-absolute-或-fixed" class="headerlink" title="将 position 属性设置为 absolute 或 fixed"></a>将 position 属性设置为 absolute 或 fixed</h3><p>position 属性为 absolute 或 fixed 的元素，重排开销比较小，不用考虑它对其他元素的影响</p>
+<h3 id="优化动画"><a href="#优化动画" class="headerlink" title="优化动画"></a>优化动画</h3><ul>
+<li>可以把动画应用到定位的元素上</li>
+<li>启用 GPU 加速</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -512,157 +721,6 @@ const string = &quot;MozTransform&quot;
 <li>翻炒均匀调味 加入盐 酱油 鸡精 香醋 翻炒后加入小油菜</li>
 <li>加点淀粉水勾芡，翻炒均匀 出锅</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/02/26/%E5%A4%A9%E7%94%9F%E7%88%B1%E4%BD%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/26/%E5%A4%A9%E7%94%9F%E7%88%B1%E4%BD%A0/" class="post-title-link" itemprop="url">天生爱你</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-02-26 17:02:49" itemprop="dateCreated datePublished" datetime="2020-02-26T17:02:49+08:00">2020-02-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BB%BC%E5%90%88/" itemprop="url" rel="index"><span itemprop="name">综合</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>特别喜欢幼杀的这首歌，心目中评价很高</p>
-</blockquote>
-<h3 id="verse"><a href="#verse" class="headerlink" title="verse"></a>verse</h3><p>[00:14.20]幼稚园杀手 天生爱你<br>[00:24.22]还记得那天 你离开的画面<br>[00:27.16]转身之后开始了无尽的挂念<br>[00:30.17]那是个充满希望而又伤感的夏天<br>[00:33.23]你陪伴在我身边已整整十八年<br>[00:36.31]忍不住留下眼泪却怕被对方发现<br>[00:39.15]望着你远去的背影我舍不得眨眼<br>[00:42.10]你只不过是站在了车窗的那边<br>[00:45.18]但我感觉我们之间相隔了那么远<br>[00:48.21]你也曾像那些美丽的女孩一样年轻着<br>[00:51.38]爱上了一个男孩你愿为他付出全心了<br>[00:54.41]原来爱和奉献是不需要任何原因的<br>[00:57.41]再也回不到从前就像列车一直前进着<br>[01:00.48]这世界上也许我是最渺小的那一个<br>[01:03.36]后到来是你生命中最幸福的那一个<br>[01:06.48]我知道你的心一直在呼唤着我回家<br>[01:09.34]在那些想你的夜我也不停潸然泪下<br>[01:36.38]生命只有一次 我只能爱你一世<br>[01:39.02]这种爱不会因为时间无情的流失而遗失<br>[01:42.02]总想听到你亲切的声音 每当我迷失<br>[01:45.05]虽然对于生活我有多么地难以启齿<br>[01:47.97]在电话里牵强的告诉你我过得很好<br>[01:51.17]尽管太多事情不尽人意总让我心情很糟<br>[01:53.94]直到你告诉我她的病最终无法医治<br>[01:56.95]没有留下一声告别就这样悄悄的去世<br>[01:59.85]汹涌的悲伤没办法医治<br>[02:01.61]放声的哭喊失去了理智<br>[02:03.07]一切太突然却没有预示<br>[02:04.54]不断的失去人们却从未意识</p>
-<h3 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h3><p>郭采洁的《I Remenber》</p>
-<p>Do you know that I&#39;m OK?<br>Are there things you wanna say?<br>Thinking of you night and day<br>Hopping you&#39;ll come back and stay<br>I remember when you told me<br>I&#39;ll be all right<br>Don&#39;t worry...<br><em>I try and try to understand...<br>Is all this just a sad good bye?<br>Thinking of you night and day...<br>No matter if you&#39;ll come and stay<br>I remember when you told me<br>I&#39;ll be all right<br>Just hold me...<br>I don&#39;t wanna close my eyes tonight<br>Missing you make me cry<br>Your love will give me strengths<br>to carry on<br>You&#39;ll always be my heart<br>and mind<br>So I don&#39;t wanna close my<br>eyes tonight<br>I know it&#39;s just a miss<br>match in time...<br>Why...oh ...why<br>Miss match in time</em></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/02/26/element-ui%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/26/element-ui%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">element-ui的一些表格处理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-02-26 16:57:38" itemprop="dateCreated datePublished" datetime="2020-02-26T16:57:38+08:00">2020-02-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><em>2020 疫情到来，转眼就休息了两个月，是时候开始新的征程了，加油 XD</em></p>
-<h3 id="应用一（表格合并）"><a href="#应用一（表格合并）" class="headerlink" title="应用一（表格合并）"></a>应用一（表格合并）</h3><p>总体思路就是把需要合并索引放到一个二维数组里，这个二维数组代表每一列，每一列里不是 0 的就是合并的行数，<br>具体做法就是用类似于计数排序的思路（对应hash的每一个值去计数），如果下一行的某个属性和上一行的某个属性相同，我们就要索引值加 1，数组里也要相应的补 0，<br>如果不相同，就补 1，并定位到当前位置，这样我们就能得到我们的一个二维数组，再通过 objectSpanMethod 取到对应的值去合并表格</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      position: 0,</span><br><span class="line">      spanArr: [] &#x2F;&#x2F; 二维数组</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    rowspan(idx, prop) &#123;</span><br><span class="line">      this.spanArr[idx] &#x3D; [];</span><br><span class="line">      this.position &#x3D; 0;</span><br><span class="line">      this.tableData.forEach((item, index) &#x3D;&gt; &#123;</span><br><span class="line">        if (index &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">          this.spanArr[idx].push(1);</span><br><span class="line">          this.position &#x3D; 0;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          if (this.tableData[index][prop] &#x3D;&#x3D;&#x3D; this.tableData[index - 1][prop]) &#123;</span><br><span class="line">            this.spanArr[idx][this.position] +&#x3D; 1; &#x2F;&#x2F; 有相同项</span><br><span class="line">            this.spanArr[idx].push(0); &#x2F;&#x2F; 名称相同后往数组里面加一项0</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            this.spanArr[idx].push(1); &#x2F;&#x2F;同列的前后两行单元格不相同</span><br><span class="line">            this.position &#x3D; index;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    objectSpanMethod(&#123; row, column, rowIndex, columnIndex &#125;) &#123;</span><br><span class="line">      if (columnIndex &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">        const row &#x3D; this.spanArr[0][rowIndex];</span><br><span class="line">        const col &#x3D; row &gt; 0 ? 1 : 0;</span><br><span class="line">        return &#123;</span><br><span class="line">          rowspan: row,</span><br><span class="line">          colspan: col</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      if (this.paramsType &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">        if (columnIndex &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">          if (this.spanArr[1]) &#123;</span><br><span class="line">            const row &#x3D; this.spanArr[1][rowIndex];</span><br><span class="line">            const col &#x3D; row &gt; 0 ? 1 : 0;</span><br><span class="line">            return &#123;</span><br><span class="line">              rowspan: row,</span><br><span class="line">              colspan: col</span><br><span class="line">            &#125;;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>

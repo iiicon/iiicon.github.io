@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">117</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">49</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">50</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,178 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/23/web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">web性能优化（一）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-23 22:03:32" itemprop="dateCreated datePublished" datetime="2019-04-23T22:03:32+08:00">2019-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web-%E6%80%A7%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">web 性能</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><p>chrome 会等 css 全部下载完毕才会渲染，所以 css 有可能阻塞页面，尽量写到前面<br>chrome 可以并行下载 8 个 css，解析只能挨个解析</p>
+<h3 id="DNS-查询"><a href="#DNS-查询" class="headerlink" title="DNS 查询"></a>DNS 查询</h3><p>减少 DNS 查询，比如所有资源放到同一个域名下</p>
+<h3 id="TCP-连接"><a href="#TCP-连接" class="headerlink" title="TCP 连接"></a>TCP 连接</h3><p>TCP 连接复用，<code>connection: keep-alive</code><br>HTTP 2.0 开启多路复用</p>
+<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p>减少 cookie （大小）<br>增加 cache-control （去掉请求）<br>增加域名 （同时发送多个请求，比如把静态资源放到 CDN）</p>
+<h3 id="接受响应"><a href="#接受响应" class="headerlink" title="接受响应"></a>接受响应</h3><p>ETag 304 （Etag是file的md5值，if-none-match能匹配就传输的内容很少，很快）<br>Gzip <code>Content-Encoding</code> （开启压缩）</p>
+<h3 id="接受完成"><a href="#接受完成" class="headerlink" title="接受完成"></a>接受完成</h3><p>DOCTYPE 指定<br>HTML 压缩，尽量减少标签<br>js css iamge 压缩合并<br>js 放到 body 最后</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/23/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E7%BB%A7%E6%89%BF%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/23/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E7%BB%A7%E6%89%BF%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">面向对象之继承（一）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-23 21:07:17" itemprop="dateCreated datePublished" datetime="2019-04-23T21:07:17+08:00">2019-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Human(name)&#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">&#125;</span><br><span class="line">Human.prototype.run &#x3D; function()&#123;</span><br><span class="line">    console.log(&quot;我叫&quot;+this.name+&quot;，我在跑&quot;)</span><br><span class="line">    return undefined</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="继承相关概念"><a href="#继承相关概念" class="headerlink" title="继承相关概念"></a>继承相关概念</h4><p>a = new Sub() 就是 a 拥有父类对象的属性，子类继承了父类<br><code>a.toString()</code> 是原型链继承<br>一般就是两次的原型搜索便可以称之为继承</p>
+<h4 id="new-Fn-发生了什么"><a href="#new-Fn-发生了什么" class="headerlink" title="new Fn() 发生了什么"></a>new Fn() 发生了什么</h4><ol>
+<li>产生一个空对象</li>
+<li>this = 空对象</li>
+<li>this.<strong>proto</strong> = 空对象.<strong>proto</strong></li>
+<li>this.<strong>proto</strong> = Fn.prototype</li>
+<li>Fn.call(this, a, b, c)</li>
+<li>返回 this</li>
+</ol>
+<h3 id="继承的实现"><a href="#继承的实现" class="headerlink" title="继承的实现"></a>继承的实现</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Man(name)&#123;</span><br><span class="line">     Human.call(this, name)</span><br><span class="line">     this.gender &#x3D; &#39;男&#39;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个时候只需要指定原型就可以继承</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Man.prototype.__proto__ &#x3D; Human.prototype</span><br></pre></td></tr></table></figure>
+
+<p>其实本来这样就可以的，但是 Human 的属性也会被构造出来放在 Man.proptotype 上，这个时候就需要清空 Human, 就想到了用一个空函数去代替，然后用这个空函数的 prototype 存放 Human 的 prototype<br>而且 IE 不支持，还有显式地指定 <code>__proto__</code> 很耗性能</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var f &#x3D; function()&#123;&#125;</span><br><span class="line">f.prototype &#x3D; Human.prototype</span><br><span class="line">Man.prototype &#x3D; new f() &#x2F;&#x2F; 其实这句就是 Man.prototype.__proto__ &#x3D; Human.prototype</span><br></pre></td></tr></table></figure>
+
+<h4 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Human(name)&#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">&#125;</span><br><span class="line">Human.prototype.run &#x3D; function()&#123;</span><br><span class="line">    console.log(&quot;我叫&quot;+this.name+&quot;，我在跑&quot;)</span><br><span class="line">    return undefined</span><br><span class="line">&#125;</span><br><span class="line">function Man(name)&#123;</span><br><span class="line">    Human.call(this, name)</span><br><span class="line">    this.gender &#x3D; &#39;男&#39;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var f &#x3D; function()&#123;&#125;</span><br><span class="line">f.prototype &#x3D; Human.prototype</span><br><span class="line">Man.prototype &#x3D; new f()</span><br><span class="line"></span><br><span class="line">Man.prototype.fight &#x3D; function()&#123;</span><br><span class="line">    console.log(&#39;糊你熊脸&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Human &#123;</span><br><span class="line">  constructor(name) &#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">  &#125;,</span><br><span class="line">  run() &#123;</span><br><span class="line">    console.log(&quot;我叫&quot;+this.name+&quot;，我在跑&quot;)</span><br><span class="line">    return undefined</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Man extends Human &#123;</span><br><span class="line">  constructor(name) &#123;</span><br><span class="line">    super(name) &#x2F;&#x2F; 等价于 Human.call(this, name)</span><br><span class="line">    this.gender &#x3D; &#39;man&#39;</span><br><span class="line">  &#125;,</span><br><span class="line">  fight()&#123;</span><br><span class="line">    console.log(&#39;糊你熊脸&#39;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而且 class 也是函数 -_-<br>其实 class 就是 prototype 的语法糖，第一种好理解，第二种更直观，代码清晰</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -441,165 +613,6 @@
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;name age job.jobname&#39;.split()</span><br><span class="line">&#x2F;&#x2F; (3) [&quot;name age job.jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39;&#39;)</span><br><span class="line">&#x2F;&#x2F;(20) [&quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;, &quot; &quot;, &quot;a&quot;, &quot;g&quot;, &quot;e&quot;, &quot; &quot;, &quot;j&quot;, &quot;o&quot;, &quot;b&quot;, &quot;.&quot;, &quot;j&quot;, &quot;o&quot;, &quot;b&quot;, &quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39; &#39;)</span><br><span class="line">&#x2F;&#x2F; (3) [&quot;name&quot;, &quot;age&quot;, &quot;job.jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;job.jobname&#39;.split(&#39;.&#39;)</span><br><span class="line">(2) [&quot;job&quot;, &quot;jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name&#39;.split(&#39;.&#39;)</span><br><span class="line">[&quot;name&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39;&#39;, 5)</span><br><span class="line">(5) [&quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;, &quot; &quot;]</span><br></pre></td></tr></table></figure>
 
 <p>以上应该覆盖了常用的情况，希望以后加深记忆</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/14/%E4%B8%80%E9%81%93%E6%9C%89%E8%B6%A3%E7%9A%84-js-%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/14/%E4%B8%80%E9%81%93%E6%9C%89%E8%B6%A3%E7%9A%84-js-%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">一道有趣的 js 面试题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-04-14 11:52:55" itemprop="dateCreated datePublished" datetime="2019-04-14T11:52:55+08:00">2019-04-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>周末早上起来想起官网的架构，于是打开知乎寻找大神的方案，看到了一个大神的博客点进来了，被大神的博客吸引遂开始刷了起来，感慨于人和人差距的巨大<br>看到一道题的各种解法实在是经典，所以做一个记录</p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>解析字符串模板</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var greeting &#x3D; &#39;My name is $&#123;name&#125;, age $&#123;age&#125;, I am a $&#123;job.jobName&#125;&#39;;</span><br><span class="line">var employee &#x3D; &#123;</span><br><span class="line">    name: &#39;XiaoMing&#39;,</span><br><span class="line">    age: 11,</span><br><span class="line">    job: &#123;</span><br><span class="line">        jobName: &#39;designer&#39;,</span><br><span class="line">        jobLevel: &#39;senior&#39;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br><span class="line">var result &#x3D; greeting.render(employee);</span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure>
-
-<h3 id="解法一（正则）"><a href="#解法一（正则）" class="headerlink" title="解法一（正则）"></a>解法一（正则）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">String.prototype.render &#x3D; function(obj) &#123;</span><br><span class="line">  return this.replace(&#x2F;\$\&#123;(\w+|\w+\.\w+)\&#125;&#x2F;g, match &#x3D;&gt; &#123;</span><br><span class="line">    var keys &#x3D; match.replace(&#39;$&#123;&#39;, &#39;&#39;).replace(&#39;&#125;&#39;, &#39;&#39;).split(&#39;.&#39;)</span><br><span class="line">    return keys.reduce((acc, cv) &#x3D;&gt; acc[cv], obj)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="解法二（es6字符串模板，解构）"><a href="#解法二（es6字符串模板，解构）" class="headerlink" title="解法二（es6字符串模板，解构）"></a>解法二（es6字符串模板，解构）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">String.prototype.render &#x3D; function(obj) &#123;</span><br><span class="line">    &#x2F;&#x2F; 利用了ES6的解构、对象keys新方法，在函数内部解构并自动展开变量</span><br><span class="line">    eval(&#96;var &#123;$&#123;Object.keys(obj).join(&#39;,&#39;)&#125;&#125; &#x3D; obj&#96;)</span><br><span class="line">    &#x2F;&#x2F; 利用eval使字符串直接作为ES6解析</span><br><span class="line">    return eval(&#39;&#96;&#39; + this + &#39;&#96;&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="解法三-（with）"><a href="#解法三-（with）" class="headerlink" title="解法三 （with）"></a>解法三 （with）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">String.prototype.render &#x3D; function (obj) &#123;</span><br><span class="line">    with(obj) &#123;</span><br><span class="line">        return eval(&#39;&#96;&#39; + this + &#39;&#96;&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/31/vNode%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/31/vNode%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">vNode最简单的实现</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-03-31 23:38:46" itemprop="dateCreated datePublished" datetime="2019-03-31T23:38:46+08:00">2019-03-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>vNode 基本原理</p>
-<ol>
-<li>用 json 表示 dom 树</li>
-<li>计算数据的差异，生成虚拟 dom</li>
-<li>给 dom 打补丁，渲染 dom 树</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * @author GerritV</span><br><span class="line"> * @description 虚拟 DOM Demo</span><br><span class="line"> * @todo 暂时不考虑复杂情况</span><br><span class="line"> *&#x2F;</span><br><span class="line"></span><br><span class="line"> class VNode &#123;</span><br><span class="line">   constructor(tag, children, text) &#123;</span><br><span class="line">     this.tag &#x3D; tag</span><br><span class="line">     this.children &#x3D; children</span><br><span class="line">     this.text &#x3D; text</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   render() &#123;</span><br><span class="line">     if (this.tag &#x3D;&#x3D;&#x3D; &#39;#text&#39;) &#123;</span><br><span class="line">       return document.createTextNode(this.text)</span><br><span class="line">     &#125;</span><br><span class="line">     let el &#x3D; document.createElement(this.tag)</span><br><span class="line">     this.children.forEach(item &#x3D;&gt; &#123;</span><br><span class="line">       el.appendChild(item.render())</span><br><span class="line">     &#125;);</span><br><span class="line">     return el</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">function v(tag, children, text) &#123;</span><br><span class="line">  if (typeof children &#x3D;&#x3D;&#x3D; &#39;string&#39;) &#123;</span><br><span class="line">    text &#x3D; children</span><br><span class="line">    children &#x3D; []</span><br><span class="line">  &#125;</span><br><span class="line">  return new VNode(tag, children, text)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let vNodes &#x3D; v(&#39;div&#39;, [</span><br><span class="line">  v(&#39;p&#39;, [</span><br><span class="line">    v(&#39;span&#39;, [v(&#39;#text&#39;, &#39;baidu.com&#39;)])</span><br><span class="line">  ]</span><br><span class="line">  ),</span><br><span class="line">  v(&#39;span&#39;, [</span><br><span class="line">    v(&#39;#text&#39;, &#39;joyowo.com&#39;)</span><br><span class="line">  ])</span><br><span class="line">]</span><br><span class="line">)</span><br><span class="line">console.log(vNodes.render())</span><br><span class="line"></span><br><span class="line">function patchElement(parent, newNode, oldNode, index&#x3D;0) &#123;</span><br><span class="line">  if (!oldNode) &#123;</span><br><span class="line">    parent.appendChild(newNode.render())</span><br><span class="line">  &#125; else if (!newNode) &#123;</span><br><span class="line">    parent.removeChild(parent.childNodes[index])</span><br><span class="line">  &#125; else if (newNode.tag !&#x3D;&#x3D; oldNode.tag || newNode.text !&#x3D;&#x3D; oldNode.text) &#123;</span><br><span class="line">    parent.replaceChild(newNode.render(), parent.childNodes[index])</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    for (let i &#x3D; 0; i &lt; newVNode.children.length || i &lt; oldVNode.children.length; i++) &#123;</span><br><span class="line">      patchElement(parent.childNodes[index], newVNode.children[i], oldVNode.children[i], i)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var vNodes1 &#x3D; v(&#39;div&#39;,[], &#39;hello,world&#39;)</span><br><span class="line"></span><br><span class="line">const root &#x3D; document.querySelector(&#39;#root&#39;)</span><br><span class="line">patchElement(root, vNodes1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi92Tm9kZS90cmVlL21hc3Rlcg==">git仓库<i class="fa fa-external-link-alt"></i></span></p>
 
       
     </div>

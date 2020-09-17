@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">117</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">49</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">50</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,231 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/17/React%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-EventHub/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/17/React%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-EventHub/" class="post-title-link" itemprop="url">React组件通信-EventHub</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-17 19:56:12" itemprop="dateCreated datePublished" datetime="2019-07-17T19:56:12+08:00">2019-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBMl8xL2luZGV4LmpzeA==">eventHub<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBMl8yL2luZGV4LmpzeA==">redux<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="任意两个组件如何通信-amp-amp-发布订阅模式"><a href="#任意两个组件如何通信-amp-amp-发布订阅模式" class="headerlink" title="任意两个组件如何通信&amp;&amp;发布订阅模式"></a>任意两个组件如何通信&amp;&amp;发布订阅模式</h3><p>一个组件发布一个事件，另一个组件订阅这个事件，订阅事件的时候就是把触发的函数 push 到队列里，发布就是挨个执行这些函数，并把 payload 作为函数的参数执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let fnObject &#x3D; &#123;&#125;</span><br><span class="line">let eventHub &#x3D; &#123;</span><br><span class="line">  &#x2F;&#x2F; 发布</span><br><span class="line">  trigger(eventName, data) &#123;</span><br><span class="line">    let fnList &#x3D; fnObject[eventName]</span><br><span class="line">    if (!fnList) &#123;</span><br><span class="line">      return</span><br><span class="line">    &#125;</span><br><span class="line">    for (let i &#x3D; 0; i &lt; fnList.length; i++) &#123;</span><br><span class="line">      fnList[i](data)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x2F;&#x2F; 订阅</span><br><span class="line">  on(eventName, fn) &#123;</span><br><span class="line">    if (!fnObject[eventName]) &#123;</span><br><span class="line">      fnObject[eventName] &#x3D; []</span><br><span class="line">    &#125;</span><br><span class="line">    fnObject[eventName].push(fn)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; eventHub 的 subscribe</span><br><span class="line">let x &#x3D; &#123;</span><br><span class="line">  init() &#123;</span><br><span class="line">    eventHub.on(&#39;xxx&#39;, function(data)&#x3D;&gt;&#123; &#x2F;&#x2F; subscribe</span><br><span class="line">      store.money -&#x3D; data &#x2F;&#x2F; reducer</span><br><span class="line">      render()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">x.init()</span><br></pre></td></tr></table></figure>
+
+<p>需要像上面这样的一个事件中心，管理发布和订阅，就是 trigger 和 on 两个函数</p>
+<p>你在需要这个事件的地方去订阅，把需要执行的函数放在里 eventHub.on(eventName, fn)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">eventHub.on(&#39;cost&#39;, data &#x3D;&gt; &#123;</span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    money: this.state.money - data</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在执行组件行为的时候，你就可以发布一个事件（其实就是执行刚才那个函数）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">eventHub.trigger(&#39;cost&#39;, 100)</span><br></pre></td></tr></table></figure>
+
+<p>这就是发布订阅模式。</p>
+<h3 id="利用-redux-进行组件通信"><a href="#利用-redux-进行组件通信" class="headerlink" title="利用 redux 进行组件通信"></a>利用 redux 进行组件通信</h3><p>当然我们很多时候数据都是自上而下的单向数据流，这样的情况我们只需要在顶层组件去订阅事件，然后在需要的时候去发布事件就行了，这样所有组件都能共享数据了</p>
+<p><code>redux</code> 就是专门做这个的工具，需要用 <code>store</code> 对象来管理所有数据，下面是 <code>redux</code> 的主要步骤:</p>
+<ol>
+<li>第一步引入 <code>createStore</code> 函数 <strong>createStore</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; createStore &#125; from &#39;redux&#39;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>这个函数接受一个 <code>reducer</code> 的数据操作函数 <strong>reducer</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let reducers &#x3D; (state, action) &#x3D;&gt; &#123; &#x2F;&#x2F; reducer</span><br><span class="line">  state &#x3D; state || &#123; money: 10000 &#125;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case &#39;cost&#39;:</span><br><span class="line">      return &#123;</span><br><span class="line">        money: state.money - action.payload</span><br><span class="line">      &#125;</span><br><span class="line">    default:</span><br><span class="line">      return state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建 <code>store</code> 对象, 参数是 <code>reducer</code> 函数 <strong>store</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let store &#x3D; createStore(reducer) </span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>你好像必须在顶层组件 <code>store.getState()</code> 获取数据</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;App money&#x3D;&#123;store.getState().money&#125; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>如果你要发布一个事件，用来和别的组件通信，你需要： <strong>dispatch action</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">store.dispatch(&#123; type: &#39;cost&#39;, payload: 100 &#125;)</span><br><span class="line">这个就对应上面发布 eventHub.trigger(&#39;cost&#39;, 100) </span><br></pre></td></tr></table></figure>
+
+<p><strong>type 就是 action-type</strong><br><strong>payload 就是 action-payload</strong></p>
+<ol start="6">
+<li>当然必须要订阅才能监听到发布的事件 <strong>subscribe</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const render &#x3D; () &#x3D;&gt;</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    &lt;RA22 &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;root2&#39;)</span><br><span class="line">  )</span><br><span class="line">render()</span><br><span class="line">store.subscribe(render) &#x2F;&#x2F; 只要 store 一变化，subscribe 里面的函数就会执行，这个函数就是上面的 &#96;x.init()&#96;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/17/js%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/17/js%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">js位运算符</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-17 11:49:35" itemprop="dateCreated datePublished" datetime="2019-07-17T11:49:35+08:00">2019-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="js-中的数字"><a href="#js-中的数字" class="headerlink" title="js 中的数字"></a>js 中的数字</h3><ul>
+<li>所有 js 数字都被存储为 64 位浮点数，整数精度最多为 15 位，小数精度的对多为 17 位，浮点数的运算并不是百分之百的准确</li>
+<li>位运算直接对二进制位进行计算，位运算直接处理每一个 bit 位，是非常底层的运算，优点是速度非常快，缺点是不太直观，很多场合不能使用</li>
+<li>位运算只对整数起作用，如果一个运算数不是整数，会自动转为整数后再运行</li>
+<li>在 js 中数字是 64 位浮点数，但是在做位运算的时候，是以 32 位带符号的整数进行运算的，并且返回值也是一个带符号的 32 位的整数</li>
+</ul>
+<h3 id="js-中常用的七个位运算符"><a href="#js-中常用的七个位运算符" class="headerlink" title="js 中常用的七个位运算符"></a>js 中常用的七个位运算符</h3><h4 id="按位与-AND-amp"><a href="#按位与-AND-amp" class="headerlink" title="按位与(AND) &amp;"></a>按位与(AND) &amp;</h4><p>如果都是 1，返回 1，否则返回 0</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">console.log(1 &amp; 3)     &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="按位或（OR）"><a href="#按位或（OR）" class="headerlink" title="按位或（OR）|"></a>按位或（OR）|</h4><p>有 1 就返回 1，否则返回 0</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">console.log(1 | 3)     &#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
+
+<h4 id="按位异传（XOR）"><a href="#按位异传（XOR）" class="headerlink" title="按位异传（XOR）^"></a>按位异传（XOR）^</h4><p>只有有一个 1 返回 1，否则返回 0</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 2的二进制表示为: 00000000 00000000 00000000 00000010</span><br><span class="line">console.log(1 ^ 3)     &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
+
+<h4 id="按位非（NOT）"><a href="#按位非（NOT）" class="headerlink" title="按位非（NOT）~"></a>按位非（NOT）~</h4><p>对位求反，1 变 0, 0 变 1，也就是求二进制的反码<br><em>简单记忆：一个数与自身的取反值相加等于-1</em></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 1反码二进制表示: 11111111 11111111 11111111 11111110</span><br><span class="line">&#x2F;&#x2F; 由于第一位（符号位）是1，所以这个数是一个负数。JavaScript 内部采用补码形式表示负数，即需要将这个数减去1，再取一次反，然后加上负号，才能得到这个负数对应的10进制值。</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 1的反码减1：     11111111 11111111 11111111 11111101</span><br><span class="line">&#x2F;&#x2F; 反码取反：       00000000 00000000 00000000 00000010</span><br><span class="line">&#x2F;&#x2F; 表示为10进制加负号：-2</span><br><span class="line">console.log(~ 1)     &#x2F;&#x2F; -2</span><br></pre></td></tr></table></figure>
+
+<h4 id="左移-lt-lt"><a href="#左移-lt-lt" class="headerlink" title="左移 &lt;&lt;"></a>左移 &lt;&lt;</h4><p>使指定值的二进制数所有位都左移指定次数，其移动规则：丢弃高位，低位补 0</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 2的二进制表示为: 00000000 00000000 00000000 00000010</span><br><span class="line">console.log(1 &lt;&lt; 1)     &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
+
+<h4 id="右移-gt-gt"><a href="#右移-gt-gt" class="headerlink" title="右移 &gt;&gt;"></a>右移 &gt;&gt;</h4><p>将指定操作数的二进制位向右移动指定的位数。向右被移出的位被丢弃，拷贝最左侧的位以填充左侧。由于新的最左侧的位总是和以前相同，符号位没有被改变。所以被称作“符号传播”。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 0的二进制表示为: 00000000 00000000 00000000 00000000</span><br><span class="line">console.log(1 &gt;&gt; 1)     &#x2F;&#x2F; 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="无符号右移-gt-gt-gt"><a href="#无符号右移-gt-gt-gt" class="headerlink" title="无符号右移 &gt;&gt;&gt;"></a>无符号右移 &gt;&gt;&gt;</h4><p>该操作符会将第一个操作数向右移动指定的位数。向右被移出的位被丢弃，左侧用 0 填充。因为符号位变成了 0，所以结果总是非负的。（译注：即便右移 0 个比特，结果也是非负的。）<br>对于非负数，有符号右移和无符号右移总是返回相同的结果。例如， 9 &gt;&gt;&gt; 2 得到 2 和 9 &gt;&gt; 2 相同。</p>
+<h3 id="js-中使用"><a href="#js-中使用" class="headerlink" title="js 中使用"></a>js 中使用</h3><ol>
+<li>判断一个数的奇偶</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 偶数 &amp; 1 &#x3D; 0</span><br><span class="line">&#x2F;&#x2F; 奇数 &amp; 1 &#x3D; 1</span><br><span class="line">console.log(2 &amp; 1)    &#x2F;&#x2F; 0</span><br><span class="line">console.log(3 &amp; 1)    &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用~, &gt;&gt;, &lt;&lt;, &gt;&gt;&gt;, |来取整</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.log(~~ 6.83)    &#x2F;&#x2F; 6</span><br><span class="line">console.log(6.83 &gt;&gt; 0)  &#x2F;&#x2F; 6</span><br><span class="line">console.log(6.83 &lt;&lt; 0)  &#x2F;&#x2F; 6</span><br><span class="line">console.log(6.83 | 0)   &#x2F;&#x2F; 6</span><br><span class="line">&#x2F;&#x2F; &gt;&gt;&gt;不可对负数取整</span><br><span class="line">console.log(6.83 &gt;&gt;&gt; 0)   &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用&amp;, &gt;&gt;, |来完成 rgb 值和 16 进制颜色值之间的转换</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 16进制颜色值转RGB</span><br><span class="line"> * @param  &#123;String&#125; hex 16进制颜色字符串</span><br><span class="line"> * @return &#123;String&#125;     RGB颜色字符串</span><br><span class="line"> *&#x2F;</span><br><span class="line">  function hexToRGB(hex) &#123;</span><br><span class="line">    var hexx &#x3D; hex.replace(&#39;#&#39;, &#39;0x&#39;)</span><br><span class="line">    var r &#x3D; hexx &gt;&gt; 16</span><br><span class="line">    var g &#x3D; hexx &gt;&gt; 8 &amp; 0xff</span><br><span class="line">    var b &#x3D; hexx &amp; 0xff</span><br><span class="line">    return &#96;rgb($&#123;r&#125;, $&#123;g&#125;, $&#123;b&#125;)&#96;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * RGB颜色转16进制颜色</span><br><span class="line"> * @param  &#123;String&#125; rgb RGB进制颜色字符串</span><br><span class="line"> * @return &#123;String&#125;     16进制颜色字符串</span><br><span class="line"> *&#x2F;</span><br><span class="line">function RGBToHex(rgb) &#123;</span><br><span class="line">    var rgbArr &#x3D; rgb.split(&#x2F;[^\d]+&#x2F;)</span><br><span class="line">    var color &#x3D; rgbArr[1]&lt;&lt;16 | rgbArr[2]&lt;&lt;8 | rgbArr[3]</span><br><span class="line">    return &#39;#&#39;+ color.toString(16)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; -------------------------------------------------</span><br><span class="line">hexToRGB(&#39;#ffffff&#39;)               &#x2F;&#x2F; &#39;rgb(255,255,255)&#39;</span><br><span class="line">RGBToHex(&#39;rgb(255,255,255)&#39;)      &#x2F;&#x2F; &#39;#ffffff&#39;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -456,180 +681,6 @@
 <li>String.prototype.replace()<br>接受两个参数，第一个是正则表达式，第二个是替换的内容，也可以是一个函数<br>最主要的应用就是修饰符 g 如果有则全部替换</li>
 <li>String.prototype.split()<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 非正则分隔</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#39;,&#39;)</span><br><span class="line">&#x2F;&#x2F; [ &#39;a&#39;, &#39;  b&#39;, &#39;c&#39;, &#39; d&#39; ]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 正则分隔，去除多余的空格</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#x2F;, *&#x2F;)</span><br><span class="line">&#x2F;&#x2F; [ &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39; ]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 指定返回数组的最大成员</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#x2F;, *&#x2F;, 2)</span><br><span class="line">[ &#39;a&#39;, &#39;b&#39; ]</span><br></pre></td></tr></table></figure></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93Date/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93Date/" class="post-title-link" itemprop="url">js标准库Date</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-16 17:02:24" itemprop="dateCreated datePublished" datetime="2019-07-16T17:02:24+08:00">2019-07-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="普通函数的用法"><a href="#普通函数的用法" class="headerlink" title="普通函数的用法"></a>普通函数的用法</h3><p>Date(2000, 1, 1) 或者 Date() 返回当前时间的字符串</p>
-<h3 id="构造函数的用法"><a href="#构造函数的用法" class="headerlink" title="构造函数的用法"></a>构造函数的用法</h3><p>New Date() 返回 Date 对象的实例<br>可以接受诸如 毫秒数 日期字符串 以及年月日这种多个整数的 等参数</p>
-<h3 id="日期的运算"><a href="#日期的运算" class="headerlink" title="日期的运算"></a>日期的运算</h3><ul>
-<li>就返回字符串相连（转为string）</li>
-</ul>
-<ul>
-<li>就返回毫秒数 （转为number）</li>
-</ul>
-<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>Date.parse<br>Date.now</p>
-<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><p>大概有 to get set 三类</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93String/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93String/" class="post-title-link" itemprop="url">js标准库String</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-16 15:16:41" itemprop="dateCreated datePublished" datetime="2019-07-16T15:16:41+08:00">2019-07-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><h4 id="fromCharCode"><a href="#fromCharCode" class="headerlink" title="fromCharCode"></a>fromCharCode</h4><p>如果参数为空，就返回&#39;&#39;,否则就返回 Unicode 对应的字符串</p>
-<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><h4 id="charAt"><a href="#charAt" class="headerlink" title="charAt"></a>charAt</h4><p>返回指定位置的字符，大于长度或者负数都返回空字符串</p>
-<h4 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title="charCodeAt"></a>charCodeAt</h4><p>返回指定位置的 unicode，大于或者负数都返回 NaN</p>
-<h4 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h4><p>返回一个新字符串，不改变原字符串, 都是字符串连接不是的话要改成字符串</p>
-<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><p>返回一个字字符串，不改变原字符串，没有的话也是返回&#39;&#39;</p>
-<h4 id="substring"><a href="#substring" class="headerlink" title="substring"></a>substring</h4><p>substring(9, -3) 会把-3 变成 0，然后变成(0, 9)，违反直觉，所以不建议使用，依然返回新字符串，不改变原字符串</p>
-<h4 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h4><p>和 slice 的区别是第二个参数是要截取的长度，返回一个新的字符串，且不会改动原字符串。</p>
-<h4 id="indexOf-lastIndexOf"><a href="#indexOf-lastIndexOf" class="headerlink" title="indexOf lastIndexOf"></a>indexOf lastIndexOf</h4><p>indexOf(&#39;o&#39;, 6) 6 是开始的位置, 返回一个字符串在另一个字符串中出现的位置</p>
-<h4 id="trim"><a href="#trim" class="headerlink" title="trim"></a>trim</h4><p>去除两端的 \s \t \v \n \r，返回新字符串，不改变原字符串</p>
-<h4 id="toLowerCase-toUpperCase"><a href="#toLowerCase-toUpperCase" class="headerlink" title="toLowerCase toUpperCase"></a>toLowerCase toUpperCase</h4><p>改变大小写，不改变原来字符串的大小</p>
-<h4 id="match"><a href="#match" class="headerlink" title="match"></a>match</h4><p>找到了返回数组，找不到返回 null</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;cat, bat, sat, fat&#39;.match(&#39;at&#39;) &#x2F;&#x2F; [&quot;at&quot;]</span><br><span class="line">&#39;cat, bat, sat, fat&#39;.match(&#39;xt&#39;) &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
-
-<h4 id="search"><a href="#search" class="headerlink" title="search"></a>search</h4><p>和 match 基本一致，不同得是返回开始的位置</p>
-<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p>基本是替换第一个，除非是正则表达式加上了 g</p>
-<h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p>返回一个按照指定分隔符分成的数组</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;a|b|c&#39;.split(&#39;|&#39;) &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span><br><span class="line">&#39;a|b|c&#39;.split(&#39;&#39;) &#x2F;&#x2F; [&#39;a&#39;, &#39;|&#39;, &#39;b&#39;, &#39;|&#39;, &#39;c&#39;]</span><br><span class="line">&#39;a|b|c&#39;.split() &#x2F;&#x2F; [&#39;a|b|c&#39;]</span><br><span class="line">&#39;|b|c&#39;.split(&#39;|&#39;) &#x2F;&#x2F; [&#39;&#39;, &#39;b&#39;, &#39;c&#39;]</span><br><span class="line">&#39;a|b|c&#39;.split(&#39;|&#39;, 2) &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;]</span><br><span class="line">&#39;a|b|c&#39;.split(&#39;|&#39;, 4) &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span><br></pre></td></tr></table></figure>
-
-<h4 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h4><p>构造并返回一个新字符串，该字符串包含被连接在一起的指定数量的字符串的副本。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;abc&quot;.repeat(0)      &#x2F;&#x2F; &quot;&quot;</span><br><span class="line">&quot;abc&quot;.repeat(1)      &#x2F;&#x2F; &quot;abc&quot;</span><br><span class="line">&quot;abc&quot;.repeat(2)      &#x2F;&#x2F; &quot;abcabc&quot;</span><br><span class="line">&quot;abc&quot;.repeat(3.5)    &#x2F;&#x2F; &quot;abcabcabc&quot; 参数count将会被自动转换成整数.</span><br></pre></td></tr></table></figure>
-
-<h4 id="localeCompare"><a href="#localeCompare" class="headerlink" title="localeCompare"></a>localeCompare</h4><p>比较两个字符的长度，转成 unicode 判断</p>
 
       
     </div>
