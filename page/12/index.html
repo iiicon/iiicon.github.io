@@ -20,7 +20,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sgw.wiki","root":"/","scheme":"Gemini","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"sgw.wiki","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
   <meta name="description" content="coding note and life perception">
@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">120</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">50</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,131 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/04/ES6%E4%B9%8B%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/04/ES6%E4%B9%8B%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="post-title-link" itemprop="url">ES6之迭代器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-04 16:46:41" itemprop="dateCreated datePublished" datetime="2019-08-04T16:46:41+08:00">2019-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><blockquote>
+<p>迭代器是一个对象，它定义一个序列，并在终止时可能返回一个返回值。它知道如何每次访问集合中的一项， 并跟踪该序列中的当前位置。<br>它提供了一个 next() 方法，用来返回序列中的下一项。这个方法返回包含两个属性：done 和 value。迭代器对象一旦被创建，就可以反复调用 next()。</p>
+</blockquote>
+<p>创建一个对象，他有 next 方法，可以一直调用，这就是迭代器</p>
+<pre><code>function fn() &#123;
+  let value = 0
+  return &#123;
+    next: function() &#123;
+      value += 1
+      if (value &gt; 10) &#123;
+        throw new Error(&#39;不能大与10&#39;)
+      &#125;
+      if (value === 10) &#123;
+        return &#123; value, done: true &#125;
+      &#125;
+      return &#123;
+        value,
+        done: false
+      &#125;
+    &#125;
+  &#125;
+&#125;</code></pre>
+<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><blockquote>
+<p>虽然自定义的迭代器是一个有用的工具，但由于需要显式地维护其内部状态，因此需要谨慎地创建。生成器函数提供了一个强大的选择：它允许你定义一个包含自有迭代算法的函数， 同时它可以自动维护自己的状态。</p>
+</blockquote>
+<pre><code>function* fn() &#123;
+  let value = 0
+  while(true) &#123;
+    value += 1
+    yield value
+  &#125;
+&#125;</code></pre>
+<p>这个函数的功能和上面迭代器的功能是一样的，称为生成器，是迭代器的语法糖</p>
+<h3 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h3><blockquote>
+<p>若一个对象拥有迭代行为，比如在 for...of 中会循环哪些值，那么那个对象便是一个可迭代对象。一些内置类型，如 Array 或 Map 拥有默认的迭代行为，而其他类型（比如 Object）则没有。<br>为了实现可迭代，一个对象必须实现 @@iterator 方法，这意味着这个对象（或其原型链中的任意一个对象）必须具有一个带 Symbol.iterator 键（key）的属性。</p>
+</blockquote>
+<p>这样我们就可以自定义可迭代对象</p>
+<pre><code>let myIterable = &#123;
+  *[Symbol.iterator]() &#123;
+    yield 1
+    yield 2
+    yield 3
+  &#125;
+&#125;
+for (const iterator of myIterable) &#123;
+  console.log(iterator)
+&#125;</code></pre>
+<h3 id="内置的可迭代对象"><a href="#内置的可迭代对象" class="headerlink" title="内置的可迭代对象"></a>内置的可迭代对象</h3><p>String, Array, TypedArray, Map, Set 他们的原型对象都有一个 Symbol.iterator 函数</p>
+<h3 id="用于可迭代对象的语法（语法糖）"><a href="#用于可迭代对象的语法（语法糖）" class="headerlink" title="用于可迭代对象的语法（语法糖）"></a>用于可迭代对象的语法（语法糖）</h3><ul>
+<li><p>for of<br>我们如果要调用生成器，只要一直 .next 就行，js 提供了一个语法糖，那就是 for of</p>
+</li>
+<li><p>展开语法<br>  [...&#39;abc&#39;] // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -681,102 +806,6 @@ bar()
   &#125;
 &#125;</code></pre>
 <p>这样其实在内部共维护了 7 个变量</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/28/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/28/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">React生命周期</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-28 23:40:09" itemprop="dateCreated datePublished" datetime="2019-07-28T23:40:09+08:00">2019-07-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="react-生命周期"><a href="#react-生命周期" class="headerlink" title="react 生命周期"></a>react 生命周期</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">RA11</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [x, setX] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> [y, setY] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> onclick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setX(x + <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> handleApp = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 用来做销毁App</span></span><br><span class="line">    setY(<span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;button onClick=&#123;onclick&#125;&gt;onclick&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleApp&#125;&gt;handleApp&lt;/button&gt;</span><br><span class="line">      &#123;y === <span class="number">0</span> ? <span class="xml"><span class="tag">&lt;<span class="name">Child</span> <span class="attr">x</span>=<span class="string">&#123;x&#125;</span> /&gt;</span></span> : <span class="literal">null</span>&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(params) &#123;</span><br><span class="line">    <span class="built_in">super</span>();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;创建 App&quot;</span>);</span><br><span class="line">    <span class="built_in">this</span>.state = &#123;</span><br><span class="line">      n: <span class="number">12</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`click-----------------------------<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span>`</span>);</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      n: <span class="built_in">this</span>.state.n + <span class="number">1</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  testthis() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  updateApp() &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      n: <span class="built_in">this</span>.state.n + <span class="number">2</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;将要挂载 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// update</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;渲染或者更新 App&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &#123;<span class="built_in">this</span>.state.n&#125;</span><br><span class="line">        &lt;button onClick=&#123;<span class="function">() =&gt;</span> <span class="built_in">this</span>.handleClick()&#125;&gt;+<span class="number">1</span>&lt;/button&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="function">() =&gt;</span> <span class="built_in">this</span>.updateApp()&#125;&gt;update+<span class="number">2</span>&lt;/button&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="built_in">this</span>.testthis&#125;&gt;test <span class="built_in">this</span>&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;挂载完毕 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  shouldComponentUpdate(newProps, newState) &#123;</span><br><span class="line">    <span class="comment">// 数组更新但是页面不更新</span></span><br><span class="line">    <span class="keyword">if</span> (newState.n % <span class="number">3</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUpdate() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;将要更新 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidUpdate() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;更新完成 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillReceiveProps() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;上级说话了 App&quot;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.props);</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;将要死亡 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">static</span> getDerivedStateFromError() &#123; <span class="keyword">return</span> &#123;&#125; &#125;<span class="comment">// 会和 state 合并 </span></span><br><span class="line">  componentDidCatch() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> RA11;</span><br></pre></td></tr></table></figure>
-
-<h3 id="类比-vue-生命周期"><a href="#类比-vue-生命周期" class="headerlink" title="类比 vue 生命周期"></a>类比 vue 生命周期</h3><pre><code>- 类比
-created
-constructor
-
-beforeMount
-componentWillMount
-
-mounted
-componentDidMount
-
-beforeUpdate
-componentWillUpdate
-
-updated
-componentDidUpdated
-
-beforeDestroy
-componentWillUnmount
-
-- 不同
-vue: props data computed watch （属性）
-react: render shouldComponentUpdate componentWillReceiveProps （依然是钩子）</code></pre>
-<h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBMTEvaW5kZXguanN4">react 生命周期<i class="fa fa-external-link-alt"></i></span></p>
 
       
     </div>

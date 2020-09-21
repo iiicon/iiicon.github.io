@@ -20,7 +20,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sgw.wiki","root":"/","scheme":"Gemini","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"sgw.wiki","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
   <meta name="description" content="coding note and life perception">
@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">119</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">120</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">50</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">120</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,97 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/02/js%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/02/js%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">js函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-02 23:18:36" itemprop="dateCreated datePublished" datetime="2019-03-02T23:18:36+08:00">2019-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="函数的声明"><a href="#函数的声明" class="headerlink" title="函数的声明"></a>函数的声明</h4><p>具名函数 匿名函数 具名函数赋值 Function 箭头函数</p>
+<h3 id="this-和-arguments"><a href="#this-和-arguments" class="headerlink" title="this 和 arguments"></a>this 和 arguments</h3><p>this 是 fn.call(this, ...args) 的第一个参数，arguments 是第二个</p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>按照语法树，就近原则<br>注意 js 是静态作用域<br>注意变量是事先生命的，但是是可以动态改变的</p>
+<h3 id="函数调用栈"><a href="#函数调用栈" class="headerlink" title="函数调用栈"></a>函数调用栈</h3><p>最多压 9641 超多就会报错</p>
+<h3 id="call-apply"><a href="#call-apply" class="headerlink" title="call apply"></a>call apply</h3><p>参数确定的时候函数用 call 调用，不确定个数的时候用 apply 调用</p>
+<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><p>用一个新函数来绑定 this，保证 this 是确定的<br>fn.bind.call(fn, {}, 1,2,3)</p>
+<h3 id="return"><a href="#return" class="headerlink" title="return"></a>return</h3><p>每一个函数都有 return，如果没写相当于 return undefined</p>
+<h3 id="柯里化，偏函数"><a href="#柯里化，偏函数" class="headerlink" title="柯里化，偏函数"></a>柯里化，偏函数</h3><p>返回函数的函数, 可以将真实计算拖延到最后再做</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 柯里化之前</span><br><span class="line">function sum(x, y) &#123;</span><br><span class="line">  return x + y</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 柯里化之后</span><br><span class="line">funciton addy(y) &#123;</span><br><span class="line">  return sum(1, y)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 柯里化之前</span><br><span class="line">function Handlebar(template, data)&#123;</span><br><span class="line">    return template.replace(&#39;&#123;&#123;name&#125;&#125;&#39;, data.name)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 柯里化之后</span><br><span class="line">function HandleBar(template) &#123;</span><br><span class="line">  return function(data) &#123;</span><br><span class="line">    return template.replace(&#39;&#123;&#123;name&#125;&#125;&#39;, data.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>满足下列任一情况</p>
+<ol>
+<li>接受一个或者多个函数作为输入<br> forEach map sort reduce filter<br> array.map.call(array, fn)</li>
+<li>输出一个函数<br> lodash.curry _.debounce</li>
+<li>满足两者<br> Function.prototype.bind</li>
+</ol>
+<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>作为参数被调用的函数就是回调函数<br>注意和异步没关系</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>返回对象的函数就是构造函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Ex() &#123;</span><br><span class="line">  this.name &#x3D; &#39;ex&#39;</span><br><span class="line">  return this</span><br><span class="line">&#125;</span><br><span class="line">var ex &#x3D; new Ex()</span><br><span class="line">&#x2F;&#x2F; 加 return this 就可以写成 Ex.call(&#123;&#125;) </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -542,78 +633,6 @@
 <h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符 ?:"></a>三元运算符 ?:</h4><p>如果第一个表达式是 true 就返回第二个表达式，否则就返回第三个表达式的值<br>和 if else 唯一的区别就是，if else 是语句没有返回值，三元表达式是有返回值的，需要返回值的时候就要用三元表达式</p>
 <h3 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h3><h4 id="void-运算符"><a href="#void-运算符" class="headerlink" title="void 运算符"></a>void 运算符</h4><p>void(0) 执行一个表达式，不返回任何值</p>
 <h4 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h4><p>执行第一个表达式，返回第二个值</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/01/10/%E8%AE%BA%E8%AF%AD%C2%B7%E5%AD%A3%E6%B0%8F%E7%AC%AC%E5%8D%81%E5%85%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/01/10/%E8%AE%BA%E8%AF%AD%C2%B7%E5%AD%A3%E6%B0%8F%E7%AC%AC%E5%8D%81%E5%85%AD/" class="post-title-link" itemprop="url">论语·季氏第十六</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-01-10 16:08:10" itemprop="dateCreated datePublished" datetime="2019-01-10T16:08:10+08:00">2019-01-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BB%BC%E5%90%88/" itemprop="url" rel="index"><span itemprop="name">综合</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>季氏将伐颛臾，冉有，季路见于孔子曰：“季式将有事于颛臾”。<br>孔子曰：“求！无乃尔是过与？夫颛臾，昔者先王以为东蒙主，且在城邦之中矣，是社稷之臣也。何以伐为？”。<br>冉有曰：“夫子欲之，吾二臣皆不欲也”。<br>孔子曰：“求！周任有言曰：‘陈力就列，不能者止。’危而不持，颠而不扶，则将焉用彼相矣？且尔言过矣，虎兕(sì)出于柙(xiá)，龟玉毁于椟(dú)中，是谁之过与？”<br>冉有曰：“今夫颛臾，固而近于费。今不取，后世必为子孙忧”。<br>孔子曰：“求！君子疾夫舍曰欲之而必为之辞。丘也闻有国有家者，不患寡而患不均，不患贫而患不安。盖均无贫，和无寡，安无倾。夫如是，故远人不服，则修文德以来之。既来之，则安之。今由与求也，相夫子，远人不服而不能来也，邦分崩离析而不能守也；而谋动干戈于邦内。吾恐季孙之忧，不在颛臾，而在萧墙之内也。”</p>
 
       
     </div>
