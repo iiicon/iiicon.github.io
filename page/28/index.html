@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">120</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">121</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,122 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/11/27/%E3%80%8A%E9%87%8D%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/27/%E3%80%8A%E9%87%8D%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《重构》读书笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-11-27 23:33:16" itemprop="dateCreated datePublished" datetime="2018-11-27T23:33:16+08:00">2018-11-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="重构，第一个实例"><a href="#重构，第一个实例" class="headerlink" title="重构，第一个实例"></a>重构，第一个实例</h2><blockquote>
+<p>是需求的变化使重构变得必要。如果一段代码能正常工作，并且他不会再被修改，那么完全可以不去重构它。能改进之当然很好，但若没人需要去理解它，它就不会真正妨碍什么。如果确实有人需要理解它的工作原理，并且理解起来很费劲，那你就需要改进一下代码了。<br>要将我的理解转化到代码里，得先将这块代码抽取成一个独立的函数，按它所干的事情给它命名，每次想将一块代码抽取成一个函数时，我都会遵循一个标准流程，最大程度减少犯错的可能，这个流程命名为提炼函数。</p>
+</blockquote>
+<ul>
+<li>分解 statement 函数</li>
+<li>移除 play 临时变量，以查询取代</li>
+<li>提炼计算观众量积分的逻辑</li>
+<li>移除 format 变量 (将函数赋值为临时变量，改为一个明确的函数)</li>
+<li>移除观众量积分总和 (提炼函数和应用内联变量) -&gt; 这两部称为以查询取代临时变量？</li>
+<li>拆分计算阶段和格式化阶段</li>
+<li>分离为两个文件（两个阶段）</li>
+<li>按类型重组计算过程，使用多态计算器来提供数据</li>
+</ul>
+<h2 id="重构的原则"><a href="#重构的原则" class="headerlink" title="重构的原则"></a>重构的原则</h2><h3 id="何谓重构"><a href="#何谓重构" class="headerlink" title="何谓重构"></a>何谓重构</h3><p>使用一系列重构手法，在不改变软件可观察行为的前提下，调整其结构。它和性能优化不同，重构是为了让代码更容易理解，更易于修改，这可能使程序运行得更快，也可能使程序运行得更慢</p>
+<h3 id="两顶帽子"><a href="#两顶帽子" class="headerlink" title="两顶帽子"></a>两顶帽子</h3><p>两顶帽子指添加新功能和重构，软件开发过程中经常变换帽子，但是无论何时都清楚自己戴的哪一顶帽子，并且明白不同的帽子对编程状态提出的不同要求</p>
+<h3 id="为何重构"><a href="#为何重构" class="headerlink" title="为何重构"></a>为何重构</h3><ul>
+<li>重构改进软件的设计</li>
+<li>重构使软件更容易理解</li>
+<li>重构帮助找到 bug</li>
+<li>重构提高编程速度</li>
+</ul>
+<h3 id="何时重构"><a href="#何时重构" class="headerlink" title="何时重构"></a>何时重构</h3><p>第三次做类似的事情，你就应该重构</p>
+<ul>
+<li>预备性重构：让添加新功能更容易</li>
+<li>帮助理解的重构： 使代码更易懂</li>
+<li>捡垃圾式重构（先记下来）</li>
+<li>有计划重构和见机行事的重构</li>
+</ul>
+<h4 id="长期重构"><a href="#长期重构" class="headerlink" title="长期重构"></a>长期重构</h4><p>可以让整个团队达成共识，在未来几周时间里逐步解决这个问题，这经常是一个有效的策略</p>
+<h4 id="复审代码时重构"><a href="#复审代码时重构" class="headerlink" title="复审代码时重构"></a>复审代码时重构</h4><p>与原作者肩并肩坐在一起，一边浏览代码一边重构，体验是最佳的。这种工作方式很自然地导向结对编程：在编程的过程中持续不断地进行代码复审</p>
+<h4 id="怎么对经理说"><a href="#怎么对经理说" class="headerlink" title="怎么对经理说"></a>怎么对经理说</h4><p>不要告诉经理！</p>
+<h3 id="重构的挑战"><a href="#重构的挑战" class="headerlink" title="重构的挑战"></a>重构的挑战</h3><h4 id="延缓新功能开发"><a href="#延缓新功能开发" class="headerlink" title="延缓新功能开发"></a>延缓新功能开发</h4><p>重构的唯一目的就是让我们开发更快，用更少的<br>工作量创造更大的价值。</p>
+<p>有些人试图用“整洁的代码”“良好的工程实践”之类<br>道德理由来论证重构的必要性，我认为这是个陷阱。重构的<br>意义不在于把代码库打磨得闪闪发光，而是纯粹经济角度出<br>发的考量。我们之所以重构，因为它能让我们更快——添加<br>功能更快，修复 bug 更快。<br>一定要随时记住这一点，与别人<br>交流时也要不断强调这一点。重构应该总是由经济利益驱<br>动。程序员、经理和客户越理解这一点，<br>“好的设计”那条<br>曲线就会越经常出现。</p>
+<h4 id="代码所有权"><a href="#代码所有权" class="headerlink" title="代码所有权"></a>代码所有权</h4><h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><h4 id="遗留代码"><a href="#遗留代码" class="headerlink" title="遗留代码"></a>遗留代码</h4><h3 id="重构、架构和YAGNI"><a href="#重构、架构和YAGNI" class="headerlink" title="重构、架构和YAGNI"></a>重构、架构和YAGNI</h3><h3 id="重构与软件开发过程"><a href="#重构与软件开发过程" class="headerlink" title="重构与软件开发过程"></a>重构与软件开发过程</h3><h3 id="重构与性能"><a href="#重构与性能" class="headerlink" title="重构与性能"></a>重构与性能</h3><h3 id="重构起源何处"><a href="#重构起源何处" class="headerlink" title="重构起源何处"></a>重构起源何处</h3><h3 id="自动化重构"><a href="#自动化重构" class="headerlink" title="自动化重构"></a>自动化重构</h3><p>IDE</p>
+<h2 id="代码的坏味道"><a href="#代码的坏味道" class="headerlink" title="代码的坏味道"></a>代码的坏味道</h2><blockquote>
+<p>你必须培养自己的判断力，学会判断一个类内有多少实例变量算是太大、一个函数内有多少行代码才算太长。</p>
+</blockquote>
+<h3 id="神秘命名-Mysterious-Name"><a href="#神秘命名-Mysterious-Name" class="headerlink" title="神秘命名 Mysterious Name"></a>神秘命名 Mysterious Name</h3><p>整洁代码最重要的一环就是好的名字</p>
+<p>为一个恼人的名字所付出的纠结，常常能推动我们对代码进行精简。</p>
+<h3 id="重复代码-Duplicated-Code"><a href="#重复代码-Duplicated-Code" class="headerlink" title="重复代码 Duplicated Code"></a>重复代码 Duplicated Code</h3><p>最单纯的重复代码就是“同一个类的两个函数含有相同的表达式”。这时候你需要做的就是采用提炼函数（106）提炼出重复的代码</p>
+<p>如果重复代码只是相似而不是完全相同，请首先尝试用移动语句（223）重组代码顺序，把相似的部分放在一起以便提炼。如果重复的代码段位于同一个超类的不同子类中，可以使用函数上移（350）来避免在两个子类之间互相调用。</p>
+<h3 id="过长函数-Long-Function"><a href="#过长函数-Long-Function" class="headerlink" title="过长函数 Long Function"></a>过长函数 Long Function</h3><p>你应该更积极地分解函数。我们遵循这样一条原则：每当感觉需要以注释来说明点什么的时候，我们就把需要说明的东西写进一个独立函数中，并以其用途（而非实现手法）命名。我们可以对一组甚至短短一行代码做这件事。关键不在于函数的长度，而在于函数“做什么”和“如何做”之间的语义距离。</p>
+<p>你可以经常运用以查询取代临时变量（178）来消除临时元素。引入参数对象（140）和保持对象完整（319）则可以将过长的参数列表变得更简洁一些。</p>
+<p>条件表达式和循环常常也是提炼的信号。</p>
+<h3 id="过长的参数列表-Long-Parameter-List"><a href="#过长的参数列表-Long-Parameter-List" class="headerlink" title="过长的参数列表 Long Parameter List"></a>过长的参数列表 Long Parameter List</h3><p>如果可以向某个参数发起查询而获得另一个参数的值，那么就可以使用以查询取代参数（324）<br>如果你发现自己正在从现有的数据结构中抽出很多数据项，就可以考虑使用保持对象完整（319）手法<br>如果有几项参数总是同时出现，可以用引入参数对象（140）将其合并成一个对象<br>如果某个参数被用作区分函数行为的标记（flag），可以使用移除标记参数（314）<br>使用类可以有效地缩短参数列表。如果多个函数有同样的几个参数，引入一个类就尤为有意义。你可以使用函数组<br>合成类（144），将这些共同的参数变成这个类的字段</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1059,107 +1175,10 @@ ctrl k 删掉后面</code></pre>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/11/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" class="post-title-link" itemprop="url">计算机数据存储</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-11-23 00:48:25" itemprop="dateCreated datePublished" datetime="2018-11-23T00:48:25+08:00">2018-11-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="存储数字"><a href="#存储数字" class="headerlink" title="存储数字"></a>存储数字</h3><p>以二进制存储</p>
-<p>37 &gt;&gt; 100101<br>-37 &gt;&gt; -100101 // 计算机只能存 0 1，所以存的是 2 的补码后的数<br>0.75 &gt;&gt; 0.11 // 浮点数同理也是计算后的</p>
-<h3 id="关于原码，反码，补码"><a href="#关于原码，反码，补码" class="headerlink" title="关于原码，反码，补码"></a>关于原码，反码，补码</h3><p><img src="https://i.loli.net/2019/10/17/cj4YbIydPAtLwGh.jpg" alt="d3617d2ceb02f6129c9b41361804cbe2_hd.jpg" loading="lazy"></p>
-<h3 id="存储字符"><a href="#存储字符" class="headerlink" title="存储字符"></a>存储字符</h3><p>ASCII 码有 128 个，对应 0 - 128, 一个字节就可表示</p>
-<h3 id="存储汉字"><a href="#存储汉字" class="headerlink" title="存储汉字"></a>存储汉字</h3><p>GBK 有 6000 多个汉字，可以用两个字节表示</p>
-<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h3><p>Unicode 本来用 4 个字节表示<br>如果用 UTF-8 就可以灵活用 1-4 个字节表示，可以节省内存，比较高效</p>
-<h3 id="es5-的问题"><a href="#es5-的问题" class="headerlink" title="es5 的问题"></a>es5 的问题</h3><p>js 使用了 UCS-2 的编码方式，只能表示两个字节的字符，es6 解决了这个问题，所以 <code>for (let a of string)</code> 就没问题了</p>
-<h3 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h3><ul>
-<li><p>看完这个，突然对文件大小有了更加清晰的看法，想起了以前的一个题</p>
-<p>function getSize(size) {<br>if (!size) {<br>return &#39;&#39;<br>}</p>
-<pre><code>var n = 1024
-
-if (size &lt; n) &#123;
-  return size + &#39;B&#39;
-&#125; else if (size &lt; Math.pow(n, 2)) &#123;
-  return Math.floor(size / n) + &#39;KB&#39;
-&#125; else if (size &lt; Math.pow(n, 3)) &#123;
-  return Math.floor(size / Math.pow(n, 2)) + &#39;MB&#39;
-&#125; else if (size &lt; Math.pow(n, 4)) &#123;
-  return Math.floor(size / Math.pow(n, 3)) + &#39;GB&#39;
-&#125; else &#123;
-  return Math.floor(size / Math.pow(n, 4)) + &#39;TB&#39;
-&#125;</code></pre>
-<p>}</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/27/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/29/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/27/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/29/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">120</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">121</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,78 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/03/js%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/03/js%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" class="post-title-link" itemprop="url">js函数curry</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-03 15:22:16" itemprop="dateCreated datePublished" datetime="2019-03-03T15:22:16+08:00">2019-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js-code/" itemprop="url" rel="index"><span itemprop="name">js-code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function curry(func, fixedParams) &#123;</span><br><span class="line">  if (!Array.isArray(fixedParams)) &#123;</span><br><span class="line">    fixedParams &#x3D; []</span><br><span class="line">  &#125;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    var newParams &#x3D; Array.prototype.slice.call(arguments)</span><br><span class="line">    if (newParams.length  + fixedParams.length &gt;&#x3D; func.length) &#123;</span><br><span class="line">      return func.apply(null, fixedParams.cancat(newParams))</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return curry(func, fixedParams.cancat(newParams))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -552,108 +624,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/02/14/js%E8%BF%90%E7%AE%97%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/14/js%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">js运算符</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-02-14 10:42:29" itemprop="dateCreated datePublished" datetime="2019-02-14T10:42:29+08:00">2019-02-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p><code>+ - * / ** % + - ++ -- </code></p>
-<h4 id="加法运算符"><a href="#加法运算符" class="headerlink" title="加法运算符"></a>加法运算符</h4><p>加法运算符存在重载，当左右两边有字符串的时候会变成连接运算符<br>除了加法运算符其他都会变成数字进行加减乘除</p>
-<p>如果运算子是对象，必须先转成原始类型的值，规则之前都总结过先 valueOf 后 toString<br>当然也有一个例外就是如果是 Date 类型的时候要优先 toString</p>
-<h4 id="余数运算符"><a href="#余数运算符" class="headerlink" title="余数运算符"></a>余数运算符</h4><p>负数取余可以用绝对值<br>浮点数不是精确的值，所以无法取到精确的结果</p>
-<h4 id="自增和自减运算符"><a href="#自增和自减运算符" class="headerlink" title="自增和自减运算符"></a>自增和自减运算符</h4><p>需要注意的是如果是放在变量之后，要先返回变量操作的值，再进行运算（？）</p>
-<h4 id="数值运算符和负数值运算符"><a href="#数值运算符和负数值运算符" class="headerlink" title="数值运算符和负数值运算符"></a>数值运算符和负数值运算符</h4><p>也是用 + 但是他是一元运算符（与 Number 函数的作用相同）</p>
-<h4 id="指数运算符"><a href="#指数运算符" class="headerlink" title="指数运算符"></a>指数运算符</h4><p><code>2**3**2</code> 和 <code>2**(3**2)</code> 是一样的</p>
-<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p>以 = 为基础的一系列运算符</p>
-<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p><code>&gt; &lt; &gt;= &lt;= == != === !==</code></p>
-<h4 id="非相等运算符比较字符串"><a href="#非相等运算符比较字符串" class="headerlink" title="非相等运算符比较字符串"></a>非相等运算符比较字符串</h4><p>比较 unicode 码点</p>
-<h4 id="非相等运算符比较非字符串"><a href="#非相等运算符比较非字符串" class="headerlink" title="非相等运算符比较非字符串"></a>非相等运算符比较非字符串</h4><p>原始类型的值转为 Number 比较，注意 NaN<br>对象的话要转为原始类型，再开始比较，先调用 valueOf 再调用 toString</p>
-<h4 id="严格相等运算符"><a href="#严格相等运算符" class="headerlink" title="严格相等运算符"></a>严格相等运算符</h4><p>必须是同一个值才返回 true<br>undefined 和 null 与任何值比较都是返回 false<br>但是 undefined === undefined null === null undefined == null</p>
-<h4 id="严格不相等运算符"><a href="#严格不相等运算符" class="headerlink" title="严格不相等运算符"></a>严格不相等运算符</h4><p>就是执行严格相等运算符之后取反</p>
-<h4 id="相等运算符"><a href="#相等运算符" class="headerlink" title="相等运算符"></a>相等运算符</h4><p>数字比较的时候是一样的，其余情况都会发生隐式转换<br>隐式转换的规则就比较多了，列举几个</p>
-<ul>
-<li>如果是原始类型就转换成数值进行比较</li>
-<li>如果是和对象进行比较就转换成原始值进行比较，和字符串比就转换成字符串，其余一般转换成数值<br>undefined null 和其他类型进行比较时，返回 false</li>
-</ul>
-<h4 id="不相等运算符"><a href="#不相等运算符" class="headerlink" title="不相等运算符"></a>不相等运算符</h4><p>相等取反</p>
-<h3 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">! &amp;&amp; || ?:</span><br></pre></td></tr></table></figure>
-
-<h4 id="取反运算符-！"><a href="#取反运算符-！" class="headerlink" title="取反运算符 ！"></a>取反运算符 ！</h4><p>除了六个 falsy 值 返回 true 其他都返回 false</p>
-<h4 id="且运算符-amp-amp"><a href="#且运算符-amp-amp" class="headerlink" title="且运算符 &amp;&amp;"></a>且运算符 &amp;&amp;</h4><p>a &amp;&amp; b &amp;&amp; c 返回第一个布尔值为 false 的值，如果其他都是 true 就返回最后一个值<br>aa &amp;&amp; fn()</p>
-<h4 id="或运算符"><a href="#或运算符" class="headerlink" title="或运算符 ||"></a>或运算符 ||</h4><p>a || b || c 返回第一个值为 true 的值，如果其他都是 false 返回最后一个值</p>
-<h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符 ?:"></a>三元运算符 ?:</h4><p>如果第一个表达式是 true 就返回第二个表达式，否则就返回第三个表达式的值<br>和 if else 唯一的区别就是，if else 是语句没有返回值，三元表达式是有返回值的，需要返回值的时候就要用三元表达式</p>
-<h3 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h3><h4 id="void-运算符"><a href="#void-运算符" class="headerlink" title="void 运算符"></a>void 运算符</h4><p>void(0) 执行一个表达式，不返回任何值</p>
-<h4 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h4><p>执行第一个表达式，返回第二个值</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

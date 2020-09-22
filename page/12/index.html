@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">120</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">121</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,100 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/05/ES6%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/05/ES6%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">ES6对象扩展</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-05 00:11:22" itemprop="dateCreated datePublished" datetime="2019-08-05T00:11:22+08:00">2019-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="动态属性名"><a href="#动态属性名" class="headerlink" title="动态属性名"></a>动态属性名</h3><pre><code>var o = &#123;[name]: 1&#125;</code></pre>
+<h3 id="属性可以是一个函数、getter、setter-方法"><a href="#属性可以是一个函数、getter、setter-方法" class="headerlink" title="属性可以是一个函数、getter、setter 方法"></a>属性可以是一个函数、getter、setter 方法</h3><pre><code>var o = &#123;_age: 18, get age() &#123;return _age&#125;, set age(a)&#123;return a&#125;&#125;</code></pre>
+<h3 id="一道题"><a href="#一道题" class="headerlink" title="一道题"></a>一道题</h3><pre><code>let i = 0
+Object.defineProperty(window, a, &#123;get() &#123; i +=1; return i&#125;&#125;)
+a == 1 &amp;&amp; a==2 &amp;&amp; a == 3 //true</code></pre>
+<h3 id="浅复制"><a href="#浅复制" class="headerlink" title="浅复制"></a>浅复制</h3><pre><code>Object.assign 会触发 setter
+... 不会</code></pre>
+<h3 id="在旧的对象上添加-set-get"><a href="#在旧的对象上添加-set-get" class="headerlink" title="在旧的对象上添加 set get"></a>在旧的对象上添加 set get</h3><pre><code>Object.defineProperty(window, a, &#123;
+  get() &#123;&#125;,
+  set() &#123;&#125;,
+  configurable: true,
+  enumerable: true,
+  value: &#39;&#39;,
+  writable: false
+&#125;)</code></pre>
+<p>获取这些属性可以用 <code>Object.getOwnPropertyDescriptor(window, a)</code></p>
+<p>如果对象的属性是 symbol 可以用 <code>Object.getOwnPropertySymbols(window)</code></p>
+<h3 id="关于原型"><a href="#关于原型" class="headerlink" title="关于原型"></a>关于原型</h3><ul>
+<li><p>获取<br><code>Object.getPrototypeOf()</code></p>
+</li>
+<li><p>设置<br><code>Object.create()</code></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -606,227 +700,10 @@ obj = &#123;[&#39;baz&#39;+qux()]: 33&#125;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/30/ES6%E4%B9%8Blet%E5%92%8Cconst/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/30/ES6%E4%B9%8Blet%E5%92%8Cconst/" class="post-title-link" itemprop="url">ES6之let和const</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-30 23:11:13" itemprop="dateCreated datePublished" datetime="2019-07-30T23:11:13+08:00">2019-07-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><ul>
-<li>let 作用域在{}之间</li>
-<li>在 let a 之前使用，报错</li>
-<li>重复 let 报错</li>
-<li>const 只有一次赋值机会，而且必须立马赋值</li>
-</ul>
-<h3 id="var-变量提升"><a href="#var-变量提升" class="headerlink" title="var 变量提升"></a>var 变量提升</h3><pre><code>function fn() &#123;
-  if (true) &#123;
-    console.log(a)
-  &#125; else &#123;
-    var a = 1
-  &#125;
-&#125;</code></pre>
-<p>相当于这样</p>
-<pre><code>function fn() &#123;
-  var a
-  if (true) &#123;
-    console.log(a)
-  &#125; else &#123;
-    a = 1
-  &#125;
-&#125;
-console.log(a)</code></pre>
-<h3 id="想办法不暴露全局变量"><a href="#想办法不暴露全局变量" class="headerlink" title="想办法不暴露全局变量"></a>想办法不暴露全局变量</h3><p>可以用立即执行函数</p>
-<pre><code>(function()&#123;
-  var a = 1
-  window.xxx = function() &#123; console.log(a) &#125;
-&#125;())</code></pre>
-<p>或者 let</p>
-<pre><code>&#123;
-  let a = 1
-  window.xxx = function() &#123; console.log(a) &#125;
-&#125;</code></pre>
-<h3 id="let-临时死区（temp-dead-zone）"><a href="#let-临时死区（temp-dead-zone）" class="headerlink" title="let 临时死区（temp dead zone）"></a>let 临时死区（temp dead zone）</h3><pre><code>&#123;
-  let a = 1
-  &#123;
-    console.log(a) // 如果一个块中有变量声明，必须先声明再使用
-    let a = 2
-  &#125;
-&#125;</code></pre>
-<h3 id="一些题"><a href="#一些题" class="headerlink" title="一些题"></a>一些题</h3><h4 id="修改全局变量"><a href="#修改全局变量" class="headerlink" title="修改全局变量"></a>修改全局变量</h4><pre><code>&#123;
-  var value = 1
-
-  function foo() &#123;
-    console.log(value)
-  &#125;
-
-  function bar() &#123;
-    value = 2
-
-    foo()
-  &#125;
-  bar()
-&#125;</code></pre>
-<p>注意和词法作用域做区分</p>
-<pre><code>&#123;
-var value = 1
-
-function foo() &#123;
-  console.log(value)
-&#125;
-
-function bar() &#123;
-var value = 2
-    foo()
-&#125;
-bar()
-&#125;</code></pre>
-<h3 id="for-循环中的全局变量"><a href="#for-循环中的全局变量" class="headerlink" title="for 循环中的全局变量"></a>for 循环中的全局变量</h3><pre><code>&#123;
-  for (var index = 0; index &lt; 6; index++) &#123;
-  &#125;
-  console.log(index)  // 输出 6
-&#125;</code></pre>
-<p>另一种情况</p>
-<pre><code>&#123;
-  for (var index = 0; index &lt; 6; index++) &#123;
-    function fn() &#123;
-      console.log(index)
-    &#125;
-    button.onclick = fn // 输出 6
-  &#125;
-&#125;</code></pre>
-<p>这种情况换一种写法</p>
-<pre><code>&#123;
-  for (var index = 0; index &lt; 6; index++) &#123;
-    button[index].onclick = function() &#123;
-      console.log(index) // 输出 6
-    &#125;
-  &#125;
-&#125;</code></pre>
-<p>我们用一个变量把 index 保存下来</p>
-<pre><code>&#123;
-  for (var index = 0; index &lt; 6; index++) &#123;
-    j = index
-    button[j].onclick = function() &#123;
-      console.log(j)  // 这个时候输出 5，一共维护两个变量，index 和 j，index会++
-    &#125;
-  &#125;
-&#125;</code></pre>
-<p>使用 let 作为局部变量</p>
-<pre><code>&#123;
-  for (var index = 0; index &lt; 6; index++) &#123;
-    let j = index // 这就很关键了，维护 6 个 j
-    button[j].onclick = function() &#123;
-      console.log(j)  // 0 1 2 3 4 5
-    &#125;
-  &#125;
-&#125;</code></pre>
-<p>也可以使用函数来使用局部变量</p>
-<pre><code>&#123;
-  for (var index = 0; index &lt; 6; index++) &#123;
-    (function()&#123;
-      var j = arguments[0] // 这样在函数中维护 6 个 j
-      button[j].onclick = function() &#123;
-        console.log(j)  // 0 1 2 3 4 5
-      &#125;
-    &#125;)(index)
-  &#125;
-&#125;
-&#123;
-  for (var index = 0; index &lt; 6; index++) &#123;
-    (function(j)&#123;
-      button[j].onclick = function() &#123;
-        console.log(j)  // 0 1 2 3 4 5
-      &#125;
-    &#125;)(index)
-  &#125;
-&#125;</code></pre>
-<h3 id="for-循环魔法"><a href="#for-循环魔法" class="headerlink" title="for 循环魔法"></a>for 循环魔法</h3><p>我们知道其实最简单的写法是这样</p>
-<pre><code>&#123;
-  for (let index = 0; index &lt; 6; index++) &#123;
-    button[index].onclick = function() &#123;
-      console.log(index)  // 0 1 2 3 4 5
-    &#125;
-  &#125;
-&#125;</code></pre>
-<p>但其实 js 帮我们创建了一个额外的变量 _index, 因为 index 并不在块里<br>for 循环在执行的时候把 _index 赋给 index，最后执行完后再把 index 赋给 _index</p>
-<pre><code>&#123;
-  for (let _index = 0; _index &lt; 6; _index++) &#123;
-    let index = _index
-    button[index].onclick = function() &#123;
-      console.log(index)  // 0 1 2 3 4 5
-    &#125;
-  &#125;
-&#125;</code></pre>
-<p>这样其实在内部共维护了 7 个变量</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

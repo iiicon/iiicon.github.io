@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">120</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">121</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,222 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/12/ES6%E4%B9%8Basync%E5%92%8Cawait/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/12/ES6%E4%B9%8Basync%E5%92%8Cawait/" class="post-title-link" itemprop="url">ES6之async和await</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-12 23:28:36" itemprop="dateCreated datePublished" datetime="2019-08-12T23:28:36+08:00">2019-08-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><blockquote>
+<p>async function 用来定义一个返回 AsyncFunction 对象的异步函数。异步函数是指通过事件循环异步执行的函数，它会通过一个隐式的 Promise 返回其结果。如果你在代码中使用了异步函数，就会发现它的语法和结构会更像是标准的同步函数。</p>
+</blockquote>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><pre><code>function fn() &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    setTimeout(()=&gt;&#123;
+      let n = Math.floor(Math.random()*6+1)
+      if (n&gt;3) &#123;
+        resolve(n)
+      &#125; else &#123;
+        reject(n)
+      &#125;
+    &#125;,100)
+  &#125;)
+&#125;
+
+async function test() &#123;
+  try &#123;
+    let n = await fn()
+    console.log(&#39;success&#39;, n)
+  &#125; catch (e) &#123;
+    console.log(&#39;error&#39;, e)
+  &#125;
+&#125;
+
+test()</code></pre>
+<h3 id="串形异步请求"><a href="#串形异步请求" class="headerlink" title="串形异步请求"></a>串形异步请求</h3><pre><code>function fn() &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    setTimeout(()=&gt;&#123;
+      let n = Math.floor(Math.random()*6+1)
+      if (n&gt;3) &#123;
+        resolve(n)
+      &#125; else &#123;
+        reject(n)
+      &#125;
+    &#125;,100)
+  &#125;)
+&#125;
+
+async function test() &#123;
+  try &#123;
+    let n = await fn()
+    console.log(&#39;success&#39;, n)
+    if (n) &#123;
+      test2()
+    &#125;
+  &#125; catch (e) &#123;
+    console.log(&#39;error&#39;, e)
+  &#125;
+&#125;
+
+async function test2() &#123;
+  try &#123;
+    let n = await fn()
+    console.log(&#39;success&#39;, n)
+  &#125; catch (e) &#123;
+    console.log(&#39;error&#39;, e)
+  &#125;
+&#125;
+
+test()</code></pre>
+<h3 id="同时处理多个请求"><a href="#同时处理多个请求" class="headerlink" title="同时处理多个请求"></a>同时处理多个请求</h3><pre><code>function fn() &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    setTimeout(()=&gt;&#123;
+      let n = Math.floor(Math.random()*6+1)
+      if (n&gt;3) &#123;
+        resolve(n)
+      &#125; else &#123;
+        reject(n)
+      &#125;
+    &#125;,100)
+  &#125;)
+&#125;
+
+async function test() &#123;
+  try &#123;
+    let n = await Promise.all([fn(), fn()])
+    console.log(&#39;success&#39;, n) // [4, 6]
+  &#125; catch (e) &#123;
+    console.log(&#39;error&#39;, e)
+  &#125;
+&#125;
+
+test()</code></pre>
+<h3 id="Promise-all-和-Promise-race-的区别"><a href="#Promise-all-和-Promise-race-的区别" class="headerlink" title="Promise.all 和 Promise.race 的区别"></a>Promise.all 和 Promise.race 的区别</h3><p>先说 all</p>
+<pre><code>function fn() &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    setTimeout(()=&gt;&#123;
+      let n = Math.floor(Math.random()*6+1)
+      if (n&gt;3) &#123;
+        resolve(n)
+        console.log(n,&#39;---&#39;)
+      &#125; else &#123;
+        console.log(n,&#39;+++&#39;)
+        reject(n)
+      &#125;
+    &#125;,100)
+  &#125;)
+&#125;
+
+function test() &#123;
+  Promise.all([fn(), fn()]).then(res=&gt;&#123;
+    console.log(&#39;all success&#39;, res)
+  &#125;, e=&gt;&#123;
+    console.log(&#39;has error&#39;, e)
+  &#125;)
+&#125;
+test()</code></pre>
+<p>成功时这样返回</p>
+<pre><code>// 4
+// &quot;---&quot;
+// 6
+// &quot;---&quot;
+// &quot;all success&quot;
+// [4, 6]</code></pre>
+<p>失败时这样返回</p>
+<pre><code>// 1
+// &quot;+++&quot;
+// &quot;has error&quot;
+// 1
+// 1
+// &quot;+++&quot;</code></pre>
+<p>再说 race</p>
+<p>成功时</p>
+<pre><code>// 5
+// &quot;---&quot;
+// &quot;all success&quot;
+// 5
+// 2
+// &quot;+++&quot;</code></pre>
+<p>失败时</p>
+<pre><code>// 1
+// &quot;+++&quot;
+// &quot;has error&quot;
+// 1
+// 6
+// &quot;---&quot;</code></pre>
+<p>从返回值我们可以看出</p>
+<ul>
+<li>all 返回的是一个数组，</li>
+<li>race 返回一个值</li>
+<li>all 在两个都执行成功之后会执行 .then</li>
+<li>race 在任意一个执行成功之后会执行 .then</li>
+<li>all 和 race 都会在任意一个发生错误时执行 catch，并且另外的 promise 依然会执行</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -743,104 +959,10 @@ import &quot;module-name&quot;;</code></pre>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/05/ES6%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/05/ES6%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">ES6对象扩展</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-08-05 00:11:22" itemprop="dateCreated datePublished" datetime="2019-08-05T00:11:22+08:00">2019-08-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="动态属性名"><a href="#动态属性名" class="headerlink" title="动态属性名"></a>动态属性名</h3><pre><code>var o = &#123;[name]: 1&#125;</code></pre>
-<h3 id="属性可以是一个函数、getter、setter-方法"><a href="#属性可以是一个函数、getter、setter-方法" class="headerlink" title="属性可以是一个函数、getter、setter 方法"></a>属性可以是一个函数、getter、setter 方法</h3><pre><code>var o = &#123;_age: 18, get age() &#123;return _age&#125;, set age(a)&#123;return a&#125;&#125;</code></pre>
-<h3 id="一道题"><a href="#一道题" class="headerlink" title="一道题"></a>一道题</h3><pre><code>let i = 0
-Object.defineProperty(window, a, &#123;get() &#123; i +=1; return i&#125;&#125;)
-a == 1 &amp;&amp; a==2 &amp;&amp; a == 3 //true</code></pre>
-<h3 id="浅复制"><a href="#浅复制" class="headerlink" title="浅复制"></a>浅复制</h3><pre><code>Object.assign 会触发 setter
-... 不会</code></pre>
-<h3 id="在旧的对象上添加-set-get"><a href="#在旧的对象上添加-set-get" class="headerlink" title="在旧的对象上添加 set get"></a>在旧的对象上添加 set get</h3><pre><code>Object.defineProperty(window, a, &#123;
-  get() &#123;&#125;,
-  set() &#123;&#125;,
-  configurable: true,
-  enumerable: true,
-  value: &#39;&#39;,
-  writable: false
-&#125;)</code></pre>
-<p>获取这些属性可以用 <code>Object.getOwnPropertyDescriptor(window, a)</code></p>
-<p>如果对象的属性是 symbol 可以用 <code>Object.getOwnPropertySymbols(window)</code></p>
-<h3 id="关于原型"><a href="#关于原型" class="headerlink" title="关于原型"></a>关于原型</h3><ul>
-<li><p>获取<br><code>Object.getPrototypeOf()</code></p>
-</li>
-<li><p>设置<br><code>Object.create()</code></p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

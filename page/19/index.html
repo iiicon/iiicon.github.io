@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">120</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">121</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,99 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/05/09/css%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/09/css%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/" class="post-title-link" itemprop="url">css堆叠上下文</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-09 08:22:01" itemprop="dateCreated datePublished" datetime="2019-05-09T08:22:01+08:00">2019-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="堆叠顺序"><a href="#堆叠顺序" class="headerlink" title="堆叠顺序"></a>堆叠顺序</h3><ol start="0">
+<li>z-index = -1</li>
+<li>background</li>
+<li>border</li>
+<li>div 块级元素</li>
+<li>浮动元素</li>
+<li>文字 内联元素</li>
+<li>position z-index=0</li>
+<li>position z-index&gt;0</li>
+</ol>
+<p>PS. 如果兄弟元素重叠，后面的盖在前面的身上</p>
+<h3 id="堆叠上下文"><a href="#堆叠上下文" class="headerlink" title="堆叠上下文"></a>堆叠上下文</h3><p><strong>我们知道一些属性能触发堆叠上下文，但是我们不知道堆叠上下文是什么</strong></p>
+<ol>
+<li>根元素 HTML</li>
+<li>z-index 不为 auto 的 relative absolute 定位</li>
+<li>opacity 小于 1 的元素</li>
+<li>transform 不为 none 的元素</li>
+<li>position: fixed 的元素</li>
+<li>-webkit-overflow-scrolling: touch 的元素</li>
+<li>isolation: isolute 的元素<br>...</li>
+</ol>
+<p>触发堆叠上下文后，会解决 z-index 的问题，上面 0 就会在 2 和 3 之间</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -565,90 +658,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF-1px-%E8%BE%B9%E6%A1%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF-1px-%E8%BE%B9%E6%A1%86/" class="post-title-link" itemprop="url">移动端 1px 边框</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-04-23 15:31:21" itemprop="dateCreated datePublished" datetime="2019-04-23T15:31:21+08:00">2019-04-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天再一次遇到了 1px 的问题，突然有点想不起来，从网上查了一下总结一下常用的方法</p>
-<h3 id="0-5px-边框"><a href="#0-5px-边框" class="headerlink" title="0.5px 边框"></a>0.5px 边框</h3><p><code>border-width: 0.5px;</code> 直接写，但是兼容性差，安卓不行</p>
-<h3 id="border-image"><a href="#border-image" class="headerlink" title="border-image"></a>border-image</h3><p>也可以用，但是太麻烦了，而且圆角还会模糊</p>
-<h3 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a>background-image</h3><p>基本和上面一样，替换图片太麻烦了，累</p>
-<h3 id="background-设置渐变"><a href="#background-设置渐变" class="headerlink" title="background 设置渐变"></a>background 设置渐变</h3><p>其实本质和 background-image 是一样的，但是这个可以用一下，原理就是一半有颜色，一半透明</p>
-<h3 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h3><p><code>box-shadow: inset 0px -1px 1px -1px #c8c7cc;</code> 效果也不错，这样的话不能设置背景，而且放大之后会有毛边，即使在移动端不会放大</p>
-<h3 id="viewport-rem"><a href="#viewport-rem" class="headerlink" title="viewport + rem"></a>viewport + rem</h3><p>这种方式就比较无脑了，除了用rem 没什么缺点</p>
-<h3 id="伪类加-transform-实现"><a href="#伪类加-transform-实现" class="headerlink" title="伪类加 transform 实现"></a>伪类加 transform 实现</h3><p>这个还是我最喜欢的方式 也是兼容性最好的方式<br><strong>利用 <code>-webkit-device-pixel-ratio</code> 或者 <code>min-resolution</code></strong> scale 以达到目的<br>下面截图来自 MDN<br><img src="https://i.loli.net/2019/04/23/5cbec6fa33545.jpg" alt="20190423160334.jpg" loading="lazy"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.border-top-1px, .border-right-1px, .border-bottom-1px, .border-left-1px</span><br><span class="line">  position: relative</span><br><span class="line">  &amp;::before, &amp;::after</span><br><span class="line">    content: &quot;&quot;</span><br><span class="line">    display: block</span><br><span class="line">    position: absolute</span><br><span class="line">    transform-origin: 0 0</span><br><span class="line"></span><br><span class="line">.border-top-1px</span><br><span class="line">  &amp;::before</span><br><span class="line">    border-top: 1PX solid $color-row-line</span><br><span class="line">    left: 0</span><br><span class="line">    top: 0</span><br><span class="line">    width: 100%</span><br><span class="line">    transform-origin: 0 top</span><br><span class="line"></span><br><span class="line">.border-right-1px</span><br><span class="line">  &amp;::after</span><br><span class="line">    border-right: 1PX solid $color-col-line</span><br><span class="line">    top: 0</span><br><span class="line">    right: 0</span><br><span class="line">    height: 100%</span><br><span class="line">    transform-origin: right 0</span><br><span class="line"></span><br><span class="line">.border-bottom-1px</span><br><span class="line">  &amp;::after</span><br><span class="line">    border-bottom: 1PX solid $color-row-line</span><br><span class="line">    left: 0</span><br><span class="line">    bottom: 0</span><br><span class="line">    width: 100%</span><br><span class="line">    transform-origin: 0 bottom</span><br><span class="line"></span><br><span class="line">.border-left-1px</span><br><span class="line">  &amp;::before</span><br><span class="line">    border-left: 1PX solid $color-col-line</span><br><span class="line">    top: 0</span><br><span class="line">    left: 0</span><br><span class="line">    height: 100%</span><br><span class="line">    transform-origin: left 0</span><br><span class="line"></span><br><span class="line">@media (min-resolution: 2dppx)</span><br><span class="line">  .border-top-1px</span><br><span class="line">    &amp;::before</span><br><span class="line">      width: 200%</span><br><span class="line">      transform: scale(.5)</span><br><span class="line">  .border-right-1px</span><br><span class="line">    &amp;::after</span><br><span class="line">      height: 200%</span><br><span class="line">      transform: scale(.5)</span><br><span class="line">  .border-bottom-1px</span><br><span class="line">    &amp;::after</span><br><span class="line">      width: 200%</span><br><span class="line">      transform: scale(.5)</span><br><span class="line">  .border-left-1px</span><br><span class="line">    &amp;::before</span><br><span class="line">      height: 200%</span><br><span class="line">      transform: scale(.5)****</span><br><span class="line"></span><br><span class="line">@media (min-resolution: 3dppx)</span><br><span class="line">  .border-top-1px</span><br><span class="line">    &amp;::before</span><br><span class="line">      width: 300%</span><br><span class="line">      transform: scale(.333)</span><br><span class="line">  .border-right-1px</span><br><span class="line">    &amp;::after</span><br><span class="line">      height: 300%</span><br><span class="line">      transform: scale(.333)</span><br><span class="line">  .border-bottom-1px</span><br><span class="line">    &amp;::after</span><br><span class="line">      width: 300%</span><br><span class="line">      transform: scale(.333)</span><br><span class="line">  .border-left-1px</span><br><span class="line">    &amp;::before</span><br><span class="line">      height: 300%</span><br><span class="line">      transform: scale(.333)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
