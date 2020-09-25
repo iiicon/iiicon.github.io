@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">121</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">123</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">54</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,171 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/11/30/node-js-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/30/node-js-server/" class="post-title-link" itemprop="url">node.js server</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-11-30 00:10:29" itemprop="dateCreated datePublished" datetime="2018-11-30T00:10:29+08:00">2018-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="TCP-传输控制协议（Transmission-Control-Protocal）"><a href="#TCP-传输控制协议（Transmission-Control-Protocal）" class="headerlink" title="TCP 传输控制协议（Transmission Control Protocal）"></a>TCP 传输控制协议（Transmission Control Protocal）</h3><p>1 TCP 和 UDP 的区别是什么？<br>TCP 可靠、面向连接，相对 UDP 较慢，对应的协议有 HTTP FTP 等<br>UDP 不可靠、不面向连接，相对 TCP 较快，对应的协议有 DNS</p>
+<p>2 TCP 三次握手<br>TCP 采用 flag 确认收到信息，发送端首先发送一个带有 SYN（synchronize）标志的包给对方，服务端确认收到之后回传一个带有（SYN/ACK）标志的数据包以示传达确认信息，最后发送端再回传一个带有 ACK 的数据包代表握手结束。</p>
+<h3 id="IP-网络协议（Internet-Protocol）"><a href="#IP-网络协议（Internet-Protocol）" class="headerlink" title="IP 网络协议（Internet Protocol）"></a>IP 网络协议（Internet Protocol）</h3><p>IP 协议位于网络层，基本分为内网 IP 和 外网 IP，需要通过路由器连接</p>
+<h3 id="端口-PORT"><a href="#端口-PORT" class="headerlink" title="端口 PORT"></a>端口 PORT</h3><p>访问一个设备需要制定 IP 和端口<br>一般一个端口对应一个服务<br>比如 http -&gt; 80 https -&gt;443 ftp -&gt; 21<br>每个机器有 65535（2^16-1） 个端口，0-1023（2^10-1） 需要管理员权限才能使用</p>
+<h3 id="Node-js-启动一个服务器"><a href="#Node-js-启动一个服务器" class="headerlink" title="Node.js 启动一个服务器"></a>Node.js 启动一个服务器</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9ub2RlLXNlcnZlci1kZW1vL2Jsb2IvbWFzdGVyL3NlcnZlci5qcw==">node.js 简易 server<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var http &#x3D; require(&#39;http&#39;)</span><br><span class="line">var fs &#x3D; require(&#39;fs&#39;)</span><br><span class="line">var url &#x3D; require(&#39;url&#39;)</span><br><span class="line">var port &#x3D; process.argv[2]</span><br><span class="line"></span><br><span class="line">if (!port) &#123;</span><br><span class="line">  console.log(&#39;请指定端口号？\nnode server.js 端口号&#39;)</span><br><span class="line">  process.exit(1)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var server &#x3D; http.createServer(function(request, response) &#123;</span><br><span class="line">  var parsedUrl &#x3D; url.parse(request.url, true)</span><br><span class="line">  var pathWithQuery &#x3D; request.url</span><br><span class="line">  var queryString &#x3D; &#39;&#39;</span><br><span class="line">  if (pathWithQuery.indexOf(&#39;?&#39;) &gt;&#x3D; 0) &#123;</span><br><span class="line">    queryString &#x3D; pathWithQuery.substring(pathWithQuery.indexOf(&#39;?&#39;))</span><br><span class="line">  &#125;</span><br><span class="line">  var path &#x3D; parsedUrl.pathname</span><br><span class="line">  var query &#x3D; parsedUrl.query</span><br><span class="line">  var method &#x3D; request.method</span><br><span class="line"></span><br><span class="line">  console.log(&#39;含查询字符串的路径\n&#39; + pathWithQuery)</span><br><span class="line"></span><br><span class="line">  if (path &#x3D;&#x3D;&#x3D; &#39;&#x2F;&#39;) &#123;</span><br><span class="line">    response.statusCode &#x3D; 200</span><br><span class="line">    response.setHeader(&#39;Content-Type&#39;, &#39;text&#x2F;html;charset&#x3D;utf-8&#39;)</span><br><span class="line">    response.write(</span><br><span class="line">      &#39;&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;.&#x2F;style&quot;&gt;&lt;&#x2F;head&gt;&lt;body&gt;&lt;script src&#x3D;&quot;.&#x2F;main.js&quot;&gt;&lt;&#x2F;script&gt;&lt;&#x2F;body&gt;&lt;&#x2F;html&gt;&#39;</span><br><span class="line">    )</span><br><span class="line">    response.end()</span><br><span class="line">  &#125; else if (path &#x3D;&#x3D;&#x3D; &#39;&#x2F;style&#39;) &#123;</span><br><span class="line">    response.setHeader(&#39;Content-Type&#39;, &#39;text&#x2F;css;charset&#x3D;utf-8&#39;)</span><br><span class="line">    response.write(&#39;* &#123;color: #a37654;&#125;&#39;)</span><br><span class="line">    response.end()</span><br><span class="line">  &#125; else if (path &#x3D;&#x3D;&#x3D; &#39;&#x2F;main.js&#39;) &#123;</span><br><span class="line">    response.setHeader(&#39;Content-Type&#39;, &#39;text&#x2F;javascript;charset&#x3D;utf-8&#39;)</span><br><span class="line">    response.write(&#39;alert(&quot;test&quot;)&#39;)</span><br><span class="line">    response.end()</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    response.statusCode &#x3D; 404</span><br><span class="line">    response.setHeader(&#39;Content-Type&#39;, &#39;text&#x2F;html;charset&#x3D;utf-8&#39;)</span><br><span class="line">    response.write(&#39;Not Found&#39;)</span><br><span class="line">    response.end()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(port)</span><br><span class="line">console.log(&#39;监听 &#39; + port + &#39; 成功\n http:&#x2F;&#x2F;localhost:&#39; + port)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/11/27/HTTP%E5%AE%9E%E8%B7%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/27/HTTP%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">HTTP实践</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-11-27 23:42:31" itemprop="dateCreated datePublished" datetime="2018-11-27T23:42:31+08:00">2018-11-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><blockquote>
+<p>world wide web、Uniform Resource Indetifer、HyperText Transfer Protocol、HyperText Markup Language</p>
+</blockquote>
+<p>上个世纪 90 年代 Tim Berners Lee 发明了第一个浏览器，网页，服务器，以及 www<br>www 主要包含 URI HTTP HTML</p>
+<h3 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h3><p>uri &gt; url + urn<br>  urn  ISBN:148395792378952<br>  url  google.com</p>
+<h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><blockquote>
+<p>Domain Name System</p>
+</blockquote>
+<p>用到的命令<br>  nslookup ping<br>本地的文件在 <code>/etc/hosts</code></p>
+<h3 id="curl-transfer-a-url"><a href="#curl-transfer-a-url" class="headerlink" title="curl (transfer a url)"></a>curl (transfer a url)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -X POST -s -v -H &quot;token: xxx&quot; -- &quot;https:&#x2F;&#x2F;www.baidu.com&quot;</span><br><span class="line">  -X --request (method)</span><br><span class="line">  -s --slient (Don&#39;t show progress meter or error messages)</span><br><span class="line">  -v --verbose (Mostly useful for debugging)</span><br><span class="line">  -H --header (Extra header to use when getting a web page)</span><br><span class="line">  -d --data (Sends the specified data)</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTP-请求包括哪些部分"><a href="#HTTP-请求包括哪些部分" class="headerlink" title="HTTP 请求包括哪些部分"></a>HTTP 请求包括哪些部分</h3><p>  请求行，首部字段，空行，请求参数 四部分</p>
+<p>  1 动词 路径 协议/版本<br>  2 Key1: value1<br>  2 Key2: value2<br>  2 Key3: value3<br>  2 Content-Type: application/x-www-form-urlencoded<br>  2 Host: <span class="exturl" data-url="aHR0cDovL3d3dy5iYWlkdS5jb20v">www.baidu.com<i class="fa fa-external-link-alt"></i></span><br>  2 User-Agent: curl/7.54.0<br>  3<br>  4 params</p>
+<p>  具体参数查看 Chrome network 的 request headers, chrome 好像把请求参数单独分出为 query string paramters</p>
+<h3 id="HTTP-响应包括哪些部分"><a href="#HTTP-响应包括哪些部分" class="headerlink" title="HTTP 响应包括哪些部分"></a>HTTP 响应包括哪些部分</h3><p>  状态行，首部字段，空行，报文主体 四部分</p>
+<p>  1 协议/版本号 状态码 状态解释<br>  2 Key1: value1<br>  2 Key2: value2<br>  2 Content-Length: 17931<br>  2 Content-Type: text/html<br>  3<br>  4 要下载的内容</p>
+<p>  具体参数查看 Chrome network 的 response headers, 还有 Content-Type 和 Content-Length 是如此重要</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -949,215 +1114,6 @@
 <li>Dos 攻击</li>
 <li>后门程序</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/11/25/git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/25/git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git 常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-11-25 18:47:11" itemprop="dateCreated datePublished" datetime="2018-11-25T18:47:11+08:00">2018-11-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>git clone git@github.com:xxxx</code> 下载仓库</p>
-<p><code>git init，初始化本地仓库</code> .git</p>
-<p><code>git status -sb</code> 显示当前所有文件的状态</p>
-<p><code>git add 文件路径</code> 用来将变动加到暂存区</p>
-<p><code>git commit -m &quot;信息&quot;</code> 用来正式提交变动，提交至 .git 仓库</p>
-<p><code>git log</code> 查看变更历史</p>
-<p><code>git fetch origin master</code> 从远程把别人的代码拉下来</p>
-<p><code>git pull</code> 就是 <code>git fetch and git merge</code> 的合并操作</p>
-<p><code>git push</code></p>
-<p><code>git remote add origin git@github.com:xxxxxxx.git</code> 将本地仓库与远程仓库关联</p>
-<p><code>git remote set-url origin git@github.com:xxxxx.git</code> 上一步手抖了，可以用这个命令来挽回</p>
-<p><code>git branch</code> 新建分支</p>
-<p><code>git merge</code> 合并分支</p>
-<p><code>git diff</code> 查看详细变化</p>
-<p><code>git rev-parse HEAD</code> 查看当前的 commit 记录</p>
-<p><code>git reset --hard xxxx</code> 回滚</p>
-<p><code>git push -f origin develop</code>  git 强制提交</p>
-<p><code>git push -u orgin dev</code> git 设置上游 --set-upstream</p>
-<p><code>git config core.ignorecase false</code> windows 设置大小写敏感</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/11/25/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%B8%85%E5%8D%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/25/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%B8%85%E5%8D%95/" class="post-title-link" itemprop="url">常用的命令行清单</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-11-25 18:23:28" itemprop="dateCreated datePublished" datetime="2018-11-25T18:23:28+08:00">2018-11-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h4><pre><code>cd 
-pwd
-mkdir 目录名
-mkdir -p 目录路径</code></pre>
-<h4 id="查看路径"><a href="#查看路径" class="headerlink" title="查看路径"></a>查看路径</h4><pre><code>ls
-ls -a
-ls -l
-ls -al</code></pre>
-<h4 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h4><pre><code>echo &#39;1&#39; &gt; 文件路径
-echo &#39;1&#39; &gt;! 文件路径
-echo &#39;1&#39; &gt;&gt; 文件路径  // 追加
-touch 文件名
-touch 文件名 // 更新时间</code></pre>
-<h4 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h4><pre><code>cp 源路径 目标路径
-cp -r 源路径 目标路径</code></pre>
-<h4 id="移动-重命名"><a href="#移动-重命名" class="headerlink" title="移动/重命名"></a>移动/重命名</h4><pre><code>mv 源路径 目标路径</code></pre>
-<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><pre><code>rm 文件路径
-rm -f 文件路径
-rm -r 目录路径
-rm -rf 目录路径</code></pre>
-<h4 id="查看目录结构"><a href="#查看目录结构" class="headerlink" title="查看目录结构"></a>查看目录结构</h4><pre><code>tree // 没有安装的需要安装</code></pre>
-<h4 id="建立文件软连接"><a href="#建立文件软连接" class="headerlink" title="建立文件软连接"></a>建立文件软连接</h4><pre><code>ln -s 真实文件 链接 （s 就是 symbolic）</code></pre>
-<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><pre><code>curl -L baidu.com &gt; baidu.html
-    -L location (感觉是下载，不是很清楚具体怎么用))
-curl -X POST -s -v -H &quot;token: xxx&quot; -- &quot;https://www.baidu.com&quot;
-    -X --request (method)
-    -s --slient (Don&#39;t show progress meter or error messages)
-    -v --verbose (Mostly useful for debugging)
-    -H --header (Extra header to use when getting a web page)
-    -d --data (Sends the specified data)</code></pre>
-<h4 id="拷贝网页"><a href="#拷贝网页" class="headerlink" title="拷贝网页"></a>拷贝网页</h4><pre><code>wget -p -H -e robots=off baidu.com 
-    --page-requisites
-    --span-hosts
-    --execute command</code></pre>
-<h4 id="磁盘占用"><a href="#磁盘占用" class="headerlink" title="磁盘占用"></a>磁盘占用</h4><pre><code>df -kh </code></pre>
-<h4 id="当前目录大小"><a href="#当前目录大小" class="headerlink" title="当前目录大小"></a>当前目录大小</h4><pre><code>du -sh  // --short --human-readable --usage
-du -h</code></pre>
-<h4 id="电脑相关"><a href="#电脑相关" class="headerlink" title="电脑相关"></a>电脑相关</h4><pre><code>sudo spctl --master-disable // 安装任何来源的文件</code></pre>
-<h4 id="http-服务"><a href="#http-服务" class="headerlink" title="http 服务"></a>http 服务</h4><pre><code>1. http-server 
-    -p port 
-    -c cache  -c-1 disable-cache
-2. python -m SimpleHTTPServer 8888</code></pre>
-<h4 id="域名信息"><a href="#域名信息" class="headerlink" title="域名信息"></a>域名信息</h4><pre><code>whois</code></pre>
-<h4 id="命令行快捷键"><a href="#命令行快捷键" class="headerlink" title="命令行快捷键"></a>命令行快捷键</h4><pre><code>ctrl a 行首
-ctrl e 行尾
-ctrl f 向前
-ctrl b 后退
-ctrl k 删掉后面</code></pre>
 
       
     </div>

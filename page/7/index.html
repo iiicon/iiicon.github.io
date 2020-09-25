@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">121</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">123</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">52</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">54</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,211 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/12/20/TS%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/TS%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">TS工具类函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-12-20 11:15:12" itemprop="dateCreated datePublished" datetime="2019-12-20T11:15:12+08:00">2019-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js-code/" itemprop="url" rel="index"><span itemprop="name">js-code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="是否是对象"><a href="#是否是对象" class="headerlink" title="是否是对象"></a>是否是对象</h3><pre><code>export function isObject(val: any): val is Object &#123;
+  return val !== null &amp;&amp; typeof val === &quot;object&quot;;
+&#125;</code></pre>
+<h3 id="是否是纯对象"><a href="#是否是纯对象" class="headerlink" title="是否是纯对象"></a>是否是纯对象</h3><pre><code>export function isPlainObject(val: any): val is Object &#123;
+  return Object.prototype.toString.call(val) === &quot;[object Object]&quot;;
+&#125;</code></pre>
+<h3 id="是否是日期对象"><a href="#是否是日期对象" class="headerlink" title="是否是日期对象"></a>是否是日期对象</h3><pre><code>export function isDate(val: any): val is Date &#123;
+  return Object.prototype.toString.call(val) === &quot;[object Date]&quot;;
+&#125;</code></pre>
+<h3 id="是否是-URLSearchParams-对象"><a href="#是否是-URLSearchParams-对象" class="headerlink" title="是否是 URLSearchParams 对象"></a>是否是 URLSearchParams 对象</h3><pre><code>export function isURLSearchParams(val: any): val is URLSearchParams &#123;
+  return typeof val !== &quot;undefined&quot; &amp;&amp; val instanceof URLSearchParams;
+&#125;</code></pre>
+<h3 id="是否是-FormData"><a href="#是否是-FormData" class="headerlink" title="是否是 FormData"></a>是否是 FormData</h3><pre><code>export function isFormData(val: any): val is FormData &#123;
+  return typeof val !== &quot;undefined&quot; &amp;&amp; val instanceof FormData;
+&#125;</code></pre>
+<h3 id="是否是绝对地址"><a href="#是否是绝对地址" class="headerlink" title="是否是绝对地址"></a>是否是绝对地址</h3><pre><code>export function isAbsoluteURL(url: string): boolean &#123;
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+&#125;</code></pre>
+<h3 id="extend-合并两个对象的属性"><a href="#extend-合并两个对象的属性" class="headerlink" title="extend 合并两个对象的属性"></a>extend 合并两个对象的属性</h3><pre><code>export function extend&lt;T, U&gt;(to: T, from: U): T &amp; U &#123;
+  for (const i in from) &#123;
+    (to as T &amp; U)[i] = from[i] as any;
+  &#125;
+  return to as T &amp; U;
+&#125;</code></pre>
+<h3 id="合并-baseurl-和-url"><a href="#合并-baseurl-和-url" class="headerlink" title="合并 baseurl 和 url"></a>合并 baseurl 和 url</h3><pre><code>export function combineURL(baseURL: string, relativeURL?: string): string &#123;
+  return relativeURL
+    ? baseURL.replace(/\/+$/, &quot;&quot;) + &quot;/&quot; + relativeURL.replace(/^\/+/, &quot;&quot;)
+    : baseURL;
+&#125;</code></pre>
+<h3 id="对象合并（深拷贝）"><a href="#对象合并（深拷贝）" class="headerlink" title="对象合并（深拷贝）"></a>对象合并（深拷贝）</h3><pre><code>export function deepMerge(...objs: any[]): any &#123;
+  const result = Object.create(null);
+
+  objs.forEach(obj =&gt; &#123;
+    if (obj) &#123;
+      Object.keys(obj).forEach(key =&gt; &#123;
+        const val = obj[key];
+        if (isPlainObject(val)) &#123;
+          if (isPlainObject(result[key])) &#123;
+            result[key] = deepMerge(result[key], val);
+          &#125; else &#123;
+            result[key] = deepMerge(val);
+          &#125;
+        &#125; else &#123;
+          result[key] = val;
+        &#125;
+      &#125;);
+    &#125;
+  &#125;);
+
+  return result;
+&#125;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/12/18/XSRF%E9%98%B2%E5%BE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/18/XSRF%E9%98%B2%E5%BE%A1/" class="post-title-link" itemprop="url">XSRF防御</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-12-18 15:28:45" itemprop="dateCreated datePublished" datetime="2019-12-18T15:28:45+08:00">2019-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web-%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">web 安全</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="XSRF-又名-CSRF，它是前端常见的一种攻击方式，"><a href="#XSRF-又名-CSRF，它是前端常见的一种攻击方式，" class="headerlink" title="XSRF 又名 CSRF，它是前端常见的一种攻击方式，"></a>XSRF 又名 CSRF，它是前端常见的一种攻击方式，</h3><blockquote>
+<p>CSRF 的防御手段有很多，比如验证请求的 referer，但是 referer 也是可以伪造的，所以杜绝此类攻击的一种方式是服务器端要求每次请求都包含一个 token，这个 token 不在前端生成，而是在我们每次访问站点的时候生成，并通过 set-cookie 的方式种到客户端，然后客户端发送请求的时候，从 cookie 中对应的字段读取出 token，然后添加到请求 headers 中。这样服务端就可以从请求 headers 中读取这个 token 并验证，由于这个 token 是很难伪造的，所以就能区分这个请求是否是用户正常发起的。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/12/18/vnpR7tbIwyJAkS4.png" alt="xsrf.png" loading="lazy"></p>
+<h3 id="axios-会默认做三件事情"><a href="#axios-会默认做三件事情" class="headerlink" title="axios 会默认做三件事情"></a>axios 会默认做三件事情</h3><ul>
+<li><p>首先判断如果是配置 withCredentials 为 true 或者是同域请求，我们才会请求 headers 添加 xsrf 相关的字段。</p>
+</li>
+<li><p>如果判断成功，尝试从 cookie 中读取 xsrf 的 token 值。</p>
+</li>
+<li><p>如果能读到，则把它添加到请求 headers 的 xsrf 相关字段中。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -455,203 +660,6 @@
 </blockquote>
 <p>所以更应该用 <code>Object.getPrototype()</code> 和 <code>Object.setPrototype()</code></p>
 <p>在 es6 引擎中 <code>Object.prototype.__proto__</code> 被定义为一个访问器属性，其 get 方法会调用 <code>Object.getPrototype</code>，set 方法会调用 <code>Object.setPrototype</code>, 因此和使用 <strong>proto</strong> 的区别就是可以直接设置对象字面量的原型。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/12/12/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%86%E8%A7%A3%20ES7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/12/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%86%E8%A7%A3%20ES7/" class="post-title-link" itemprop="url">《深入理解ES6》读书笔记了解ES7</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-12-12 23:23:12" itemprop="dateCreated datePublished" datetime="2019-12-12T23:23:12+08:00">2019-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="指数运算符"><a href="#指数运算符" class="headerlink" title="指数运算符"></a>指数运算符</h2><pre><code>let result = 5 ** 2
-consol.log(result === Math.pow(5,2))</code></pre>
-<h3 id="运算顺序"><a href="#运算顺序" class="headerlink" title="运算顺序"></a>运算顺序</h3><pre><code>let result = 2 * 5 ** 2 // 50</code></pre>
-<h3 id="运算限制"><a href="#运算限制" class="headerlink" title="运算限制"></a>运算限制</h3><p>取幂运算符的左侧的一元表达式只能使用 ++ 或者 --</p>
-<pre><code>let result = -5 ** 2 // error
-let result = -(5**2)</code></pre>
-<h2 id="Array-prototype-includes-方法"><a href="#Array-prototype-includes-方法" class="headerlink" title="Array.prototype.includes() 方法"></a>Array.prototype.includes() 方法</h2><p>第一个参数是要搜索的值，第二个参数是开始搜索的位置，返回 true 或者 false</p>
-<h3 id="值的比较"><a href="#值的比较" class="headerlink" title="值的比较"></a>值的比较</h3><pre><code>let values = [1, NaN, 2]
-console.log(values.indexOf(NaN)) // -1
-console.log(values.includes(NaN)) // true</code></pre>
-<p>如果你只想检查数组中是否存在某个不知道索引的值，由于给 includes() 方法和 indexOf() 方法传入 NaN 的差异，这里建议使用 includes() 方法，如果你想知道某个值在数组的哪个位置，则必须使用 indexOf() 方法</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/12/12/%E4%BB%8E%E3%80%8C%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E3%80%8D%E8%B0%88%E5%8F%8AWeb%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/12/%E4%BB%8E%E3%80%8C%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E3%80%8D%E8%B0%88%E5%8F%8AWeb%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">从「从输入URL到页面加载」谈及Web性能优化</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-12-12 15:40:59" itemprop="dateCreated datePublished" datetime="2019-12-12T15:40:59+08:00">2019-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web-%E6%80%A7%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">web 性能</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="如何理解-web-性能优化"><a href="#如何理解-web-性能优化" class="headerlink" title="如何理解 web 性能优化"></a>如何理解 web 性能优化</h3><p>一个网站的性能，可以分为两个方面，一个叫做 Loading Performance（加载性能），一个叫做 Rendering Performce（渲染性能），说白了就是用户觉得页面加载很快</p>
-<p><img src="https://user-images.githubusercontent.com/25027560/46640041-5703be80-cb9c-11e8-8974-5cd0d71ead5f.png" alt="浏览器原理" loading="lazy"></p>
-<h3 id="从输入-URL-到页面加载发生了什么"><a href="#从输入-URL-到页面加载发生了什么" class="headerlink" title="从输入 URL 到页面加载发生了什么"></a>从输入 URL 到页面加载发生了什么</h3><p>从各个阶段寻求优化</p>
-<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p><img src="https://user-gold-cdn.xitu.io/2018/5/28/163a4d01fdd197b6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="浏览器缓存" loading="lazy"></p>
-<p>输入地址后又缓存直接读缓存，没有就直接请求</p>
-<h4 id="DNS-查询"><a href="#DNS-查询" class="headerlink" title="DNS 查询"></a>DNS 查询</h4><p>DNS 查询就像电话簿，你再浏览器地址输入地址，通过 DNS 查询得到域名的真实 IP<br>DNS 查询完成之前，浏览器无法从服务器下载任何资源</p>
-<p>优化：就需要减少 DNS 查询</p>
-<ul>
-<li>DNS 缓存</li>
-<li>减少域名</li>
-</ul>
-<h4 id="TCP-连接"><a href="#TCP-连接" class="headerlink" title="TCP 连接"></a>TCP 连接</h4><p><img src="https://i.loli.net/2019/12/12/W2kKG78ybpLvcPu.png" alt="20191212171414.png" loading="lazy"></p>
-<p>优化：</p>
-<ul>
-<li>http 请求头 <code>Connection:keep-alive</code></li>
-<li>http2.0 多路复用</li>
-</ul>
-<h4 id="http-请求"><a href="#http-请求" class="headerlink" title="http 请求"></a>http 请求</h4><h5 id="不要滥用-cookie"><a href="#不要滥用-cookie" class="headerlink" title="不要滥用 cookie"></a>不要滥用 cookie</h5><ul>
-<li>去除不必要的 cookie</li>
-<li>尽量压缩 cookie</li>
-<li>注意 设置 cookie 的 domain 级别，不要影响 sub-domain</li>
-<li>设置合适的过期时间</li>
-<li>静态资源使用无 cookie 的域名</li>
-</ul>
-<h5 id="添加-Expires-或-Cache-Control-响应头"><a href="#添加-Expires-或-Cache-Control-响应头" class="headerlink" title="添加 Expires 或 Cache-Control 响应头"></a>添加 Expires 或 Cache-Control 响应头</h5><ul>
-<li>静态内容：将 Expires 响应头设置为将来很远的时间，实现「永不过期」策略</li>
-<li>动态内容：设置合适的 Cache-Control 响应头，让浏览器有条件地发起请求。</li>
-</ul>
-<h5 id="设置-Etag"><a href="#设置-Etag" class="headerlink" title="设置 Etag"></a>设置 Etag</h5><p>通过如 MD5 等加密算法，设置缓存体的 Etag 配合 3.3 的缓存时间使用，这样 Cache-Control 就可以设置较长时间（max-age 设置个十年半载 ），只要浏览器缓存中资源与源服务器中的资源 Etag 不一致，说明内容更新了，此时再下载新资源；Etag 匹配成功则直接响应 304，不用重复下载了用户自然感觉很快。</p>
-<h5 id="使用-Gzip"><a href="#使用-Gzip" class="headerlink" title="使用 Gzip"></a>使用 Gzip</h5><p>使用 Gzip 就是将 HTML CSS JS XML JSON 等资源进行 Gzip 高效压缩，减少资源体积那么下载就会更快，Gzip 压缩通常可以达到 70%，对某些文件可以达到 90%，比 Deflate 更高效。主流服务器都有相应的模块，绝大多数浏览器支持 Gzip 解码，从 http1.1 开始客户端就有了支持压缩的 <code>Accept-Encoding:gzip,deflate</code> 请求头</p>
-<p>服务器看到这个请求头，它就会用客户端列出的一种方式来压缩响应。web 服务器通过 Content-Encoding 响应头来通知客户端。<code>Content-Encoding: gzip</code></p>
-<p><strong>注意</strong>已经压缩过的内容如图片和 pdf 不要使用 Gzip，另外还有文件内容本身就很小，这些资源再使用 Gzip 反而会增加资源下载时间，浪费 cpu 资源，可能还会增加文件体积</p>
-<h5 id="请求数量"><a href="#请求数量" class="headerlink" title="请求数量"></a>请求数量</h5><p>http 请求的另一个优化方案是增加同时请求的数量，浏览器会同时发送多个请求（cdn），但是同一个域名最多发动 4-8 个，那么当资源过多时，就可以通过增加域名的方法增加并发下载，当然这和上面的 DNS 查询相悖，真实的线上要做权衡</p>
-<h5 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h5><p>因为一次发送的请求有限，所以重要的资源要优先加载，动态的要异步加载</p>
-<!-- TODO: script module -->
-
-<h5 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h5><p>预先加载利用浏览器空闲时间请求将来要使用的资源，以便用户访问下一页面时更快地响应。</p>
-<!-- TODO: script module -->
-
-<h4 id="接受相应"><a href="#接受相应" class="headerlink" title="接受相应"></a>接受相应</h4><p>同样是压缩 Gzip 和利用缓存 Etag 等，响应完成就代表浏览器下载完资源了</p>
-<h4 id="接受完成，解析-HTML"><a href="#接受完成，解析-HTML" class="headerlink" title="接受完成，解析 HTML"></a>接受完成，解析 HTML</h4><p>（Gzip 压缩）<br>接受完成后开始逐行解析 html 文件</p>
-<h5 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h5><p>一定要写对 DOCTYPE<br>这个声明的目的是防止浏览器在渲染文档时，切换到我们称为“怪异模式(兼容模式)”的渲染模式。“<!DOCTYPE html>&quot; 确保浏览器按照最佳的相关规范进行渲染，而不是使用一个不符合规范的渲染模式。</p>
-<h5 id="css"><a href="#css" class="headerlink" title="css"></a>css</h5><p>合并css 减少请求数<br>浏览器会并行下载css，然后逐个解析<br>把样式表放在 head 中可以让页面渐进渲染，尽早呈现视觉反馈，给用户加载速度很快的感觉，有些浏览器会在 css 加载完成之后才会渲染页面<br>我们知道不管是 css 还是 js 都会阻塞页面的渲染（比如chrome中css就会）<br>而且 GUI 线程和 js引擎是互斥的，只有一方能工作，所以一般 css 写上面， js写下面，这样更加符合浏览器的工作原理</p>
-<h5 id="js"><a href="#js" class="headerlink" title="js"></a>js</h5><p>合并js，减少请求数<br>浏览器会并行下载 js，然后逐个解析<br>而且 <code>&lt;script&gt;</code> 一定阻塞页面 // 待确认<br>放在body最后，可以尽早显示页面，还可以获取节点</p>
 
       
     </div>
