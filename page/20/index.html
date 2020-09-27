@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">123</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">124</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">54</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">55</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,100 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/24/h5%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/24/h5%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">h5项目总结（xl）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-24 15:53:44" itemprop="dateCreated datePublished" datetime="2019-04-24T15:53:44+08:00">2019-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!-- 思路 -->
+<!-- 1 项目搭建 -->
+<!-- 2 自适应的问题 -->
+<!-- 3 关于微信用户无感登录 -->
+<!-- 4 toast 不是全局的问题 -->
+<!-- 5 关于项目优化 -->
+
+<p>最近做了一个 h5 的项目，技术栈是 vue-cli3 vue 全家桶, UI 有用 cube-ui, NProgress, 用了一个 blueimp-md5 的 md5 库， 样式用的是 scss + postcss-px2rem, 在 vuex 层用 vuex-persistedstate 做数据持久化</p>
+<h3 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h3><ul>
+<li>用 vue-cli3 搭建项目，启动 vue ui，直接可以在网页上管理项目</li>
+<li>用 .env.production 这种文件提供环境变量，供 webpack 不同的 mode 打包使用</li>
+<li>向外暴露的只有一个 vue.config.js，其他都写到了 webpack 的包里，简单列几个这个文件的属性<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">BASE_URL 已经被废除了 重新用回了 publicPath 指定</span><br><span class="line"></span><br><span class="line">chainWebpack 是一个函数，可以对 webpack 的配置进行更细粒度的修改，而且可以链式调用</span><br><span class="line">chainWebpack: config &#x3D;&gt; &#123;</span><br><span class="line">  config.resolve.alias</span><br><span class="line">  .set(&#39;@&#39;, resolve(&#39;src&#39;))</span><br><span class="line">  .set(&#39;_c&#39;, resolve(&#39;src&#x2F;components&#39;))</span><br><span class="line">  .set(&#39;_api&#39;, resolve(&#39;src&#x2F;api&#39;))</span><br><span class="line">  .set(&#39;_lib&#39;, resolve(&#39;src&#x2F;lib&#39;))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">productionSourceMap: false 线上直接关闭 sourceMap</span><br><span class="line"></span><br><span class="line">devServer: &#123;</span><br><span class="line">  proxy: process.env.VUE_APP_API_URL</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>项目结构<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">|-- .editorconfig                         </span><br><span class="line">|-- .env.development                          </span><br><span class="line">|-- .env.porduction                       </span><br><span class="line">|-- .env.stage                              </span><br><span class="line">|-- .env.test1                              </span><br><span class="line">|-- .env.test2</span><br><span class="line">|-- package.json</span><br><span class="line">|-- public</span><br><span class="line">|   |-- data.json</span><br><span class="line">|   |-- favicon.ico</span><br><span class="line">|   &#96;-- index.html</span><br><span class="line">|-- src</span><br><span class="line">|   |-- App.vue</span><br><span class="line">|   |-- api</span><br><span class="line">|   |-- assets</span><br><span class="line">|   |-- components</span><br><span class="line">|   |-- cube-ui.js</span><br><span class="line">|   |-- lib</span><br><span class="line">|   |-- main.js</span><br><span class="line">|   |-- router</span><br><span class="line">|   |-- store</span><br><span class="line">|   |-- theme.styl</span><br><span class="line">|   &#96;-- views</span><br><span class="line">|-- vue.config.js</span><br><span class="line">&#96;-- yarn.lock</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong><em>吐槽</em></strong> <strong>如果不指定 .env 文件的 NODE_ENV 为production，打包的时候都会按照 development 模式来，所以如果要线上环境打包的效果，就要显式得指定 NODE_ENV 为 production， 环境变量可以用 CURRNET_MODE 这种变量来代替</strong></p>
+<h3 id="自适应的问题"><a href="#自适应的问题" class="headerlink" title="自适应的问题"></a>自适应的问题</h3><p>项目中使用 postcss-px2rem 直接把 px 转成 rem 但是和 px 是一样的，我也不知道当时自己为啥要用 rem<br>当然遇到的问题就一个 login 的页面遇到了一个小键盘会导致页面缩小的 bug， 通过多方尝试，最终还是在入口把 window.innerHeight 记录下来， 在需要 100vh 的页面，渲染完毕后用 js 把 style.height 设置成 window.innerHeight</p>
+<h3 id="关于微信用户无感登录"><a href="#关于微信用户无感登录" class="headerlink" title="关于微信用户无感登录"></a>关于微信用户无感登录</h3><p>关于绑定微信主要是做了一个绑定的功能，用来做免密登录，而且这个方案我们用的是第一种，就是不用用户手动授权就可以拿到用户 code 的方式<br>实现的主要方式就是在 router 的 beforeEach 钩子判断 openid 是否已经存在，如果没有，就去重定向获取 code，然后利用 code 去获取 openid 然后存下来<br>在即将进入页面的 beforeEnter 的路由独享里面，可以根据是不是微信来实现去免密登录还是继续去登录</p>
+<p>这种方式就可以实现分治，不用在一大推的回调里面去判断之后的逻辑<br>通过这个需求，算是对 vue-router 的钩子有了一个相对完整的理解</p>
+<h3 id="toast-不是全局的问题"><a href="#toast-不是全局的问题" class="headerlink" title="toast 不是全局的问题"></a>toast 不是全局的问题</h3><p>项目中直接用的 cube-ui 的 toast 组件，虽然文档中所说的是通过 create-api 构造的，这样可以在组件或者 js 文件中，但是在组件中应用的话, 为啥把 append 到组件中呢，尽管我已经把 toast 创建好了 mixin 到了全局，也有可能是我使用方式不对，可能用插件的方式会解决这个问题</p>
+<h3 id="关于项目优化"><a href="#关于项目优化" class="headerlink" title="关于项目优化"></a>关于项目优化</h3><p>项目其实没有怎么优化，通过 chrome 的 audits 好想没看出啥来，项目资源最大的 文件 400 多k， 项目总共大小 1.7M，所有的静态资源都放在同一个域名在<br>项目开启了 ETag: &quot;5cc03a0b-45e9&quot; Cache-Control没有设置 Cache-Control: no-cache</p>
+<p>虽然自己都是可以修改 webapck 中的相关配置，但是默认的配置已经够强大了，基本能满足需求</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -534,85 +628,6 @@
 <h3 id="viewport-rem"><a href="#viewport-rem" class="headerlink" title="viewport + rem"></a>viewport + rem</h3><p>这种方式就比较无脑了，除了用rem 没什么缺点</p>
 <h3 id="伪类加-transform-实现"><a href="#伪类加-transform-实现" class="headerlink" title="伪类加 transform 实现"></a>伪类加 transform 实现</h3><p>这个还是我最喜欢的方式 也是兼容性最好的方式<br><strong>利用 <code>-webkit-device-pixel-ratio</code> 或者 <code>min-resolution</code></strong> scale 以达到目的<br>下面截图来自 MDN<br><img src="https://i.loli.net/2019/04/23/5cbec6fa33545.jpg" alt="20190423160334.jpg" loading="lazy"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.border-top-1px, .border-right-1px, .border-bottom-1px, .border-left-1px</span><br><span class="line">  position: relative</span><br><span class="line">  &amp;::before, &amp;::after</span><br><span class="line">    content: &quot;&quot;</span><br><span class="line">    display: block</span><br><span class="line">    position: absolute</span><br><span class="line">    transform-origin: 0 0</span><br><span class="line"></span><br><span class="line">.border-top-1px</span><br><span class="line">  &amp;::before</span><br><span class="line">    border-top: 1PX solid $color-row-line</span><br><span class="line">    left: 0</span><br><span class="line">    top: 0</span><br><span class="line">    width: 100%</span><br><span class="line">    transform-origin: 0 top</span><br><span class="line"></span><br><span class="line">.border-right-1px</span><br><span class="line">  &amp;::after</span><br><span class="line">    border-right: 1PX solid $color-col-line</span><br><span class="line">    top: 0</span><br><span class="line">    right: 0</span><br><span class="line">    height: 100%</span><br><span class="line">    transform-origin: right 0</span><br><span class="line"></span><br><span class="line">.border-bottom-1px</span><br><span class="line">  &amp;::after</span><br><span class="line">    border-bottom: 1PX solid $color-row-line</span><br><span class="line">    left: 0</span><br><span class="line">    bottom: 0</span><br><span class="line">    width: 100%</span><br><span class="line">    transform-origin: 0 bottom</span><br><span class="line"></span><br><span class="line">.border-left-1px</span><br><span class="line">  &amp;::before</span><br><span class="line">    border-left: 1PX solid $color-col-line</span><br><span class="line">    top: 0</span><br><span class="line">    left: 0</span><br><span class="line">    height: 100%</span><br><span class="line">    transform-origin: left 0</span><br><span class="line"></span><br><span class="line">@media (min-resolution: 2dppx)</span><br><span class="line">  .border-top-1px</span><br><span class="line">    &amp;::before</span><br><span class="line">      width: 200%</span><br><span class="line">      transform: scale(.5)</span><br><span class="line">  .border-right-1px</span><br><span class="line">    &amp;::after</span><br><span class="line">      height: 200%</span><br><span class="line">      transform: scale(.5)</span><br><span class="line">  .border-bottom-1px</span><br><span class="line">    &amp;::after</span><br><span class="line">      width: 200%</span><br><span class="line">      transform: scale(.5)</span><br><span class="line">  .border-left-1px</span><br><span class="line">    &amp;::before</span><br><span class="line">      height: 200%</span><br><span class="line">      transform: scale(.5)****</span><br><span class="line"></span><br><span class="line">@media (min-resolution: 3dppx)</span><br><span class="line">  .border-top-1px</span><br><span class="line">    &amp;::before</span><br><span class="line">      width: 300%</span><br><span class="line">      transform: scale(.333)</span><br><span class="line">  .border-right-1px</span><br><span class="line">    &amp;::after</span><br><span class="line">      height: 300%</span><br><span class="line">      transform: scale(.333)</span><br><span class="line">  .border-bottom-1px</span><br><span class="line">    &amp;::after</span><br><span class="line">      width: 300%</span><br><span class="line">      transform: scale(.333)</span><br><span class="line">  .border-left-1px</span><br><span class="line">    &amp;::before</span><br><span class="line">      height: 300%</span><br><span class="line">      transform: scale(.333)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/14/%E6%80%BB%E7%BB%93split%E7%9A%84%E6%89%80%E6%9C%89%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/14/%E6%80%BB%E7%BB%93split%E7%9A%84%E6%89%80%E6%9C%89%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">总结split的所有基础用法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-04-14 12:14:49" itemprop="dateCreated datePublished" datetime="2019-04-14T12:14:49+08:00">2019-04-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>split() 方法使用指定的分隔符字符串将一个String对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。 </p>
-</blockquote>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * @param &#123;string&#125; separator 指定根据什么分割</span><br><span class="line"> * @param &#123;number&#125; limit 指定分割出来的是几个，（前几个）</span><br><span class="line"> *&#x2F;</span><br><span class="line">str.split([separator[, limit]])</span><br></pre></td></tr></table></figure>
-
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;name age job.jobname&#39;.split()</span><br><span class="line">&#x2F;&#x2F; (3) [&quot;name age job.jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39;&#39;)</span><br><span class="line">&#x2F;&#x2F;(20) [&quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;, &quot; &quot;, &quot;a&quot;, &quot;g&quot;, &quot;e&quot;, &quot; &quot;, &quot;j&quot;, &quot;o&quot;, &quot;b&quot;, &quot;.&quot;, &quot;j&quot;, &quot;o&quot;, &quot;b&quot;, &quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39; &#39;)</span><br><span class="line">&#x2F;&#x2F; (3) [&quot;name&quot;, &quot;age&quot;, &quot;job.jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;job.jobname&#39;.split(&#39;.&#39;)</span><br><span class="line">(2) [&quot;job&quot;, &quot;jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name&#39;.split(&#39;.&#39;)</span><br><span class="line">[&quot;name&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39;&#39;, 5)</span><br><span class="line">(5) [&quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;, &quot; &quot;]</span><br></pre></td></tr></table></figure>
-
-<p>以上应该覆盖了常用的情况，希望以后加深记忆</p>
 
       
     </div>

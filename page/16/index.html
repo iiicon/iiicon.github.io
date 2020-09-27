@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">123</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">124</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">54</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">55</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,89 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93RegExp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93RegExp/" class="post-title-link" itemprop="url">js标准库RegExp</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-16 17:04:24" itemprop="dateCreated datePublished" datetime="2019-07-16T17:04:24+08:00">2019-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="实例属性（没什么用）"><a href="#实例属性（没什么用）" class="headerlink" title="实例属性（没什么用）"></a>实例属性（没什么用）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">RegExp.prototype.ignoreCase</span><br><span class="line">RegExp.prototype.global</span><br><span class="line">RegExp.prototype.multiline</span><br><span class="line">RegExp.prototype.lastIndex</span><br><span class="line">RegExp.prototype.source</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><ul>
+<li>RegExp.prototype.test()<br>如果带g， 每次都从 lastIndex 开始</li>
+<li>RegExp.prototype.exec()<br>参数很多，第一项是匹配的，第二项是捕获的</li>
+</ul>
+<h3 id="字符串实例方法"><a href="#字符串实例方法" class="headerlink" title="字符串实例方法"></a>字符串实例方法</h3><ul>
+<li>String.prototype.match()<br>返回一个数组，如果没有g，其结果基本和 exec 是一致的，还有就是对 lastIndex 无效<br>如果有 g， 则返回所有的匹配项</li>
+<li>String.prototype.search()<br>找到就返回位置，找不到就返回 -1</li>
+<li>String.prototype.replace()<br>接受两个参数，第一个是正则表达式，第二个是替换的内容，也可以是一个函数<br>最主要的应用就是修饰符 g 如果有则全部替换</li>
+<li>String.prototype.split()<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 非正则分隔</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#39;,&#39;)</span><br><span class="line">&#x2F;&#x2F; [ &#39;a&#39;, &#39;  b&#39;, &#39;c&#39;, &#39; d&#39; ]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 正则分隔，去除多余的空格</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#x2F;, *&#x2F;)</span><br><span class="line">&#x2F;&#x2F; [ &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39; ]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 指定返回数组的最大成员</span><br><span class="line">&#39;a,  b,c, d&#39;.split(&#x2F;, *&#x2F;, 2)</span><br><span class="line">[ &#39;a&#39;, &#39;b&#39; ]</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -613,95 +696,6 @@
 <p>H 仍然穷追不舍：“你不敢面对一个不喜欢自己的她，也不愿意面对一个喜欢她的你自己”。</p>
 <p>H：“所以你不用去思考她重要不重要。她重要。你也不用去思考自己喜欢不喜欢她，你喜欢。关键的地方在于你的选择，一是继续掩耳盗铃告诉自己其实无所谓，二是勇敢面对，重新认真生活。”</p>
 <p>H：“你也不用刻意的去放下她。一个人之所以会在你的脑海中显得与众不同，是因为你知道她最多的故事，你感知到她最多的喜乐哀怒，她在你的脑海中就最立体。如果你放弃对生活的连接，即使随着时间不断的远去，即使慢慢离得远了，她也仍然最立体。所以你不用去想喜欢一个不喜欢自己的人怎么办，不用去强迫自己放下，什么都不用做，只需要正常的去生活，去工作，保持自己与外界的连接，自然就会有新的形象更加具体的出现。”</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/14/React%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-%E7%88%B6%E5%AD%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/14/React%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-%E7%88%B6%E5%AD%90/" class="post-title-link" itemprop="url">React组件通信-父子</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-14 12:08:12" itemprop="dateCreated datePublished" datetime="2019-07-14T12:08:12+08:00">2019-07-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBMS9pbmRleC5qc3g=">龟兔赛跑<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="组件-JSX"><a href="#组件-JSX" class="headerlink" title="组件 JSX"></a>组件 JSX</h3><p>我们已经知道组件可以是函数，也可以用 class 表示<br>下面列出一些要点</p>
-<ul>
-<li>组件名必须大写开头 Pascal</li>
-<li>construnctor 函数必须调用 super</li>
-<li>style 可以直接绑定一个对象，用来表示样式</li>
-<li>函数组件做不到根据数据改变重新渲染，所以多状态这种组件要用 class，简单的可以直接写函数表示</li>
-</ul>
-<h3 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h3><ul>
-<li>内部组件可以直接用 this.props 获取外部组件的属性，同样函数组件也提供 props 参数</li>
-<li>如果组件依赖数据变化，必须在 state 上改变数据</li>
-<li>父组件给子组件传递一个函数，子组件在合适的时候调用这个函数（回调）</li>
-</ul>
-<p>父：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;Track success&#x3D;&#123;this.onSuccess.bind(this)&#125;&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>标签上调用<code>this.onSuccess</code>的时候，React会强制把回调的this指向undefined，所以需要自己bind，或者用=&gt;函数</strong><br>子：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.props.success()</span><br></pre></td></tr></table></figure>
-<p><strong>不要写空格</strong></p>
 
       
     </div>

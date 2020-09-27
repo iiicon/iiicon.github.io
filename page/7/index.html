@@ -150,12 +150,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">123</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">124</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">54</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">55</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,6 +299,130 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/12/20/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/20/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">工具类函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-12-20 11:31:11" itemprop="dateCreated datePublished" datetime="2019-12-20T11:31:11+08:00">2019-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js-code/" itemprop="url" rel="index"><span itemprop="name">js-code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="是否是对象"><a href="#是否是对象" class="headerlink" title="是否是对象"></a>是否是对象</h3><pre><code>function isObject(val) &#123;
+  return val !== null &amp;&amp; typeof val === &quot;object&quot;;
+&#125;      </code></pre>
+<h3 id="是否是纯对象"><a href="#是否是纯对象" class="headerlink" title="是否是纯对象"></a>是否是纯对象</h3><pre><code>function isPlainObject(val) &#123;
+    return Object.prototype.toString.call(val) === &quot;[object Object]&quot;;
+&#125;    </code></pre>
+<h3 id="是否是日期对象"><a href="#是否是日期对象" class="headerlink" title="是否是日期对象"></a>是否是日期对象</h3><pre><code>function isDate(val) &#123;
+  return Object.prototype.toString.call(val) === &quot;[object Date]&quot;;
+&#125;    </code></pre>
+<h3 id="是否是-URLSearchParams-对象"><a href="#是否是-URLSearchParams-对象" class="headerlink" title="是否是 URLSearchParams 对象"></a>是否是 URLSearchParams 对象</h3><pre><code>function isURLSearchParams(val) &#123;
+  return typeof val !== &quot;undefined&quot; &amp;&amp; val instanceof URLSearchParams;
+&#125;</code></pre>
+<h3 id="是否是-FormData"><a href="#是否是-FormData" class="headerlink" title="是否是 FormData"></a>是否是 FormData</h3><pre><code>function isFormData(val) &#123;
+  return typeof val !== &quot;undefined&quot; &amp;&amp; val instanceof FormData;
+&#125;    </code></pre>
+<h3 id="是否是绝对地址"><a href="#是否是绝对地址" class="headerlink" title="是否是绝对地址"></a>是否是绝对地址</h3><pre><code>function isAbsoluteURL(url) &#123;
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+&#125;    </code></pre>
+<h3 id="extend-合并两个对象的属性"><a href="#extend-合并两个对象的属性" class="headerlink" title="extend 合并两个对象的属性"></a>extend 合并两个对象的属性</h3><pre><code>function extend(to, from) &#123;
+  for (var i in from) &#123;
+    to[i] = from[i];
+  &#125;
+  return to;
+&#125;</code></pre>
+<h3 id="合并-baseurl-和-url"><a href="#合并-baseurl-和-url" class="headerlink" title="合并 baseurl 和 url"></a>合并 baseurl 和 url</h3><pre><code>function combineURL(baseURL, relativeURL) &#123;
+  return relativeURL
+    ? baseURL.replace(/\/+$/, &quot;&quot;) + &quot;/&quot; + relativeURL.replace(/^\/+/, &quot;&quot;)
+    : baseURL;
+&#125;    </code></pre>
+<h3 id="对象合并（深拷贝）"><a href="#对象合并（深拷贝）" class="headerlink" title="对象合并（深拷贝）"></a>对象合并（深拷贝）</h3><pre><code>function deepMerge() &#123;
+  var objs = [];
+  for (var _i = 0; _i &lt; arguments.length; _i++) &#123;
+    objs[_i] = arguments[_i];
+  &#125;
+  var result = Object.create(null);
+  objs.forEach(function(obj) &#123;
+    if (obj) &#123;
+      Object.keys(obj).forEach(function(key) &#123;
+        var val = obj[key];
+        if (isPlainObject(val)) &#123;
+          if (isPlainObject(result[key])) &#123;
+            result[key] = deepMerge(result[key], val);
+          &#125; else &#123;
+            result[key] = deepMerge(val);
+          &#125;
+        &#125; else &#123;
+          result[key] = val;
+        &#125;
+      &#125;);
+    &#125;
+  &#125;);
+  return result;
+&#125;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -578,88 +702,6 @@
 <p>和 <code>Object.create()</code> 的功效是一样的<br>在没有必要兴师动众地创建构造函数，而只想让一个对象与另一个对象保持类似的情况下，原型式继承是完全可以胜任的</p>
 <h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><p>该函数在内部以某种方式来增强对象，最后再像真的是它做了所有工作一样返回对象（感觉就是在原来的对象的基础上修改 就是返回另一个对象）</p>
 <h3 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h3><p>解决组合继承调用两次的问题，感觉也。。无所谓的呀</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/12/12/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0ES6%E4%B8%AD%E8%BE%83%E5%B0%8F%E7%9A%84%E6%94%B9%E5%8A%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/12/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0ES6%E4%B8%AD%E8%BE%83%E5%B0%8F%E7%9A%84%E6%94%B9%E5%8A%A8/" class="post-title-link" itemprop="url">《深入理解ES6》读书笔记ES6中较小的改动</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-12-12 23:43:55" itemprop="dateCreated datePublished" datetime="2019-12-12T23:43:55+08:00">2019-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="使用整数"><a href="#使用整数" class="headerlink" title="使用整数"></a>使用整数</h3><h4 id="判断整数-Number-isInteger"><a href="#判断整数-Number-isInteger" class="headerlink" title="判断整数 Number.isInteger"></a>判断整数 Number.isInteger</h4><p>如果有些数字看起来像浮点数，却存储为整数，这会让 Number.isInteger 方法判断失效而返回 true<br>在 javascript 中，只给数字添加小数点不会让整数变为浮点数，此处的 25.0 确实是 25，所以会按照整数的形式存储</p>
-<h4 id="安全整数-Number-isSafeInteger"><a href="#安全整数-Number-isSafeInteger" class="headerlink" title="安全整数 Number.isSafeInteger"></a>安全整数 Number.isSafeInteger</h4><p>Number.isSafeInteger 方法来识别语言可以准确得表示的整数，添加了 Number.MAX_SAFE_INTEGER 和 Number.MIN_SAFE_INTEGER 分别表示整数范围的上限和下限。Number.isSafeInteger 方法用来确保一个值是整数，并且落在整数值的安全范围内</p>
-<h3 id="新的-Math-方法"><a href="#新的-Math-方法" class="headerlink" title="新的 Math 方法"></a>新的 Math 方法</h3><p>ES6 引入定型数组来增强游戏和图形体验，这可以让 js 引擎做更有效的数字计算</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Math.hypot 求平方和根</span><br><span class="line">Math.sign 返回 1 -1 0</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h3 id="正式化-proto-属性"><a href="#正式化-proto-属性" class="headerlink" title="正式化 proto 属性"></a>正式化 <strong>proto</strong> 属性</h3><p>不是所有的 js 引擎 都实现了 <strong>proto</strong>, 所以 ES6 正式添加了这个特性，但有一段警告</p>
-<blockquote>
-<p>这些特性本属于 es 核心语言的一部分，在编写新的 es 代码时，程序员不应该使用这些特性和功能，也不应假定它们是存在的。除非在 web 浏览器中或者需要像 web 浏览器一样执行遗留的 es 代码，否则不鼓励</p>
-</blockquote>
-<p>所以更应该用 <code>Object.getPrototype()</code> 和 <code>Object.setPrototype()</code></p>
-<p>在 es6 引擎中 <code>Object.prototype.__proto__</code> 被定义为一个访问器属性，其 get 方法会调用 <code>Object.getPrototype</code>，set 方法会调用 <code>Object.setPrototype</code>, 因此和使用 <strong>proto</strong> 的区别就是可以直接设置对象字面量的原型。</p>
 
       
     </div>
