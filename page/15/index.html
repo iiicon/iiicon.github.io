@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">124</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">125</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,14 +234,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -299,6 +299,224 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/24/React-HooksApi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/24/React-HooksApi/" class="post-title-link" itemprop="url">React-HooksApi</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-24 08:07:40" itemprop="dateCreated datePublished" datetime="2019-07-24T08:07:40+08:00">2019-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="类组件的不足"><a href="#类组件的不足" class="headerlink" title="类组件的不足"></a>类组件的不足</h3><ol>
+<li>难以复用的状态逻辑 缺少复用机制 渲染属性和高阶组件导致层级冗余</li>
+<li>趋向复杂难以维护 生命周期混杂不相干的逻辑 相干的逻辑分散在不同的生命周期</li>
+<li>this 指向困扰 内联函数过渡创建新句柄 类成员函数不能保证 this</li>
+</ol>
+<h3 id="Hooks-Api"><a href="#Hooks-Api" class="headerlink" title="Hooks Api"></a>Hooks Api</h3><p>就是让函数组件能有状态，以前的无状态组件变成了现在的函数组件</p>
+<h3 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h3><p>使用</p>
+<pre><code>import &#123; useState &#125; from &#39;react&#39;</code></pre>
+<p>在函数组件声明 state 属性 count 和 setCount 方法，0 是初始值</p>
+<pre><code>const [count, setCount] = useState(0)</code></pre>
+<p>在组件中渲染</p>
+<pre><code>&lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;+1&lt;/button&gt;</code></pre>
+<p>当然初始值也可设为对象</p>
+<pre><code>const [user, setUser] = useState(&#123;name: &#39;fuck&#39;,age: 100&#125;)</code></pre>
+<p>这样修改</p>
+<pre><code>setUser(&#123;
+  ...user,
+  age: user.age + 1
+&#125;)</code></pre>
+<h3 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h3><p>使用</p>
+<pre><code>import &#123; useEffect &#125; from &#39;react&#39;</code></pre>
+<p>在函数组件中，如果依赖外部世界的逻辑，直接写到 useEffect 的回调中执行</p>
+<pre><code>useEffect(() =&gt; &#123;
+  document.title = &#39;useEffect --- React Hooks&#39;
+&#125;)</code></pre>
+<h3 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">useContext(contextObj); <span class="comment">// 获取 Provider 传递的值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">useMemo(<span class="function">()=&gt;</span>&#123;reutrn fn&#125;,[]:deep)  <span class="comment">// 有返回值的时候使用</span></span><br><span class="line">setValue在useMemo中可以不写依赖，直接用参数setValue(<span class="function"><span class="params">value</span>=&gt;</span>value+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="useCallback"><a href="#useCallback" class="headerlink" title="useCallback"></a>useCallback</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">useCallback(fn, ([]: deep)); <span class="comment">// 没有返回值的时候使用</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h3><ul>
+<li>获取子组件或者 dom 节点的句柄</li>
+<li>渲染周期之间共享数据的存储</li>
+</ul>
+<h3 id="自定义-hooks"><a href="#自定义-hooks" class="headerlink" title="自定义 hooks"></a>自定义 hooks</h3><ul>
+<li>use 开头的函数</li>
+<li>可以逻辑复用，也可以返回 jsx</li>
+<li>函数可以用 usecallback 优化</li>
+</ul>
+<h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBOC9pbmRleC5qc3g=">React-HooksApi<i class="fa fa-external-link-alt"></i></span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/24/React-ContextApi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/24/React-ContextApi/" class="post-title-link" itemprop="url">React-ContextApi</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-24 00:12:20" itemprop="dateCreated datePublished" datetime="2019-07-24T00:12:20+08:00">2019-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="用-context-api-传值"><a href="#用-context-api-传值" class="headerlink" title="用 context api 传值"></a>用 context api 传值</h3><p><strong>ContextApi就是给组件共享一个全局的局部变量</strong></p>
+<p>首先需要 createContext</p>
+<pre><code>const nContext = React.createContext(0)</code></pre>
+<p>其次需要在要传递值的组件上用 nContext.Provider 包起来，把要传递的值放到 value 上</p>
+<pre><code>&lt;nContext.Provider value=&#123;this.state.x&#125;&gt;
+  &lt;F1 /&gt;
+&lt;/nContext.Provider&gt;</code></pre>
+<p>然后在你需要获取值的时候用 nContext.Consumer 包裹，传递一个函数，这个函数会作为 consumer 的回调执行</p>
+<pre><code>&lt;nContext.Consumer&gt;&#123;x =&gt; &lt;F4 n4=&#123;x.n&#125; setN=&#123;x.setN&#125; /&gt;&#125;&lt;/nContext.Consumer&gt;</code></pre>
+<p>这样我们就能在 F4 组件上获得相应的属性</p>
+<h3 id="Consumer-语法的含义"><a href="#Consumer-语法的含义" class="headerlink" title="Consumer 语法的含义"></a>Consumer 语法的含义</h3><p>如下所示，我们可以通过 props.children 获取组件的子元素，如果是函数我们就可以执行，并且可以传递参数</p>
+<pre><code>&lt;Consumer&gt;
+  &#123;p =&gt; &lt;div&gt;&#123;p&#125;&lt;/div&gt;&#125;
+&lt;/Consumer&gt;
+
+// 标签里面传递函数
+function Consumer(props) &#123;
+  // console.log(props.children)
+  const child = props.children(9202)
+  return (
+    &lt;h2&gt;&#123;child&#125;&lt;/h2&gt;
+  )
+&#125;</code></pre>
+<p>在 React 内部，上面这段代码会变成这样</p>
+<pre><code>React.createElement(Consumer, null, function (p) &#123;
+  return React.createElement(&quot;div&quot;, null, p);
+&#125;); 
+
+// 标签里面传递函数
+function Consumer(props) &#123;
+  // console.log(props.children)
+  var child = props.children(9202);
+  return React.createElement(&quot;h2&quot;, null, child);
+&#125;</code></pre>
+<h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBNy9pbmRleC5qc3g=">Context Api<i class="fa fa-external-link-alt"></i></span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -522,211 +740,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/17/js%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/17/js%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">js位运算符</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-17 11:49:35" itemprop="dateCreated datePublished" datetime="2019-07-17T11:49:35+08:00">2019-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="js-中的数字"><a href="#js-中的数字" class="headerlink" title="js 中的数字"></a>js 中的数字</h3><ul>
-<li>所有 js 数字都被存储为 64 位浮点数，整数精度最多为 15 位，小数精度的对多为 17 位，浮点数的运算并不是百分之百的准确</li>
-<li>位运算直接对二进制位进行计算，位运算直接处理每一个 bit 位，是非常底层的运算，优点是速度非常快，缺点是不太直观，很多场合不能使用</li>
-<li>位运算只对整数起作用，如果一个运算数不是整数，会自动转为整数后再运行</li>
-<li>在 js 中数字是 64 位浮点数，但是在做位运算的时候，是以 32 位带符号的整数进行运算的，并且返回值也是一个带符号的 32 位的整数</li>
-</ul>
-<h3 id="js-中常用的七个位运算符"><a href="#js-中常用的七个位运算符" class="headerlink" title="js 中常用的七个位运算符"></a>js 中常用的七个位运算符</h3><h4 id="按位与-AND-amp"><a href="#按位与-AND-amp" class="headerlink" title="按位与(AND) &amp;"></a>按位与(AND) &amp;</h4><p>如果都是 1，返回 1，否则返回 0</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">console.log(1 &amp; 3)     &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
-
-<h4 id="按位或（OR）"><a href="#按位或（OR）" class="headerlink" title="按位或（OR）|"></a>按位或（OR）|</h4><p>有 1 就返回 1，否则返回 0</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">console.log(1 | 3)     &#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
-
-<h4 id="按位异传（XOR）"><a href="#按位异传（XOR）" class="headerlink" title="按位异传（XOR）^"></a>按位异传（XOR）^</h4><p>只有有一个 1 返回 1，否则返回 0</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 2的二进制表示为: 00000000 00000000 00000000 00000010</span><br><span class="line">console.log(1 ^ 3)     &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
-
-<h4 id="按位非（NOT）"><a href="#按位非（NOT）" class="headerlink" title="按位非（NOT）~"></a>按位非（NOT）~</h4><p>对位求反，1 变 0, 0 变 1，也就是求二进制的反码<br><em>简单记忆：一个数与自身的取反值相加等于-1</em></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; 3的二进制表示为: 00000000 00000000 00000000 00000011</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 1反码二进制表示: 11111111 11111111 11111111 11111110</span><br><span class="line">&#x2F;&#x2F; 由于第一位（符号位）是1，所以这个数是一个负数。JavaScript 内部采用补码形式表示负数，即需要将这个数减去1，再取一次反，然后加上负号，才能得到这个负数对应的10进制值。</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 1的反码减1：     11111111 11111111 11111111 11111101</span><br><span class="line">&#x2F;&#x2F; 反码取反：       00000000 00000000 00000000 00000010</span><br><span class="line">&#x2F;&#x2F; 表示为10进制加负号：-2</span><br><span class="line">console.log(~ 1)     &#x2F;&#x2F; -2</span><br></pre></td></tr></table></figure>
-
-<h4 id="左移-lt-lt"><a href="#左移-lt-lt" class="headerlink" title="左移 &lt;&lt;"></a>左移 &lt;&lt;</h4><p>使指定值的二进制数所有位都左移指定次数，其移动规则：丢弃高位，低位补 0</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 2的二进制表示为: 00000000 00000000 00000000 00000010</span><br><span class="line">console.log(1 &lt;&lt; 1)     &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
-
-<h4 id="右移-gt-gt"><a href="#右移-gt-gt" class="headerlink" title="右移 &gt;&gt;"></a>右移 &gt;&gt;</h4><p>将指定操作数的二进制位向右移动指定的位数。向右被移出的位被丢弃，拷贝最左侧的位以填充左侧。由于新的最左侧的位总是和以前相同，符号位没有被改变。所以被称作“符号传播”。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 1的二进制表示为: 00000000 00000000 00000000 00000001</span><br><span class="line">&#x2F;&#x2F; -----------------------------</span><br><span class="line">&#x2F;&#x2F; 0的二进制表示为: 00000000 00000000 00000000 00000000</span><br><span class="line">console.log(1 &gt;&gt; 1)     &#x2F;&#x2F; 0</span><br></pre></td></tr></table></figure>
-
-<h4 id="无符号右移-gt-gt-gt"><a href="#无符号右移-gt-gt-gt" class="headerlink" title="无符号右移 &gt;&gt;&gt;"></a>无符号右移 &gt;&gt;&gt;</h4><p>该操作符会将第一个操作数向右移动指定的位数。向右被移出的位被丢弃，左侧用 0 填充。因为符号位变成了 0，所以结果总是非负的。（译注：即便右移 0 个比特，结果也是非负的。）<br>对于非负数，有符号右移和无符号右移总是返回相同的结果。例如， 9 &gt;&gt;&gt; 2 得到 2 和 9 &gt;&gt; 2 相同。</p>
-<h3 id="js-中使用"><a href="#js-中使用" class="headerlink" title="js 中使用"></a>js 中使用</h3><ol>
-<li>判断一个数的奇偶</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 偶数 &amp; 1 &#x3D; 0</span><br><span class="line">&#x2F;&#x2F; 奇数 &amp; 1 &#x3D; 1</span><br><span class="line">console.log(2 &amp; 1)    &#x2F;&#x2F; 0</span><br><span class="line">console.log(3 &amp; 1)    &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>使用~, &gt;&gt;, &lt;&lt;, &gt;&gt;&gt;, |来取整</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.log(~~ 6.83)    &#x2F;&#x2F; 6</span><br><span class="line">console.log(6.83 &gt;&gt; 0)  &#x2F;&#x2F; 6</span><br><span class="line">console.log(6.83 &lt;&lt; 0)  &#x2F;&#x2F; 6</span><br><span class="line">console.log(6.83 | 0)   &#x2F;&#x2F; 6</span><br><span class="line">&#x2F;&#x2F; &gt;&gt;&gt;不可对负数取整</span><br><span class="line">console.log(6.83 &gt;&gt;&gt; 0)   &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>使用&amp;, &gt;&gt;, |来完成 rgb 值和 16 进制颜色值之间的转换</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 16进制颜色值转RGB</span><br><span class="line"> * @param  &#123;String&#125; hex 16进制颜色字符串</span><br><span class="line"> * @return &#123;String&#125;     RGB颜色字符串</span><br><span class="line"> *&#x2F;</span><br><span class="line">  function hexToRGB(hex) &#123;</span><br><span class="line">    var hexx &#x3D; hex.replace(&#39;#&#39;, &#39;0x&#39;)</span><br><span class="line">    var r &#x3D; hexx &gt;&gt; 16</span><br><span class="line">    var g &#x3D; hexx &gt;&gt; 8 &amp; 0xff</span><br><span class="line">    var b &#x3D; hexx &amp; 0xff</span><br><span class="line">    return &#96;rgb($&#123;r&#125;, $&#123;g&#125;, $&#123;b&#125;)&#96;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * RGB颜色转16进制颜色</span><br><span class="line"> * @param  &#123;String&#125; rgb RGB进制颜色字符串</span><br><span class="line"> * @return &#123;String&#125;     16进制颜色字符串</span><br><span class="line"> *&#x2F;</span><br><span class="line">function RGBToHex(rgb) &#123;</span><br><span class="line">    var rgbArr &#x3D; rgb.split(&#x2F;[^\d]+&#x2F;)</span><br><span class="line">    var color &#x3D; rgbArr[1]&lt;&lt;16 | rgbArr[2]&lt;&lt;8 | rgbArr[3]</span><br><span class="line">    return &#39;#&#39;+ color.toString(16)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; -------------------------------------------------</span><br><span class="line">hexToRGB(&#39;#ffffff&#39;)               &#x2F;&#x2F; &#39;rgb(255,255,255)&#39;</span><br><span class="line">RGBToHex(&#39;rgb(255,255,255)&#39;)      &#x2F;&#x2F; &#39;#ffffff&#39;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93Array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93Array/" class="post-title-link" itemprop="url">js标准库Array</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-16 17:05:20" itemprop="dateCreated datePublished" datetime="2019-07-16T17:05:20+08:00">2019-07-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>构造函数一般传数组的长度，但是因为传不同的参数会导致不同的数组，所以一般不用构造函数生成<br>而且生成的数组连键名都是获取不到的</p>
-<h4 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h4><h5 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray()"></a>Array.isArray()</h5><p>返回 true 和 false</p>
-<h4 id="实例方法-1"><a href="#实例方法-1" class="headerlink" title="实例方法"></a>实例方法</h4><h5 id="valueOf-toString"><a href="#valueOf-toString" class="headerlink" title="valueOf toString"></a>valueOf toString</h5><p>valueOf 返回本身<br>toString 返回扁平化之后的字符串</p>
-<h5 id="push"><a href="#push" class="headerlink" title="push"></a>push</h5><p>后面追加一个或者多个，返回新数组长度，改变原数组</p>
-<h5 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h5><p>后面删除最后一个，返回该元素，改变原数组</p>
-<h5 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h5><p>前面删除一个，返回该元素，改变原数组</p>
-<h5 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h5><p>前面追加一个或者多个，返回数组长度，改变原数组</p>
-<h5 id="join"><a href="#join" class="headerlink" title="join"></a>join</h5><p>参数是分隔符，如果没有用逗号，返回字符串</p>
-<h5 id="cancat"><a href="#cancat" class="headerlink" title="cancat"></a>cancat</h5><p>多个数组合并，或者把其他参数合并到数组中，原数组不变，返回新数组</p>
-<h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h5><p>前后颠倒，改变原数组，返回改变后的数组</p>
-<h5 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h5><p>提取数组的一部分，返回新数组，原数组不变</p>
-<h5 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h5><p>万能删除添加，返回删除的元素，改变原数组</p>
-<h5 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h5><p>排序，原数组会被改变<br>不传参数会根据字符串的顺序排序，传参数之后如果返回值大于 0，升序，否则降序</p>
-<h5 id="map"><a href="#map" class="headerlink" title="map"></a>map</h5><p>返回新数组，不改变原数组，有返回值</p>
-<h5 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h5><p>没有返回值，不改变原数组，而且无法中断执行，只有 for 循环能 break</p>
-<h5 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h5><p>参数也是一个函数，返回 true 的值组成一个新数组，不会改变原数组</p>
-<pre><code>[1,2,3,undefined].filter(Boolean)</code></pre>
-<h5 id="some-every"><a href="#some-every" class="headerlink" title="some every"></a>some every</h5><p>参数都是一个函数，返回 true 和 false</p>
-<h5 id="reduce-reduceRight"><a href="#reduce-reduceRight" class="headerlink" title="reduce reduceRight"></a>reduce reduceRight</h5><p>第一个参数是函数，第二个参数是初值</p>
-<h5 id="indexOf-lastIndexOf"><a href="#indexOf-lastIndexOf" class="headerlink" title="indexOf lastIndexOf"></a>indexOf lastIndexOf</h5><p>返回元素第一次和最后一次出现的位置，没有的话返回 -1<br>注意不能识别 NaN，因为内部用的 ===，所以找不到</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

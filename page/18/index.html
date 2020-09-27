@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">124</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">125</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,14 +234,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -299,6 +299,209 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/06/30/TS%E9%AB%98%E7%BA%A7%E7%B1%BB%E5%9E%8B%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/30/TS%E9%AB%98%E7%BA%A7%E7%B1%BB%E5%9E%8B%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">TS高级类型（一）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-06-30 19:10:49" itemprop="dateCreated datePublished" datetime="2019-06-30T19:10:49+08:00">2019-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="交叉类型（Intersection-Types）"><a href="#交叉类型（Intersection-Types）" class="headerlink" title="交叉类型（Intersection Types）"></a>交叉类型（Intersection Types）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; T 和 U 的并集</span><br><span class="line">function extend&lt;T, U&gt;(first: T, second: U): T &amp; U &#123;</span><br><span class="line">    let result &#x3D; &lt;T &amp; U&gt;&#123;&#125;;</span><br><span class="line">    for (let id in first) &#123;</span><br><span class="line">        (&lt;any&gt;result)[id] &#x3D; (&lt;any&gt;first)[id];</span><br><span class="line">    &#125;</span><br><span class="line">    for (let id in second) &#123;</span><br><span class="line">        if (!result.hasOwnProperty(id)) &#123;</span><br><span class="line">            (&lt;any&gt;result)[id] &#x3D; (&lt;any&gt;second)[id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="联合类型（Union-Types）"><a href="#联合类型（Union-Types）" class="headerlink" title="联合类型（Union Types）"></a>联合类型（Union Types）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 或运算</span><br><span class="line">function padLeft(value: string, padding: string | number) &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类型保护与区分类型（Type-Guards-and-differentiating-Types）"><a href="#类型保护与区分类型（Type-Guards-and-differentiating-Types）" class="headerlink" title="类型保护与区分类型（Type Guards and differentiating Types）"></a>类型保护与区分类型（Type Guards and differentiating Types）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let pet &#x3D; getSmallPet();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 每一个成员访问都会报错</span><br><span class="line">if (pet.swim) &#123;</span><br><span class="line">    pet.swim();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 为了使这段代码工作，需要使用类型断言</span><br><span class="line">if ((&lt;Fish&gt;pet).swim) &#123;</span><br><span class="line">    (&lt;Fish&gt;pet).swim();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 为了不每次都写类型断言，我们可以利用 ts 的类型保护机制</span><br><span class="line">function isFish(pet: Fish | Bird): pet is Fish &#123;</span><br><span class="line">    return (&lt;Fish&gt;pet).swim !&#x3D;&#x3D; undefined;</span><br><span class="line">&#125;</span><br><span class="line">if (isFish(pet)) &#123;</span><br><span class="line">    pet.swim();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 对于 js 那六大类型，依然可以使用 typeof</span><br><span class="line">typeof x &#x3D;&#x3D;&#x3D; &quot;number&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; instance of 也可以识别（右边要求是一个构造函数）</span><br><span class="line">padder instanceof StringPadder</span><br></pre></td></tr></table></figure>
+
+<h3 id="可以为-null-的类型"><a href="#可以为-null-的类型" class="headerlink" title="可以为 null 的类型"></a>可以为 null 的类型</h3><p><strong>如果编译器不能够去除 null 或 undefined，你可以使用类型断言手动去除。 语法是添加 !</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let s &#x3D; &quot;foo&quot;;</span><br><span class="line">s &#x3D; null; &#x2F;&#x2F; 错误, &#39;null&#39;不能赋值给&#39;string&#39;</span><br><span class="line">let sn: string | null &#x3D; &quot;bar&quot;;</span><br><span class="line">sn &#x3D; null; &#x2F;&#x2F; 可以</span><br><span class="line"></span><br><span class="line">sn &#x3D; undefined; &#x2F;&#x2F; error, &#39;undefined&#39;不能赋值给&#39;string | null&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h3><p>就是一个引用</p>
+<p>与交叉类型一起使用，可以创建出稀奇古怪的类型</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type LinkedList&lt;T&gt; &#x3D; T &amp; &#123; next: LinkedList&lt;T&gt; &#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="接口-vs-类型别名"><a href="#接口-vs-类型别名" class="headerlink" title="接口 vs 类型别名"></a>接口 vs 类型别名</h4><ol>
+<li>接口创建了一个新的名字，可以在任何地方使用，类型别名并不创建新名字，比如发生错误的时候不显示别名</li>
+<li>类型别名不能 extends 和</li>
+<li>通常使用接口，接口搞不定的时候再使用类型别名</li>
+</ol>
+<h3 id="字符串字面量类型"><a href="#字符串字面量类型" class="headerlink" title="字符串字面量类型"></a>字符串字面量类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Easing &#x3D; &quot;ease-in&quot; | &quot;ease-out&quot; | &quot;ease-in-out&quot;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数字字面量类型"><a href="#数字字面量类型" class="headerlink" title="数字字面量类型"></a>数字字面量类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function rollDie(): 1 | 2 | 3 | 4 | 5 | 6 &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="可辨识联合（Disminated-Union）"><a href="#可辨识联合（Disminated-Union）" class="headerlink" title="可辨识联合（Disminated Union）"></a>可辨识联合（Disminated Union）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Square &#123;</span><br><span class="line">  kind: &quot;square&quot;;</span><br><span class="line">  size: number;</span><br><span class="line">&#125;</span><br><span class="line">interface Rectangle &#123;</span><br><span class="line">  kind: &quot;rectangle&quot;;</span><br><span class="line">  width: number;</span><br><span class="line">  height: number;</span><br><span class="line">&#125;</span><br><span class="line">interface Circle &#123;</span><br><span class="line">  kind: &quot;circle&quot;;</span><br><span class="line">  radius: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 让各个接口建立联系</span><br><span class="line">type Shape &#x3D; Square | Rectangle | Circle;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 使用</span><br><span class="line">function area(s: Shape) &#123;</span><br><span class="line">  switch (s.kind) &#123;</span><br><span class="line">    case &quot;square&quot;: return s.size * s.size;</span><br><span class="line">    case &quot;rectangle&quot;: return s.height * s.width;</span><br><span class="line">    case &quot;circle&quot;: return Math.PI * s.radius ** 2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="完整性检查"><a href="#完整性检查" class="headerlink" title="完整性检查"></a>完整性检查</h4><p>万一有一个 case 不存在，发生错误怎么办<br>第一种就是 <code>| undefined</code><br>第二种就是 返回一个 never</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">default: return assertNever(s);</span><br><span class="line">function assertNever(x: never): never &#123;</span><br><span class="line">    throw new Error(&quot;Unexpected object: &quot; + x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="那么-never-是什么呢"><a href="#那么-never-是什么呢" class="headerlink" title="那么 never 是什么呢"></a>那么 never 是什么呢</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let x: never &#x3D; undefined &#x2F;&#x2F; error</span><br><span class="line">never 只表示类型</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/06/24/TS%E6%B3%9B%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/24/TS%E6%B3%9B%E5%9E%8B/" class="post-title-link" itemprop="url">TS泛型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-06-24 00:02:45" itemprop="dateCreated datePublished" datetime="2019-06-24T00:02:45+08:00">2019-06-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>泛型就是用一个东西表示广泛类型</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function returnIt&lt;T&gt;(param: T): T &#123;</span><br><span class="line">  return param</span><br><span class="line">&#125;</span><br><span class="line">let s &#x3D; returnIt&lt;string&gt;(&#39;hi&#39;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 表示对象</span><br><span class="line">interface Human &#123;</span><br><span class="line">  name: string</span><br><span class="line">  age: number</span><br><span class="line">&#125;</span><br><span class="line">let p &#x3D; returnIt&lt;Human&gt;(&#123; name: &#39;zhangsan&#39;, age: 18 &#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 返回一个 array</span><br><span class="line">function returnArray&lt;T&gt;(arr: Array&lt;T&gt;): Array&lt;T&gt; &#123;</span><br><span class="line">  return arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型函数"><a href="#泛型函数" class="headerlink" title="泛型函数"></a>泛型函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 这就是泛型函数</span><br><span class="line">let returnIt: &lt;U&gt;(param: U) &#x3D;&gt; U &#x3D; &lt;T&gt;(param: T): T &#x3D;&gt; param</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  interface add &#123;</span><br><span class="line">    (a: number, b: number): number</span><br><span class="line">  &#125;</span><br><span class="line">  interface addAny&lt;T&gt; &#123;</span><br><span class="line">    (a: T, b: T): T</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  const add: add &#x3D; (a, b) &#x3D;&gt; a + b</span><br><span class="line"></span><br><span class="line">  const addAny: addAny&lt;string&gt; &#x3D; (a, b) &#x3D;&gt; a + b</span><br><span class="line">  console.log(addAny(&#39;1&#39;, &#39;3&#39;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h3><p>泛型类使用（&lt;&gt;）括起泛型类型，跟在类名后面</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class GenericNumber&lt;T&gt; &#123;</span><br><span class="line">    zeroValue: T;</span><br><span class="line">    add: (x: T, y: T) &#x3D;&gt; T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let myGenericNumber &#x3D; new GenericNumber&lt;number&gt;();</span><br><span class="line">myGenericNumber.zeroValue &#x3D; 0;</span><br><span class="line">myGenericNumber.add &#x3D; function(x, y) &#123; return x + y; &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h3><p>就是给泛型添加一些约束</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function returnIt&lt;T&gt;(arg: T): T&#123;</span><br><span class="line">  console.log(arg.length) &#x2F;&#x2F; error, 我们知道不是任何数据类型都有length属性，如果我们不约束有可能报错</span><br><span class="line">  return arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们使用接口和 extends 关键字实现约束</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface HasLength&#123;</span><br><span class="line">  length: number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function returnIt&lt;T extends HasLength&gt;(arg: T): T&#123;</span><br><span class="line">  console.log(arg.length) &#x2F;&#x2F; no error</span><br><span class="line">  return arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在泛型中使用类"><a href="#在泛型中使用类" class="headerlink" title="在泛型中使用类"></a>在泛型中使用类</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function create&lt;T&gt;(c: &#123;new(): T; &#125;): T &#123;</span><br><span class="line">  return new c();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><h4 id="使用对象字面量来定义泛型函数"><a href="#使用对象字面量来定义泛型函数" class="headerlink" title="使用对象字面量来定义泛型函数"></a>使用对象字面量来定义泛型函数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function identity&lt;T&gt;(arg: T): T &#123;</span><br><span class="line">    return arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let myIdentity: &#123;&lt;T&gt;(arg: T): T&#125; &#x3D; identity;</span><br></pre></td></tr></table></figure>
+<p>这其实可以直接变换一下使用泛型接口来实现</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface GenericIdentityFn &#123;</span><br><span class="line">    &lt;T&gt;(arg: T): T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function identity&lt;T&gt;(arg: T): T &#123;</span><br><span class="line">    return arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let myIdentity: GenericIdentityFn &#x3D; identity;</span><br></pre></td></tr></table></figure>
+<p><strong>总之泛型函数就是要在前面声明泛型变量 T</strong></p>
+<p>当然可以把泛型参数当做整个接口的一个参数，这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface GenericIdentityFn&lt;T&gt; &#123;</span><br><span class="line">    (arg: T): T;</span><br><span class="line">&#125;</span><br><span class="line">function identity&lt;T&gt;(arg: T): T &#123;</span><br><span class="line">    return arg;</span><br><span class="line">&#125;</span><br><span class="line">let myIdentity: GenericIdentityFn&lt;number&gt; &#x3D; identity;</span><br></pre></td></tr></table></figure>
+<p><strong>所以对于描述那部分属性属于泛型部分，放在函数签名和放在接口上是需要区分的</strong></p>
+<h4 id="对于泛型类"><a href="#对于泛型类" class="headerlink" title="对于泛型类"></a>对于泛型类</h4><p>类有两部分：静态部分和实例部分。 泛型类指的是实例部分的类型，所以类的静态属性不能使用这个泛型类型。</p>
+<h3 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h3><ol>
+<li>函数中泛型使用</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function identity&lt;T&gt;(arg: T): T &#123;</span><br><span class="line">  return arg;</span><br><span class="line">&#125;</span><br><span class="line">let output &#x3D; identity(&quot;myString&quot;);</span><br></pre></td></tr></table></figure>
+<p>注意我们没有必要使用尖括号来明确地传入类型；编译器可以查看参数的值，然后把 T 设置为他的类型，类型推论帮助我们保持代码精简和高可读性</p>
+<ol start="2">
+<li>泛型变量的使用</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function loggingIdentity&lt;T&gt;(arg: T[]): T[]</span><br></pre></td></tr></table></figure>
+<p>我们把泛型变量T当做类型的一部分使用，而不是整个类型，增加了灵活性</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -464,211 +667,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/06/11/TS%E6%8E%A5%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/06/11/TS%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">TS接口</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-06-11 23:35:27" itemprop="dateCreated datePublished" datetime="2019-06-11T23:35:27+08:00">2019-06-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>js 七种数据类型 + 枚举 + any + void + never<br>默认情况下 null 和 undefined 是所有类型的子类型，就是说你可以把 null 赋值给 string 类型的变量</p>
-<h3 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let a: null &#x3D; null</span><br><span class="line">let b: undefined &#x3D; undefined</span><br><span class="line"></span><br><span class="line">let c: boolean &#x3D; true</span><br><span class="line">let d: number &#x3D; 1.23</span><br><span class="line"></span><br><span class="line">let o: object &#x3D; &#123;&#125;</span><br><span class="line">let s: symbol &#x3D; Symbol()</span><br><span class="line"></span><br><span class="line">let e: number &#x3D; 1</span><br><span class="line">&#x2F;&#x2F; e &#x3D; &#39;string&#39;</span><br><span class="line">let e1: any &#x3D; 1</span><br><span class="line">e1 &#x3D; &#39;string&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let gender &#x3D; &#39;man&#39;</span><br><span class="line">enum Gender &#123;</span><br><span class="line">  Man &#x3D; &#39;m&#39;,</span><br><span class="line">  Woman &#x3D; &#39;w&#39;</span><br><span class="line">&#125;</span><br><span class="line">let gender: Gender &#x3D; Gender.Man</span><br><span class="line"></span><br><span class="line">function print(x): void &#123;</span><br><span class="line">  console.log(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;string&gt;someValue</span><br><span class="line">someValue as string</span><br></pre></td></tr></table></figure>
-
-<p>当你在 TypeScript 里使用 JSX 时，只有 as 语法断言是被允许的</p>
-<h3 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 类型转换</span><br><span class="line">let a: number &#x3D; 1</span><br><span class="line">let b: string &#x3D; a.toString()</span><br><span class="line"></span><br><span class="line">let c: string &#x3D; &#39;1.2&#39;</span><br><span class="line">let d: number &#x3D; parseFloat(c)</span><br><span class="line"></span><br><span class="line">let e: string &#x3D; &#39;false&#39;</span><br><span class="line">let f: boolean &#x3D; Boolean(e)</span><br><span class="line"></span><br><span class="line">if (e &#x3D;&#x3D;&#x3D; undefined) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let o:object &#x3D; &#123;name: &#39;xxx&#39;&#125;</span><br><span class="line">let s: string &#x3D; JSON.stringify(o)</span><br></pre></td></tr></table></figure>
-
-<h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><p>用 let 和 const<br>注意如果 const 声明的是对象，是地址不能变，不是对象不能变</p>
-<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>接口就是用代码描述一个对象必须有什么属性（包括方法），但是有没有其他属性就不管了</p>
-<h3 id="声明对象"><a href="#声明对象" class="headerlink" title="声明对象"></a>声明对象</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Human &#123;</span><br><span class="line">  name: string</span><br><span class="line">  &#x2F;&#x2F; readonly name: string</span><br><span class="line">  age: number</span><br><span class="line">  shape: Shape</span><br><span class="line">  likeGame?: Array&lt;string&gt;</span><br><span class="line">  say(word: string): void</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>只读属性 readonly，用作声明属性，const 用作声明变量</li>
-<li>可选属性 加？</li>
-<li>属性是函数 say(word: string): void</li>
-</ul>
-<h3 id="传入了-interface-之外的属性-？"><a href="#传入了-interface-之外的属性-？" class="headerlink" title="传入了 interface 之外的属性 ？"></a>传入了 interface 之外的属性 ？</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface SquareConfig &#123;</span><br><span class="line">    color?: string;</span><br><span class="line">    width?: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function createSquare(config: SquareConfig): void &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let mySquare &#x3D; createSquare(&#123; colour: &quot;red&quot;, width: 100 &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>想要传入 Interface 之外的属性，可以：</p>
-<ol>
-<li>使用类型断言</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let mySquare &#x3D; createSquare(&#123; width: 100, opacity: 0.5 &#125; as SquareConfig);</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>使用索引签名</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface SquareConfig &#123;</span><br><span class="line">    color?: string;</span><br><span class="line">    width?: number;</span><br><span class="line">    [propName: string]: any;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="interface-对象，这个对象是一个函数"><a href="#interface-对象，这个对象是一个函数" class="headerlink" title="interface 对象，这个对象是一个函数"></a>interface 对象，这个对象是一个函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Add &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let add: Add &#x3D; function(a, b) &#123;</span><br><span class="line">  return a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="这个函数的属性也是函数"><a href="#这个函数的属性也是函数" class="headerlink" title="这个函数的属性也是函数"></a>这个函数的属性也是函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">第一种</span><br><span class="line">interface Add &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">  &#x2F;&#x2F; minus(c: number, d: number): number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let add: Add &#x3D; ((): Add &#x3D;&gt; &#123;</span><br><span class="line">  let x:any &#x3D; function(a, b) &#123;</span><br><span class="line">    return a + b</span><br><span class="line">  &#125;</span><br><span class="line">  x.minus &#x3D; function(c: number, d: number): number &#123;</span><br><span class="line">    return c - d</span><br><span class="line">  &#125;</span><br><span class="line">  return x</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">第二种</span><br><span class="line">class Adds &#123;</span><br><span class="line">   minus(c: number, d: number): number</span><br><span class="line">&#125;</span><br><span class="line">interface Add extends Adds &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="interface-的对象是一个数组"><a href="#interface-的对象是一个数组" class="headerlink" title="interface 的对象是一个数组"></a>interface 的对象是一个数组</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface StringArray &#123;</span><br><span class="line">  [index: number]: string;</span><br><span class="line">&#125;</span><br><span class="line">let myArray: StringArray;</span><br><span class="line">myArray &#x3D; [&quot;Bob&quot;, &quot;Fred&quot;];</span><br><span class="line"></span><br><span class="line">let myStr: string &#x3D; myArray[0];</span><br></pre></td></tr></table></figure>
-
-<h3 id="interface-可以继承"><a href="#interface-可以继承" class="headerlink" title="interface 可以继承"></a>interface 可以继承</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Shape &#123;</span><br><span class="line">  color: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Square extends Shape &#123;</span><br><span class="line">  sideLength: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let square &#x3D; &lt;Square&gt;&#123;&#125;;</span><br><span class="line">square.color &#x3D; &quot;blue&quot;;</span><br><span class="line">square.sideLength &#x3D; 10;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/05/23/nuxt-%E5%BC%80%E5%8F%91%E5%AE%98%E7%BD%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/23/nuxt-%E5%BC%80%E5%8F%91%E5%AE%98%E7%BD%91/" class="post-title-link" itemprop="url">nuxt 开发官网</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-05-23 09:38:48" itemprop="dateCreated datePublished" datetime="2019-05-23T09:38:48+08:00">2019-05-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!-- 1. 刷文档 -->
-
-<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>nuxt 不会扩展 components 下面的组件，意味着组件没有 asyncData 的方法特性</p>
-<p>layouts 的目录名字不能修改</p>
-<p>middleware 中间件允许自定义一个函数运行在一个页面或者一组页面渲染之前</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export default function (context) &#123;</span><br><span class="line">  context.userAgent &#x3D; process.server ? context.req.headers[&#39;user-agent&#39;] : navigator.userAgent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>pages 目录不可更改，nuxt 框架读取该目录下的所有 .vue 文件并自动生成路由配置文件<br>下面这张图就是 pages 最关键的一些属性 <img src="https://i.loli.net/2019/05/23/5ce6329c82dd231257.jpg" alt="1558590067(1).jpg" loading="lazy"></p>
-<p>plugins 目录用于组织那些需要在 根 vue 实例化之前运行的 js 插件(有个疑问就是现在的项目没有使用 es6 编译的插件，这个先 mark 一下)</p>
-<p>static 下的文件直接映射到根目录下，不会用 webpack 进行编译</p>
-<p>nuxt.config.js 用于覆盖默认的配置文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## babel 配置</span><br><span class="line">默认为 @nuxt&#x2F;babel-preset-app 在client构建中是ie：&#39;9&#39;，在server构建中是node:&#39;current&#39;。</span><br><span class="line">&#123;</span><br><span class="line">  babelrc: false,</span><br><span class="line">  cacheDirectory: undefined,</span><br><span class="line">  presets: [&#39;@nuxt&#x2F;babel-preset-app&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>... 配置有点多</p>
-<h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><p>其实项目都是vue，而且静态居多，好像没有什么特别有印象的问题</p>
-<p>其实最主要就是 nuxt.config.js, 有很多功能可以直接在这里实现</p>
-<p>最后上线的时候遇到了一个问题，有利于搜索引擎抓取的路径地图配置文件</p>
-<p>是一个 sitemap 的 xml 文件，以前没接触过，这个文件直接用抓取工具生成就可以</p>
-<p>还需要一个 robots.txt 文件制定 sitemap 的路径</p>
-<p>这两个文件都需要放到 static 下面，这样最后打包的时候会直接生成文件在项目的根目录下面</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

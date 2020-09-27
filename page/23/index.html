@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">124</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">125</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,14 +234,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -299,6 +299,180 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/20/%E5%85%B3%E4%BA%8EJSON/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/20/%E5%85%B3%E4%BA%8EJSON/" class="post-title-link" itemprop="url">关于JSON</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-20 21:37:37" itemprop="dateCreated datePublished" datetime="2019-03-20T21:37:37+08:00">2019-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>JSON 是一种结构化语言，抄自 JavaScript，用来做数据交换<br>可以由解释引擎直接处理</p>
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p><span class="exturl" data-url="aHR0cDovL2pzb24ub3JnLw==">JSON<i class="fa fa-external-link-alt"></i></span><br>每个 JSON 对象就是一个值，可能是一个数组或对象，也可能是一个原始类型的值。总之，只能是一个值，不能是两个或更多的值。</p>
+<ul>
+<li>复合类型的值只能是数组或对象，不能是函数，正则表达式，日期表达式</li>
+<li>原始类型的值只有四种 字符串 十进制数字 布尔值 null，不能是 undefined NaN 等</li>
+<li>字符串必须用双引号表示，不能用单引号</li>
+<li>最后一项不能加逗号</li>
+</ul>
+<h3 id="JSON-对象"><a href="#JSON-对象" class="headerlink" title="JSON 对象"></a>JSON 对象</h3><p>JSON 也是 JavaScript 对象，有两个静态方法 JSON.stringify JSON.parse</p>
+<h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify"></a>JSON.stringify</h4><ul>
+<li>把符合 JSON 格式的值转为 JSON 字符串<br>不符合的会转为 &#39;&#39; 或者 null</li>
+<li>它有第二个参数，用来指定转换后的包含的属性，也就是把指定的属性转换，接受一个数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">  &#39;prop1&#39;: &#39;value1&#39;,</span><br><span class="line">  &#39;prop2&#39;: &#39;value2&#39;,</span><br><span class="line">  &#39;prop3&#39;: &#39;value3&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var selectedProperties &#x3D; [&#39;prop1&#39;, &#39;prop2&#39;];</span><br><span class="line"></span><br><span class="line">JSON.stringify(obj, selectedProperties)</span><br><span class="line">&#x2F;&#x2F; &quot;&#123;&quot;prop1&quot;:&quot;value1&quot;,&quot;prop2&quot;:&quot;value2&quot;&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第三个参数用来格式化字符串</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">JSON.stringify(&#123; p1:1, p2:2 &#125;, null, &#39;|-&#39;);</span><br><span class="line">&#x2F;*</span><br><span class="line">&quot;&#123;</span><br><span class="line">|-&quot;p1&quot;: 1,</span><br><span class="line">|-&quot;p2&quot;: 2</span><br><span class="line">&#125;&quot;</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h4 id="JSON-parse"><a href="#JSON-parse" class="headerlink" title="JSON.parse"></a>JSON.parse</h4><p>解析 JSON 字符串<br>第二个参数是一个函数，用来处理解析的对象</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/19/ajax%E7%9B%B8%E5%85%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/19/ajax%E7%9B%B8%E5%85%B3/" class="post-title-link" itemprop="url">ajax相关</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-19 20:20:20" itemprop="dateCreated datePublished" datetime="2019-03-19T20:20:20+08:00">2019-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="AJAX-功能"><a href="#AJAX-功能" class="headerlink" title="AJAX 功能"></a>AJAX 功能</h3><p>客户端用来发送请求</p>
+<ol>
+<li>js 设置请求头<br>第一部分: request.open(&#39;get&#39;, &#39;xxx&#39;)<br>第二部分: request.setHeader(&#39;Content-Type&#39;, &#39;x-www-form-urlencoded&#39;)<br>第四部分: request.send(&#39;a=1&amp;b=2&#39;)</li>
+<li>js 获取响应头<br>第一部分：request.status request.statusText<br>第二部分： request.getResponseHeader() 或者 request.getAllResponseHeaders()<br>第四部分： request.responseText</li>
+</ol>
+<p><strong>P.S.</strong> 注意第四部分纸盒第二部分的 content-type 有关</p>
+<h3 id="jQuery-也提供了-promise"><a href="#jQuery-也提供了-promise" class="headerlink" title="jQuery 也提供了 promise"></a>jQuery 也提供了 promise</h3><p><code>$.ajax().then(()=&gt;&#123;&#125;, ()=&gt;&#123;&#125;)</code></p>
+<blockquote>
+<p>promise 解决的问题是回调函数名称不一样的问题<br>好像上面这种说法也有道理，同时又解决了回调地狱</p>
+</blockquote>
+<h3 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a>代码链接</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9ub2RlanMtdGVzdC1jb3JzL2NvbW1pdHMvbWFzdGVy">自己实现的ajax<i class="fa fa-external-link-alt"></i></span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -459,169 +633,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/03/jsDOM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/03/jsDOM/" class="post-title-link" itemprop="url">jsDOM</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-03-03 22:42:15" itemprop="dateCreated datePublished" datetime="2019-03-03T22:42:15+08:00">2019-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>数据结构就是树<br>在 DOM 树中，树上有节点（Node）<br>Node 主要有 Document Element text 等<br>DOM 树抽象为对象主要有三个构造函数 Document Element Text，他们都继承自 Node.prototype<br><img src="https://i.loli.net/2019/03/03/5c7bf21547e43.jpg" alt="1551626734126.jpg" loading="lazy"></p>
-<p>上图就是 DOM 的大致原型链的关系<br>与此同时 Node 提供了一系列 API 用来操作 DOM</p>
-<h3 id="Node-接口"><a href="#Node-接口" class="headerlink" title="Node 接口"></a>Node 接口</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">属性：</span><br><span class="line">childNodes &#x2F;&#x2F; 返回 NodeList 继承自 Object</span><br><span class="line">children &#x2F;&#x2F; 返回 HTMLCollection 继承自 Object</span><br><span class="line">firstChild</span><br><span class="line">innerText</span><br><span class="line">lastChild</span><br><span class="line">nextSibiling</span><br><span class="line">nodeName</span><br><span class="line">nodeType</span><br><span class="line">nodeValue</span><br><span class="line">outerText</span><br><span class="line">ownerDocument</span><br><span class="line">parentElement</span><br><span class="line">parentNode</span><br><span class="line">previousSibiling</span><br><span class="line">textContent</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法</span><br><span class="line">appendChild()</span><br><span class="line">cloneNode() &#x2F;&#x2F; 参数为 true 就是深拷贝，否则为浅拷贝</span><br><span class="line">contains()</span><br><span class="line">hasChildNodes()</span><br><span class="line">insertBefore()</span><br><span class="line">insertAfter()</span><br><span class="line">isEqualNode() &#x2F;&#x2F; dom 一致</span><br><span class="line">isSameNode() &#x2F;&#x2F; 同一个 dom</span><br><span class="line">removeChild()</span><br><span class="line">replaceChild()</span><br><span class="line">normalize() &#x2F;&#x2F; 合并文本节点</span><br></pre></td></tr></table></figure>
-
-<h3 id="Document-接口"><a href="#Document-接口" class="headerlink" title="Document 接口"></a>Document 接口</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">属性</span><br><span class="line">body</span><br><span class="line">characterSet</span><br><span class="line">childElementCount</span><br><span class="line">children</span><br><span class="line">doctype</span><br><span class="line">domain</span><br><span class="line">fullscreen</span><br><span class="line">head</span><br><span class="line">images</span><br><span class="line">links</span><br><span class="line">location</span><br><span class="line">referrer</span><br><span class="line">scripts</span><br><span class="line">scrollingElement</span><br><span class="line">title</span><br><span class="line">documentElement</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法</span><br><span class="line">createDocumentFragment()</span><br><span class="line">createElement()</span><br><span class="line">createTextNode()</span><br><span class="line">execCommand()</span><br><span class="line">exitFullscreen()</span><br><span class="line">getElementById()</span><br><span class="line">getElementsByClassName()</span><br><span class="line">getElementsByName()</span><br><span class="line">getElementsByTagName()</span><br><span class="line">getSelection()</span><br><span class="line">hasFocus()</span><br><span class="line">open()</span><br><span class="line">close()</span><br><span class="line">querySelector()</span><br><span class="line">querySelectorAll()</span><br><span class="line">registerElement()</span><br><span class="line">write()</span><br><span class="line">writeln()</span><br></pre></td></tr></table></figure>
-
-<h3 id="Element-接口"><a href="#Element-接口" class="headerlink" title="Element 接口"></a>Element 接口</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">offsetWidth</span><br><span class="line">offsetHeight</span><br><span class="line">clientLeft</span><br><span class="line">clientTop</span><br><span class="line">scrollHeight</span><br><span class="line">scrollTop</span><br><span class="line">getBoundingClientRect().left</span><br></pre></td></tr></table></figure>
-
-<h3 id="NodeList-和-HTMLCollection"><a href="#NodeList-和-HTMLCollection" class="headerlink" title="NodeList 和 HTMLCollection"></a>NodeList 和 HTMLCollection</h3><ul>
-<li>上述的 api 有的返回是 NodeList 实例，有的返回 collection 实例，这两者是有区别的</li>
-</ul>
-<p>HTMLCollection 实例对象的成员只能是 Element 节点，NodeList 实例对象的成员可以包含其他节点。<br>HTMLCollection 实例对象可以用 id 属性或 name 属性引用节点元素，NodeList 只能使用数字索引引用。<br>HTMLCollection 实例对象是静态的 NodeList 是动态的。(x) 两者都是动态的 -_-</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/03/js%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/03/js%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" class="post-title-link" itemprop="url">js函数curry</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-03-03 15:22:16" itemprop="dateCreated datePublished" datetime="2019-03-03T15:22:16+08:00">2019-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js-code/" itemprop="url" rel="index"><span itemprop="name">js-code</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function curry(func, fixedParams) &#123;</span><br><span class="line">  if (!Array.isArray(fixedParams)) &#123;</span><br><span class="line">    fixedParams &#x3D; []</span><br><span class="line">  &#125;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    var newParams &#x3D; Array.prototype.slice.call(arguments)</span><br><span class="line">    if (newParams.length  + fixedParams.length &gt;&#x3D; func.length) &#123;</span><br><span class="line">      return func.apply(null, fixedParams.cancat(newParams))</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return curry(func, fixedParams.cancat(newParams))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

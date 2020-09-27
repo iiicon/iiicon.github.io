@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">124</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">125</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,14 +234,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -299,6 +299,207 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/06/11/TS%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/11/TS%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">TS接口</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-06-11 23:35:27" itemprop="dateCreated datePublished" datetime="2019-06-11T23:35:27+08:00">2019-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>js 七种数据类型 + 枚举 + any + void + never<br>默认情况下 null 和 undefined 是所有类型的子类型，就是说你可以把 null 赋值给 string 类型的变量</p>
+<h3 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let a: null &#x3D; null</span><br><span class="line">let b: undefined &#x3D; undefined</span><br><span class="line"></span><br><span class="line">let c: boolean &#x3D; true</span><br><span class="line">let d: number &#x3D; 1.23</span><br><span class="line"></span><br><span class="line">let o: object &#x3D; &#123;&#125;</span><br><span class="line">let s: symbol &#x3D; Symbol()</span><br><span class="line"></span><br><span class="line">let e: number &#x3D; 1</span><br><span class="line">&#x2F;&#x2F; e &#x3D; &#39;string&#39;</span><br><span class="line">let e1: any &#x3D; 1</span><br><span class="line">e1 &#x3D; &#39;string&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; let gender &#x3D; &#39;man&#39;</span><br><span class="line">enum Gender &#123;</span><br><span class="line">  Man &#x3D; &#39;m&#39;,</span><br><span class="line">  Woman &#x3D; &#39;w&#39;</span><br><span class="line">&#125;</span><br><span class="line">let gender: Gender &#x3D; Gender.Man</span><br><span class="line"></span><br><span class="line">function print(x): void &#123;</span><br><span class="line">  console.log(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;string&gt;someValue</span><br><span class="line">someValue as string</span><br></pre></td></tr></table></figure>
+
+<p>当你在 TypeScript 里使用 JSX 时，只有 as 语法断言是被允许的</p>
+<h3 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 类型转换</span><br><span class="line">let a: number &#x3D; 1</span><br><span class="line">let b: string &#x3D; a.toString()</span><br><span class="line"></span><br><span class="line">let c: string &#x3D; &#39;1.2&#39;</span><br><span class="line">let d: number &#x3D; parseFloat(c)</span><br><span class="line"></span><br><span class="line">let e: string &#x3D; &#39;false&#39;</span><br><span class="line">let f: boolean &#x3D; Boolean(e)</span><br><span class="line"></span><br><span class="line">if (e &#x3D;&#x3D;&#x3D; undefined) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let o:object &#x3D; &#123;name: &#39;xxx&#39;&#125;</span><br><span class="line">let s: string &#x3D; JSON.stringify(o)</span><br></pre></td></tr></table></figure>
+
+<h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><p>用 let 和 const<br>注意如果 const 声明的是对象，是地址不能变，不是对象不能变</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>接口就是用代码描述一个对象必须有什么属性（包括方法），但是有没有其他属性就不管了</p>
+<h3 id="声明对象"><a href="#声明对象" class="headerlink" title="声明对象"></a>声明对象</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Human &#123;</span><br><span class="line">  name: string</span><br><span class="line">  &#x2F;&#x2F; readonly name: string</span><br><span class="line">  age: number</span><br><span class="line">  shape: Shape</span><br><span class="line">  likeGame?: Array&lt;string&gt;</span><br><span class="line">  say(word: string): void</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只读属性 readonly，用作声明属性，const 用作声明变量</li>
+<li>可选属性 加？</li>
+<li>属性是函数 say(word: string): void</li>
+</ul>
+<h3 id="传入了-interface-之外的属性-？"><a href="#传入了-interface-之外的属性-？" class="headerlink" title="传入了 interface 之外的属性 ？"></a>传入了 interface 之外的属性 ？</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface SquareConfig &#123;</span><br><span class="line">    color?: string;</span><br><span class="line">    width?: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function createSquare(config: SquareConfig): void &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let mySquare &#x3D; createSquare(&#123; colour: &quot;red&quot;, width: 100 &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>想要传入 Interface 之外的属性，可以：</p>
+<ol>
+<li>使用类型断言</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let mySquare &#x3D; createSquare(&#123; width: 100, opacity: 0.5 &#125; as SquareConfig);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用索引签名</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface SquareConfig &#123;</span><br><span class="line">    color?: string;</span><br><span class="line">    width?: number;</span><br><span class="line">    [propName: string]: any;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="interface-对象，这个对象是一个函数"><a href="#interface-对象，这个对象是一个函数" class="headerlink" title="interface 对象，这个对象是一个函数"></a>interface 对象，这个对象是一个函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Add &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let add: Add &#x3D; function(a, b) &#123;</span><br><span class="line">  return a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="这个函数的属性也是函数"><a href="#这个函数的属性也是函数" class="headerlink" title="这个函数的属性也是函数"></a>这个函数的属性也是函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">第一种</span><br><span class="line">interface Add &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">  &#x2F;&#x2F; minus(c: number, d: number): number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let add: Add &#x3D; ((): Add &#x3D;&gt; &#123;</span><br><span class="line">  let x:any &#x3D; function(a, b) &#123;</span><br><span class="line">    return a + b</span><br><span class="line">  &#125;</span><br><span class="line">  x.minus &#x3D; function(c: number, d: number): number &#123;</span><br><span class="line">    return c - d</span><br><span class="line">  &#125;</span><br><span class="line">  return x</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">第二种</span><br><span class="line">class Adds &#123;</span><br><span class="line">   minus(c: number, d: number): number</span><br><span class="line">&#125;</span><br><span class="line">interface Add extends Adds &#123;</span><br><span class="line">  (a: number, b: number): number</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="interface-的对象是一个数组"><a href="#interface-的对象是一个数组" class="headerlink" title="interface 的对象是一个数组"></a>interface 的对象是一个数组</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface StringArray &#123;</span><br><span class="line">  [index: number]: string;</span><br><span class="line">&#125;</span><br><span class="line">let myArray: StringArray;</span><br><span class="line">myArray &#x3D; [&quot;Bob&quot;, &quot;Fred&quot;];</span><br><span class="line"></span><br><span class="line">let myStr: string &#x3D; myArray[0];</span><br></pre></td></tr></table></figure>
+
+<h3 id="interface-可以继承"><a href="#interface-可以继承" class="headerlink" title="interface 可以继承"></a>interface 可以继承</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Shape &#123;</span><br><span class="line">  color: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Square extends Shape &#123;</span><br><span class="line">  sideLength: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let square &#x3D; &lt;Square&gt;&#123;&#125;;</span><br><span class="line">square.color &#x3D; &quot;blue&quot;;</span><br><span class="line">square.sideLength &#x3D; 10;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/05/23/nuxt-%E5%BC%80%E5%8F%91%E5%AE%98%E7%BD%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/23/nuxt-%E5%BC%80%E5%8F%91%E5%AE%98%E7%BD%91/" class="post-title-link" itemprop="url">nuxt 开发官网</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-23 09:38:48" itemprop="dateCreated datePublished" datetime="2019-05-23T09:38:48+08:00">2019-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!-- 1. 刷文档 -->
+
+<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>nuxt 不会扩展 components 下面的组件，意味着组件没有 asyncData 的方法特性</p>
+<p>layouts 的目录名字不能修改</p>
+<p>middleware 中间件允许自定义一个函数运行在一个页面或者一组页面渲染之前</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export default function (context) &#123;</span><br><span class="line">  context.userAgent &#x3D; process.server ? context.req.headers[&#39;user-agent&#39;] : navigator.userAgent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>pages 目录不可更改，nuxt 框架读取该目录下的所有 .vue 文件并自动生成路由配置文件<br>下面这张图就是 pages 最关键的一些属性 <img src="https://i.loli.net/2019/05/23/5ce6329c82dd231257.jpg" alt="1558590067(1).jpg" loading="lazy"></p>
+<p>plugins 目录用于组织那些需要在 根 vue 实例化之前运行的 js 插件(有个疑问就是现在的项目没有使用 es6 编译的插件，这个先 mark 一下)</p>
+<p>static 下的文件直接映射到根目录下，不会用 webpack 进行编译</p>
+<p>nuxt.config.js 用于覆盖默认的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## babel 配置</span><br><span class="line">默认为 @nuxt&#x2F;babel-preset-app 在client构建中是ie：&#39;9&#39;，在server构建中是node:&#39;current&#39;。</span><br><span class="line">&#123;</span><br><span class="line">  babelrc: false,</span><br><span class="line">  cacheDirectory: undefined,</span><br><span class="line">  presets: [&#39;@nuxt&#x2F;babel-preset-app&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>... 配置有点多</p>
+<h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><p>其实项目都是vue，而且静态居多，好像没有什么特别有印象的问题</p>
+<p>其实最主要就是 nuxt.config.js, 有很多功能可以直接在这里实现</p>
+<p>最后上线的时候遇到了一个问题，有利于搜索引擎抓取的路径地图配置文件</p>
+<p>是一个 sitemap 的 xml 文件，以前没接触过，这个文件直接用抓取工具生成就可以</p>
+<p>还需要一个 robots.txt 文件制定 sitemap 的路径</p>
+<p>这两个文件都需要放到 static 下面，这样最后打包的时候会直接生成文件在项目的根目录下面</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -459,199 +660,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/05/18/BFC-%E5%92%8C-IFC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/18/BFC-%E5%92%8C-IFC/" class="post-title-link" itemprop="url">BFC 和 IFC</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-05-18 16:29:35" itemprop="dateCreated datePublished" datetime="2019-05-18T16:29:35+08:00">2019-05-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><blockquote>
-<p>一个bfc包含内部所有元素的内容，除了后代也是bfc的元素</p>
-</blockquote>
-<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ol>
-<li>如果它是 BFC，就会父元素把子元素包起来</li>
-</ol>
-<p><em>这不是清除浮动，这是bfc</em><br>2. 兄弟元素就会划清界限，不会重叠<br><em>float + div 做自适应布局，第一个元素float，第二个bfc，就会两个分开</em></p>
-<h3 id="下面这些会触发-BFC"><a href="#下面这些会触发-BFC" class="headerlink" title="下面这些会触发 BFC"></a>下面这些会触发 BFC</h3><ol>
-<li>根元素</li>
-<li>浮动元素</li>
-<li>定位为 absolute 或者 fixed</li>
-<li>display: inline-block</li>
-<li>display: table-cell</li>
-<li>overflow 不是 visible 的元素</li>
-<li>display: flow-root （css专门用来bfc的）</li>
-</ol>
-<h3 id="IFC"><a href="#IFC" class="headerlink" title="IFC"></a>IFC</h3><p>主要有三个点</p>
-<ol>
-<li><p>font-size<br>一个字体会定义一个 em-squre, 他是用来盛放字体的容器，一般是宽高为 100 的相对单位</p>
-</li>
-<li><p>line-height<br>一个内联元素真实字占的高度，字体在其中自己居中就行了</p>
-</li>
-<li><p>vertical-align<br>top middle bottom text-top text-bottom 不同字体是无法对齐的</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/05/09/css%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/09/css%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/" class="post-title-link" itemprop="url">css堆叠上下文</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-05-09 08:22:01" itemprop="dateCreated datePublished" datetime="2019-05-09T08:22:01+08:00">2019-05-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="堆叠顺序"><a href="#堆叠顺序" class="headerlink" title="堆叠顺序"></a>堆叠顺序</h3><ol start="0">
-<li>z-index = -1</li>
-<li>background</li>
-<li>border</li>
-<li>div 块级元素</li>
-<li>浮动元素</li>
-<li>文字 内联元素</li>
-<li>position z-index=0</li>
-<li>position z-index&gt;0</li>
-</ol>
-<p>PS. 如果兄弟元素重叠，后面的盖在前面的身上</p>
-<h3 id="堆叠上下文"><a href="#堆叠上下文" class="headerlink" title="堆叠上下文"></a>堆叠上下文</h3><p><strong>我们知道一些属性能触发堆叠上下文，但是我们不知道堆叠上下文是什么</strong></p>
-<ol>
-<li>根元素 HTML</li>
-<li>z-index 不为 auto 的 relative absolute 定位</li>
-<li>opacity 小于 1 的元素</li>
-<li>transform 不为 none 的元素</li>
-<li>position: fixed 的元素</li>
-<li>-webkit-overflow-scrolling: touch 的元素</li>
-<li>isolation: isolute 的元素<br>...</li>
-</ol>
-<p>触发堆叠上下文后，会解决 z-index 的问题，上面 0 就会在 2 和 3 之间</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
