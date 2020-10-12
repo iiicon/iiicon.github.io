@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">125</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">126</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">126</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,107 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/04/ES6%E4%B8%89%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B0%E7%89%88%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/04/ES6%E4%B8%89%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%96%B0%E7%89%88%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">ES6 三点运算符和新版字符串</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-04 16:06:54" itemprop="dateCreated datePublished" datetime="2019-08-04T16:06:54+08:00">2019-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="三点运算符"><a href="#三点运算符" class="headerlink" title="三点运算符"></a>三点运算符</h2><h3 id="函数的默认参数"><a href="#函数的默认参数" class="headerlink" title="函数的默认参数"></a>函数的默认参数</h3><pre><code>function(x = 10)</code></pre>
+<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h3><pre><code>Array.prototype.slice.call(arguments, 2)
+Array.from(arguments).slice(2)
+function fn(a, b, ...c)</code></pre>
+<h3 id="展开操作符"><a href="#展开操作符" class="headerlink" title="展开操作符"></a>展开操作符</h3><pre><code>[...iteralableObject] = [1,2,3]
+[0, ...iteralableObject, 1, 2]</code></pre>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><pre><code>[a, b] = [b, a]
+[a, b, ...rest] = [1, 2, 3]
+let &#123;name, age&#125; = person
+[a = 5, b = 7] = [1]
+[a, b] = f()
+[a, ,b] = f()
+&#123;p: foo, q: bar&#125; = o
+let &#123;a = 10, b = 5&#125; = &#123;a: 4&#125;
+let &#123;a:aa = 10, b:bb = 5&#125; = &#123;a: 3&#125;;
+对象的浅拷贝（JSON， ...，Object.assign）
+对象合并</code></pre>
+<h3 id="对象属性增强"><a href="#对象属性增强" class="headerlink" title="对象属性增强"></a>对象属性增强</h3><pre><code>let obj = &#123; x, y &#125;
+obj = &#123;[&#39;baz&#39;+qux()]: 33&#125;
+函数属性可以缩写</code></pre>
+<h2 id="新版字符串"><a href="#新版字符串" class="headerlink" title="新版字符串"></a>新版字符串</h2><h3 id="多行字符串，插值"><a href="#多行字符串，插值" class="headerlink" title="多行字符串，插值"></a>多行字符串，插值</h3><pre><code>let a = `a$&#123;name&#125;
+         b
+        `</code></pre>
+<h3 id="函数接字符串"><a href="#函数接字符串" class="headerlink" title="函数接字符串"></a>函数接字符串</h3><pre><code>fn`$&#123;name&#125; 是一个 $&#123;person&#125;`</code></pre>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0eWxlZC1jb21wb25lbnRzL3N0eWxlZC1jb21wb25lbnRz">style.component<i class="fa fa-external-link-alt"></i></span>就是这个用法</p>
+<pre><code>const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -676,143 +777,6 @@ componentWillUnmount
 vue: props data computed watch （属性）
 react: render shouldComponentUpdate componentWillReceiveProps （依然是钩子）</code></pre>
 <h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBMTEvaW5kZXguanN4">react 生命周期<i class="fa fa-external-link-alt"></i></span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/28/React-Router/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/28/React-Router/" class="post-title-link" itemprop="url">React-Router</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-28 14:47:05" itemprop="dateCreated datePublished" datetime="2019-07-28T14:47:05+08:00">2019-07-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="用-hash-做-router"><a href="#用-hash-做-router" class="headerlink" title="用 hash 做 router"></a>用 hash 做 router</h3><pre><code>window.location.hash = &#39;signin&#39;</code></pre>
-<h3 id="用-pushState-做-router"><a href="#用-pushState-做-router" class="headerlink" title="用 pushState 做 router"></a>用 pushState 做 router</h3><p><em>假设为顶级路由</em></p>
-<pre><code>const [ui, setUi] = useState(window.location.pathname === &#39;signin&#39; ? 0 : 1)
-window.history.pushState(null, &#39;&#39;, &#39;signin&#39;)</code></pre>
-<h3 id="用-React-Router-做路由"><a href="#用-React-Router-做路由" class="headerlink" title="用 React-Router 做路由"></a>用 React-Router 做路由</h3><p>安装 react-router-dom <code>&quot;react-router&quot;: &quot;^5.0.1&quot; &quot;react-router-dom&quot;: &quot;^5.0.1&quot;,</code></p>
-<pre><code>yarn add react-router-dom</code></pre>
-<p>引入 Router Route Link</p>
-<pre><code>import &#123; BrowserRouter as Router, Route, Link &#125; from &quot;react-router-dom&quot;;</code></pre>
-<p>使用 Router 组件</p>
-<pre><code>function RA9() &#123;
-  return (
-    &lt;div&gt;
-      &lt;Rotuer&gt;
-        &lt;Link to=&quot;/signin&quot;&gt;
-          &lt;button&gt;登录&lt;/button&gt;
-        &lt;/Link&gt;
-        &lt;Link to=&quot;/signup&quot;&gt;
-          &lt;button&gt;注册&lt;/button&gt;
-        &lt;/Link&gt;
-        &lt;Route path=&quot;/&quot; exact component=&#123;RA9&#125; /&gt;
-        &lt;Route path=&quot;/signin/&quot; component=&#123;SignIn&#125; /&gt;
-        &lt;Route path=&quot;/signup/&quot; component=&#123;SignUp&#125; /&gt;
-      &lt;/Rotuer&gt;
-    &lt;/div&gt;
-  )
-&#125;</code></pre>
-<p>在 react 内部会变成下面这样</p>
-<pre><code>function RA9() &#123;
-
-  return React.createElement(
-    &#39;div&#39;,
-    null,
-    React.createElement(
-      Rotuer,
-      null,
-      React.createElement(
-        Link,
-        &#123;
-          to: &#39;/signin&#39;
-        &#125;,
-        React.createElement(&#39;button&#39;, null, &#39;\u767B\u5F55&#39;)
-      ),
-      React.createElement(
-        Link,
-        &#123;
-          to: &#39;/signup&#39;
-        &#125;,
-        React.createElement(&#39;button&#39;, null, &#39;\u6CE8\u518C&#39;)
-      ),
-      React.createElement(Route, &#123;
-        path: &#39;/&#39;,
-        exact: true,
-        component: RA9
-      &#125;),
-      React.createElement(Route, &#123;
-        path: &#39;/signin/&#39;,
-        component: SignIn
-      &#125;),
-      React.createElement(Route, &#123;
-        path: &#39;/signup/&#39;,
-        component: SignUp
-      &#125;)
-    )
-  )
-&#125;</code></pre>
-<h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBOS9pbmRleC5qc3g=">react-router<i class="fa fa-external-link-alt"></i></span></p>
 
       
     </div>

@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">125</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">126</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">126</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,78 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/24/git%E6%92%A4%E9%94%80node-modules/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/24/git%E6%92%A4%E9%94%80node-modules/" class="post-title-link" itemprop="url">git撤销node_modules</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-24 22:09:00" itemprop="dateCreated datePublished" datetime="2019-03-24T22:09:00+08:00">2019-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch .gitignore</span><br><span class="line">echo &#x2F;node_modules&#x2F; &gt;&gt; .gitignore</span><br><span class="line">git rm -r --cached node_modules</span><br><span class="line">git add . -A</span><br><span class="line">git commit -m &quot;remove node_modules&quot;</span><br><span class="line">git push</span><br><span class="line">npm install 或者 yarn install</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -534,88 +606,6 @@
 <h4 id="script"><a href="#script" class="headerlink" title="script"></a>script</h4><p>script 的 src也不受同源策略的限制，也同样有 onload 和 onerror<br>这样就可以的客户端封装函数，然后把函数名字发送给后端，后端用 SRG 把数据塞到函数里返回，然后在前端执行</p>
 <h4 id="jquery-jsonp"><a href="#jquery-jsonp" class="headerlink" title="jquery jsonp"></a>jquery jsonp</h4><p>jquery 把这一系列操作都放到了 ajax 上，你只需指定 dataType 为 jsonp<br>jquery 返回 jQuery33105114825241317853_1552671331082.call(null, 48) 类似这样的字符串<br>文海南路<br>默认约定回调函数名字就是 callback 加一串随机数组成</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9ub2RlLXNlcnZlci1kZW1vMi9jb21taXRzL21hc3Rlcg==">自己实现的jsonp<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTYvMDQvc2FtZS1vcmlnaW4tcG9saWN5Lmh0bWw=">浏览器同源政策及其规避方法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTYvMDQvY29ycw==">html跨域资源共享 CORS 详解<i class="fa fa-external-link-alt"></i></span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/09/jquery%E9%87%8D%E6%B8%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/09/jquery%E9%87%8D%E6%B8%A9/" class="post-title-link" itemprop="url">jquery重温</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-03-09 01:46:38" itemprop="dateCreated datePublished" datetime="2019-03-09T01:46:38+08:00">2019-03-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>命名空间是一种设计模式</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var dom &#x3D; &#123;&#125;</span><br><span class="line">dom.getSiblings(node)</span><br><span class="line">dom.addClass(node, &#123;a: true, b: false&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><p>利用原型就可以使得实例化的对象都具有原型的方法<br>代码就可以写成</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node.getSiblings()</span><br><span class="line">node.addClass(&#123;a: true, b: false&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="无侵入"><a href="#无侵入" class="headerlink" title="无侵入"></a>无侵入</h3><p>如果大家都修改原型就会有互相覆盖的风险<br>可以用无侵入的模式封装一个对象用来操作传入的元素</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function jquery(node) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    element: node,</span><br><span class="line">    getSiblings: function()&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    addClass: function()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let node &#x3D; document.getElementById(&#39;x&#39;)</span><br><span class="line">let node2 &#x3D; jquery(node)</span><br><span class="line">node2.siblings()</span><br><span class="line">node2.addClass()</span><br></pre></td></tr></table></figure>
-<p><em>当然真实的 jquery 不是这样的</em></p>
-<h3 id="测试无侵入"><a href="#测试无侵入" class="headerlink" title="测试无侵入"></a>测试无侵入</h3><p>传入一个 dom 或者选择器，应用生成的对象操作对应的 api</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">window.jQuery &#x3D; function(param) &#123;</span><br><span class="line">  var nodes &#x3D; &#123;&#125;</span><br><span class="line">  if (typeof param &#x3D;&#x3D;&#x3D; &#39;string&#39;) &#123;</span><br><span class="line">    nodes &#x3D; document.querySelectorAll(param)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    nodes &#x3D; &#123;</span><br><span class="line">      0: param,</span><br><span class="line">      length: 1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  nodes.addClass &#x3D; function(classes) &#123;</span><br><span class="line">    for(var i&#x3D;0;i&lt;nodes.length;i++) &#123;</span><br><span class="line">      nodes[i].classList.add(classes)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  nodes.setText &#x3D; function(text) &#123;</span><br><span class="line">    for (var i &#x3D; 0; i &lt; nodes.length; i++) &#123;</span><br><span class="line">      nodes[i].textContent &#x3D; text</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return nodes</span><br><span class="line">&#125;</span><br><span class="line">window.$ &#x3D; jQuery</span><br><span class="line">var $div &#x3D; $(&#39;div&#39;)</span><br><span class="line">$div.addClass(&#39;red&#39;) &#x2F;&#x2F; 可将所有 div 的 class 添加一个 red</span><br><span class="line">$div.setText(&#39;hi&#39;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
