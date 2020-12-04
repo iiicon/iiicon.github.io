@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">126</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,293 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/10/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%B1%E6%9D%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%B1%E6%9D%A5/" class="post-title-link" itemprop="url">面向对象之构造函数的由来</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-10-31 16:22:03" itemprop="dateCreated datePublished" datetime="2019-10-31T16:22:03+08:00">2019-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>对象和对象的关系（原型链）<br>对象和函数的关系（this）</p>
+</blockquote>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><pre><code>var person1 = &#123;
+  name: &#39;frank&#39;,
+  age: 18,
+  isAdult: true,
+  say() &#123;
+    console.log(`I am $&#123;this.name&#125;`)
+  &#125;
+&#125;
+var person2 = &#123;
+  name: &#39;jack&#39;,
+  age: 18,
+  isAdult: true,
+  say() &#123;
+    console.log(`I am $&#123;this.name&#125;`)
+  &#125;
+&#125;
+var person3 = &#123;&#125;
+var person4 = &#123;&#125;</code></pre>
+<p>这些对象太类似了，于是我们发明了构造函数（返回对象的函数，一般首字母大写）</p>
+<pre><code>function createPerson(name, age) &#123;
+  var object = &#123;&#125;
+  object.name = name
+  object.age = age
+  object.isAdult = age &gt;= 18 // 这就是计算属性，因为是计算出来的属性
+  object.say = function () &#123;
+    console.log(`I am $&#123;this.name&#125;`) // this 可能是 object 也可能不是
+  &#125;
+
+  return object
+&#125;</code></pre>
+<p>没有必要给每个 object 创建一个匿名函数（object.say 指向的匿名函数），所以我们创建一个对象，包含所有共用属性</p>
+<pre><code>var personCommonAttrs = &#123;
+  say: function () &#123;
+    console.log(`I am $&#123;this.name&#125;`)
+  &#125;
+&#125;
+function createPerson(name, age) &#123;
+  var object = &#123;&#125;
+  object.name = name
+  object.age = age
+  object.isAdult = age &gt;= 18
+  object.__proto__ = personCommonAttrs // __proto__ 是私有属性，不要在生产环境使用 __proto__, 请使用 Object.create
+
+  return object
+&#125;</code></pre>
+<p>很多人觉得不爽，把 personCommonAttrs 改为 createPerson 的属性</p>
+<pre><code>createPerson.personCommonAttrs = &#123;
+  say: function () &#123;
+    console.log(`I am $&#123;this.name&#125;`)
+  &#125;
+&#125;
+function createPerson(name, age) &#123;
+  var object = &#123;&#125;
+  object.name = name
+  object.age = age
+  object.isAdult = age &gt;= 18
+  object.__proto__ = personCommonAttrs // __proto__ 是私有属性，不要在生产环境使用 __proto__, 请使用 Object.create
+
+  return object
+&#125;</code></pre>
+<p>接下来我们创建狗</p>
+<pre><code>function createDog(name, age) &#123;
+  var object = &#123;&#125;
+  object.name = name
+  object.name = age
+  object.isAdult = age &gt;= 2.6
+  object.__proto__ = createDog.dogCommonAttr
+
+  return object
+&#125;
+createDog.dogCommonAttr = &#123;
+  say: function () &#123;
+    console.log(`狗子汪汪汪`)
+  &#125;
+&#125;</code></pre>
+<p>对比人的代码和狗的代码，你会发现 xxxCommonAttrs 这个名字完全就是多此一举，不如叫做 personCommonAttrs 然后一些程序员把 commonAttrs 重命名为 prototype</p>
+<p>然后上面的代码就变成了</p>
+<pre><code>function createDog(name, age) &#123;
+  var object = &#123;&#125;
+  object.name = name
+  object.age = age
+  object.isAdult = age &gt;= 2.6
+  object.__proto__ = createDog.prototype
+
+  return object
+&#125;
+createDog.prototype = &#123;
+  say: function () &#123;
+    console.log(`狗子汪汪汪`)
+  &#125;
+&#125;</code></pre>
+<p>接下来我们来玩一下</p>
+<pre><code>var ergou = createDog(&#39;ergouzi&#39;, 30)
+var dagou = createDog(&#39;dagouzi&#39;, 50)
+dagou.say()
+ergou.say()
+console.log(dagou.say === ergou.say)
+ergou.gender = &#39;女性&#39;
+console.log(ergou)
+console.log(dagou.gender)
+console.log(ergou.say === dagou.say)
+ergou.say = function () &#123;
+  console.log(&#39;汪汪汪 二狗子&#39;)
+&#125;
+ergou.say()
+console.log(dagou.say === ergou.say)</code></pre>
+<p>JS 中对象函数没有关系，JS 之父通过 this 强行使得它们有关系。<br><code>obj.fn.call(obj, 1,2,3) =&gt; obj.fn(1,2,3)</code></p>
+<h3 id="new-关键字"><a href="#new-关键字" class="headerlink" title="new 关键字"></a>new 关键字</h3><p>我们假设在兵营中制造士兵，一个士兵在计算机中有一堆属性<br>有兵种 攻击力 生命值 行走 跑 死亡 攻击 防御<br>我们可以这样制造一个士兵</p>
+<p>var 士兵 = {<br>ID: 1,<br>兵种: &#39;步兵&#39;,<br>攻击力: 5,<br>生命值: 100,<br>行走: function () { },<br>奔跑: function () { },<br>死亡: function () { },<br>攻击: function () { },<br>防御: function () { },<br>}<br>兵营.制造(士兵)</p>
+<p>如果需要 100 个士兵怎么办呢？ 循环 100 次吧</p>
+<pre><code>var 士兵们 = []
+var 士兵
+for (let i = 0; i &lt; 100; i++) &#123;
+  士兵 = &#123;
+    ID: 1,
+    兵种: &#39;步兵&#39;,
+    攻击力: 5,
+    生命值: 100,
+    行走: function () &#123; &#125;,
+    奔跑: function () &#123; &#125;,
+    死亡: function () &#123; &#125;,
+    攻击: function () &#123; &#125;,
+    防御: function () &#123; &#125;,
+  &#125;
+  士兵们.push(士兵)
+&#125;
+兵营.批量制造(士兵们)</code></pre>
+<p>上面的代码浪费了很多内存，<br>这些 function 行为对于每一个士兵都是一样的，引用同一个函数就可以了<br>这些士兵的兵种和攻击力是一样的，没必要创建 100 次<br>只有 ID 和生命值需要创建 100 次，因为每个士兵都有自己的 ID 和生命值</p>
+<pre><code>var 士兵原型 = &#123;
+  兵种: &#39;步兵&#39;,
+  攻击力: 5,
+  行走: function () &#123; &#125;,
+  奔跑: function () &#123; &#125;,
+  死亡: function () &#123; &#125;,
+  攻击: function () &#123; &#125;,
+  防御: function () &#123; &#125;,
+&#125;
+var 士兵们 = []
+var 士兵
+for (let i = 0; i &lt; 100; i++) &#123;
+  士兵 = &#123;
+    ID: i,
+    生命值: 100
+  &#125;
+  士兵.__proto__ = 士兵原型
+  士兵们.push(士兵)
+&#125;
+
+兵营.批量制造(士兵们)</code></pre>
+<p>有人指出创建一个士兵的代码分散在两个地方很不优雅，于是我们用一个函数把这两部分联系起来</p>
+<pre><code>function 士兵(ID) &#123;
+  var o = &#123;&#125;
+  o.__proto__ = 士兵.原型
+  o.ID = ID
+  o.生命值 = 42
+  return o
+&#125;
+士兵.原型 = &#123;
+  兵种: &#39;步兵&#39;,
+  攻击力: 5,
+  行走: function () &#123; &#125;,
+  奔跑: function () &#123; &#125;,
+  死亡: function () &#123; &#125;,
+  攻击: function () &#123; &#125;,
+  防御: function () &#123; &#125;,
+&#125;
+var 士兵们 = []
+for (var i = 0; i &lt; 100; i++) &#123;
+  士兵们.push(士兵(i))
+&#125;
+兵营.批量制造(士兵们)</code></pre>
+<p>JS 之父创建了 new，可以让我们少写几行代码</p>
+<pre><code>function 士兵(ID) &#123;
+  var o = &#123;&#125; // 帮你创建临时对象
+  o.__proto__ = 士兵.原型 // 帮你绑定原型
+  o.ID = ID
+  o.生命值 = 42
+  return o // 帮你返回对象
+&#125;
+士兵.原型 = &#123;&#125; // 统一焦作 prototype</code></pre>
+<p>只要你在士兵前面使用 new 关键字，那么至少做四件事情</p>
+<ol>
+<li>不用创建临时对象，因为 new 会帮你做 [使用 this 就能获取到临时对象，把 this 指向了临时对象]</li>
+<li>不用绑定原型，因为 new 会帮你做，new 为了知道原型在哪，所以指定原型的名字为 prototype</li>
+<li>不用 return 对象，因为 new 会帮你做</li>
+<li>不要给原型想名字了，因为 new 指定名字为 prototype</li>
+</ol>
+<p>这一次 我们用 new 来写</p>
+<pre><code>function 士兵(ID) &#123;
+  this.ID = ID
+  this.生命值 = 42
+&#125;
+士兵.原型 = &#123;
+  兵种: &#39;步兵&#39;,
+  攻击力: 5,
+  行走: function () &#123; &#125;,
+  奔跑: function () &#123; &#125;,
+  死亡: function () &#123; &#125;,
+  攻击: function () &#123; &#125;,
+  防御: function () &#123; &#125;,
+&#125;
+var 士兵们 = []
+for (var i = 0; i &lt; 100; i++) &#123;
+  士兵们.push(new 士兵(i))
+&#125;
+兵营.批量制造(士兵们)</code></pre>
+<p>new 的作用就是省那么几行代码，就是所谓的语法糖<br>功能就是 用构造函数构造出了对象，实现了自身属性和共用属性</p>
+<h3 id="constructor-属性"><a href="#constructor-属性" class="headerlink" title="constructor 属性"></a>constructor 属性</h3><p>new 操作为了记录 [零时对象是由哪个函数创建的]，所以预先给 [士兵.prototype] 加了一个 constructor 属性</p>
+<pre><code>士兵.prototype = &#123;
+  constructor: 士兵
+&#125;</code></pre>
+<p>所以如果你想留着 constructor 就别直接覆盖 prototype<br>当然你也可以给自己的 constructor 重新赋值</p>
+<h3 id="proto"><a href="#proto" class="headerlink" title="proto"></a><strong>proto</strong></h3><p>最后说 <code>__proto__</code>，绝大部分浏览器都支持这个非标准的方法访问原型，然而它并不存在于 Person.prototype 中，实际上，它是来自于 Object.prototype ，与其说是一个属性，不如说是一个 getter/setter，当使用 <code>obj.__proto__</code> 时，可以理解成返回了 Object.getPrototypeOf(obj)。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -562,168 +849,6 @@
           <h3 id="ES5-实现"><a href="#ES5-实现" class="headerlink" title="ES5 实现"></a>ES5 实现</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; function Promise(???)&#123;</span><br><span class="line">&#x2F;&#x2F;   ???</span><br><span class="line">&#x2F;&#x2F;   return ???</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">var __PENDING &#x3D; &#39;pending&#39;</span><br><span class="line">var __RESOLVED &#x3D; &#39;resolved&#39;</span><br><span class="line">var __REJECTED &#x3D; &#39;rejected&#39;</span><br><span class="line"></span><br><span class="line">function Promise(fn) &#123;</span><br><span class="line">  var status &#x3D; __PENDING</span><br><span class="line">  var resolvedArr &#x3D; []</span><br><span class="line">  var rejectedArr &#x3D; []</span><br><span class="line"></span><br><span class="line">  function resolveFn() &#123;</span><br><span class="line">    status &#x3D; __RESOLVED</span><br><span class="line">    todoThen.apply(undefined, arguments)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function rejectFn() &#123;</span><br><span class="line">    status &#x3D; __REJECTED</span><br><span class="line">    todoThen.apply(undefined,arguments)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fn.call(undefined, resolveFn, rejectFn)</span><br><span class="line"></span><br><span class="line">  function todoThen() &#123;</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">      if (status &#x3D;&#x3D;&#x3D; __RESOLVED) &#123;</span><br><span class="line">        for (let i &#x3D; 0; i &lt; resolvedArr.length; i++) &#123;</span><br><span class="line">          resolvedArr[i].apply(undefined, arguments)</span><br><span class="line">	console.log(arguments[0])</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      if (status &#x3D;&#x3D;&#x3D; __REJECTED) &#123;</span><br><span class="line">        for (let i &#x3D; 0; i &lt; rejectedArr.length; i++) &#123;</span><br><span class="line">          rejectedArr[i].apply(undefined, arguments)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return &#123;</span><br><span class="line">    then: function(successfn, errfn) &#123;</span><br><span class="line">      resolvedArr.push(successfn)</span><br><span class="line">      rejectedArr.push(errfn)</span><br><span class="line">      return undefined</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var promise &#x3D; new Promise(function(x,y)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">      x(101)</span><br><span class="line">  &#125;, 1000)</span><br><span class="line">&#125;)</span><br><span class="line">promise.then((z)&#x3D;&gt;&#123;</span><br><span class="line">  console.log(z)  &#x2F;&#x2F; 101</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h3 id="ES6-实现（未完待续）"><a href="#ES6-实现（未完待续）" class="headerlink" title="ES6 实现（未完待续）"></a>ES6 实现（未完待续）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const statusProvider &#x3D; (promise, status) &#x3D;&gt; data &#x3D;&gt; &#123;</span><br><span class="line">  if (promise.status !&#x3D;&#x3D; &#39;pending&#39;) &#123;</span><br><span class="line">    return false</span><br><span class="line">  &#125;</span><br><span class="line">  switch (status) &#123;</span><br><span class="line">    case FULFILLED: return Promise.successListener.forEach(fn &#x3D;&gt; fn(data))</span><br><span class="line">    case REJECTED: return Promise.failListener.forEach(fn &#x3D;&gt; fn(data))</span><br><span class="line">  &#125;</span><br><span class="line">  promise.status &#x3D; status</span><br><span class="line">  promise.result &#x3D; data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Promise &#123;</span><br><span class="line">  constructor(executor) &#123;</span><br><span class="line">    this.status &#x3D; &#39;pending&#39;</span><br><span class="line">    this.result &#x3D; undefined</span><br><span class="line">    this.successListener &#x3D; []</span><br><span class="line">    this.failListener &#x3D; []</span><br><span class="line">    executor(data &#x3D;&gt; statusProvider(this, &#39;resolved&#39;), err &#x3D;&gt; statusProvider(this, &#39;reject&#39;))</span><br><span class="line">  &#125;</span><br><span class="line">  then(...args) &#123;</span><br><span class="line">    switch (this.status) &#123;</span><br><span class="line">      case &#39;pending&#39;: &#123;</span><br><span class="line">        this.successListener.push(args[0])</span><br><span class="line">        this.failListener.push(args[1])</span><br><span class="line">        break</span><br><span class="line">      &#125;</span><br><span class="line">      case &#39;resolved&#39;: &#123;</span><br><span class="line">        args[0](this.result) &#x2F;&#x2F; 是要处理这种情况，但是不应该在这里调用</span><br><span class="line">        break</span><br><span class="line">      &#125;</span><br><span class="line">      case &#39;reject&#39;: &#123;</span><br><span class="line">        args[1](this.result)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  catch(arg) &#123;</span><br><span class="line">    return this.then(undefined, arg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/16/ES6%E4%B9%8BReflect%E5%92%8Cproxy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/16/ES6%E4%B9%8BReflect%E5%92%8Cproxy/" class="post-title-link" itemprop="url">ES6之Reflect和proxy</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-08-16 15:32:54" itemprop="dateCreated datePublished" datetime="2019-08-16T15:32:54+08:00">2019-08-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h2><h3 id="Reflect-get-target-name-receiver"><a href="#Reflect-get-target-name-receiver" class="headerlink" title="Reflect.get(target, name, receiver)"></a>Reflect.get(target, name, receiver)</h3><pre><code>var myObject = &#123;
-  foo: 1,
-  bar: 2,
-  get baz() &#123;
-    return this.foo + this.bar;
-  &#125;,
-&#125;;
-
-var myReceiverObject = &#123;
-  foo: 4,
-  bar: 4,
-&#125;;
-
-Reflect.get(myObject, &#39;baz&#39;, myReceiverObject) // 8</code></pre>
-<h3 id="Reflect-set-target-name-value-receiver"><a href="#Reflect-set-target-name-value-receiver" class="headerlink" title="Reflect.set(target, name, value, receiver)"></a>Reflect.set(target, name, value, receiver)</h3><pre><code>var myObject = &#123;
-  foo: 1,
-  set bar(val) &#123;
-  return this.foo = val    
-  &#125;
-&#125;
-var o = &#123; foo: 2, bar: 3&#125;
-Reflect.set(myObject,  &#39;baz&#39;, 127987978978979797, o)</code></pre>
-<h3 id="其他的静态方法"><a href="#其他的静态方法" class="headerlink" title="其他的静态方法"></a>其他的静态方法</h3><pre><code>Reflect.has(target, name)
-=== name in target
-
-Reflect.deleteProperty(target, name)
-=== delete target[name]
-
-Reflect.construct(target, args)
-=== new target(...args)
-
-Reflect.getPrototypeOf(obj)
-=== Object.getPrototypeOf(obj)
-
-Reflect.setPrototypeOf(obj, newProto)
-=== Object.setPrototypeOf(obj, newProto)
-
-Reflect.apply(func, thisArg, args) 
-=== Function.prototype.apply.call(func, thiArg, args)
-
-Reflect.defineProperty(target, propertyKey, attributes)
-=== Object.defineProperty(taget, propertyKey, attributes)
-
-Reflect.getOwnPropertyDescriptor(target, propertyKey)
-=== Object.getOwnPropertyDescriptor(target, propertyKey)
-
-Reflect.isExtensible(target)
-=== Object.isExtensible(target)
-
-Reflect.preventExtensions(target)
-=== Object.preventExtensions(target)
-
-Reflect.ownKeys(target)
-=== Objecct.getOwnPropertyNames(或者 Object.keys()) + Object.getOwnPropertySymbols() </code></pre>
-<h3 id="使用-proxy-实现观察者模式"><a href="#使用-proxy-实现观察者模式" class="headerlink" title="使用 proxy 实现观察者模式"></a>使用 proxy 实现观察者模式</h3><p>观察者模式是指函数自动观察数据对象，一旦对象有变化，函数就会自动执行</p>
-<p>我们需要两个函数，observable 和 observe，observable 返回一个原始对象的 Proxy 代理，拦截赋值操作，触发充当观察者的各个函数</p>
-<pre><code>const queue = new Set()
-const observe = fn =&gt; queue.add(fn)
-const observable = obj =&gt; new Proxy(obj, &#123;set&#125;)
-
-function set(target, key, value, receiver) &#123;
-  const result = Reflect.set(target, key, value, receiver)
-  queue.forEach(observer =&gt; observer())
-&#125;
-
-const person = observable(&#123;
-  name； &#39;GerritV&#39;,
-  age； 18
-&#125;)
-
-function print() &#123;
-  console.log(`$&#123;person.name&#125;, $&#123;person.age&#125;`)
-&#125;
-
-observe(print)
-
-person.name=&#39;frank&#39;</code></pre>
-<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><p>Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种元编程，即对编程语言进行编程</p>
-<p>Proxy 可以理解成，在目标对象之间架设一层拦截，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写，可以译为代理</p>
-<h3 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">  name: &quot;张三&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var proxy &#x3D; new Proxy(person, &#123;</span><br><span class="line">  get: function(target, property) &#123;</span><br><span class="line">    if (property in target) &#123;</span><br><span class="line">      return target[property];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      throw new ReferenceError(&quot;Property \&quot;&quot; + property + &quot;\&quot; does not exist.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">proxy.name &#x2F;&#x2F; &quot;张三&quot;</span><br><span class="line">proxy.age &#x2F;&#x2F; 抛出一个错误</span><br></pre></td></tr></table></figure>
-
-<h3 id="set"><a href="#set" class="headerlink" title="set()"></a>set()</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let validator &#x3D; &#123;</span><br><span class="line">  set: function(obj, prop, value) &#123;</span><br><span class="line">    if (prop &#x3D;&#x3D;&#x3D; &#39;age&#39;) &#123;</span><br><span class="line">      if (!Number.isInteger(value)) &#123;</span><br><span class="line">        throw new TypeError(&#39;The age is not an integer&#39;);</span><br><span class="line">      &#125;</span><br><span class="line">      if (value &gt; 200) &#123;</span><br><span class="line">        throw new RangeError(&#39;The age seems invalid&#39;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 对于满足条件的 age 属性以及其他属性，直接保存</span><br><span class="line">    obj[prop] &#x3D; value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let person &#x3D; new Proxy(&#123;&#125;, validator);</span><br><span class="line"></span><br><span class="line">person.age &#x3D; 100;</span><br><span class="line"></span><br><span class="line">person.age &#x2F;&#x2F; 100</span><br><span class="line">person.age &#x3D; &#39;young&#39; &#x2F;&#x2F; 报错</span><br><span class="line">person.age &#x3D; 300 &#x2F;&#x2F; 报错</span><br></pre></td></tr></table></figure>
-
-<h3 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var twice &#x3D; &#123;</span><br><span class="line">  apply (target, ctx, args) &#123;</span><br><span class="line">    return Reflect.apply(...arguments) * 2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">function sum (left, right) &#123;</span><br><span class="line">  return left + right;</span><br><span class="line">&#125;;</span><br><span class="line">var proxy &#x3D; new Proxy(sum, twice);</span><br><span class="line">proxy(1, 2) &#x2F;&#x2F; 6</span><br><span class="line">proxy.call(null, 5, 6) &#x2F;&#x2F; 22</span><br><span class="line">proxy.apply(null, [7, 8]) &#x2F;&#x2F; 30</span><br></pre></td></tr></table></figure>
-
-<h3 id="实现-web-服务的客户端"><a href="#实现-web-服务的客户端" class="headerlink" title="实现 web 服务的客户端"></a>实现 web 服务的客户端</h3><p>Proxy 对象可以拦截目标对象的任意属性，这使得它很适合来写 web 服务的客户端</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const service &#x3D; createWebService(&#39;http:&#x2F;&#x2F;example.com&#x2F;data&#39;)</span><br><span class="line"></span><br><span class="line">service.employees().then(json &#x3D;&gt; &#123;</span><br><span class="line">  const emplyees &#x3D; JSON.parse(json)</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>上面的代码新建了一个 web 服务的端口，这个接口返回各种数据。Proxy 可以拦截这个对象的任意属性，所以不用为每一种数据写一个适配方法，只要写一个 proxy 拦截就好了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function createWebService(baseUrl) &#123;</span><br><span class="line">  return new Proxy(&#123;&#125;, &#123;</span><br><span class="line">    get(target, propKey, receiver) &#123;</span><br><span class="line">      return () &#x3D;&gt; httpGet(baseUrl+&#39;&#x2F;&#39;+propKey)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>这个例子也演示了get返回函数的操作</strong></p>
-
       
     </div>
 

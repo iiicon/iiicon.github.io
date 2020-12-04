@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">126</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,102 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/28/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/28/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">React生命周期</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-28 23:40:09" itemprop="dateCreated datePublished" datetime="2019-07-28T23:40:09+08:00">2019-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="react-生命周期"><a href="#react-生命周期" class="headerlink" title="react 生命周期"></a>react 生命周期</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">RA11</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [x, setX] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> [y, setY] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> onclick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setX(x + <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> handleApp = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 用来做销毁App</span></span><br><span class="line">    setY(<span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;button onClick=&#123;onclick&#125;&gt;onclick&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleApp&#125;&gt;handleApp&lt;/button&gt;</span><br><span class="line">      &#123;y === <span class="number">0</span> ? <span class="xml"><span class="tag">&lt;<span class="name">Child</span> <span class="attr">x</span>=<span class="string">&#123;x&#125;</span> /&gt;</span></span> : <span class="literal">null</span>&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(params) &#123;</span><br><span class="line">    <span class="built_in">super</span>();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;创建 App&quot;</span>);</span><br><span class="line">    <span class="built_in">this</span>.state = &#123;</span><br><span class="line">      n: <span class="number">12</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`click-----------------------------<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span>`</span>);</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      n: <span class="built_in">this</span>.state.n + <span class="number">1</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  testthis() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  updateApp() &#123;</span><br><span class="line">    <span class="built_in">this</span>.setState(&#123;</span><br><span class="line">      n: <span class="built_in">this</span>.state.n + <span class="number">2</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;将要挂载 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// update</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;渲染或者更新 App&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &#123;<span class="built_in">this</span>.state.n&#125;</span><br><span class="line">        &lt;button onClick=&#123;<span class="function">() =&gt;</span> <span class="built_in">this</span>.handleClick()&#125;&gt;+<span class="number">1</span>&lt;/button&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="function">() =&gt;</span> <span class="built_in">this</span>.updateApp()&#125;&gt;update+<span class="number">2</span>&lt;/button&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="built_in">this</span>.testthis&#125;&gt;test <span class="built_in">this</span>&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;挂载完毕 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  shouldComponentUpdate(newProps, newState) &#123;</span><br><span class="line">    <span class="comment">// 数组更新但是页面不更新</span></span><br><span class="line">    <span class="keyword">if</span> (newState.n % <span class="number">3</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUpdate() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;将要更新 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidUpdate() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;更新完成 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillReceiveProps() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;上级说话了 App&quot;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.props);</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;将要死亡 App&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">static</span> getDerivedStateFromError() &#123; <span class="keyword">return</span> &#123;&#125; &#125;<span class="comment">// 会和 state 合并 </span></span><br><span class="line">  componentDidCatch() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> RA11;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类比-vue-生命周期"><a href="#类比-vue-生命周期" class="headerlink" title="类比 vue 生命周期"></a>类比 vue 生命周期</h3><pre><code>- 类比
+created
+constructor
+
+beforeMount
+componentWillMount
+
+mounted
+componentDidMount
+
+beforeUpdate
+componentWillUpdate
+
+updated
+componentDidUpdated
+
+beforeDestroy
+componentWillUnmount
+
+- 不同
+vue: props data computed watch （属性）
+react: render shouldComponentUpdate componentWillReceiveProps （依然是钩子）</code></pre>
+<h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBMTEvaW5kZXguanN4">react 生命周期<i class="fa fa-external-link-alt"></i></span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -637,114 +733,6 @@ function Consumer(props) &#123;
   return React.createElement(&quot;h2&quot;, null, child);
 &#125;</code></pre>
 <h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBNy9pbmRleC5qc3g=">Context Api<i class="fa fa-external-link-alt"></i></span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/21/React%E5%92%8CReact-redux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/21/React%E5%92%8CReact-redux/" class="post-title-link" itemprop="url">React和React-redux</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-21 17:46:16" itemprop="dateCreated datePublished" datetime="2019-07-21T17:46:16+08:00">2019-07-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="使用-redux"><a href="#使用-redux" class="headerlink" title="使用 redux"></a>使用 redux</h3><p>在顶层组件初始化 store</p>
-<ul>
-<li>我们通过 createStore(reducer) 创建 store</li>
-<li>我们通过 store.subscribe(render) 订阅事件</li>
-<li>我们通过 store.dispatch({type, payload}) 发布事件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const reducer &#x3D; (state, action) &#x3D;&gt; &#123;</span><br><span class="line">  if (!state) &#123;</span><br><span class="line">    return &#123; n: 0 &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    if (action.type &#x3D;&#x3D;&#x3D; &#39;add&#39;) &#123;</span><br><span class="line">      return &#123; n: state.n + action.payload &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return state</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const store &#x3D; createStore(reducer)</span><br><span class="line"></span><br><span class="line">const render &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    &lt;Provider store&#x3D;&#123;store&#125;&gt;</span><br><span class="line">      &lt;App &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;Provider&gt;,</span><br><span class="line">    document.getElementById(&#39;root&#39;)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render()</span><br><span class="line">store.subscribe(render)</span><br></pre></td></tr></table></figure>
-
-<p>我们在顶层组件初始化 store，在需要的时候发布事件，但是我们遇到了一个问题，<br>就是如果我们需要在子组件触发的话，就需要把事件一级级的传递下去，通过 props 上的事件去调用</p>
-<p>这样有点累</p>
-<p>当然我们也可以把 store 对象作为属性传递下去</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">store&#x3D;&#123;store&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样取值</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.props.store.getState().n</span><br></pre></td></tr></table></figure>
-
-<p>这样是确实不用一级级传递事件了，但是我们却需要一级级传递 store，其实没有改变什么<br>这个时候我们就需要一个东西来管理 store 对象的各个属性和状态</p>
-<h3 id="使用-react-redux"><a href="#使用-react-redux" class="headerlink" title="使用 react-redux"></a>使用 react-redux</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- connect()</span><br><span class="line">- Provider</span><br><span class="line">- connectAdvanced()</span><br><span class="line">- batch()</span><br></pre></td></tr></table></figure>
-
-<p>我们主要用 Provider 组件和 connect 函数</p>
-<p>第一步，给 Provider 一个 store</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;Provider store&#x3D;&#123;store&#125;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>第二步，用 connect 函数返回新的组件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export default connect(mapStateToProps, mapDispatchToProps)(App)</span><br></pre></td></tr></table></figure>
-
-<p>第一个参数是用来初始化 state 的，接受一个 state，返回新的 state</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const mapStateToProps &#x3D; state &#x3D;&gt; &#123;</span><br><span class="line">  return &#123; n: state.n &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第二个参数可以写作函数也可以写成对象</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const mapDispatchToProps &#x3D; dispatch &#x3D;&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    add: () &#x3D;&gt; &#123;</span><br><span class="line">      dispatch(&#123; type: &#39;add&#39;, payload: 1 &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    onAdd2: () &#x3D;&gt; &#123;</span><br><span class="line">      dispatch(&#123; type: &#39;add&#39;, payload: 2 &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- 或者 --&gt;</span><br><span class="line">const mapDispatchToProps &#x3D; &#123;</span><br><span class="line">  add: () &#x3D;&gt; &#123;</span><br><span class="line">    return &#123; type: &#39;add&#39;, payload: 1 &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  onAdd2: () &#x3D;&gt; &#123;</span><br><span class="line">    return &#123; type: &#39;add&#39;, payload: 2 &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>我们在调用的时候就可以直接 <code>this.props.add</code> 来触发事件了</p>
-<p>这就是 react-redux 的使用，感叹 vuex 帮我们做了太多东西，有点香 XD</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">contextType <span class="comment">// 一个 context 的时候可以使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> contextType = ssContext</span><br><span class="line"><span class="keyword">const</span> xx = <span class="built_in">this</span>.context</span><br><span class="line">这样可以不用 consumer 解析</span><br></pre></td></tr></table></figure>
-
-<h3 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbi9yZWFjdC1kZW1vLWFkdmFuY2UvYmxvYi9tYXN0ZXIvc3JjL3BhZ2VzL1JBNi9pbmRleC5qc3g=">react-redux<i class="fa fa-external-link-alt"></i></span></p>
 
       
     </div>

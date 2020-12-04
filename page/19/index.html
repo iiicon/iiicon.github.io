@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">126</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,87 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/06/24/TS%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/24/TS%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">TS函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-06-24 00:02:32" itemprop="dateCreated datePublished" datetime="2019-06-24T00:02:32+08:00">2019-06-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function add(a:number, b:number &#x3D; 1): number|string &#123;</span><br><span class="line">  &#39;use strict&#39;</span><br><span class="line">  console.log(this)</span><br><span class="line">  &#x2F;&#x2F; console.log(arguments)</span><br><span class="line">  return a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function add(n1: number, n2: number);</span><br><span class="line">function add(n1: string, n2: string);</span><br><span class="line">function add(n1, n2) &#123;</span><br><span class="line">  return n1 + n2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function add2&lt;T&gt;(n1: T, n2: T): T &#123;</span><br><span class="line">  return n1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(1, 2); &#x2F;&#x2F; 3</span><br><span class="line">add(&#39;frank&#39;, &#39;jack&#39;); &#x2F;&#x2F; &#39;frankjack&#39;</span><br><span class="line"></span><br><span class="line">add2(new Date(), new Date())</span><br></pre></td></tr></table></figure>
+
+<h3 id="类型推论"><a href="#类型推论" class="headerlink" title="类型推论"></a>类型推论</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let myAdd: (baseValue: number, increment: number) &#x3D;&gt; number &#x3D; function(x, y) &#123; return x + y; &#125;;</span><br><span class="line">&#x2F;&#x2F; 所以 TS 通过类型推论是可以知道 x y 的类型的，所以写类型和不写类型的这个粒度是怎么样的呢？需要思考和实践</span><br></pre></td></tr></table></figure>
+
+<h3 id="类型兼容"><a href="#类型兼容" class="headerlink" title="类型兼容"></a>类型兼容</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Named &#123;</span><br><span class="line">  name: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let x: Named;</span><br><span class="line">let y &#x3D; &#123; name: &#39;Alice&#39;, location: &#39;Seattle&#39; &#125;;</span><br><span class="line">x &#x3D; y;</span><br><span class="line">&#x2F;&#x2F; 直接赋值是报错的，但是这样就可以了</span><br></pre></td></tr></table></figure>
+
+<p>规定返回值如果是源函数的返回值的子类型，那么 TS 就认为这是对的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  let x &#x3D; () &#x3D;&gt; (&#123; name: &#39;Alice&#39; &#125;);</span><br><span class="line">  let y &#x3D; () &#x3D;&gt; (&#123; name: &#39;Alice&#39;, location: &#39;Seattle&#39; &#125;);</span><br><span class="line"></span><br><span class="line">  x &#x3D; y; &#x2F;&#x2F; OK</span><br><span class="line">  y &#x3D; x; &#x2F;&#x2F; 反过来肯定不行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -567,89 +648,6 @@
 <p>是一个 sitemap 的 xml 文件，以前没接触过，这个文件直接用抓取工具生成就可以</p>
 <p>还需要一个 robots.txt 文件制定 sitemap 的路径</p>
 <p>这两个文件都需要放到 static 下面，这样最后打包的时候会直接生成文件在项目的根目录下面</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/05/23/TS%E5%91%BD%E4%BB%A4%E8%A1%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/23/TS%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="post-title-link" itemprop="url">TS命令行</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-05-23 01:25:08" itemprop="dateCreated datePublished" datetime="2019-05-23T01:25:08+08:00">2019-05-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="最简单的命令行程序"><a href="#最简单的命令行程序" class="headerlink" title="最简单的命令行程序"></a>最简单的命令行程序</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## shebang</span><br><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env ts-node</span><br><span class="line">console.log(&#39;hello&#39;)</span><br><span class="line"></span><br><span class="line">## 接着给文件添加可执行权限</span><br><span class="line">chmod +x .&#x2F;1.ts</span><br><span class="line"></span><br><span class="line">## 执行 .&#x2F;1.ts</span><br><span class="line">就能看到 hello</span><br></pre></td></tr></table></figure>
-
-<h3 id="接受命令行参数"><a href="#接受命令行参数" class="headerlink" title="接受命令行参数"></a>接受命令行参数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env ts-node</span><br><span class="line">console.log(process.argv)</span><br></pre></td></tr></table></figure>
-
-<p>执行会报错，2.ts(2,13): error TS2304: Cannot find name &#39;process&#39;. 找不到 process<br>实际上我们在项目中经常用 process.NODE.env 这种获取环境变量，process 就是 Node.js 的全局变量，不可能找不到</p>
-<p>这就是 TS 的厉害之处：如果你不告诉我 process 是什么，我就不允许你用 process</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install @types&#x2F;node</span><br></pre></td></tr></table></figure>
-
-<p>执行之后再次打开可以看到参数了</p>
-<h3 id="加法的例子"><a href="#加法的例子" class="headerlink" title="加法的例子"></a>加法的例子</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env ts-node</span><br><span class="line">console.log(&#39;hello world&#39;)</span><br><span class="line">const a &#x3D; parseInt(process.argv[2])</span><br><span class="line">const b &#x3D; parseInt(process.argv[3])</span><br><span class="line"></span><br><span class="line">if (Number.isNaN(a) || Number.isNaN(b)) &#123;</span><br><span class="line">  console.log(&#39;参数必须是数字&#39;)</span><br><span class="line">  process.exit(1)</span><br><span class="line">&#125;</span><br><span class="line">console.log(a + b)</span><br><span class="line">process.exit(0)</span><br></pre></td></tr></table></figure>
-
-<h3 id="族谱的例子"><a href="#族谱的例子" class="headerlink" title="族谱的例子"></a>族谱的例子</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env ts-node</span><br><span class="line">&#123;</span><br><span class="line">  class Person &#123;</span><br><span class="line">    public children: Person[] &#x3D; []</span><br><span class="line">    constructor(public name: string) &#123;&#125;</span><br><span class="line">    addPerson(child: Person): void &#123;</span><br><span class="line">      this.children.push(child)</span><br><span class="line">    &#125;</span><br><span class="line">    introduce(n?: number): void &#123;</span><br><span class="line">      n &#x3D; n || 1</span><br><span class="line">      const prefix &#x3D; &#39;--&#39;.repeat(n - 1)</span><br><span class="line">      console.log(&#96;$&#123;prefix&#125;$&#123;this.name&#125;&#96;)</span><br><span class="line">      this.children.forEach((child: Person) &#x3D;&gt; &#123;</span><br><span class="line">        child.introduce(n + 1)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  const grandPa &#x3D; new Person(&#39;爷爷&#39;)</span><br><span class="line">  const child1 &#x3D; new Person(&#39;大伯&#39;)</span><br><span class="line">  const child2 &#x3D; new Person(&#39;二伯&#39;)</span><br><span class="line">  const child11 &#x3D; new Person(&#39;大哥&#39;)</span><br><span class="line">  const child12 &#x3D; new Person(&#39;大姐&#39;)</span><br><span class="line">  const child21 &#x3D; new Person(&#39;二哥&#39;)</span><br><span class="line">  const child22 &#x3D; new Person(&#39;二姐&#39;)</span><br><span class="line"></span><br><span class="line">  grandPa.addPerson(child1)</span><br><span class="line">  child1.addPerson(child11)</span><br><span class="line">  child1.addPerson(child12)</span><br><span class="line">  grandPa.addPerson(child2)</span><br><span class="line">  child2.addPerson(child21)</span><br><span class="line">  child2.addPerson(child22)</span><br><span class="line"></span><br><span class="line">  grandPa.introduce()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

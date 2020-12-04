@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">126</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,131 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/12/02/%E5%85%B3%E4%BA%8Ehtml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/02/%E5%85%B3%E4%BA%8Ehtml/" class="post-title-link" itemprop="url">关于 HTML</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-02 20:06:17" itemprop="dateCreated datePublished" datetime="2018-12-02T20:06:17+08:00">2018-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h3><ol>
+<li>现在大部分都是 HTML5</li>
+<li>规范文档（specifications）由 w3c（consortium） 编写</li>
+<li>必须指定 DOCTYPE </li>
+<li>最简单的 html 应该由 DOCTYPE + title + 内容 组成</li>
+<li>工作中常用的标签<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">inline &gt; a span img input label button em strong b i big small </span><br><span class="line">       iframe ...</span><br><span class="line">block &gt; div article h1~h6 p ul ol section nav header </span><br><span class="line">       footer ...</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="比较重要的一些标签"><a href="#比较重要的一些标签" class="headerlink" title="比较重要的一些标签"></a>比较重要的一些标签</h3><h4 id="head"><a href="#head" class="headerlink" title="head"></a>head</h4><p><span class="exturl" data-url="aHR0cHM6Ly9nZXRoZWFkLmluZm8v">head标签内的标签<i class="fa fa-external-link-alt"></i></span></p>
+<pre><code>&lt;base&gt; 元素 指定用于一个文档中包含的所有相对URL的基本URL。一份中只能有一个&lt;base&gt;元素</code></pre>
+<h4 id="空元素"><a href="#空元素" class="headerlink" title="空元素"></a>空元素</h4><blockquote>
+<p>不存在子节点的 element</p>
+</blockquote>
+<pre><code>&lt;area&gt;
+&lt;img&gt;
+&lt;br&gt;
+&lt;col&gt;
+&lt;command&gt;
+&lt;hr&gt;
+&lt;input&gt;
+&lt;link&gt;
+&lt;meta&gt;
+&lt;param&gt;</code></pre>
+<h4 id="可替换元素"><a href="#可替换元素" class="headerlink" title="可替换元素"></a>可替换元素</h4><blockquote>
+<p>元素是一类外观渲染独立于 css 的外部对象，不是由 css 控制</p>
+</blockquote>
+<pre><code>img
+video
+textarea
+input
+audio
+canvas</code></pre>
+<h4 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h4><p>主要用来嵌套页面</p>
+<pre><code>frameborder 默认 1
+name 可以用作 a 标签 和 form 标签的 target 值</code></pre>
+<h4 id="a"><a href="#a" class="headerlink" title="a"></a>a</h4><p>跳转页面（HTTP GET 请求）</p>
+<pre><code>target  四个值 _blank _self _parent _top, 后两个在 iframe 中才有作用
+href  &#39;http&#39; 或者 &#39;//&#39; 或者 &#39;./&#39; 或者 &#39;?name=xx&#39; 或者 &#39;#1&#39; 或者 &#39;mailto:xx@xx.com&#39;
+download  下载指定的地址 (如果是下载地址需要指定 Content-type 为 application/octet-stream)</code></pre>
+<h4 id="form"><a href="#form" class="headerlink" title="form"></a>form</h4><p>跳转页面（HTTP POST 请求）post 提交 Content-Type 为 application/x-www-form-urlencoded</p>
+<pre><code>action  请求地址
+enctype  提交 form 给服务器的 MIME 类型
+method  post 或者 get
+name 
+target  _blank _self _parent _top</code></pre>
+<h4 id="input-button"><a href="#input-button" class="headerlink" title="input button"></a>input button</h4><p>主要区别就是 input 是空标签，button 不是空标签</p>
+<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><pre><code>- 子元素
+&lt;caption&gt;
+&lt;colgroup&gt; &gt; &lt;col bgcolor=red&gt; -&gt; 指定对应列的颜色
+&lt;thead&gt;
+&lt;tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -998,96 +1123,6 @@
 <li>Dos 攻击</li>
 <li>后门程序</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2018/11/25/git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/25/git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git 常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-11-25 18:47:11" itemprop="dateCreated datePublished" datetime="2018-11-25T18:47:11+08:00">2018-11-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>git clone git@github.com:xxxx</code> 下载仓库</p>
-<p><code>git init，初始化本地仓库</code> .git</p>
-<p><code>git status -sb</code> 显示当前所有文件的状态</p>
-<p><code>git add 文件路径</code> 用来将变动加到暂存区</p>
-<p><code>git commit -m &quot;信息&quot;</code> 用来正式提交变动，提交至 .git 仓库</p>
-<p><code>git log</code> 查看变更历史</p>
-<p><code>git fetch origin master</code> 从远程把别人的代码拉下来</p>
-<p><code>git pull</code> 就是 <code>git fetch and git merge</code> 的合并操作</p>
-<p><code>git push</code></p>
-<p><code>git remote add origin git@github.com:xxxxxxx.git</code> 将本地仓库与远程仓库关联</p>
-<p><code>git remote set-url origin git@github.com:xxxxx.git</code> 上一步手抖了，可以用这个命令来挽回</p>
-<p><code>git branch</code> 新建分支</p>
-<p><code>git merge</code> 合并分支</p>
-<p><code>git diff</code> 查看详细变化</p>
-<p><code>git rev-parse HEAD</code> 查看当前的 commit 记录</p>
-<p><code>git reset --hard xxxx</code> 回滚</p>
-<p><code>git push -f origin develop</code>  git 强制提交</p>
-<p><code>git push -u orgin dev</code> git 设置上游 --set-upstream</p>
-<p><code>git config core.ignorecase false</code> windows 设置大小写敏感</p>
 
       
     </div>

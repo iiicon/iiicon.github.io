@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">126</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,85 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/04/14/%E6%80%BB%E7%BB%93split%E7%9A%84%E6%89%80%E6%9C%89%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/14/%E6%80%BB%E7%BB%93split%E7%9A%84%E6%89%80%E6%9C%89%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">总结split的所有基础用法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-14 12:14:49" itemprop="dateCreated datePublished" datetime="2019-04-14T12:14:49+08:00">2019-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>split() 方法使用指定的分隔符字符串将一个String对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。 </p>
+</blockquote>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * @param &#123;string&#125; separator 指定根据什么分割</span><br><span class="line"> * @param &#123;number&#125; limit 指定分割出来的是几个，（前几个）</span><br><span class="line"> *&#x2F;</span><br><span class="line">str.split([separator[, limit]])</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;name age job.jobname&#39;.split()</span><br><span class="line">&#x2F;&#x2F; (3) [&quot;name age job.jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39;&#39;)</span><br><span class="line">&#x2F;&#x2F;(20) [&quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;, &quot; &quot;, &quot;a&quot;, &quot;g&quot;, &quot;e&quot;, &quot; &quot;, &quot;j&quot;, &quot;o&quot;, &quot;b&quot;, &quot;.&quot;, &quot;j&quot;, &quot;o&quot;, &quot;b&quot;, &quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39; &#39;)</span><br><span class="line">&#x2F;&#x2F; (3) [&quot;name&quot;, &quot;age&quot;, &quot;job.jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;job.jobname&#39;.split(&#39;.&#39;)</span><br><span class="line">(2) [&quot;job&quot;, &quot;jobname&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name&#39;.split(&#39;.&#39;)</span><br><span class="line">[&quot;name&quot;]</span><br><span class="line"></span><br><span class="line">&#39;name age job.jobname&#39;.split(&#39;&#39;, 5)</span><br><span class="line">(5) [&quot;n&quot;, &quot;a&quot;, &quot;m&quot;, &quot;e&quot;, &quot; &quot;]</span><br></pre></td></tr></table></figure>
+
+<p>以上应该覆盖了常用的情况，希望以后加深记忆</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -515,78 +594,6 @@
           <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 1. 导航被触发</span><br><span class="line"> * 2. 在失活的组件（即将离开的页面组件）里调用离开守卫 beforeRouteLeave</span><br><span class="line"> * 3. 调用全局的前置守卫 beforeEach</span><br><span class="line"> * 4. 在重用的组件里调用 beforeRouteUpdate</span><br><span class="line"> * 5. 调用路由独享的守卫 beforeEnter</span><br><span class="line"> * 6. 解析异步路由组件</span><br><span class="line"> * 7. 在被激活的组件（即将进入的页面组件）里调用 beforeRouteEnter</span><br><span class="line"> * 8. 调用全局的解析守卫 beforeResolve</span><br><span class="line"> * 9. 导航被确认</span><br><span class="line"> * 10. 调用全局的后置守卫 afterEach</span><br><span class="line"> * 11. 触发DOM更新</span><br><span class="line"> * 12. 用创建好的实例调用beforeRouterEnter守卫里传给next的回调函数</span><br><span class="line"> *&#x2F;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2019/03/31/5ca0c3b0c9e8c.jpeg" alt="vue-router2.jpeg" loading="lazy"><br><img src="https://i.loli.net/2019/03/31/5ca0c3b0c7b92.jpeg" alt="vue-router3.jpeg" loading="lazy"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/03/26/%E5%8D%83%E5%AD%97%E6%96%87%E7%AC%AC%E5%85%AB%E8%AF%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/26/%E5%8D%83%E5%AD%97%E6%96%87%E7%AC%AC%E5%85%AB%E8%AF%BE/" class="post-title-link" itemprop="url">千字文第八课</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-03-26 09:35:10" itemprop="dateCreated datePublished" datetime="2019-03-26T09:35:10+08:00">2019-03-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BB%BC%E5%90%88/" itemprop="url" rel="index"><span itemprop="name">综合</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>女慕贞洁 男效才良<br>知错必改 得能莫忘<br>罔谈彼短 靡恃己长<br>信使可复 器欲难量</p>
 
       
     </div>
