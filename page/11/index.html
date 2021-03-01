@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">128</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,173 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/10/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E7%BB%A7%E6%89%BF%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E7%BB%A7%E6%89%BF%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">面向对象之继承（二）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-10-31 16:32:14" itemprop="dateCreated datePublished" datetime="2019-10-31T16:32:14+08:00">2019-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><pre><code>function 士兵(ID) &#123;
+  this.ID = ID
+  this.生命值 = 42
+&#125;
+士兵.原型 = &#123;
+  兵种: &#39;步兵&#39;,
+  攻击力: 5,
+  行走: function () &#123; &#125;,
+  奔跑: function () &#123; &#125;,
+  死亡: function () &#123; &#125;,
+  攻击: function () &#123; &#125;,
+  防御: function () &#123; &#125;,
+&#125;
+var 士兵们 = []
+for (var i = 0; i &lt; 100; i++) &#123;
+  士兵们.push(new 士兵(i))
+&#125;
+ 兵营.批量制造(士兵们)</code></pre>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><pre><code>function createSoldier(name) &#123;
+this.id = i // ID 不能重复
+this.生命值 = 42
+this.name = name || &#39;无名战士&#39;
+&#125;
+createSoldier.prototype.兵种 = &quot;美国大兵&quot;
+createSoldier.prototype.攻击力 = 5
+createSoldier.prototype.行走 = function () &#123; /_走俩步的代码_/ &#125;
+createSoldier.prototype.奔跑 = function () &#123; /_狂奔的代码_/ &#125;
+createSoldier.prototype.死亡 = function () &#123; /_Go die_/ &#125;
+createSoldier.prototype.攻击 = function () &#123; /_糊他熊脸_/ &#125;
+createSoldier.prototype.防御 = function () &#123; /_护脸_/ &#125;
+
+var soldiers = []
+for (var i = 0; i &lt; 100; i++) &#123;
+soldiers.push(new createSoldier())
+&#125;
+
+// 兵营.batchMake(soldiers)</code></pre>
+<h3 id="习俗"><a href="#习俗" class="headerlink" title="习俗"></a>习俗</h3><ol>
+<li>构造函数首字母大写</li>
+<li>构造函数可以省掉 create</li>
+<li>如果构造函数没有参数，那么可以省略括号</li>
+</ol>
+<h3 id="继承的代码"><a href="#继承的代码" class="headerlink" title="继承的代码"></a>继承的代码</h3><pre><code>function Human(options) &#123;
+this.name = options.name
+this.肤色 = options.肤色
+&#125;
+Human.prototype.eat = function () &#123; &#125;
+Human.prototype.drink = function () &#123; &#125;
+Human.prototype.poo = function () &#123; &#125;
+
+function Soldier(options) &#123;
+Human.call(this, options)
+this.id = options.id
+this.生命值 = 100
+&#125;
+Soldier.prototype = Object.create(Human.prototype)
+// 大脑中的
+// Soldier.prototype.**proto** = Human.prototype
+Soldier.prototype.兵种 = &quot;美国大兵&quot;
+Soldier.prototype.攻击力 = 5
+Soldier.prototype.行走 = function () &#123; /_走俩步的代码_/ &#125;
+Soldier.prototype.奔跑 = function () &#123; /_狂奔的代码_/ &#125;
+Soldier.prototype.死亡 = function () &#123; /_Go die_/ &#125;
+Soldier.prototype.攻击 = function () &#123; /_糊他熊脸_/ &#125;
+Soldier.prototype.防御 = function () &#123; /_护脸_/ &#125;
+
+var s = new Soldier(&#123; name: &#39;ergou&#39;, 肤色: &#39;yellow&#39;, id: 1 &#125;)
+console.dir(s)
+
+// 改成 class 的写法
+class Human &#123;
+constructor(options) &#123;
+this.name = options.name
+this.肤色 = options.肤色
+&#125;
+eat() &#123; &#125;
+drink() &#123; &#125;
+poo() &#123; &#125;
+&#125;
+
+class Soldier extends Human &#123;
+constructor(options) &#123;
+super(options)
+this.id = options.id
+this.生命值 = 100
+this.兵种 = &quot;美国大兵&quot;
+this.攻击力 = 5
+&#125;
+行走() &#123; /_走俩步的代码_/ &#125;
+奔跑() &#123; /_狂奔的代码_/ &#125;
+死亡() &#123; /_Go die_/ &#125;
+攻击() &#123; /_糊他熊脸_/ &#125;
+防御() &#123; /_护脸_/ &#125;
+&#125;</code></pre>
+<h3 id="真的是继承吗"><a href="#真的是继承吗" class="headerlink" title="真的是继承吗"></a>真的是继承吗</h3><p>最后是关于继承，前面我们讲到“每一个对象都会从原型‘继承’属性”，实际上，继承是一个十分具有迷惑性的说法，引用《你不知道的JavaScript》中的话，就是：</p>
+<p>继承意味着复制操作，然而 JavaScript 默认并不会复制对象的属性，相反，JavaScript 只是在两个对象之间创建一个关联，这样，一个对象就可以通过委托访问另一个对象的属性和函数，所以与其叫继承，委托的说法反而更准确些。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -792,79 +959,6 @@ for (var i = 0; i &lt; 100; i++) &#123;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/19/ES6%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/19/ES6%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93promise/" class="post-title-link" itemprop="url">ES6自己实现简易promise</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-08-19 11:12:16" itemprop="dateCreated datePublished" datetime="2019-08-19T11:12:16+08:00">2019-08-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="ES5-实现"><a href="#ES5-实现" class="headerlink" title="ES5 实现"></a>ES5 实现</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; function Promise(???)&#123;</span><br><span class="line">&#x2F;&#x2F;   ???</span><br><span class="line">&#x2F;&#x2F;   return ???</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">var __PENDING &#x3D; &#39;pending&#39;</span><br><span class="line">var __RESOLVED &#x3D; &#39;resolved&#39;</span><br><span class="line">var __REJECTED &#x3D; &#39;rejected&#39;</span><br><span class="line"></span><br><span class="line">function Promise(fn) &#123;</span><br><span class="line">  var status &#x3D; __PENDING</span><br><span class="line">  var resolvedArr &#x3D; []</span><br><span class="line">  var rejectedArr &#x3D; []</span><br><span class="line"></span><br><span class="line">  function resolveFn() &#123;</span><br><span class="line">    status &#x3D; __RESOLVED</span><br><span class="line">    todoThen.apply(undefined, arguments)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function rejectFn() &#123;</span><br><span class="line">    status &#x3D; __REJECTED</span><br><span class="line">    todoThen.apply(undefined,arguments)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fn.call(undefined, resolveFn, rejectFn)</span><br><span class="line"></span><br><span class="line">  function todoThen() &#123;</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">      if (status &#x3D;&#x3D;&#x3D; __RESOLVED) &#123;</span><br><span class="line">        for (let i &#x3D; 0; i &lt; resolvedArr.length; i++) &#123;</span><br><span class="line">          resolvedArr[i].apply(undefined, arguments)</span><br><span class="line">	console.log(arguments[0])</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      if (status &#x3D;&#x3D;&#x3D; __REJECTED) &#123;</span><br><span class="line">        for (let i &#x3D; 0; i &lt; rejectedArr.length; i++) &#123;</span><br><span class="line">          rejectedArr[i].apply(undefined, arguments)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return &#123;</span><br><span class="line">    then: function(successfn, errfn) &#123;</span><br><span class="line">      resolvedArr.push(successfn)</span><br><span class="line">      rejectedArr.push(errfn)</span><br><span class="line">      return undefined</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var promise &#x3D; new Promise(function(x,y)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">      x(101)</span><br><span class="line">  &#125;, 1000)</span><br><span class="line">&#125;)</span><br><span class="line">promise.then((z)&#x3D;&gt;&#123;</span><br><span class="line">  console.log(z)  &#x2F;&#x2F; 101</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="ES6-实现（未完待续）"><a href="#ES6-实现（未完待续）" class="headerlink" title="ES6 实现（未完待续）"></a>ES6 实现（未完待续）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const statusProvider &#x3D; (promise, status) &#x3D;&gt; data &#x3D;&gt; &#123;</span><br><span class="line">  if (promise.status !&#x3D;&#x3D; &#39;pending&#39;) &#123;</span><br><span class="line">    return false</span><br><span class="line">  &#125;</span><br><span class="line">  switch (status) &#123;</span><br><span class="line">    case FULFILLED: return Promise.successListener.forEach(fn &#x3D;&gt; fn(data))</span><br><span class="line">    case REJECTED: return Promise.failListener.forEach(fn &#x3D;&gt; fn(data))</span><br><span class="line">  &#125;</span><br><span class="line">  promise.status &#x3D; status</span><br><span class="line">  promise.result &#x3D; data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Promise &#123;</span><br><span class="line">  constructor(executor) &#123;</span><br><span class="line">    this.status &#x3D; &#39;pending&#39;</span><br><span class="line">    this.result &#x3D; undefined</span><br><span class="line">    this.successListener &#x3D; []</span><br><span class="line">    this.failListener &#x3D; []</span><br><span class="line">    executor(data &#x3D;&gt; statusProvider(this, &#39;resolved&#39;), err &#x3D;&gt; statusProvider(this, &#39;reject&#39;))</span><br><span class="line">  &#125;</span><br><span class="line">  then(...args) &#123;</span><br><span class="line">    switch (this.status) &#123;</span><br><span class="line">      case &#39;pending&#39;: &#123;</span><br><span class="line">        this.successListener.push(args[0])</span><br><span class="line">        this.failListener.push(args[1])</span><br><span class="line">        break</span><br><span class="line">      &#125;</span><br><span class="line">      case &#39;resolved&#39;: &#123;</span><br><span class="line">        args[0](this.result) &#x2F;&#x2F; 是要处理这种情况，但是不应该在这里调用</span><br><span class="line">        break</span><br><span class="line">      &#125;</span><br><span class="line">      case &#39;reject&#39;: &#123;</span><br><span class="line">        args[1](this.result)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  catch(arg) &#123;</span><br><span class="line">    return this.then(undefined, arg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -909,7 +1003,7 @@ for (var i = 0; i &lt; 100; i++) &#123;
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

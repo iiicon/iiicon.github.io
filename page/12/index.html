@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">128</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,79 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/19/ES6%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/19/ES6%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93promise/" class="post-title-link" itemprop="url">ES6自己实现简易promise</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-19 11:12:16" itemprop="dateCreated datePublished" datetime="2019-08-19T11:12:16+08:00">2019-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="ES5-实现"><a href="#ES5-实现" class="headerlink" title="ES5 实现"></a>ES5 实现</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; function Promise(???)&#123;</span><br><span class="line">&#x2F;&#x2F;   ???</span><br><span class="line">&#x2F;&#x2F;   return ???</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line">var __PENDING &#x3D; &#39;pending&#39;</span><br><span class="line">var __RESOLVED &#x3D; &#39;resolved&#39;</span><br><span class="line">var __REJECTED &#x3D; &#39;rejected&#39;</span><br><span class="line"></span><br><span class="line">function Promise(fn) &#123;</span><br><span class="line">  var status &#x3D; __PENDING</span><br><span class="line">  var resolvedArr &#x3D; []</span><br><span class="line">  var rejectedArr &#x3D; []</span><br><span class="line"></span><br><span class="line">  function resolveFn() &#123;</span><br><span class="line">    status &#x3D; __RESOLVED</span><br><span class="line">    todoThen.apply(undefined, arguments)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function rejectFn() &#123;</span><br><span class="line">    status &#x3D; __REJECTED</span><br><span class="line">    todoThen.apply(undefined,arguments)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fn.call(undefined, resolveFn, rejectFn)</span><br><span class="line"></span><br><span class="line">  function todoThen() &#123;</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">      if (status &#x3D;&#x3D;&#x3D; __RESOLVED) &#123;</span><br><span class="line">        for (let i &#x3D; 0; i &lt; resolvedArr.length; i++) &#123;</span><br><span class="line">          resolvedArr[i].apply(undefined, arguments)</span><br><span class="line">	console.log(arguments[0])</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      if (status &#x3D;&#x3D;&#x3D; __REJECTED) &#123;</span><br><span class="line">        for (let i &#x3D; 0; i &lt; rejectedArr.length; i++) &#123;</span><br><span class="line">          rejectedArr[i].apply(undefined, arguments)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return &#123;</span><br><span class="line">    then: function(successfn, errfn) &#123;</span><br><span class="line">      resolvedArr.push(successfn)</span><br><span class="line">      rejectedArr.push(errfn)</span><br><span class="line">      return undefined</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var promise &#x3D; new Promise(function(x,y)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">      x(101)</span><br><span class="line">  &#125;, 1000)</span><br><span class="line">&#125;)</span><br><span class="line">promise.then((z)&#x3D;&gt;&#123;</span><br><span class="line">  console.log(z)  &#x2F;&#x2F; 101</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES6-实现（未完待续）"><a href="#ES6-实现（未完待续）" class="headerlink" title="ES6 实现（未完待续）"></a>ES6 实现（未完待续）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const statusProvider &#x3D; (promise, status) &#x3D;&gt; data &#x3D;&gt; &#123;</span><br><span class="line">  if (promise.status !&#x3D;&#x3D; &#39;pending&#39;) &#123;</span><br><span class="line">    return false</span><br><span class="line">  &#125;</span><br><span class="line">  switch (status) &#123;</span><br><span class="line">    case FULFILLED: return Promise.successListener.forEach(fn &#x3D;&gt; fn(data))</span><br><span class="line">    case REJECTED: return Promise.failListener.forEach(fn &#x3D;&gt; fn(data))</span><br><span class="line">  &#125;</span><br><span class="line">  promise.status &#x3D; status</span><br><span class="line">  promise.result &#x3D; data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Promise &#123;</span><br><span class="line">  constructor(executor) &#123;</span><br><span class="line">    this.status &#x3D; &#39;pending&#39;</span><br><span class="line">    this.result &#x3D; undefined</span><br><span class="line">    this.successListener &#x3D; []</span><br><span class="line">    this.failListener &#x3D; []</span><br><span class="line">    executor(data &#x3D;&gt; statusProvider(this, &#39;resolved&#39;), err &#x3D;&gt; statusProvider(this, &#39;reject&#39;))</span><br><span class="line">  &#125;</span><br><span class="line">  then(...args) &#123;</span><br><span class="line">    switch (this.status) &#123;</span><br><span class="line">      case &#39;pending&#39;: &#123;</span><br><span class="line">        this.successListener.push(args[0])</span><br><span class="line">        this.failListener.push(args[1])</span><br><span class="line">        break</span><br><span class="line">      &#125;</span><br><span class="line">      case &#39;resolved&#39;: &#123;</span><br><span class="line">        args[0](this.result) &#x2F;&#x2F; 是要处理这种情况，但是不应该在这里调用</span><br><span class="line">        break</span><br><span class="line">      &#125;</span><br><span class="line">      case &#39;reject&#39;: &#123;</span><br><span class="line">        args[1](this.result)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  catch(arg) &#123;</span><br><span class="line">    return this.then(undefined, arg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -742,222 +815,6 @@ ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p</code></pre>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/12/ES6%E4%B9%8Basync%E5%92%8Cawait/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/12/ES6%E4%B9%8Basync%E5%92%8Cawait/" class="post-title-link" itemprop="url">ES6之async和await</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-08-12 23:28:36" itemprop="dateCreated datePublished" datetime="2019-08-12T23:28:36+08:00">2019-08-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><blockquote>
-<p>async function 用来定义一个返回 AsyncFunction 对象的异步函数。异步函数是指通过事件循环异步执行的函数，它会通过一个隐式的 Promise 返回其结果。如果你在代码中使用了异步函数，就会发现它的语法和结构会更像是标准的同步函数。</p>
-</blockquote>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><pre><code>function fn() &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    setTimeout(()=&gt;&#123;
-      let n = Math.floor(Math.random()*6+1)
-      if (n&gt;3) &#123;
-        resolve(n)
-      &#125; else &#123;
-        reject(n)
-      &#125;
-    &#125;,100)
-  &#125;)
-&#125;
-
-async function test() &#123;
-  try &#123;
-    let n = await fn()
-    console.log(&#39;success&#39;, n)
-  &#125; catch (e) &#123;
-    console.log(&#39;error&#39;, e)
-  &#125;
-&#125;
-
-test()</code></pre>
-<h3 id="串形异步请求"><a href="#串形异步请求" class="headerlink" title="串形异步请求"></a>串形异步请求</h3><pre><code>function fn() &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    setTimeout(()=&gt;&#123;
-      let n = Math.floor(Math.random()*6+1)
-      if (n&gt;3) &#123;
-        resolve(n)
-      &#125; else &#123;
-        reject(n)
-      &#125;
-    &#125;,100)
-  &#125;)
-&#125;
-
-async function test() &#123;
-  try &#123;
-    let n = await fn()
-    console.log(&#39;success&#39;, n)
-    if (n) &#123;
-      test2()
-    &#125;
-  &#125; catch (e) &#123;
-    console.log(&#39;error&#39;, e)
-  &#125;
-&#125;
-
-async function test2() &#123;
-  try &#123;
-    let n = await fn()
-    console.log(&#39;success&#39;, n)
-  &#125; catch (e) &#123;
-    console.log(&#39;error&#39;, e)
-  &#125;
-&#125;
-
-test()</code></pre>
-<h3 id="同时处理多个请求"><a href="#同时处理多个请求" class="headerlink" title="同时处理多个请求"></a>同时处理多个请求</h3><pre><code>function fn() &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    setTimeout(()=&gt;&#123;
-      let n = Math.floor(Math.random()*6+1)
-      if (n&gt;3) &#123;
-        resolve(n)
-      &#125; else &#123;
-        reject(n)
-      &#125;
-    &#125;,100)
-  &#125;)
-&#125;
-
-async function test() &#123;
-  try &#123;
-    let n = await Promise.all([fn(), fn()])
-    console.log(&#39;success&#39;, n) // [4, 6]
-  &#125; catch (e) &#123;
-    console.log(&#39;error&#39;, e)
-  &#125;
-&#125;
-
-test()</code></pre>
-<h3 id="Promise-all-和-Promise-race-的区别"><a href="#Promise-all-和-Promise-race-的区别" class="headerlink" title="Promise.all 和 Promise.race 的区别"></a>Promise.all 和 Promise.race 的区别</h3><p>先说 all</p>
-<pre><code>function fn() &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
-    setTimeout(()=&gt;&#123;
-      let n = Math.floor(Math.random()*6+1)
-      if (n&gt;3) &#123;
-        resolve(n)
-        console.log(n,&#39;---&#39;)
-      &#125; else &#123;
-        console.log(n,&#39;+++&#39;)
-        reject(n)
-      &#125;
-    &#125;,100)
-  &#125;)
-&#125;
-
-function test() &#123;
-  Promise.all([fn(), fn()]).then(res=&gt;&#123;
-    console.log(&#39;all success&#39;, res)
-  &#125;, e=&gt;&#123;
-    console.log(&#39;has error&#39;, e)
-  &#125;)
-&#125;
-test()</code></pre>
-<p>成功时这样返回</p>
-<pre><code>// 4
-// &quot;---&quot;
-// 6
-// &quot;---&quot;
-// &quot;all success&quot;
-// [4, 6]</code></pre>
-<p>失败时这样返回</p>
-<pre><code>// 1
-// &quot;+++&quot;
-// &quot;has error&quot;
-// 1
-// 1
-// &quot;+++&quot;</code></pre>
-<p>再说 race</p>
-<p>成功时</p>
-<pre><code>// 5
-// &quot;---&quot;
-// &quot;all success&quot;
-// 5
-// 2
-// &quot;+++&quot;</code></pre>
-<p>失败时</p>
-<pre><code>// 1
-// &quot;+++&quot;
-// &quot;has error&quot;
-// 1
-// 6
-// &quot;---&quot;</code></pre>
-<p>从返回值我们可以看出</p>
-<ul>
-<li>all 返回的是一个数组，</li>
-<li>race 返回一个值</li>
-<li>all 在两个都执行成功之后会执行 .then</li>
-<li>race 在任意一个执行成功之后会执行 .then</li>
-<li>all 和 race 都会在任意一个发生错误时执行 catch，并且另外的 promise 依然会执行</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1002,7 +859,7 @@ test()</code></pre>
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

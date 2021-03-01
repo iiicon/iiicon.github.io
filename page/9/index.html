@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">128</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,97 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/12/16/%E3%80%8A%E9%AB%98%E7%A8%8B%E4%B8%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%85%AD%E7%AB%A0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/16/%E3%80%8A%E9%AB%98%E7%A8%8B%E4%B8%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%85%AD%E7%AB%A0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">《高程三》读书笔记第六章面向对象</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-12-16 00:46:52" itemprop="dateCreated datePublished" datetime="2019-12-16T00:46:52+08:00">2019-12-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="理解对象"><a href="#理解对象" class="headerlink" title="理解对象"></a>理解对象</h2><h3 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h3><p>分为两种 数据属性和访问器属性</p>
+<p>数据属性有 [[configurable]] [[Enumerable]] [[Writeable]] [[Value]] 四个特性，value 也是数据的值</p>
+<p>访问器属性有 [[Configurable]] [[Enumberable]] [[Get]] [[Set]] 四个特性，一般情况下包括一对 getter 和 setter<br>访问器属性不能直接定义，必须使用 Object.defineProperty</p>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>抽象了创建具体对象的过程的函数</p>
+<p>工厂模式虽然解决了创建多个相似对象的问题，但没有解决对象识别的问题</p>
+<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><p>构造函数的问题就是每个方法都要在构造函数上重新实现一遍</p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>让所有对象实例共享它所包含的属性和方法<br>主要问题就是共享的引用类型的数据会有问题</p>
+<h3 id="组合使用构造函数模式和原型模式（最大限度地节省内存）"><a href="#组合使用构造函数模式和原型模式（最大限度地节省内存）" class="headerlink" title="组合使用构造函数模式和原型模式（最大限度地节省内存）"></a>组合使用构造函数模式和原型模式（最大限度地节省内存）</h3><p>这是目前在 js 中使用最广泛、认同度最高的一种创建自定义类型的方法</p>
+<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><p>在构造函数中动态创建原型</p>
+<h3 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h3><p>就是返回一个函数，这个函数创建一个新的对象，对象做增强<br>（比如我们想创建一个具有额外方法的特殊数组。由于不能直接修改 Array 构造函数）</p>
+<h3 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h3><p>禁止使用的时候可以用</p>
+<h2 id="继承对象"><a href="#继承对象" class="headerlink" title="继承对象"></a>继承对象</h2><p>一般有接口继承和实现继承，js 是实现继承</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>基本思想就是利用原型让一个引用类型继承另一个引用类型的属性和方法</p>
+<h3 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h3><p>主要是为了分开实例属性和原型属性，原型属性要公用，实例属性却不能<br>可以在子构造函数中调用 超类的构造函数</p>
+<h3 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h3><p>组合继承避免了原型链和构造函数的缺陷，融合了他们的优点，称为了 JavaScript 中最常用的继承模式</p>
+<h3 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function object(o) &#123;</span><br><span class="line">  function F() &#123;&#125;</span><br><span class="line">  F.prototype &#x3D; o</span><br><span class="line">  return new F()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>和 <code>Object.create()</code> 的功效是一样的<br>在没有必要兴师动众地创建构造函数，而只想让一个对象与另一个对象保持类似的情况下，原型式继承是完全可以胜任的</p>
+<h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><p>该函数在内部以某种方式来增强对象，最后再像真的是它做了所有工作一样返回对象（感觉就是在原来的对象的基础上修改 就是返回另一个对象）</p>
+<h3 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h3><p>解决组合继承调用两次的问题，感觉也。。无所谓的呀</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -578,112 +669,6 @@ console.log(values.includes(NaN)) // true</code></pre>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/12/06/h5%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93%EF%BC%88xl2%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/06/h5%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93%EF%BC%88xl2%EF%BC%89/" class="post-title-link" itemprop="url">h5项目总结（xl2）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-12-06 10:01:55" itemprop="dateCreated datePublished" datetime="2019-12-06T10:01:55+08:00">2019-12-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="在-xl-基础上做如下优化"><a href="#在-xl-基础上做如下优化" class="headerlink" title="在 xl 基础上做如下优化"></a>在 xl 基础上做如下优化</h2><h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><p>文件用 kebab case<br>变量 camel case<br>组件用 kebab case （个人偏好， 尤小右推荐用 Pascal case）</p>
-<p>html 部分<br>属性尽量用 kebab case<br>id 用 camel case<br>类名用 kebab case</p>
-<h3 id="关于-toast"><a href="#关于-toast" class="headerlink" title="关于 toast"></a>关于 toast</h3><p>在 vue.prototype 上注册一个全局的 Toast，方便在组件中和 js 文件的任何地方调用<br>主要是得益于 cube-ui 的 createAPI</p>
-<h3 id="关于-Loading"><a href="#关于-Loading" class="headerlink" title="关于 Loading"></a>关于 Loading</h3><p>也是利用 createAPI 的全局注册一个组件，可以用 api 调用组件</p>
-<h3 id="全局注入文件，以便每个文件使用"><a href="#全局注入文件，以便每个文件使用" class="headerlink" title="全局注入文件，以便每个文件使用"></a>全局注入文件，以便每个文件使用</h3><p>完成公共样式的抽离</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">css: &#123;</span><br><span class="line">  loaderOptions: &#123;</span><br><span class="line">    sass: &#123;</span><br><span class="line">      data: &#96;</span><br><span class="line">        @import &quot;@&#x2F;assets&#x2F;css&#x2F;variable.scss&quot;;</span><br><span class="line">        @import &quot;@&#x2F;assets&#x2F;css&#x2F;cover-cube.scss&quot;;</span><br><span class="line">        @import &quot;@&#x2F;assets&#x2F;css&#x2F;public.scss&quot;;</span><br><span class="line">      &#96;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="退出多层路由"><a href="#退出多层路由" class="headerlink" title="退出多层路由"></a>退出多层路由</h3><h3 id="input-click"><a href="#input-click" class="headerlink" title="input click"></a>input click</h3><p>点击事件需要加 native</p>
-<h3 id="在-vuex-层做数据持久化"><a href="#在-vuex-层做数据持久化" class="headerlink" title="在 vuex 层做数据持久化"></a>在 vuex 层做数据持久化</h3><p>默认方式采用 sessionstorage 存储<br>需要挑出使用 localstorage 存储的属性和 不需要存储的属性</p>
-<p>下面贴出 vuex 配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import Vuex from &#39;vuex&#39;</span><br><span class="line">import state from &#39;.&#x2F;state&#39;</span><br><span class="line">import getters from &#39;.&#x2F;getters&#39;</span><br><span class="line">import mutations from &#39;.&#x2F;mutations&#39;</span><br><span class="line">import actions from &#39;.&#x2F;actions&#39;</span><br><span class="line">import createPersistedstate from &#39;vuex-persistedstate&#39;</span><br><span class="line">import createLogger from &#39;vuex&#x2F;dist&#x2F;logger&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line">const debug &#x3D; process.env.NODE_ENV !&#x3D;&#x3D; &#39;production&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 完全不需要存储的属性放在这里，默认的是要存储 sessionstorage</span><br><span class="line">const pathWithoutLSAndSS &#x3D; []</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 需要 localstorage 不能存 sessionstorage 的放在这里</span><br><span class="line">const pathWithoutSS &#x3D; [&#39;authToken&#39;]</span><br><span class="line"></span><br><span class="line">const vuexWithSS &#x3D; createPersistedstate(&#123;</span><br><span class="line">  key: &#39;SS&#39;,</span><br><span class="line">  storage: window.sessionStorage,</span><br><span class="line">  reducer: (vuexState) &#x3D;&gt; &#123;</span><br><span class="line">    let sessionState &#x3D; Object.assign(&#123;&#125;, vuexState)</span><br><span class="line">    let path &#x3D; [...pathWithoutSS, ...pathWithoutLSAndSS]</span><br><span class="line"></span><br><span class="line">    path.forEach(item &#x3D;&gt; &#123;</span><br><span class="line">      if (sessionState.hasOwnProperty(item)) &#123;</span><br><span class="line">        delete sessionState[item]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return vuexState</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const vuexWithLS &#x3D; createPersistedstate(&#123;</span><br><span class="line">  key: &#39;LS&#39;,</span><br><span class="line">  storage: window.localStorage,</span><br><span class="line">  reducer: (vuexState) &#x3D;&gt; &#123;</span><br><span class="line">    let storage &#x3D; &#123;&#125;</span><br><span class="line"></span><br><span class="line">    pathWithoutSS.forEach(item &#x3D;&gt; &#123;</span><br><span class="line">      if (vuexState.hasOwnProperty(item)) &#123;</span><br><span class="line">        storage[item] &#x3D; vuexState[item]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return storage</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const store &#x3D; new Vuex.Store(&#123;</span><br><span class="line">  state,</span><br><span class="line">  getters,</span><br><span class="line">  mutations,</span><br><span class="line">  actions,</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 在开发环境打开严格模式，虽然还是可以被修改，但是会在控制台报错</span><br><span class="line">  strict: debug,</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 使用插件存储 vuex 数据到 storage, 同时要在开发环境打开 logger</span><br><span class="line">  plugins: debug ? [createLogger(), vuexWithSS, vuexWithLS] : [vuexWithSS, vuexWithLS]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default store</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>vuex persist API 文档</p>
-<p><img src="https://i.loli.net/2019/07/09/5d2425ba6317133933.jpg" alt="1562649994(1).jpg" loading="lazy"></p>
-<h3 id="利用-promise-解析-res-data"><a href="#利用-promise-解析-res-data" class="headerlink" title="利用 promise 解析 res.data"></a>利用 promise 解析 res.data</h3><p>优化前</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">post(url, data, options &#x3D; &#123;&#125;) &#123;</span><br><span class="line">  const instance &#x3D; axios.create(this.getFixedConfig())</span><br><span class="line">  this.interceptors(instance)</span><br><span class="line">  return instance.post(url, data, options)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>优化后</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">post(url, data, options &#x3D; &#123;&#125;) &#123;</span><br><span class="line">  const instance &#x3D; axios.create(this.getFixedConfig())</span><br><span class="line">  this.interceptors(instance)</span><br><span class="line">  return new Promise((resolve, reject) &#x3D;&gt; &#123;</span><br><span class="line">    instance.post(url, data, options).then(res &#x3D;&gt; &#123;</span><br><span class="line">      resolve(res.data)</span><br><span class="line">    &#125;, err &#x3D;&gt; &#123;</span><br><span class="line">      reject(err)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取-accessToken-优化"><a href="#获取-accessToken-优化" class="headerlink" title="获取 accessToken 优化"></a>获取 accessToken 优化</h3><ul>
-<li><p>优化前<br>在 mian.js 中调用获取 accessToken 的接口</p>
-</li>
-<li><p>优化后<br>写一个 getToken 的 js 文件，在 login register getpass 三个页面调用，统一存储到 vuex</p>
-</li>
-<li><p>优化空间<br>再存储一个过期时间，没有过期就不再继续请求，直接读取 vuex 中的值</p>
-</li>
-</ul>
-<h3 id="xl-需要的改动"><a href="#xl-需要的改动" class="headerlink" title="xl 需要的改动"></a>xl 需要的改动</h3><ul>
-<li>意见反馈增加参数</li>
-<li>退出登录加类型</li>
-</ul>
-<h3 id="ljl-需要优化点"><a href="#ljl-需要优化点" class="headerlink" title="ljl 需要优化点"></a>ljl 需要优化点</h3><ul>
-<li>时间选择初始化</li>
-<li>数据可能获取比较慢，在表单数据获取之后 refresh scroll</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -728,7 +713,7 @@ console.log(values.includes(NaN)) // true</code></pre>
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
