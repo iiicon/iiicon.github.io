@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>之哥的荣耀 - 懒是一种美德</title>
+  <title>之哥的荣耀 - 生活拼命在治愈你，只有你自己不放过自己</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
     <script data-pjax>
@@ -124,7 +124,7 @@
       <h1 class="site-title">之哥的荣耀</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">懒是一种美德</p>
+      <p class="site-subtitle" itemprop="description">生活拼命在治愈你，只有你自己不放过自己</p>
   </div>
 
   <div class="site-nav-right">
@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">128</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">129</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,108 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/08/05/ES6%E6%A8%A1%E5%9D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/05/ES6%E6%A8%A1%E5%9D%97/" class="post-title-link" itemprop="url">ES6模块</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-05 23:47:35" itemprop="dateCreated datePublished" datetime="2019-08-05T23:47:35+08:00">2019-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><blockquote>
+<p>在创建 JavaScript 模块时，export 语句用于从模块中导出函数、对象或原始值，以便其他程序可以通过 import 语句使用它们。<br>无论您是否声明，导出的模块都处于严格模式。 export 语句不能用在嵌入式脚本中。</p>
+</blockquote>
+<pre><code>export let name1, name2
+export function FunctionName()&#123;...&#125;
+export class ClassName &#123;...&#125;
+export &#123; name1, name2, …, nameN &#125;;
+export &#123; variable1 as name1, variable2 as name2, …, nameN &#125;;
+export default expression;
+export default function (…) &#123; … &#125;
+export * from …;</code></pre>
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><blockquote>
+<p>静态的 import 语句用于导入由另一个模块导出的绑定。无论是否声明了 strict mode ，导入的模块都运行在严格模式下。在浏览器中，import 语句只能在声明了 type=&quot;module&quot; 的 script 的标签中使用。</p>
+</blockquote>
+<blockquote>
+<p>此外，还有一个类似函数的动态 import()，它不需要依赖 type=&quot;module&quot; 的 script 标签。在您希望按照一定的条件或者按需加载模块的时候，动态 import() 是非常有用的。</p>
+</blockquote>
+<pre><code>在您希望按照一定的条件或者按需加载模块的时候，动态import() 是非常有用的。
+import * as name from &quot;module-name&quot;;
+import &#123; export &#125; from &quot;module-name&quot;;
+import &#123; export as alias &#125; from &quot;module-name&quot;;
+import &#123; export1 , export2 &#125; from &quot;module-name&quot;;
+import &#123; export1 , export2 as alias2 , [...] &#125; from &quot;module-name&quot;;
+import defaultExport, &#123; export [ , [...] ] &#125; from &quot;module-name&quot;;
+import defaultExport, * as name from &quot;module-name&quot;;
+import &quot;module-name&quot;;</code></pre>
+<h3 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h3><ul>
+<li>一个 js 文件可以有多个 export</li>
+<li>在浏览器中使用要加 type=&#39;module&#39;</li>
+<li>在不支持的浏览器中要用 babel webpack 或者 parcel 编译之后运行</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -619,91 +721,10 @@ obj = &#123;[&#39;baz&#39;+qux()]: 33&#125;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/31/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/31/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">ES6箭头函数</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-31 23:27:32" itemprop="dateCreated datePublished" datetime="2019-07-31T23:27:32+08:00">2019-07-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="箭头函数的写法"><a href="#箭头函数的写法" class="headerlink" title="箭头函数的写法"></a>箭头函数的写法</h3><p>好像抄袭自 coffeescript, 叫做 <code>fat Function</code></p>
-<pre><code>() =&gt; &#123;&#125;</code></pre>
-<p>coffeescript 还有一个 <code>empty Function</code></p>
-<pre><code>() -&gt; &#123;&#125; 会被解析成 function() &#123;&#125;</code></pre>
-<h3 id="箭头函数的优点"><a href="#箭头函数的优点" class="headerlink" title="箭头函数的优点"></a>箭头函数的优点</h3><ol>
-<li>简洁，箭头函数表达式对非方法函数是最合适的</li>
-<li>没有 this，也就是父级作用域的 this</li>
-<li>箭头函数不绑定 Arguments 对象，使用剩余参数是相较使用 arguments 对象的更好选择。</li>
-<li>由于 箭头函数没有自己的 this 指针，通过 call() 或 apply() 方法调用一个函数时，只能传递参数（不能绑定 this---译者注），他们的第一个参数会被忽略。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

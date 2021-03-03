@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>之哥的荣耀 - 懒是一种美德</title>
+  <title>之哥的荣耀 - 生活拼命在治愈你，只有你自己不放过自己</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
     <script data-pjax>
@@ -124,7 +124,7 @@
       <h1 class="site-title">之哥的荣耀</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">懒是一种美德</p>
+      <p class="site-subtitle" itemprop="description">生活拼命在治愈你，只有你自己不放过自己</p>
   </div>
 
   <div class="site-nav-right">
@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">128</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">129</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,113 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/04/03/relayout%E5%92%8Crepaint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/relayout%E5%92%8Crepaint/" class="post-title-link" itemprop="url">relayout和repaint</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-04-03 17:34:43" itemprop="dateCreated datePublished" datetime="2020-04-03T17:34:43+08:00">2020-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="浏览器和渲染树"><a href="#浏览器和渲染树" class="headerlink" title="浏览器和渲染树"></a>浏览器和渲染树</h2><p>在页面的生命周期中，一些效果的交互都有可能发生重排（Layout）和重绘（Painting），这些都会使我们付出高额的性能代价。 浏览器从下载文件至本地到显示页面是个复杂的过程，这里包含了重绘和重排。通常来说，渲染引擎会解析 HTML 文档来构建 DOM 树，与此同时，渲染引擎也会用 CSS 解析器解析 CSS 文档构建 CSSOM 树。接下来，DOM 树和 CSSOM 树关联起来构成渲染树（RenderTree），这一过程称为 Attachment。然后浏览器按照渲染树进行布局（Layout），最后一步通过绘制显示出整个页面。</p>
+<p><img src="https://i.loli.net/2020/04/03/AjnOINYaRJsrzdi.png" alt="20200403173804.png" loading="lazy"></p>
+<p>其中重排和重绘是最耗时的部分，一旦触发重排，我们对 DOM 的修改引发了 DOM 几何元素的变化，渲染树需要重新计算， 而重绘只会改变 vidibility、outline、背景色等属性导致样式的变化，使浏览器需要根据新的属性进行绘制。更比而言，重排会产生比重绘更大的开销。所以，我们在实际生产中要严格注意减少重排的触发。</p>
+<h2 id="触发重排的操作主要是几何因素"><a href="#触发重排的操作主要是几何因素" class="headerlink" title="触发重排的操作主要是几何因素"></a>触发重排的操作主要是几何因素</h2><p>1.页面第一次渲染 在页面发生首次渲染的时候，所有组件都要进行首次布局，这是开销最大的一次重排。 2.浏览器窗口尺寸改变 3.元素位置和尺寸发生改变的时候 4.新增和删除可见元素 5.内容发生改变（文字数量或图片大小等等） 6.元素字体大小变化。 7.激活 CSS 伪类（例如：:hover）。 8.设置 style 属性 9.查询某些属性或调用某些方法。比如说：<code>offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、clientTop、clientLeft clientWidth、clientHeight</code></p>
+<p>除此之外，当我们调用 getComputedStyle 方法，或者 IE 里的 currentStyle 时，也会触发重排，原理是一样的，都为求一个“即时性”和“准确性”。</p>
+<h2 id="触发重绘的操作主要有"><a href="#触发重绘的操作主要有" class="headerlink" title="触发重绘的操作主要有"></a>触发重绘的操作主要有</h2><p>vidibility、outline、背景色等属性的改变<br>我们应当注意的是：重绘不一定导致重排，但重排一定会导致重绘。</p>
+<h2 id="那么我们可以采取哪些措施来避免或减少重排带来的巨大开销呢？"><a href="#那么我们可以采取哪些措施来避免或减少重排带来的巨大开销呢？" class="headerlink" title="那么我们可以采取哪些措施来避免或减少重排带来的巨大开销呢？"></a>那么我们可以采取哪些措施来避免或减少重排带来的巨大开销呢？</h2><h3 id="分离读写操作"><a href="#分离读写操作" class="headerlink" title="分离读写操作"></a>分离读写操作</h3><pre><code>div.style.top = &quot;10px&quot;;
+div.style.bottom = &quot;10px&quot;;
+div.style.right = &quot;10px&quot;;
+div.style.left = &quot;10px&quot;;
+console.log(div.offsetWidth);
+console.log(div.offseHeight);
+console.log(div.offsetRight);
+console.log(div.offsetLeft);</code></pre>
+<h3 id="样式集中改变"><a href="#样式集中改变" class="headerlink" title="样式集中改变"></a>样式集中改变</h3><p>通过 cssText 和 class 进行样式的集中改变（现代浏览器会有 flush 队列优化，会好很多）</p>
+<h3 id="缓存布局信息"><a href="#缓存布局信息" class="headerlink" title="缓存布局信息"></a>缓存布局信息</h3><pre><code>// bad 强制刷新 触发两次重排
+div.style.left = div.offsetLeft + 1 + &#39;px&#39;;
+div.style.top = div.offsetTop + 1 + &#39;px&#39;;
+
+// good 缓存布局信息 相当于读写分离
+var curLeft = div.offsetLeft;
+var curTop = div.offsetTop;
+div.style.left = curLeft + 1 + &#39;px&#39;;
+div.style.top = curTop + 1 + &#39;px&#39;;</code></pre>
+<h3 id="将-dom-离线"><a href="#将-dom-离线" class="headerlink" title="将 dom 离线"></a>将 dom 离线</h3><p>设置 display:none,元素不会存在于渲染树中，相当于将其从页面拿掉，我们之后的操作将不会触发 repaint 和 relayout</p>
+<ul>
+<li><p>通过使用 DocumentFragment 创建一个 dom 碎片,在它上面批量操作 dom，操作完成之后，再添加到文档中，这样只会触发一次重排。</p>
+</li>
+<li><p>复制节点，在副本上工作，然后替换它！</p>
+</li>
+</ul>
+<h3 id="将-position-属性设置为-absolute-或-fixed"><a href="#将-position-属性设置为-absolute-或-fixed" class="headerlink" title="将 position 属性设置为 absolute 或 fixed"></a>将 position 属性设置为 absolute 或 fixed</h3><p>position 属性为 absolute 或 fixed 的元素，重排开销比较小，不用考虑它对其他元素的影响</p>
+<h3 id="优化动画"><a href="#优化动画" class="headerlink" title="优化动画"></a>优化动画</h3><ul>
+<li>可以把动画应用到定位的元素上</li>
+<li>启用 GPU 加速</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -606,84 +713,10 @@ const string = &quot;MozTransform&quot;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2020/02/26/element-ui%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/26/element-ui%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">element-ui的一些表格处理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-02-26 16:57:38" itemprop="dateCreated datePublished" datetime="2020-02-26T16:57:38+08:00">2020-02-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><em>2020 疫情到来，转眼就休息了两个月，是时候开始新的征程了，加油 XD</em></p>
-<h3 id="应用一（表格合并）"><a href="#应用一（表格合并）" class="headerlink" title="应用一（表格合并）"></a>应用一（表格合并）</h3><p>总体思路就是把需要合并索引放到一个二维数组里，这个二维数组代表每一列，每一列里不是 0 的就是合并的行数，<br>具体做法就是用类似于计数排序的思路（对应hash的每一个值去计数），如果下一行的某个属性和上一行的某个属性相同，我们就要索引值加 1，数组里也要相应的补 0，<br>如果不相同，就补 1，并定位到当前位置，这样我们就能得到我们的一个二维数组，再通过 objectSpanMethod 取到对应的值去合并表格</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      position: 0,</span><br><span class="line">      spanArr: [] &#x2F;&#x2F; 二维数组</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    rowspan(idx, prop) &#123;</span><br><span class="line">      this.spanArr[idx] &#x3D; [];</span><br><span class="line">      this.position &#x3D; 0;</span><br><span class="line">      this.tableData.forEach((item, index) &#x3D;&gt; &#123;</span><br><span class="line">        if (index &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">          this.spanArr[idx].push(1);</span><br><span class="line">          this.position &#x3D; 0;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          if (this.tableData[index][prop] &#x3D;&#x3D;&#x3D; this.tableData[index - 1][prop]) &#123;</span><br><span class="line">            this.spanArr[idx][this.position] +&#x3D; 1; &#x2F;&#x2F; 有相同项</span><br><span class="line">            this.spanArr[idx].push(0); &#x2F;&#x2F; 名称相同后往数组里面加一项0</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            this.spanArr[idx].push(1); &#x2F;&#x2F;同列的前后两行单元格不相同</span><br><span class="line">            this.position &#x3D; index;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    objectSpanMethod(&#123; row, column, rowIndex, columnIndex &#125;) &#123;</span><br><span class="line">      if (columnIndex &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">        const row &#x3D; this.spanArr[0][rowIndex];</span><br><span class="line">        const col &#x3D; row &gt; 0 ? 1 : 0;</span><br><span class="line">        return &#123;</span><br><span class="line">          rowspan: row,</span><br><span class="line">          colspan: col</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      if (this.paramsType &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">        if (columnIndex &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">          if (this.spanArr[1]) &#123;</span><br><span class="line">            const row &#x3D; this.spanArr[1][rowIndex];</span><br><span class="line">            const col &#x3D; row &gt; 0 ? 1 : 0;</span><br><span class="line">            return &#123;</span><br><span class="line">              rowspan: row,</span><br><span class="line">              colspan: col</span><br><span class="line">            &#125;;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 

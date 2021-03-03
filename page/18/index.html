@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>之哥的荣耀 - 懒是一种美德</title>
+  <title>之哥的荣耀 - 生活拼命在治愈你，只有你自己不放过自己</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
     <script data-pjax>
@@ -124,7 +124,7 @@
       <h1 class="site-title">之哥的荣耀</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">懒是一种美德</p>
+      <p class="site-subtitle" itemprop="description">生活拼命在治愈你，只有你自己不放过自己</p>
   </div>
 
   <div class="site-nav-right">
@@ -150,7 +150,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">128</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">129</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -299,6 +299,99 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
+    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/07/16/js%E6%A0%87%E5%87%86%E5%BA%93String/" class="post-title-link" itemprop="url">js标准库String</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-16 15:16:41" itemprop="dateCreated datePublished" datetime="2019-07-16T15:16:41+08:00">2019-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><h4 id="fromCharCode"><a href="#fromCharCode" class="headerlink" title="fromCharCode"></a>fromCharCode</h4><p>如果参数为空，就返回&#39;&#39;,否则就返回 Unicode 对应的字符串</p>
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><h4 id="charAt"><a href="#charAt" class="headerlink" title="charAt"></a>charAt</h4><p>返回指定位置的字符，大于长度或者负数都返回空字符串</p>
+<h4 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title="charCodeAt"></a>charCodeAt</h4><p>返回指定位置的 unicode，大于或者负数都返回 NaN</p>
+<h4 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h4><p>返回一个新字符串，不改变原字符串, 都是字符串连接不是的话要改成字符串</p>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><p>返回一个字字符串，不改变原字符串，没有的话也是返回&#39;&#39;</p>
+<h4 id="substring"><a href="#substring" class="headerlink" title="substring"></a>substring</h4><p>substring(9, -3) 会把-3 变成 0，然后变成(0, 9)，违反直觉，所以不建议使用，依然返回新字符串，不改变原字符串</p>
+<h4 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h4><p>和 slice 的区别是第二个参数是要截取的长度，返回一个新的字符串，且不会改动原字符串。</p>
+<h4 id="indexOf-lastIndexOf"><a href="#indexOf-lastIndexOf" class="headerlink" title="indexOf lastIndexOf"></a>indexOf lastIndexOf</h4><p>indexOf(&#39;o&#39;, 6) 6 是开始的位置, 返回一个字符串在另一个字符串中出现的位置</p>
+<h4 id="trim"><a href="#trim" class="headerlink" title="trim"></a>trim</h4><p>去除两端的 \s \t \v \n \r，返回新字符串，不改变原字符串</p>
+<h4 id="toLowerCase-toUpperCase"><a href="#toLowerCase-toUpperCase" class="headerlink" title="toLowerCase toUpperCase"></a>toLowerCase toUpperCase</h4><p>改变大小写，不改变原来字符串的大小</p>
+<h4 id="match"><a href="#match" class="headerlink" title="match"></a>match</h4><p>找到了返回数组，找不到返回 null</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;cat, bat, sat, fat&#39;.match(&#39;at&#39;) &#x2F;&#x2F; [&quot;at&quot;]</span><br><span class="line">&#39;cat, bat, sat, fat&#39;.match(&#39;xt&#39;) &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
+
+<h4 id="search"><a href="#search" class="headerlink" title="search"></a>search</h4><p>和 match 基本一致，不同得是返回开始的位置</p>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p>基本是替换第一个，除非是正则表达式加上了 g</p>
+<h4 id="split"><a href="#split" class="headerlink" title="split"></a>split</h4><p>返回一个按照指定分隔符分成的数组</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;a|b|c&#39;.split(&#39;|&#39;) &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span><br><span class="line">&#39;a|b|c&#39;.split(&#39;&#39;) &#x2F;&#x2F; [&#39;a&#39;, &#39;|&#39;, &#39;b&#39;, &#39;|&#39;, &#39;c&#39;]</span><br><span class="line">&#39;a|b|c&#39;.split() &#x2F;&#x2F; [&#39;a|b|c&#39;]</span><br><span class="line">&#39;|b|c&#39;.split(&#39;|&#39;) &#x2F;&#x2F; [&#39;&#39;, &#39;b&#39;, &#39;c&#39;]</span><br><span class="line">&#39;a|b|c&#39;.split(&#39;|&#39;, 2) &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;]</span><br><span class="line">&#39;a|b|c&#39;.split(&#39;|&#39;, 4) &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h4><p>构造并返回一个新字符串，该字符串包含被连接在一起的指定数量的字符串的副本。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;abc&quot;.repeat(0)      &#x2F;&#x2F; &quot;&quot;</span><br><span class="line">&quot;abc&quot;.repeat(1)      &#x2F;&#x2F; &quot;abc&quot;</span><br><span class="line">&quot;abc&quot;.repeat(2)      &#x2F;&#x2F; &quot;abcabc&quot;</span><br><span class="line">&quot;abc&quot;.repeat(3.5)    &#x2F;&#x2F; &quot;abcabcabc&quot; 参数count将会被自动转换成整数.</span><br></pre></td></tr></table></figure>
+
+<h4 id="localeCompare"><a href="#localeCompare" class="headerlink" title="localeCompare"></a>localeCompare</h4><p>比较两个字符的长度，转成 unicode 判断</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -631,109 +724,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans,en,default">
-    <link itemprop="mainEntityOfPage" href="https://sgw.wiki/2019/06/30/TS%E9%AB%98%E7%BA%A7%E7%B1%BB%E5%9E%8B%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.svg">
-      <meta itemprop="name" content="GerritV">
-      <meta itemprop="description" content="别坚持做没用的事情">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="之哥的荣耀">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/06/30/TS%E9%AB%98%E7%BA%A7%E7%B1%BB%E5%9E%8B%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">TS高级类型（一）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-06-30 19:10:49" itemprop="dateCreated datePublished" datetime="2019-06-30T19:10:49+08:00">2019-06-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="交叉类型（Intersection-Types）"><a href="#交叉类型（Intersection-Types）" class="headerlink" title="交叉类型（Intersection Types）"></a>交叉类型（Intersection Types）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; T 和 U 的并集</span><br><span class="line">function extend&lt;T, U&gt;(first: T, second: U): T &amp; U &#123;</span><br><span class="line">    let result &#x3D; &lt;T &amp; U&gt;&#123;&#125;;</span><br><span class="line">    for (let id in first) &#123;</span><br><span class="line">        (&lt;any&gt;result)[id] &#x3D; (&lt;any&gt;first)[id];</span><br><span class="line">    &#125;</span><br><span class="line">    for (let id in second) &#123;</span><br><span class="line">        if (!result.hasOwnProperty(id)) &#123;</span><br><span class="line">            (&lt;any&gt;result)[id] &#x3D; (&lt;any&gt;second)[id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="联合类型（Union-Types）"><a href="#联合类型（Union-Types）" class="headerlink" title="联合类型（Union Types）"></a>联合类型（Union Types）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 或运算</span><br><span class="line">function padLeft(value: string, padding: string | number) &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="类型保护与区分类型（Type-Guards-and-differentiating-Types）"><a href="#类型保护与区分类型（Type-Guards-and-differentiating-Types）" class="headerlink" title="类型保护与区分类型（Type Guards and differentiating Types）"></a>类型保护与区分类型（Type Guards and differentiating Types）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let pet &#x3D; getSmallPet();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 每一个成员访问都会报错</span><br><span class="line">if (pet.swim) &#123;</span><br><span class="line">    pet.swim();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 为了使这段代码工作，需要使用类型断言</span><br><span class="line">if ((&lt;Fish&gt;pet).swim) &#123;</span><br><span class="line">    (&lt;Fish&gt;pet).swim();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 为了不每次都写类型断言，我们可以利用 ts 的类型保护机制</span><br><span class="line">function isFish(pet: Fish | Bird): pet is Fish &#123;</span><br><span class="line">    return (&lt;Fish&gt;pet).swim !&#x3D;&#x3D; undefined;</span><br><span class="line">&#125;</span><br><span class="line">if (isFish(pet)) &#123;</span><br><span class="line">    pet.swim();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 对于 js 那六大类型，依然可以使用 typeof</span><br><span class="line">typeof x &#x3D;&#x3D;&#x3D; &quot;number&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; instance of 也可以识别（右边要求是一个构造函数）</span><br><span class="line">padder instanceof StringPadder</span><br></pre></td></tr></table></figure>
-
-<h3 id="可以为-null-的类型"><a href="#可以为-null-的类型" class="headerlink" title="可以为 null 的类型"></a>可以为 null 的类型</h3><p><strong>如果编译器不能够去除 null 或 undefined，你可以使用类型断言手动去除。 语法是添加 !</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let s &#x3D; &quot;foo&quot;;</span><br><span class="line">s &#x3D; null; &#x2F;&#x2F; 错误, &#39;null&#39;不能赋值给&#39;string&#39;</span><br><span class="line">let sn: string | null &#x3D; &quot;bar&quot;;</span><br><span class="line">sn &#x3D; null; &#x2F;&#x2F; 可以</span><br><span class="line"></span><br><span class="line">sn &#x3D; undefined; &#x2F;&#x2F; error, &#39;undefined&#39;不能赋值给&#39;string | null&#39;</span><br></pre></td></tr></table></figure>
-
-<h3 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h3><p>就是一个引用</p>
-<p>与交叉类型一起使用，可以创建出稀奇古怪的类型</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type LinkedList&lt;T&gt; &#x3D; T &amp; &#123; next: LinkedList&lt;T&gt; &#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="接口-vs-类型别名"><a href="#接口-vs-类型别名" class="headerlink" title="接口 vs 类型别名"></a>接口 vs 类型别名</h4><ol>
-<li>接口创建了一个新的名字，可以在任何地方使用，类型别名并不创建新名字，比如发生错误的时候不显示别名</li>
-<li>类型别名不能 extends 和</li>
-<li>通常使用接口，接口搞不定的时候再使用类型别名</li>
-</ol>
-<h3 id="字符串字面量类型"><a href="#字符串字面量类型" class="headerlink" title="字符串字面量类型"></a>字符串字面量类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Easing &#x3D; &quot;ease-in&quot; | &quot;ease-out&quot; | &quot;ease-in-out&quot;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="数字字面量类型"><a href="#数字字面量类型" class="headerlink" title="数字字面量类型"></a>数字字面量类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function rollDie(): 1 | 2 | 3 | 4 | 5 | 6 &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="可辨识联合（Disminated-Union）"><a href="#可辨识联合（Disminated-Union）" class="headerlink" title="可辨识联合（Disminated Union）"></a>可辨识联合（Disminated Union）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface Square &#123;</span><br><span class="line">  kind: &quot;square&quot;;</span><br><span class="line">  size: number;</span><br><span class="line">&#125;</span><br><span class="line">interface Rectangle &#123;</span><br><span class="line">  kind: &quot;rectangle&quot;;</span><br><span class="line">  width: number;</span><br><span class="line">  height: number;</span><br><span class="line">&#125;</span><br><span class="line">interface Circle &#123;</span><br><span class="line">  kind: &quot;circle&quot;;</span><br><span class="line">  radius: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 让各个接口建立联系</span><br><span class="line">type Shape &#x3D; Square | Rectangle | Circle;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 使用</span><br><span class="line">function area(s: Shape) &#123;</span><br><span class="line">  switch (s.kind) &#123;</span><br><span class="line">    case &quot;square&quot;: return s.size * s.size;</span><br><span class="line">    case &quot;rectangle&quot;: return s.height * s.width;</span><br><span class="line">    case &quot;circle&quot;: return Math.PI * s.radius ** 2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="完整性检查"><a href="#完整性检查" class="headerlink" title="完整性检查"></a>完整性检查</h4><p>万一有一个 case 不存在，发生错误怎么办<br>第一种就是 <code>| undefined</code><br>第二种就是 返回一个 never</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">default: return assertNever(s);</span><br><span class="line">function assertNever(x: never): never &#123;</span><br><span class="line">    throw new Error(&quot;Unexpected object: &quot; + x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="那么-never-是什么呢"><a href="#那么-never-是什么呢" class="headerlink" title="那么 never 是什么呢"></a>那么 never 是什么呢</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let x: never &#x3D; undefined &#x2F;&#x2F; error</span><br><span class="line">never 只表示类型</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
