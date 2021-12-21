@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-Hans,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"iiicon.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="ReflectReflect.get(target, name, receiver)var myObject &#x3D; &amp;#123;   foo: 1,   bar: 2,   get baz() &amp;#123;     return this.foo + this.bar;   &amp;#125;, &amp;#125;;  var myReceiverObject &#x3D; &amp;#123;   foo: 4,   bar:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6之Reflect和proxy">
+<meta property="og:url" content="https://iiicon.github.io/blog2022/2019/08/16/ES6%E4%B9%8BReflect%E5%92%8Cproxy/index.html">
+<meta property="og:site_name" content="之哥的荣耀">
+<meta property="og:description" content="ReflectReflect.get(target, name, receiver)var myObject &#x3D; &amp;#123;   foo: 1,   bar: 2,   get baz() &amp;#123;     return this.foo + this.bar;   &amp;#125;, &amp;#125;;  var myReceiverObject &#x3D; &amp;#123;   foo: 4,   bar:">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-08-16T07:32:54.000Z">
+<meta property="article:modified_time" content="2021-12-21T06:04:02.166Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="G">
+<meta property="article:tag" content="es6">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://iiicon.github.io/blog2022/2019/08/16/ES6%E4%B9%8BReflect%E5%92%8Cproxy/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>ES6之Reflect和proxy | 之哥的荣耀</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108155018-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="之哥的荣耀" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">之哥的荣耀</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">懒是一种美德</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-plugins">
+
+    <a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">56</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">17</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reflect"><span class="nav-number">1.</span> <span class="nav-text">Reflect</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-get-target-name-receiver"><span class="nav-number">1.1.</span> <span class="nav-text">Reflect.get(target, name, receiver)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflect-set-target-name-value-receiver"><span class="nav-number">1.2.</span> <span class="nav-text">Reflect.set(target, name, value, receiver)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">其他的静态方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-proxy-%E5%AE%9E%E7%8E%B0%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">使用 proxy 实现观察者模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proxy"><span class="nav-number">2.</span> <span class="nav-text">Proxy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get"><span class="nav-number">2.1.</span> <span class="nav-text">get()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">2.2.</span> <span class="nav-text">set()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">2.3.</span> <span class="nav-text">apply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-web-%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">2.4.</span> <span class="nav-text">实现 web 服务的客户端</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GerritV"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">GerritV</p>
+  <div class="site-description" itemprop="description">别坚持做没用的事情</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iiicon"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/shiguangwei5@gmail.com" title="E-Mail → shiguangwei5@gmail.com"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zZ3cud2lraS8=" title="blog → https:&#x2F;&#x2F;sgw.wiki&#x2F;"><i class="fab fa-gitter fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+</div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://iiicon.github.io/blog2022/2019/08/16/ES6%E4%B9%8BReflect%E5%92%8Cproxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ES6之Reflect和proxy<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbl9wb3N0cy9FUzbkuYtSZWZsZWN05ZKMcHJveHkubWQ=" title="Edit this post"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-16 15:32:54" itemprop="dateCreated datePublished" datetime="2019-08-16T15:32:54+08:00">2019-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a>Reflect</h2><h3 id="Reflect-get-target-name-receiver"><a href="#Reflect-get-target-name-receiver" class="headerlink" title="Reflect.get(target, name, receiver)"></a>Reflect.get(target, name, receiver)</h3><pre><code>var myObject = &#123;
+  foo: 1,
+  bar: 2,
+  get baz() &#123;
+    return this.foo + this.bar;
+  &#125;,
+&#125;;
+
+var myReceiverObject = &#123;
+  foo: 4,
+  bar: 4,
+&#125;;
+
+Reflect.get(myObject, &#39;baz&#39;, myReceiverObject) // 8
+</code></pre>
+<h3 id="Reflect-set-target-name-value-receiver"><a href="#Reflect-set-target-name-value-receiver" class="headerlink" title="Reflect.set(target, name, value, receiver)"></a>Reflect.set(target, name, value, receiver)</h3><pre><code>var myObject = &#123;
+  foo: 1,
+  set bar(val) &#123;
+  return this.foo = val    
+  &#125;
+&#125;
+var o = &#123; foo: 2, bar: 3&#125;
+Reflect.set(myObject,  &#39;baz&#39;, 127987978978979797, o)
+</code></pre>
+<h3 id="其他的静态方法"><a href="#其他的静态方法" class="headerlink" title="其他的静态方法"></a>其他的静态方法</h3><pre><code>Reflect.has(target, name)
+=== name in target
+
+Reflect.deleteProperty(target, name)
+=== delete target[name]
+
+Reflect.construct(target, args)
+=== new target(...args)
+
+Reflect.getPrototypeOf(obj)
+=== Object.getPrototypeOf(obj)
+
+Reflect.setPrototypeOf(obj, newProto)
+=== Object.setPrototypeOf(obj, newProto)
+
+Reflect.apply(func, thisArg, args) 
+=== Function.prototype.apply.call(func, thiArg, args)
+
+Reflect.defineProperty(target, propertyKey, attributes)
+=== Object.defineProperty(taget, propertyKey, attributes)
+
+Reflect.getOwnPropertyDescriptor(target, propertyKey)
+=== Object.getOwnPropertyDescriptor(target, propertyKey)
+
+Reflect.isExtensible(target)
+=== Object.isExtensible(target)
+
+Reflect.preventExtensions(target)
+=== Object.preventExtensions(target)
+
+Reflect.ownKeys(target)
+=== Objecct.getOwnPropertyNames(或者 Object.keys()) + Object.getOwnPropertySymbols() 
+</code></pre>
+<h3 id="使用-proxy-实现观察者模式"><a href="#使用-proxy-实现观察者模式" class="headerlink" title="使用 proxy 实现观察者模式"></a>使用 proxy 实现观察者模式</h3><p>观察者模式是指函数自动观察数据对象，一旦对象有变化，函数就会自动执行</p>
+<p>我们需要两个函数，observable 和 observe，observable 返回一个原始对象的 Proxy 代理，拦截赋值操作，触发充当观察者的各个函数</p>
+<pre><code>const queue = new Set()
+const observe = fn =&gt; queue.add(fn)
+const observable = obj =&gt; new Proxy(obj, &#123;set&#125;)
+
+function set(target, key, value, receiver) &#123;
+  const result = Reflect.set(target, key, value, receiver)
+  queue.forEach(observer =&gt; observer())
+&#125;
+
+const person = observable(&#123;
+  name； &#39;GerritV&#39;,
+  age； 18
+&#125;)
+
+function print() &#123;
+  console.log(`$&#123;person.name&#125;, $&#123;person.age&#125;`)
+&#125;
+
+observe(print)
+
+person.name=&#39;frank&#39;
+</code></pre>
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><p>Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种元编程，即对编程语言进行编程</p>
+<p>Proxy 可以理解成，在目标对象之间架设一层拦截，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写，可以译为代理</p>
+<h3 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">  name: &quot;张三&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var proxy = new Proxy(person, &#123;</span><br><span class="line">  get: function(target, property) &#123;</span><br><span class="line">    if (property in target) &#123;</span><br><span class="line">      return target[property];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      throw new ReferenceError(&quot;Property \&quot;&quot; + property + &quot;\&quot; does not exist.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">proxy.name // &quot;张三&quot;</span><br><span class="line">proxy.age // 抛出一个错误</span><br></pre></td></tr></table></figure>
+
+<h3 id="set"><a href="#set" class="headerlink" title="set()"></a>set()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let validator = &#123;</span><br><span class="line">  set: function(obj, prop, value) &#123;</span><br><span class="line">    if (prop === &#x27;age&#x27;) &#123;</span><br><span class="line">      if (!Number.isInteger(value)) &#123;</span><br><span class="line">        throw new TypeError(&#x27;The age is not an integer&#x27;);</span><br><span class="line">      &#125;</span><br><span class="line">      if (value &gt; 200) &#123;</span><br><span class="line">        throw new RangeError(&#x27;The age seems invalid&#x27;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 对于满足条件的 age 属性以及其他属性，直接保存</span><br><span class="line">    obj[prop] = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let person = new Proxy(&#123;&#125;, validator);</span><br><span class="line"></span><br><span class="line">person.age = 100;</span><br><span class="line"></span><br><span class="line">person.age // 100</span><br><span class="line">person.age = &#x27;young&#x27; // 报错</span><br><span class="line">person.age = 300 // 报错</span><br></pre></td></tr></table></figure>
+
+<h3 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var twice = &#123;</span><br><span class="line">  apply (target, ctx, args) &#123;</span><br><span class="line">    return Reflect.apply(...arguments) * 2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">function sum (left, right) &#123;</span><br><span class="line">  return left + right;</span><br><span class="line">&#125;;</span><br><span class="line">var proxy = new Proxy(sum, twice);</span><br><span class="line">proxy(1, 2) // 6</span><br><span class="line">proxy.call(null, 5, 6) // 22</span><br><span class="line">proxy.apply(null, [7, 8]) // 30</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现-web-服务的客户端"><a href="#实现-web-服务的客户端" class="headerlink" title="实现 web 服务的客户端"></a>实现 web 服务的客户端</h3><p>Proxy 对象可以拦截目标对象的任意属性，这使得它很适合来写 web 服务的客户端</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const service = createWebService(&#x27;http://example.com/data&#x27;)</span><br><span class="line"></span><br><span class="line">service.employees().then(json =&gt; &#123;</span><br><span class="line">  const emplyees = JSON.parse(json)</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码新建了一个 web 服务的端口，这个接口返回各种数据。Proxy 可以拦截这个对象的任意属性，所以不用为每一种数据写一个适配方法，只要写一个 proxy 拦截就好了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function createWebService(baseUrl) &#123;</span><br><span class="line">  return new Proxy(&#123;&#125;, &#123;</span><br><span class="line">    get(target, propKey, receiver) &#123;</span><br><span class="line">      return () =&gt; httpGet(baseUrl+&#x27;/&#x27;+propKey)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>这个例子也演示了get返回函数的操作</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/G/" rel="tag"># G</a>
+              <a href="/tags/es6/" rel="tag"># es6</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/08/13/ES6%E6%96%B0%E5%A2%9Eapi/" rel="prev" title="ES6新增api">
+                  <i class="fa fa-chevron-left"></i> ES6新增api
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/08/19/ES6%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93promise/" rel="next" title="ES6自己实现简易promise">
+                  ES6自己实现简易promise <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div><div class="footer-custom">
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/motion.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+  
+
+
+    </div>
+</body>
+</html>

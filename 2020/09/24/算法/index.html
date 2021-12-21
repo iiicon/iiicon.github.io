@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-Hans,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"iiicon.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="算法题通过思考逻辑普通人类思维 将人类的思维过程用严谨的语言表达出来，将其翻译成代码或伪代码  const array &#x3D; [23, 99, 17, 28, 84];function max(array) &amp;#123;  let result &#x3D; array[0];  for (let i &#x3D; 1; i &lt; array.length; i++) &amp;#123;    if (array[i]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法之汉诺塔问题和斐波那契数列">
+<meta property="og:url" content="https://iiicon.github.io/blog2022/2020/09/24/%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="之哥的荣耀">
+<meta property="og:description" content="算法题通过思考逻辑普通人类思维 将人类的思维过程用严谨的语言表达出来，将其翻译成代码或伪代码  const array &#x3D; [23, 99, 17, 28, 84];function max(array) &amp;#123;  let result &#x3D; array[0];  for (let i &#x3D; 1; i &lt; array.length; i++) &amp;#123;    if (array[i]">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2020/09/24/p3tMSGwvUDnKfhP.png">
+<meta property="article:published_time" content="2020-09-24T08:03:24.000Z">
+<meta property="article:modified_time" content="2021-12-21T06:04:02.370Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="G">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/09/24/p3tMSGwvUDnKfhP.png">
+
+
+<link rel="canonical" href="https://iiicon.github.io/blog2022/2020/09/24/%E7%AE%97%E6%B3%95/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>算法之汉诺塔问题和斐波那契数列 | 之哥的荣耀</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108155018-3');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="之哥的荣耀" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">之哥的荣耀</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">懒是一种美德</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-plugins">
+
+    <a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">127</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">56</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">17</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E9%A2%98%E9%80%9A%E8%BF%87%E6%80%9D%E8%80%83%E9%80%BB%E8%BE%91"><span class="nav-number">1.</span> <span class="nav-text">算法题通过思考逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E4%BA%BA%E7%B1%BB%E6%80%9D%E7%BB%B4"><span class="nav-number">1.1.</span> <span class="nav-text">普通人类思维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4"><span class="nav-number">1.2.</span> <span class="nav-text">数学思维</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E8%BF%99%E4%B8%AA%E7%AE%97%E6%B3%95%E6%98%AF%E5%AF%B9%E7%9A%84%EF%BC%9F"><span class="nav-number">1.2.1.</span> <span class="nav-text">如何证明这个算法是对的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94"><span class="nav-number">2.</span> <span class="nav-text">汉诺塔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91"><span class="nav-number">3.</span> <span class="nav-text">斐波那契</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">4.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88"><span class="nav-number">5.</span> <span class="nav-text">函数调用栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E4%BB%A3%E6%9B%BF%E9%80%92%E5%BD%92"><span class="nav-number">5.1.</span> <span class="nav-text">循环代替递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E4%BB%A3%E6%9B%BF%E9%80%92%E5%BD%92"><span class="nav-number">5.2.</span> <span class="nav-text">迭代代替递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">5.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E7%BC%BA%E7%82%B9%E5%8F%8A%E4%BC%98%E5%8C%96"><span class="nav-number">6.</span> <span class="nav-text">递归的缺点及优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-2"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GerritV"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">GerritV</p>
+  <div class="site-description" itemprop="description">别坚持做没用的事情</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iiicon"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/shiguangwei5@gmail.com" title="E-Mail → shiguangwei5@gmail.com"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zZ3cud2lraS8=" title="blog → https:&#x2F;&#x2F;sgw.wiki&#x2F;"><i class="fab fa-gitter fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+</div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://iiicon.github.io/blog2022/2020/09/24/%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="GerritV">
+      <meta itemprop="description" content="别坚持做没用的事情">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="之哥的荣耀">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法之汉诺塔问题和斐波那契数列<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpaWNvbl9wb3N0cy/nrpfms5UubWQ=" title="Edit this post"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-09-24 16:03:24" itemprop="dateCreated datePublished" datetime="2020-09-24T16:03:24+08:00">2020-09-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="算法题通过思考逻辑"><a href="#算法题通过思考逻辑" class="headerlink" title="算法题通过思考逻辑"></a>算法题通过思考逻辑</h2><h3 id="普通人类思维"><a href="#普通人类思维" class="headerlink" title="普通人类思维"></a>普通人类思维</h3><ul>
+<li>将人类的思维过程用严谨的语言表达出来，将其翻译成代码或伪代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">23</span>, <span class="number">99</span>, <span class="number">17</span>, <span class="number">28</span>, <span class="number">84</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = array[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (array[i] &gt; result) &#123;</span><br><span class="line">      result = array[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">max(array); <span class="comment">// 99</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数学思维"><a href="#数学思维" class="headerlink" title="数学思维"></a>数学思维</h3><ul>
+<li>利用数学知识</li>
+<li>找到对应的数学公式</li>
+<li>像解题一样解出来</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">23</span>, <span class="number">99</span>, <span class="number">17</span>, <span class="number">28</span>, <span class="number">84</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (array.length === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> array[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> otherMax = max(array.slice(<span class="number">1</span>));</span><br><span class="line">  <span class="keyword">return</span> array[<span class="number">0</span>] &gt; otherMax ? array[<span class="number">0</span>] : otherMax;</span><br><span class="line">&#125;</span><br><span class="line">max(array); <span class="comment">// 99</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 新语法</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">23</span>, <span class="number">99</span>, <span class="number">17</span>, <span class="number">28</span>, <span class="number">84</span>];</span><br><span class="line"><span class="keyword">const</span> maxOfTwo = <span class="function">(<span class="params">a, b</span>) =&gt;</span> (a &gt; b ? a : b);</span><br><span class="line"><span class="keyword">const</span> max = <span class="function">(<span class="params">[first, ...others]</span>) =&gt;</span></span><br><span class="line">  others.length &lt; <span class="number">1</span> ? first : maxOfTwo(first, max(others));</span><br><span class="line">max(array); <span class="comment">// 99</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="如何证明这个算法是对的？"><a href="#如何证明这个算法是对的？" class="headerlink" title="如何证明这个算法是对的？"></a>如何证明这个算法是对的？</h4><ul>
+<li>首先证明公式是对的，然后证明代码和公式是等价的</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>数学方法更容易通过形式化证明保证代码的正确性</li>
+<li>但数学方法效率不一定高（但可以优化）</li>
+<li>数学方法往往不够直观，普通人并没有什么数学知识</li>
+<li>一般不能对变量进行二次赋值，因为数学里没有</li>
+</ul>
+<p><strong>这两种方法没有绝对哪种比哪种好</strong></p>
+<h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><p>有三根杆子 A B C，A 杆上有 N 个圆盘，盘子由下到上依次变小，要求按照下列规则将所有圆盘移至 C 杆： 每次只能移动一个圆盘，大盘不能叠在小盘上面<br>问： 如何移动？最少要移动多少次？</p>
+<p>人类思维：<br>先把 A 上面的 N-1 个移动到 B，然后把最大的移动到 C，最后把 B 上面的 N-1 移到 C。那怎么把 A 上面的 N-1 移到 B？把 B 上面的 N-1 移到 C?<br>先把 A 上面的 N-2 移到 C，然后把最大的移到 B，最后把 C 上面的 N-2 移到 B<br>发现想不通，换数学思维</p>
+<p>数学思维：<br>把 A 顶部的盘移到 B，记为 AB<br>AB + AC 表示先 AB 然后 AC<br>h(n, A, B, C) 表示 n 个 盘在 A，想去 C，B 无用<br>h(1, A, B, C) = AC<br>h(2, A, B, C) = h(1, A, C, B) + AC + h(1, B, A, C)<br>h(2, A, B, C) = AB + AC + BC<br>h(3, A, B, C) = h(2, A, C, B) + AC + h(2, B, A, C)<br>h(n, A, B, C) = h(n-1, A, C, B) + AC + h(n-1, B, A, C)</p>
+<p><strong>归纳：发现 n 的问题总可以化成两个 n-1 的问题</strong></p>
+<p>公式：<br><img src="https://i.loli.net/2020/09/24/p3tMSGwvUDnKfhP.png" alt="微信图片_20200924180138.png" loading="lazy"></p>
+<p>代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">h = <span class="function">(<span class="params">n, <span class="keyword">from</span>, cache, to</span>) =&gt;</span></span><br><span class="line">  n === <span class="number">1</span></span><br><span class="line">    ? <span class="string">`<span class="subst">$&#123;<span class="keyword">from</span>&#125;</span><span class="subst">$&#123;to&#125;</span>`</span></span><br><span class="line">    : h(n - <span class="number">1</span>, <span class="keyword">from</span>, to, cache) +</span><br><span class="line">      <span class="string">&quot;,&quot;</span> +</span><br><span class="line">      <span class="string">`<span class="subst">$&#123;<span class="keyword">from</span>&#125;</span><span class="subst">$&#123;to&#125;</span>`</span> +</span><br><span class="line">      h(n - <span class="number">1</span>, cache, <span class="keyword">from</span>, to);</span><br></pre></td></tr></table></figure>
+
+<h2 id="斐波那契"><a href="#斐波那契" class="headerlink" title="斐波那契"></a>斐波那契</h2><p>数学思维：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">f = <span class="function">(<span class="params">n</span>) =&gt;</span> (n === <span class="number">0</span> ? <span class="number">0</span> : n === <span class="number">1</span> ? <span class="number">1</span> : f(n - <span class="number">1</span>) + f(n - <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<p>你可以通过记忆化来优化它，空间换时间</p>
+<p>人类思路：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">f = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> array = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    array[i] = array[i - <span class="number">1</span>] + array[i - <span class="number">2</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array[n];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><table>
+<thead>
+<tr>
+<th>数学思路更注重形式（结构）</th>
+<th>人类思维更注重过程（命令）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>更加优雅简单</td>
+<td>更容易执行被理解</td>
+</tr>
+<tr>
+<td>其实更容易优化</td>
+<td>对人脑负担更重</td>
+</tr>
+<tr>
+<td>投身于数学，有无限广阔的可能性</td>
+<td>被人类的经验所局限</td>
+</tr>
+</tbody></table>
+<p>但复杂度是守恒的：复杂度不会因为任何原因降低<br>你愿意吧复杂度放在人脑这边还是机器那边<br>实际上，我们可以结合两种思路，各取所长</p>
+<h2 id="函数调用栈"><a href="#函数调用栈" class="headerlink" title="函数调用栈"></a>函数调用栈</h2><p>大部分浏览器是在 10000-30000 之间，大部分调用栈是够用的，一旦不够用，程序只能中止了</p>
+<p>如何减少压栈？</p>
+<ul>
+<li>不用递归<br>用循环代替递归</li>
+<li>用尾递归+尾递归优化<br>用尾递归代替递归</li>
+</ul>
+<h3 id="循环代替递归"><a href="#循环代替递归" class="headerlink" title="循环代替递归"></a>循环代替递归</h3><p>原代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">f = <span class="function">(<span class="params">n</span>) =&gt;</span> (n === <span class="number">1</span> ? <span class="number">1</span> : f(n - <span class="number">1</span>) * n);</span><br></pre></td></tr></table></figure>
+
+<p>新代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">f = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    result = result * i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="迭代代替递归"><a href="#迭代代替递归" class="headerlink" title="迭代代替递归"></a>迭代代替递归</h3><p>分析上面循环,结果如下</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>result</td>
+<td>1</td>
+<td>2</td>
+<td>6</td>
+<td>24</td>
+<td>120</td>
+</tr>
+</tbody></table>
+<p>只有 i 和 result 在变，而且是一起变</p>
+<p>写出循环迭代代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">f = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">1</span>,</span><br><span class="line">    result = <span class="number">1</span>,</span><br><span class="line">    nexti,</span><br><span class="line">    nextResult;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (i &lt;= n - <span class="number">1</span>) &#123;</span><br><span class="line">    nexti = i + <span class="number">1</span>;</span><br><span class="line">    nextResult = nexti * result;</span><br><span class="line">    i = nexti;</span><br><span class="line">    result = nextResult;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>尾递归迭代代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">f = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  iterate = <span class="function">(<span class="params">i, n, result</span>) =&gt;</span></span><br><span class="line">    i === n ? result : iterate(i + <span class="number">1</span>, n, result * (i + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> iterate(<span class="number">1</span>, n, <span class="number">1</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>递归需要压栈，而栈的长度有限</li>
+<li>可以使用循环代替递归</li>
+<li>可以使用迭代代替普通递归</li>
+<li>迭代用循环实现，也可以用递归</li>
+<li>迭代理论上不需要压栈，但实际上有</li>
+<li>尾调用优化可以消除不必要的压栈</li>
+<li>JS 没有完全普及尾调用优化</li>
+</ul>
+<h2 id="递归的缺点及优化"><a href="#递归的缺点及优化" class="headerlink" title="递归的缺点及优化"></a>递归的缺点及优化</h2><p>堆栈溢出和重复计算</p>
+<p>使用记忆化消除重复计算</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">memorize = <span class="function"><span class="params">fn</span> =&gt;</span> &#123;</span><br><span class="line">  cache = &#123;&#125;</span><br><span class="line">  <span class="keyword">return</span> (first, ...args) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!(first <span class="keyword">in</span> cache)) &#123;</span><br><span class="line">      cache[first] = fn(first, ...args)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> cache[first]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f = memorize(</span><br><span class="line">  <span class="function"><span class="params">n</span> =&gt;</span></span><br><span class="line">    n === <span class="number">0</span> ? <span class="number">0</span> :</span><br><span class="line">    n === <span class="number">1</span> ? <span class="number">1</span> :</span><br><span class="line">      f(n-<span class="number">1</span>) + f(n-<span class="number">2</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h2><p>算法的思路</p>
+<ul>
+<li>人类思路</li>
+<li>数学思路</li>
+</ul>
+<p>递归</p>
+<ul>
+<li>先递进再归纳</li>
+<li>stcak overflow</li>
+<li>尾调用优化</li>
+<li>循环很有用</li>
+<li>记忆化很有用</li>
+<li>迭代要理解（尾调用一般就是迭代）</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/G/" rel="tag"># G</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/24/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="prev" title="数据结构">
+                  <i class="fa fa-chevron-left"></i> 数据结构
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/26/%E3%80%8A%E9%87%8D%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="next" title="《重构》读书笔记">
+                  《重构》读书笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div><div class="footer-custom">
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/motion.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/hexo-theme-next@8.0.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+  
+
+
+    </div>
+</body>
+</html>
